@@ -1,2 +1,2 @@
-# dark_tales_sleuth
+# Dark Tales Sleuth
 My "literary sleuthing" site
