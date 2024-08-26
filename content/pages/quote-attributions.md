@@ -3,7 +3,8 @@ layout: layouts/home.njk
 title: Quote Attributions
 ---
 
-# Quote Attributions
+<div class="message-box">
+<h2>Quote Attributions</h2>
 
 These are quotes that are generally incorrectly or incompletely attributed. Every so often, I decide I want to know where a quote is really from, and so I dig.
 
@@ -11,9 +12,12 @@ Bolded links will go to posts where I describe my research.
 
 ADDENDUM 11 April 2024: Oh, hey, someone's been doing this already! So the next time you see a quote you are wondering about, go check if the [Quote Investigator](https://quoteinvestigator.com/) has researched it already. If I ever come across something QI hasn't researched (yet), I'll probably drop an entry here.
 
-* * *
+</div>
+<br>
 
-[**Do not be daunted...**](https://darktalessleuth.wordpress.com/2024/03/19/do-justly-now/)
+<div class="message-box">
+
+[**Do not be daunted...**](/blog/2024-03-19-do-justly-now/)
 
 ```
 Do not be daunted
@@ -32,6 +36,8 @@ to abandon it.
 
 * * *
 
-[**Encourage the Beautiful, for the Useful encourages itself.**](https://darktalessleuth.wordpress.com/2024/03/25/encourage-the-beautiful/)
+[**Encourage the Beautiful, for the Useful encourages itself.**](/blog/2024-03-25-encourage-the-beautiful/)
 
 \-- Commonly attributed to Goethe, but no known source. Earliest discovered appearance so far is in the British periodical _The Leader_, March 30, 1850 (first issue). The original use, plus credit to Goethe, tentatively attributed to [George Henry Lewes](https://en.wikipedia.org/wiki/George_Henry_Lewes), literary editor for _The Leader_ from 1850-1854.
+
+</div>
