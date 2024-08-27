@@ -1,0 +1,713 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Notes on Nina Dalgarooki</title>
+		<meta name="description" content="Filling in the Literary Blanks">
+		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Dark Tales Sleuth">
+		<link rel="alternate" href="/feed/feed.json" type="application/json" title="Dark Tales Sleuth">
+
+        
+		<link rel="me" href="https://micro.blog/MultoGhost">
+		<link rel="authorization_endpoint" href="https://indieauth.com/auth">
+		<link rel="token_endpoint" href="https://tokens.indieauth.com/token">
+		<link href="https://github.com/ninazumel" rel="me">
+		<script src="https://kit.fontawesome.com/9bbe6f85f9.js" crossorigin="anonymous"></script>
+		
+		<style>/**
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #f8f8f2;
+	background: none;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+	border-radius: 0.3em;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #272822;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #8292a2;
+}
+
+.token.punctuation {
+	color: #f8f8f2;
+}
+
+.token.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #f92672;
+}
+
+.token.boolean,
+.token.number {
+	color: #ae81ff;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #a6e22e;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+	color: #f8f8f2;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+	color: #e6db74;
+}
+
+.token.keyword {
+	color: #66d9ef;
+}
+
+.token.regex,
+.token.important {
+	color: #fd971f;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+/*
+ * New diff- syntax
+ */
+
+pre[class*="language-diff-"] {
+	--eleventy-code-padding: 1.25em;
+	padding-left: var(--eleventy-code-padding);
+	padding-right: var(--eleventy-code-padding);
+}
+.token.deleted {
+	background-color: hsl(0, 51%, 37%);
+	color: inherit;
+}
+.token.inserted {
+	background-color: hsl(126, 31%, 39%);
+	color: inherit;
+}
+
+/* Make the + and - characters unselectable for copy/paste */
+.token.prefix.unchanged,
+.token.prefix.inserted,
+.token.prefix.deleted {
+	-webkit-user-select: none;
+	user-select: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+.token.prefix.inserted,
+.token.prefix.deleted {
+	width: var(--eleventy-code-padding);
+	background-color: rgba(0,0,0,.2);
+}
+
+/* Optional: full-width background color */
+.token.inserted:not(.prefix),
+.token.deleted:not(.prefix) {
+	display: block;
+	margin-left: calc(-1 * var(--eleventy-code-padding));
+	margin-right: calc(-1 * var(--eleventy-code-padding));
+	text-decoration: none; /* override del, ins, mark defaults */
+	color: inherit; /* override del, ins, mark defaults */
+}
+* { box-sizing: border-box; }
+/* Defaults */
+:root {
+	--font-family: Georgia, Times, -serif; /* Tahoma, -apple-system, system-ui, sans-serif; */
+	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+}
+
+/* Theme colors */
+:root {
+	--color-gray-20: #e0e0e0;
+	--color-gray-50: #C0C0C0;
+	--color-gray-70: #4D4D4D;
+	--color-gray-90: #333;
+
+	--description-color: #9B9C9D;
+	--background-color: #fff;
+
+	--text-color: var(--color-gray-70);
+	--text-color-link:  #2d2fb5;
+	--text-color-link-active: #5f2b48;
+	--text-color-link-visited: var(--color-gray-50); /* #17050F; */
+
+	--syntax-tab-size: 2;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-gray-20: #e0e0e0;
+		--color-gray-50: #C0C0C0;
+		--color-gray-70: #dad8d8;
+		--color-gray-90: #dad8d8;
+
+		/* --text-color is assigned to --color-gray-_ above.*/
+		--text-color: var(--color-gray-20);
+		--text-color-link: #1493fb;
+		--text-color-link-active: #6969f7;
+		--text-color-link-visited: #a6a6f8;
+
+		--background-color: #15202b;
+	}
+}
+
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	font-size: 18px;  /* a little bigger to accomodate a serif font */
+	color: var(--text-color);
+	background-color: var(--background-color);
+}
+html {
+	overflow-y: scroll;
+}
+body {
+	max-width: 50em;
+}
+
+/* different horizontal rules  https://www.w3schools.com/howto/howto_css_dividers.asp */
+ /* Dashed border */
+ hr.dashed {
+	border-top: 1px dashed #bbb;
+  }
+  
+  /* Dotted border */
+  hr.dotted {
+	border-top: 1px dotted #bbb;
+  }
+  
+  /* Solid border */
+  hr.solid {
+	border-top: 1px solid #bbb;
+  }
+  
+
+/* 
+https://css-tricks.com/barebones-css-for-fluid-images/ 
+Without this, images generated by eleventy-img will always use the largest available size
+-- ie, not be responsive.
+*/
+img {
+	max-width: 100%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+  }
+  img[width] {
+	width: auto; /* Defer to max-width */
+  }
+  img[width][height] {
+	height: auto; /* Preserve aspect ratio */
+  }
+  
+  /* Let SVG scale without boundaries */
+  img[src$=".svg"] {
+	width: 100%;
+	height: auto;
+	max-width: none;
+  }
+  
+
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+p {
+	line-height: 1.5;
+	/* font-size: 1.2em; */
+}
+
+P.caption {
+	text-align: center;
+	font-style: italic;
+	font-size: 0.9em;
+	color: #9B9C9D;
+ }
+
+li {
+	line-height: 1.5;
+	/* font-size: 1.2em; */
+}
+
+a[href] {
+	color: var(--text-color-link);
+	text-decoration: none; 
+}
+a[href]:visited {
+	color: var(--text-color-link-visited);
+}
+a[href]:hover,
+a[href]:active {
+	color: var(--text-color-link-active);
+}
+
+main {
+	padding: 1rem;
+}
+main :first-child {
+	margin-top: 0;
+}
+
+header {
+	border-bottom: 1px dashed var(--color-gray-20);
+}
+header:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.links-nextprev {
+	text-align: center;
+	list-style: none;
+	border-top: 1px dashed var(--color-gray-20);
+	padding: 1em 0;
+}
+
+
+table {
+	margin: 1em 0;
+}
+table td,
+table th {
+	padding-right: 1em;
+}
+
+pre,
+code {
+	font-family: var(--font-family-monospace);
+}
+pre:not([class*="language-"]) {
+	margin: .5em 0;
+	line-height: 1.375; /* 22px /16 */
+	-moz-tab-size: var(--syntax-tab-size);
+	-o-tab-size: var(--syntax-tab-size);
+	tab-size: var(--syntax-tab-size);
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+}
+code {
+	word-break: break-all;
+}
+
+/* Header */
+header {
+	display: flex;
+	gap: 1em .5em;
+	flex-wrap: wrap;
+	align-items: center;
+	padding: 1em;
+}
+.home-link {
+	font-size: 1.5em; /* 24px /16 (I think)*/
+	font-weight: 700;
+	margin-right: 2em;
+}
+.home-link:link:not(:hover) {
+	text-decoration: none;
+}
+
+/* Nav */
+.nav {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.nav-item {
+	display: inline-block;
+	margin-right: 1em;
+}
+.nav-item a[href]:not(:hover) {
+	text-decoration: none;
+}
+.nav a[href][aria-current="page"] {
+	text-decoration: underline;
+}
+
+/* Posts list */
+.postlist {
+	list-style: none;
+	padding: 0;
+	padding-left: 0; /* 1.5rem; */
+}
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	counter-increment: start-from -1;
+	margin-bottom: 1em;
+	padding-bottom: 50px;
+	/* padding: 8px 16px; */
+	border-bottom: 1px dashed var(--color-gray-20);
+}
+
+/* 
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	content: "" counter(start-from, decimal-leading-zero) ". ";
+	line-height: 100%;
+	text-align: right;
+	margin-left: -1.5rem;
+}
+*/
+
+.postlist-date,
+.postlist-item:before {
+	font-size: 0.8125em; /* 13px /16 */
+	color: var(--color-gray-90);
+}
+.postlist-date {
+	word-spacing: -0.5px;
+	padding-left: .25em;
+}
+.postlist-link {
+	font-size: 1em; /* 1.1875em;  19px /16 */
+	font-weight: 700; 
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration: none; 
+	/* text-decoration-thickness: 1px; */
+}
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+/* Tags */
+.post-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+	font-style: italic;
+}
+.postlist-item > .post-tag {
+	align-self: center;
+}
+
+/* Tags list */
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: .5em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.post-metadata time {
+	margin-right: 1em;
+}
+
+.post-metadata li {
+	font-size: 0.875em;
+}
+
+/* metadata for posts and talks */
+
+.posttalk-metadata {
+	list-style: none;
+	padding-left: 0;
+	color: var(--description-color);
+}
+
+.posttalk-metadata li {
+	font-size: 1.1em;
+}
+
+/* Direct Links / Markdown Headers */
+.header-anchor {
+	text-decoration: none;
+	font-style: normal;
+	font-size: 1em;
+	margin-left: .1em;
+}
+a[href].header-anchor,
+a[href].header-anchor:visited {
+	color: transparent;
+}
+a[href].header-anchor:focus,
+a[href].header-anchor:hover {
+	text-decoration: underline;
+}
+a[href].header-anchor:focus,
+:hover > a[href].header-anchor {
+	color: #aaa;
+}
+
+h2 + .header-anchor {
+	font-size: 1.5em;
+}
+
+/* Footer */
+hr {
+    border: none;
+    background-color: #DADADB;
+    height: 1px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+    hr {
+        width: 100%;
+    }
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2rem 0;
+    background-color: var(--background-color0);
+	;
+}
+
+.footer-container p {
+    font-size: 1rem;
+    color: #9B9C9D;
+}
+
+.footer-container .social_icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0 1rem;
+}
+
+.footer-container .social_icons a {
+    color: #9B9C9D;
+    font-size: 1.5rem;
+    transition: all 0.5s ease-in-out;
+}
+
+.footer-container .social_icons a:hover {
+    color: #DADADB;
+}</style>
+	</head>
+	<body>
+		<a href="#skip" class="visually-hidden">Skip to main content</a>
+
+		<header>
+			<a href="/" class="home-link">Dark Tales Sleuth</a>
+			<nav>
+				<h2 class="visually-hidden">Top level navigation menu</h2>
+				<ul class="nav">
+					<li class="nav-item"><a href="/about">About</a></li>
+					<li class="nav-item"><a href="/my-cases">My Cases</a></li>
+					<li class="nav-item"><a href="/blog/">All Posts</a></li>
+					<li class="nav-item"><a href="/about-me">About Me</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="skip">
+			
+<h1>Notes on Nina Dalgarooki</h1>
+
+<div class="posttalk-metadata">
+  <time datetime="2021-10-17 5:00 PM">17 October 2021</time>
+</div>
+<ul class="post-metadata">
+	<li><a href="/tags/evening-tales-for-the-winter/" class="post-tag">Evening Tales for the Winter</a>, </li>
+	<li><a href="/tags/rosina-bulwer-lytton/" class="post-tag">Rosina Bulwer Lytton</a></li>
+</ul>
+
+<p><em>A fun story, by an interesting, and possibly underappreciated, author.</em></p>
+<hr>
+<p>I'd planned not to write detailed posts about Volume Three of <em>Evening Tales for Winter</em>; most of the stories are fairly dreary. But I'll make an exception for &quot;<a href="https://books.google.com/books?id=OkcFAAAAQAAJ&amp;pg=PA63&amp;lpg=PA63&amp;dq=%22nina+dalgarooki%22&amp;source=bl&amp;ots=Id1id40d6V&amp;sig=ACfU3U1aVv4bElAWVQdFLDiNyfojQHaDiA&amp;hl=en&amp;sa=X&amp;ved=2ahUKEwjGh8iA9cPzAhUhHbkGHYZLALcQ6AF6BAgLEAM#v=onepage&amp;q=%22nina%20dalgarooki%22&amp;f=false">Nina Dalgarooki</a>.&quot; It's a fun, witty and satirical supernatural tale; you might call it a fairy tale for adults.</p>
+<p>Nina Dalgarooki is a beautiful and vain young Russian countess, about to travel to Siberia with her father. She hates the idea of wasting, and possibly endangering, her lovely appearance in the dreary wastelands, and wishes she could &quot;bank&quot; her good looks until she needs them.</p>
+<blockquote>
+<p>If one could but take care of one's beauty as one does one's jewels and costly robes, only wearing it on particular and worthy occasions... it is really distressing to take [one's good looks]... to an atmosphere that may dissolve them in a moment.</p>
+</blockquote>
+<p>Luckily, her favorite servant Catherine just happens to know a wizard, who helps Nina with her scheme. All goes well in Siberia, but after that Nina goes to Paris, and then to London, and things don't work out quite as she expected.</p>
+<p><a href="https://books.google.com/books?id=OkcFAAAAQAAJ&amp;pg=PA63&amp;lpg=PA63&amp;dq=%22nina+dalgarooki%22&amp;source=bl&amp;ots=Id1id40d6V&amp;sig=ACfU3U1aVv4bElAWVQdFLDiNyfojQHaDiA&amp;hl=en&amp;sa=X&amp;ved=2ahUKEwjGh8iA9cPzAhUhHbkGHYZLALcQ6AF6BAgLEAM#v=onepage&amp;q=%22nina%20dalgarooki%22&amp;f=false">You can read &quot;Nina Dalgarooki&quot; here</a>.</p>
+<p>&quot;Nina Dalgarooki&quot; appeared in <em>The New Monthly Magazine and Literary Journal</em>, Vol 47 (May, 1836). It is not attributed in ISDFB -- but I stumbled upon the author, quite by accident!</p>
+<p>From <em>The London Morning Post</em>, May 13, 1836:</p>
+<blockquote>
+<p>Nina Dalgarooki—Everybody is agreed that the gem of the May number of the &quot;New Monthly Magazine&quot; is a story called &quot;Nina Dalgarooki,&quot; but few are aware, we believe, that it is from the pen of Mrs. Lytton Bulwer. It is a brilliant and interesting satire. The writer shows a deep knowledge of society, and, in the words of a sprightly critic, writes of it with a golden arrow, and sprinkles the page with diamond dust.</p>
+</blockquote>
+<p>Mrs. Lytton Bulwer is the writer <a href="https://en.wikipedia.org/wiki/Rosina_Bulwer_Lytton">Rosina Bulwer Lytton</a>, the wife of the infamously turgid novelist, Edward &quot;<a href="https://www.phrases.org.uk/meanings/it-was-a-dark-and-stormy-night.html">It was a dark and stormy night</a>&quot; Bulwer-Lytton. &quot;Nina Dalgarooki&quot; appears to be one of her earlier works. The surnames are switched because Edward was in fact born Edward Lytton Bulwer, Lytton being his mother's surname and Bulwer being his father's. He changed his name to Edward Lytton Bulwer-Lytton in 1844, when his mother died and he assumed the arms of Lytton.</p>
+<hr>
+<p>Rosina and Edward did not have a happy relationship. Edward's mother disapproved of Rosina (and of her mother, the women's rights advocate <a href="https://en.wikipedia.org/wiki/Anna_Wheeler_(author)">Anna Wheeler</a>), and cut off her son's allowance after he and Rosina wed, in 1827. This forced Edward to turn to writing for a living; his first success was the novel <em>Pelham</em> in 1828. The strain of Edward's work--not to mention his temper and his adultery--took a toll on the marriage, and after a disastrous trip to Italy the couple legally separated in 1836. Edward got the two children and the assets Rosina brought to the marriage. He was supposed to pay her an allowance, but apparently after a while he began to skimp on it, or not pay it at all.</p>
+<p>So, it may not be a coincidence that &quot;Nina Dalgarooki&quot; appeared when it did, as writing became Rosina's source of income. As I said, the story is fun, and while it throws some barbs at society life, it doesn't seem bitter or mean spirited. But in 1839, Rosina published her first novel <em>Cheveley, or the Man of Honour</em>, in which she excoriates thinly veiled caricatures of Edward and his friends, whom Rosina felt (rightly, in my opinion) were doing her wrong.</p>
+<p>Edward was furious, and used his influence from that point on to bully the bigger and more important publishers out of releasing Rosina's books. As a result, Rosina's novels were published by smaller, and often shadier, publishers, who frequently cheated her, or would go out of business before paying her. This increased her penury; on top of that, Rosina blamed Edward for the mysterious death of their daughter Emily, at the age of twenty, in a shoddy London boarding house -- keep in mind that Rosina had not seen Emily since she was ten (and her brother was six), and that Edward by this time was a wealthy writer and a Baron. And, apparently, Edward at some point tried to have Rosina poisoned!</p>
+<p>Yeah, wow. Also, because they were still married, technically Edward held the copyrights to Rosina's work.</p>
+<p>So it's no surprise that Rosina got angry, and, rather than taking it like a meek, well-behaved Victorian woman should, she lashed out. She lampooned her husband in her writing, she passed out circulars, she wrote letters. She publically embarrassed him as often as she could, something that did not endear her to society, even those inclined to sympathize with her. This reached a peak in 1858 when she interrupted Edward at a campaign speech in Hereford (he was running for a seat in Parliament), and denounced him and his behavior towards her to the crowd. He responded by having her forcibly commited to a private asylum some days later.</p>
+<p>Fortunately for Rosina, this turned out to be a public relations disaster for him, and she was released a few weeks later, following a public outcry. She left for Paris, in the company of her son. She spent the last years of her life in Upper Sydenham, where she died in 1882, outliving her husband (yes, still!) by nine years.</p>
+<hr>
+<p>Today, Rosina Bulwer Lytton is remembered mostly for her tumultuous private life and her alleged mental health problems, rather than for her literature. Perhaps her novels would have been forgotten in any case (or mocked, like her husband's), but who's to say? As the <em>London Morning Post</em> excerpt above shows, many people thought quite well of her writing, before all the scandals and Edward's machinations caused the literary establishment to either overlook it, or to disparage it. Perhaps she would have had a stronger--or at least, better known--literary reputation, if it wasn't for that.</p>
+<p>But at least we can enjoy the barbed little fairy tale that is &quot;Nina Dalgarooki.&quot;</p>
+<p><strong>More Reading</strong></p>
+<p>There is much more to this story than I can write down here. For more details, do check out some of the following:</p>
+<ul>
+<li>
+<p>Blain, Virginia. &quot;Rosina Bulwer Lytton and the Rage of the Unheard&quot;, <em>Huntington Library Quarterly</em>, Vol. 53, No. 3 (Summer, 1990). <a href="https://www.jstor.org/stable/3817439">JSTOR link</a></p>
+</li>
+<li>
+<p>Devey, Louisa. <a href="https://archive.org/details/liferosinaladyl00devegoog/page/n7/mode/2up"><em>Life of Rosina, Lady Lytton</em></a>, 1887.</p>
+</li>
+</ul>
+<p>Louisa Devey was Rosina's friend, and her literary executor. As it says on the book's title page: &quot;Published in Vindication of her Memory.&quot;</p>
+<ul>
+<li>Flynn, Michael J. &quot;Dickens, Rosina Bulwer Lytton and the 'Guilt' of Literature and Art&quot;, <em>Dickens Quarterly</em>, Vol. 29, No. 1 (March 2012). <a href="https://www.jstor.org/stable/45292582">JSTOR link</a></li>
+</ul>
+<p>A different episode, in which Rosina attempts to disrupt the premiere performance of one of Edward's plays, at an event sponsored by Charles Dickens. Did you know that Dickens also tried to have his wife committed? Probably to force her to agree to a separation, because Dickens had a mistress -- possibly his wife's own sister. Yup.</p>
+<ul>
+<li>Latané, D.E. &quot;Edward Bulwer Lytton’s committal of his wife Rosina to a private mental asylum in 1858&quot;, <a href="https://www.victorianweb.org/authors/bulwer/latane.html"><em>The Victorian Web</em></a></li>
+</ul>
+<hr>
+<p><a href="/pages/comments/#notes-on-nina-dalgarooki"><em>Comments on this post</em></a></p>
+
+<ul class="links-nextprev"><li><a href="/blog/2021-10-11-the-haunted-forest-plus-wrapping-up-volume-two/">&#8592;</a> <span style="color: #9B9C9D">Previous</span></li><li><span style="color: #9B9C9D">Next</span> <a href="/blog/2022-09-06-hunting-the-ghost-of-lille/">&#8594</a></li>
+</ul>
+
+		</main>
+
+		<!-- footer -->
+		<hr />
+
+<div class="footer-container">
+	<p>&copy; 2024 Nina B. Zumel</p>
+	<div class="social_icons">
+	    <a
+			href="mailto:nzumel@mzlabs.com?subject=Comment%20from%20Dark%20Tales%20Sleuth"
+			aria-label="Email"
+			target="_blank"
+			rel="noopener noreferrer"
+		>
+			<i class="fas fa-fw fa-envelope"></i>
+		</a>
+		<a
+			href="https://micro.blog/MultoGhost"
+			aria-label="Micro.blog"
+			target="_blank"
+			rel="noopener noreferrer"
+		>
+			<i class="fab fa-fw fa-microblog"></i>
+		</a>
+		<a
+			href="https://multoghost.wordpress.com/"
+			aria-label="Multo (Ghost)"
+			target="_blank"
+			rel="noopener noreferrer"
+		>
+			<i class="fab fa-fw fa-wordpress"></i>
+		</a>
+		<a
+			href="/feed.xml"
+			aria-label="RSS"
+			target="_blank"
+			rel="noopener noreferrer"
+		>
+			<i class="fa fa-fw fa-rss-square"></i>
+		</a>
+
+	</div>
+</div>
+		<!-- /footer-- >
+
+		<!-- Current page: /blog/2021-10-18-notes-on-nina-dalgarooki/ -->
+	</body>
+</html>

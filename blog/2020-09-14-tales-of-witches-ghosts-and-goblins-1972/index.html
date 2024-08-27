@@ -1,0 +1,696 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Tales of Witches, Ghosts and Goblins (1972)</title>
+		<meta name="description" content="Filling in the Literary Blanks">
+		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Dark Tales Sleuth">
+		<link rel="alternate" href="/feed/feed.json" type="application/json" title="Dark Tales Sleuth">
+
+        
+		<link rel="me" href="https://micro.blog/MultoGhost">
+		<link rel="authorization_endpoint" href="https://indieauth.com/auth">
+		<link rel="token_endpoint" href="https://tokens.indieauth.com/token">
+		<link href="https://github.com/ninazumel" rel="me">
+		<script src="https://kit.fontawesome.com/9bbe6f85f9.js" crossorigin="anonymous"></script>
+		
+		<style>/**
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #f8f8f2;
+	background: none;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+	border-radius: 0.3em;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #272822;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #8292a2;
+}
+
+.token.punctuation {
+	color: #f8f8f2;
+}
+
+.token.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #f92672;
+}
+
+.token.boolean,
+.token.number {
+	color: #ae81ff;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #a6e22e;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+	color: #f8f8f2;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+	color: #e6db74;
+}
+
+.token.keyword {
+	color: #66d9ef;
+}
+
+.token.regex,
+.token.important {
+	color: #fd971f;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+/*
+ * New diff- syntax
+ */
+
+pre[class*="language-diff-"] {
+	--eleventy-code-padding: 1.25em;
+	padding-left: var(--eleventy-code-padding);
+	padding-right: var(--eleventy-code-padding);
+}
+.token.deleted {
+	background-color: hsl(0, 51%, 37%);
+	color: inherit;
+}
+.token.inserted {
+	background-color: hsl(126, 31%, 39%);
+	color: inherit;
+}
+
+/* Make the + and - characters unselectable for copy/paste */
+.token.prefix.unchanged,
+.token.prefix.inserted,
+.token.prefix.deleted {
+	-webkit-user-select: none;
+	user-select: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+.token.prefix.inserted,
+.token.prefix.deleted {
+	width: var(--eleventy-code-padding);
+	background-color: rgba(0,0,0,.2);
+}
+
+/* Optional: full-width background color */
+.token.inserted:not(.prefix),
+.token.deleted:not(.prefix) {
+	display: block;
+	margin-left: calc(-1 * var(--eleventy-code-padding));
+	margin-right: calc(-1 * var(--eleventy-code-padding));
+	text-decoration: none; /* override del, ins, mark defaults */
+	color: inherit; /* override del, ins, mark defaults */
+}
+* { box-sizing: border-box; }
+/* Defaults */
+:root {
+	--font-family: Georgia, Times, -serif; /* Tahoma, -apple-system, system-ui, sans-serif; */
+	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+}
+
+/* Theme colors */
+:root {
+	--color-gray-20: #e0e0e0;
+	--color-gray-50: #C0C0C0;
+	--color-gray-70: #4D4D4D;
+	--color-gray-90: #333;
+
+	--description-color: #9B9C9D;
+	--background-color: #fff;
+
+	--text-color: var(--color-gray-70);
+	--text-color-link:  #2d2fb5;
+	--text-color-link-active: #5f2b48;
+	--text-color-link-visited: var(--color-gray-50); /* #17050F; */
+
+	--syntax-tab-size: 2;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-gray-20: #e0e0e0;
+		--color-gray-50: #C0C0C0;
+		--color-gray-70: #dad8d8;
+		--color-gray-90: #dad8d8;
+
+		/* --text-color is assigned to --color-gray-_ above.*/
+		--text-color: var(--color-gray-20);
+		--text-color-link: #1493fb;
+		--text-color-link-active: #6969f7;
+		--text-color-link-visited: #a6a6f8;
+
+		--background-color: #15202b;
+	}
+}
+
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	font-size: 18px;  /* a little bigger to accomodate a serif font */
+	color: var(--text-color);
+	background-color: var(--background-color);
+}
+html {
+	overflow-y: scroll;
+}
+body {
+	max-width: 50em;
+}
+
+/* different horizontal rules  https://www.w3schools.com/howto/howto_css_dividers.asp */
+ /* Dashed border */
+ hr.dashed {
+	border-top: 1px dashed #bbb;
+  }
+  
+  /* Dotted border */
+  hr.dotted {
+	border-top: 1px dotted #bbb;
+  }
+  
+  /* Solid border */
+  hr.solid {
+	border-top: 1px solid #bbb;
+  }
+  
+
+/* 
+https://css-tricks.com/barebones-css-for-fluid-images/ 
+Without this, images generated by eleventy-img will always use the largest available size
+-- ie, not be responsive.
+*/
+img {
+	max-width: 100%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+  }
+  img[width] {
+	width: auto; /* Defer to max-width */
+  }
+  img[width][height] {
+	height: auto; /* Preserve aspect ratio */
+  }
+  
+  /* Let SVG scale without boundaries */
+  img[src$=".svg"] {
+	width: 100%;
+	height: auto;
+	max-width: none;
+  }
+  
+
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+p {
+	line-height: 1.5;
+	/* font-size: 1.2em; */
+}
+
+P.caption {
+	text-align: center;
+	font-style: italic;
+	font-size: 0.9em;
+	color: #9B9C9D;
+ }
+
+li {
+	line-height: 1.5;
+	/* font-size: 1.2em; */
+}
+
+a[href] {
+	color: var(--text-color-link);
+	text-decoration: none; 
+}
+a[href]:visited {
+	color: var(--text-color-link-visited);
+}
+a[href]:hover,
+a[href]:active {
+	color: var(--text-color-link-active);
+}
+
+main {
+	padding: 1rem;
+}
+main :first-child {
+	margin-top: 0;
+}
+
+header {
+	border-bottom: 1px dashed var(--color-gray-20);
+}
+header:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.links-nextprev {
+	text-align: center;
+	list-style: none;
+	border-top: 1px dashed var(--color-gray-20);
+	padding: 1em 0;
+}
+
+
+table {
+	margin: 1em 0;
+}
+table td,
+table th {
+	padding-right: 1em;
+}
+
+pre,
+code {
+	font-family: var(--font-family-monospace);
+}
+pre:not([class*="language-"]) {
+	margin: .5em 0;
+	line-height: 1.375; /* 22px /16 */
+	-moz-tab-size: var(--syntax-tab-size);
+	-o-tab-size: var(--syntax-tab-size);
+	tab-size: var(--syntax-tab-size);
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+}
+code {
+	word-break: break-all;
+}
+
+/* Header */
+header {
+	display: flex;
+	gap: 1em .5em;
+	flex-wrap: wrap;
+	align-items: center;
+	padding: 1em;
+}
+.home-link {
+	font-size: 1.5em; /* 24px /16 (I think)*/
+	font-weight: 700;
+	margin-right: 2em;
+}
+.home-link:link:not(:hover) {
+	text-decoration: none;
+}
+
+/* Nav */
+.nav {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.nav-item {
+	display: inline-block;
+	margin-right: 1em;
+}
+.nav-item a[href]:not(:hover) {
+	text-decoration: none;
+}
+.nav a[href][aria-current="page"] {
+	text-decoration: underline;
+}
+
+/* Posts list */
+.postlist {
+	list-style: none;
+	padding: 0;
+	padding-left: 0; /* 1.5rem; */
+}
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	counter-increment: start-from -1;
+	margin-bottom: 1em;
+	padding-bottom: 50px;
+	/* padding: 8px 16px; */
+	border-bottom: 1px dashed var(--color-gray-20);
+}
+
+/* 
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	content: "" counter(start-from, decimal-leading-zero) ". ";
+	line-height: 100%;
+	text-align: right;
+	margin-left: -1.5rem;
+}
+*/
+
+.postlist-date,
+.postlist-item:before {
+	font-size: 0.8125em; /* 13px /16 */
+	color: var(--color-gray-90);
+}
+.postlist-date {
+	word-spacing: -0.5px;
+	padding-left: .25em;
+}
+.postlist-link {
+	font-size: 1em; /* 1.1875em;  19px /16 */
+	font-weight: 700; 
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration: none; 
+	/* text-decoration-thickness: 1px; */
+}
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+/* Tags */
+.post-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+	font-style: italic;
+}
+.postlist-item > .post-tag {
+	align-self: center;
+}
+
+/* Tags list */
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: .5em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.post-metadata time {
+	margin-right: 1em;
+}
+
+.post-metadata li {
+	font-size: 0.875em;
+}
+
+/* metadata for posts and talks */
+
+.posttalk-metadata {
+	list-style: none;
+	padding-left: 0;
+	color: var(--description-color);
+}
+
+.posttalk-metadata li {
+	font-size: 1.1em;
+}
+
+/* Direct Links / Markdown Headers */
+.header-anchor {
+	text-decoration: none;
+	font-style: normal;
+	font-size: 1em;
+	margin-left: .1em;
+}
+a[href].header-anchor,
+a[href].header-anchor:visited {
+	color: transparent;
+}
+a[href].header-anchor:focus,
+a[href].header-anchor:hover {
+	text-decoration: underline;
+}
+a[href].header-anchor:focus,
+:hover > a[href].header-anchor {
+	color: #aaa;
+}
+
+h2 + .header-anchor {
+	font-size: 1.5em;
+}
+
+/* Footer */
+hr {
+    border: none;
+    background-color: #DADADB;
+    height: 1px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+    hr {
+        width: 100%;
+    }
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2rem 0;
+    background-color: var(--background-color0);
+	;
+}
+
+.footer-container p {
+    font-size: 1rem;
+    color: #9B9C9D;
+}
+
+.footer-container .social_icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0 1rem;
+}
+
+.footer-container .social_icons a {
+    color: #9B9C9D;
+    font-size: 1.5rem;
+    transition: all 0.5s ease-in-out;
+}
+
+.footer-container .social_icons a:hover {
+    color: #DADADB;
+}</style>
+	</head>
+	<body>
+		<a href="#skip" class="visually-hidden">Skip to main content</a>
+
+		<header>
+			<a href="/" class="home-link">Dark Tales Sleuth</a>
+			<nav>
+				<h2 class="visually-hidden">Top level navigation menu</h2>
+				<ul class="nav">
+					<li class="nav-item"><a href="/about">About</a></li>
+					<li class="nav-item"><a href="/my-cases">My Cases</a></li>
+					<li class="nav-item"><a href="/blog/">All Posts</a></li>
+					<li class="nav-item"><a href="/about-me">About Me</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="skip">
+			
+<h1>Tales of Witches, Ghosts and Goblins (1972)</h1>
+
+<div class="posttalk-metadata">
+  <time datetime="2020-09-13 5:00 PM">13 September 2020</time>
+</div>
+<ul class="post-metadata">
+	<li><a href="/tags/caedmon-records/" class="post-tag">caedmon-records</a>, </li>
+	<li><a href="/tags/horror/" class="post-tag">horror</a>, </li>
+	<li><a href="/tags/vincent-price/" class="post-tag">vincent-price</a></li>
+</ul>
+
+<p>Read by Vincent Price. <a href="https://www.discogs.com/Vincent-Price-Tales-Of-Witches-Ghosts-And-Goblins/release/3861426?ev=rr">Album listing on Discogs</a>.</p>
+<p>https://youtu.be/nWC5PcieAV8</p>
+<p><strong><em>Tales of Witches, Ghosts and Goblins</em>: Tracklist and Attributions</strong></p>
+<!--more-->
+<p>The Smoker (Freely Adapted From An Iroquois Legend) - by Alan Garner</p>
+<p>Prayer - by John Day</p>
+<p>To Become A Werewolf - adapted from an essay by Elliot O'Donnell</p>
+<p>To Raise The Dead - adapted from <em>The Magus</em>, by Francis Barrett</p>
+<p>The Witches' Reel - Traditional Scottish song</p>
+<p>The Broomstick Train - by Oliver Wendell Holmes</p>
+<p>Sweden (Concerning The Practice Of Witchcraft In That Country) - by Anthony Horneck</p>
+<p>The Phantom Merry-Go-Round - by Carl Carmer</p>
+<p>A Pair Of Gloves - by Carl Carmer</p>
+<p>Gobbleknoll (Transposed From A Sioux Folktale) - by Alan Garner</p>
+<p>The Lone Grave - by Carl Carmer</p>
+<hr>
+<p>The Carmer pieces are in the 1956 collection <a href="https://www.amazon.com/screaming-ghost-other-stories/dp/B0007E17X8"><em>The Screaming Ghost and Other Stories</em></a>. I feel like I've heard or read &quot;The Lone Grave&quot; before, but it seems to be a common urban legend, as was &quot;The Lavender Evening Dress,&quot; which Price read on <a href="https://darktalessleuth.wordpress.com/2020/09/14/a-graveyard-of-ghost-tales-1974/"><em>A Graveyard of Ghost Tales</em></a>. And I wouldn't be surprised if a lot of the versions of either of these pieces that you can find on the internet derive originally from either Price's readings, or Carmer's original literary renditions.</p>
+<p><a href="https://en.wikipedia.org/wiki/Alan_Garner">Alan Garner</a> was an award-winning author of fantasy novels, much of it aimed at children and young adults. His work was rooted in British folklore, and he compiled several folkloric collections as well. &quot;The Smoker&quot; and &quot;Gobbleknoll&quot; appear to be from Garner's anthology <a href="http://www.isfdb.org/cgi-bin/pl.cgi?360630"><em>The Hamish Hamilton Book of Goblins</em></a> (aka <em>A Book of Goblins</em>/<em>A Cavalcade of Goblins</em>), first published in 1969 and illustrated by <a href="http://the--dream--machine.blogspot.com/2016/06/artist-profile-krystyna-turska.html">Krystyna Turksa</a>. It looks fascinating; I shall have to try to get my hands on it.</p>
+<blockquote>
+<p>&quot;Graunt that no Hobgoblins fright me, No hungry devils rise up and bite me; ...&quot; -- John Day</p>
+</blockquote>
+<p><em>A Book of Goblins</em> also includes a Prayer (or &quot;Prayer for Protection&quot;), attributed to English dramatist <a href="https://en.wikipedia.org/wiki/John_Day_(dramatist)">John Day</a>. You can find the prayer <a href="https://books.google.com/books?id=NnMA_M9mDW8C&amp;pg=PA242&amp;lpg=PA242&amp;dq=%22john+day%22+hobgoblin+prayer&amp;source=bl&amp;ots=VmZkObsq1O&amp;sig=ACfU3U35zTK2DGyOlk2QEf30kTteNGXP0g&amp;hl=en&amp;sa=X&amp;ved=2ahUKEwif3f2cmOjkAhUPIjQIHRoCDqkQ6AEwCnoECAkQAQ#v=onepage&amp;q=%22john%20day%22%20hobgoblin%20prayer&amp;f=false">here</a>, as well. Price gives a lovely reading of it.</p>
+<p>&quot;To Become A Werewolf&quot; appears to be adapted from Chapter IV, <a href="https://www.gutenberg.org/files/26629/26629-h/26629-h.htm#Page_55">&quot;How to Become a Werwolf&quot;</a> from <em>Werwolves</em> (1912) by <a href="https://en.wikipedia.org/wiki/Elliott_O'Donnell">Elliot O'Donnell</a>, ghost hunter and author of several &quot;true-life&quot; books about ghosts and other supernatural phenomena. O'Donnell's piece isn't a perfect correspondence to what Price reads, but it's quite close. Perhaps O'Donnell published a slightly different version of the chapter elsewhere.</p>
+<p>&quot;To Raise the Dead&quot; is adapted from a passage from <a href="https://www.sacred-texts.com/grim/magus/ma131.htm">Chapter IX</a> of <em>The Magus</em> (1801), which sacred-texts.com calls &quot;one of the rarest and most sought after of the 19th century grimoires.&quot; The author of <em>The Magus</em>, the occultist <a href="https://www.encyclopedia.com/science/encyclopedias-almanacs-transcripts-and-maps/barrett-francis-fl-nineteenth-century">Francis Barrett</a>, attributes the &quot;recipe&quot; to <a href="https://www.encyclopedia.com/people/philosophy-and-religion/ancient-religion-biographies/hermes-trismegistus">Hermes Trismegistus</a></p>
+<p>&quot;The Witches' Reel&quot; is a traditional Scottish song/dance. I'm not sure exactly what text Price read from, but <a href="https://www.theseventhstring.com/witches-reel">here are the lyrics</a>, identical to those Price recited. One of the posters on <a href="https://mudcat.org/thread.cfm?threadid=80264">this thread</a> says that the lyrics of the reel were taken down from the testimony of Agnes Sampson, one of the accused witches during <a href="https://en.wikipedia.org/wiki/North_Berwick_witch_trials">the North Berwick witch trials</a> of 1590. The poster cites David Pickering's <em>Dictionary of Witchcraft</em> as the source of this assertion. I couldn't find any transcription of such testimony online, but a document called <a href="https://www.sacred-texts.com/pag/kjd/kjd11.htm"><em>Newes From Scotland</em></a> (1591), a contemporary (and anonymous, as far as I can tell) account of the trials describes the testimony of Agnes Sampson (or perhaps it was Agnes Tompson), including the first two lines of the reel.</p>
+<p>And finally, &quot;Sweden&quot; comes from an appendix to <a href="https://en.wikipedia.org/wiki/Joseph_Glanvill">Joseph Glanvill's</a> infamous <a href="https://en.wikipedia.org/wiki/Saducismus_Triumphatus"><em>Saducismus Triumphatus</em></a>, a 17th century defense of the belief in witchcraft. This work strongly influenced Cotton Mather and his justification for the Salem Witch Trials. The appendix is question is &quot;A Relation of the Strange Witchcraft Discovered in the Village Mohra in Swedeland,&quot; by <a href="https://en.wikipedia.org/wiki/Anthony_Horneck">Anthony Horneck</a>. Price actually reads extracts from two sections of the appendix: the beginning of <a href="https://archive.org/details/saducismustriump00glan/page/4">&quot;Of their Journey to <em>Blockula</em>,&quot;</a> and extracts from <a href="https://archive.org/details/saducismustriump00glan/page/6">&quot;Of the place where they used to assemble, called <em>Blockula</em>, and what they did there.&quot;</a></p>
+<p><em>Originally posted at <a href="https://multoghost.wordpress.com/">Multo(Ghost)</a></em></p>
+
+<ul class="links-nextprev"><li><a href="/blog/2020-09-14-a-graveyard-of-ghost-tales-1974/">&#8592;</a> <span style="color: #9B9C9D">Previous</span></li><li><span style="color: #9B9C9D">Next</span> <a href="/blog/2020-09-16-the-puzzle-of-judar/">&#8594</a></li>
+</ul>
+
+		</main>
+
+		<!-- footer -->
+		<hr />
+
+<div class="footer-container">
+	<p>&copy; 2024 Nina B. Zumel</p>
+	<div class="social_icons">
+	    <a
+			href="mailto:nzumel@mzlabs.com?subject=subject=Comment%20from%20Dark%20Tales%20Sleuth"
+			aria-label="Email"
+			target="_blank"
+			rel="noopener noreferrer"
+		>
+			<i class="fas fa-fw fa-envelope"></i>
+		</a>
+		<a
+			href="https://micro.blog/MultoGhost"
+			aria-label="Micro.blog"
+			target="_blank"
+			rel="noopener noreferrer"
+		>
+			<i class="fab fa-fw fa-microblog"></i>
+		</a>
+		<a
+			href="https://multoghost.wordpress.com/"
+			aria-label="Multo (Ghost)"
+			target="_blank"
+			rel="noopener noreferrer"
+		>
+			<i class="fab fa-fw fa-wordpress"></i>
+		</a>
+		<a
+			href="/feed.xml"
+			aria-label="RSS"
+			target="_blank"
+			rel="noopener noreferrer"
+		>
+			<i class="fa fa-fw fa-rss-square"></i>
+		</a>
+
+	</div>
+</div>
+		<!-- /footer-- >
+
+		<!-- Current page: /blog/2020-09-14-tales-of-witches-ghosts-and-goblins-1972/ -->
+	</body>
+</html>

@@ -1,0 +1,707 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Notes on The Tiger&#39;s Cave</title>
+		<meta name="description" content="Filling in the Literary Blanks">
+		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Dark Tales Sleuth">
+		<link rel="alternate" href="/feed/feed.json" type="application/json" title="Dark Tales Sleuth">
+
+        
+		<link rel="me" href="https://micro.blog/MultoGhost">
+		<link rel="authorization_endpoint" href="https://indieauth.com/auth">
+		<link rel="token_endpoint" href="https://tokens.indieauth.com/token">
+		<link href="https://github.com/ninazumel" rel="me">
+		<script src="https://kit.fontawesome.com/9bbe6f85f9.js" crossorigin="anonymous"></script>
+		
+		<style>/**
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #f8f8f2;
+	background: none;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+	border-radius: 0.3em;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #272822;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #8292a2;
+}
+
+.token.punctuation {
+	color: #f8f8f2;
+}
+
+.token.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #f92672;
+}
+
+.token.boolean,
+.token.number {
+	color: #ae81ff;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #a6e22e;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+	color: #f8f8f2;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+	color: #e6db74;
+}
+
+.token.keyword {
+	color: #66d9ef;
+}
+
+.token.regex,
+.token.important {
+	color: #fd971f;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+/*
+ * New diff- syntax
+ */
+
+pre[class*="language-diff-"] {
+	--eleventy-code-padding: 1.25em;
+	padding-left: var(--eleventy-code-padding);
+	padding-right: var(--eleventy-code-padding);
+}
+.token.deleted {
+	background-color: hsl(0, 51%, 37%);
+	color: inherit;
+}
+.token.inserted {
+	background-color: hsl(126, 31%, 39%);
+	color: inherit;
+}
+
+/* Make the + and - characters unselectable for copy/paste */
+.token.prefix.unchanged,
+.token.prefix.inserted,
+.token.prefix.deleted {
+	-webkit-user-select: none;
+	user-select: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+.token.prefix.inserted,
+.token.prefix.deleted {
+	width: var(--eleventy-code-padding);
+	background-color: rgba(0,0,0,.2);
+}
+
+/* Optional: full-width background color */
+.token.inserted:not(.prefix),
+.token.deleted:not(.prefix) {
+	display: block;
+	margin-left: calc(-1 * var(--eleventy-code-padding));
+	margin-right: calc(-1 * var(--eleventy-code-padding));
+	text-decoration: none; /* override del, ins, mark defaults */
+	color: inherit; /* override del, ins, mark defaults */
+}
+* { box-sizing: border-box; }
+/* Defaults */
+:root {
+	--font-family: Georgia, Times, -serif; /* Tahoma, -apple-system, system-ui, sans-serif; */
+	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+}
+
+/* Theme colors */
+:root {
+	--color-gray-20: #e0e0e0;
+	--color-gray-50: #C0C0C0;
+	--color-gray-70: #4D4D4D;
+	--color-gray-90: #333;
+
+	--description-color: #9B9C9D;
+	--background-color: #fff;
+
+	--text-color: var(--color-gray-70);
+	--text-color-link:  #2d2fb5;
+	--text-color-link-active: #5f2b48;
+	--text-color-link-visited: var(--color-gray-50); /* #17050F; */
+
+	--syntax-tab-size: 2;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-gray-20: #e0e0e0;
+		--color-gray-50: #C0C0C0;
+		--color-gray-70: #dad8d8;
+		--color-gray-90: #dad8d8;
+
+		/* --text-color is assigned to --color-gray-_ above.*/
+		--text-color: var(--color-gray-20);
+		--text-color-link: #1493fb;
+		--text-color-link-active: #6969f7;
+		--text-color-link-visited: #a6a6f8;
+
+		--background-color: #15202b;
+	}
+}
+
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	font-size: 18px;  /* a little bigger to accomodate a serif font */
+	color: var(--text-color);
+	background-color: var(--background-color);
+}
+html {
+	overflow-y: scroll;
+}
+body {
+	max-width: 50em;
+}
+
+/* different horizontal rules  https://www.w3schools.com/howto/howto_css_dividers.asp */
+ /* Dashed border */
+ hr.dashed {
+	border-top: 1px dashed #bbb;
+  }
+  
+  /* Dotted border */
+  hr.dotted {
+	border-top: 1px dotted #bbb;
+  }
+  
+  /* Solid border */
+  hr.solid {
+	border-top: 1px solid #bbb;
+  }
+  
+
+/* 
+https://css-tricks.com/barebones-css-for-fluid-images/ 
+Without this, images generated by eleventy-img will always use the largest available size
+-- ie, not be responsive.
+*/
+img {
+	max-width: 100%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+  }
+  img[width] {
+	width: auto; /* Defer to max-width */
+  }
+  img[width][height] {
+	height: auto; /* Preserve aspect ratio */
+  }
+  
+  /* Let SVG scale without boundaries */
+  img[src$=".svg"] {
+	width: 100%;
+	height: auto;
+	max-width: none;
+  }
+  
+
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+p {
+	line-height: 1.5;
+	/* font-size: 1.2em; */
+}
+
+P.caption {
+	text-align: center;
+	font-style: italic;
+	font-size: 0.9em;
+	color: #9B9C9D;
+ }
+
+li {
+	line-height: 1.5;
+	/* font-size: 1.2em; */
+}
+
+a[href] {
+	color: var(--text-color-link);
+	text-decoration: none; 
+}
+a[href]:visited {
+	color: var(--text-color-link-visited);
+}
+a[href]:hover,
+a[href]:active {
+	color: var(--text-color-link-active);
+}
+
+main {
+	padding: 1rem;
+}
+main :first-child {
+	margin-top: 0;
+}
+
+header {
+	border-bottom: 1px dashed var(--color-gray-20);
+}
+header:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.links-nextprev {
+	text-align: center;
+	list-style: none;
+	border-top: 1px dashed var(--color-gray-20);
+	padding: 1em 0;
+}
+
+
+table {
+	margin: 1em 0;
+}
+table td,
+table th {
+	padding-right: 1em;
+}
+
+pre,
+code {
+	font-family: var(--font-family-monospace);
+}
+pre:not([class*="language-"]) {
+	margin: .5em 0;
+	line-height: 1.375; /* 22px /16 */
+	-moz-tab-size: var(--syntax-tab-size);
+	-o-tab-size: var(--syntax-tab-size);
+	tab-size: var(--syntax-tab-size);
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+}
+code {
+	word-break: break-all;
+}
+
+/* Header */
+header {
+	display: flex;
+	gap: 1em .5em;
+	flex-wrap: wrap;
+	align-items: center;
+	padding: 1em;
+}
+.home-link {
+	font-size: 1.5em; /* 24px /16 (I think)*/
+	font-weight: 700;
+	margin-right: 2em;
+}
+.home-link:link:not(:hover) {
+	text-decoration: none;
+}
+
+/* Nav */
+.nav {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.nav-item {
+	display: inline-block;
+	margin-right: 1em;
+}
+.nav-item a[href]:not(:hover) {
+	text-decoration: none;
+}
+.nav a[href][aria-current="page"] {
+	text-decoration: underline;
+}
+
+/* Posts list */
+.postlist {
+	list-style: none;
+	padding: 0;
+	padding-left: 0; /* 1.5rem; */
+}
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	counter-increment: start-from -1;
+	margin-bottom: 1em;
+	padding-bottom: 50px;
+	/* padding: 8px 16px; */
+	border-bottom: 1px dashed var(--color-gray-20);
+}
+
+/* 
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	content: "" counter(start-from, decimal-leading-zero) ". ";
+	line-height: 100%;
+	text-align: right;
+	margin-left: -1.5rem;
+}
+*/
+
+.postlist-date,
+.postlist-item:before {
+	font-size: 0.8125em; /* 13px /16 */
+	color: var(--color-gray-90);
+}
+.postlist-date {
+	word-spacing: -0.5px;
+	padding-left: .25em;
+}
+.postlist-link {
+	font-size: 1em; /* 1.1875em;  19px /16 */
+	font-weight: 700; 
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration: none; 
+	/* text-decoration-thickness: 1px; */
+}
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+/* Tags */
+.post-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+	font-style: italic;
+}
+.postlist-item > .post-tag {
+	align-self: center;
+}
+
+/* Tags list */
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: .5em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.post-metadata time {
+	margin-right: 1em;
+}
+
+.post-metadata li {
+	font-size: 0.875em;
+}
+
+/* metadata for posts and talks */
+
+.posttalk-metadata {
+	list-style: none;
+	padding-left: 0;
+	color: var(--description-color);
+}
+
+.posttalk-metadata li {
+	font-size: 1.1em;
+}
+
+/* Direct Links / Markdown Headers */
+.header-anchor {
+	text-decoration: none;
+	font-style: normal;
+	font-size: 1em;
+	margin-left: .1em;
+}
+a[href].header-anchor,
+a[href].header-anchor:visited {
+	color: transparent;
+}
+a[href].header-anchor:focus,
+a[href].header-anchor:hover {
+	text-decoration: underline;
+}
+a[href].header-anchor:focus,
+:hover > a[href].header-anchor {
+	color: #aaa;
+}
+
+h2 + .header-anchor {
+	font-size: 1.5em;
+}
+
+/* Footer */
+hr {
+    border: none;
+    background-color: #DADADB;
+    height: 1px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+    hr {
+        width: 100%;
+    }
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2rem 0;
+    background-color: var(--background-color0);
+	;
+}
+
+.footer-container p {
+    font-size: 1rem;
+    color: #9B9C9D;
+}
+
+.footer-container .social_icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0 1rem;
+}
+
+.footer-container .social_icons a {
+    color: #9B9C9D;
+    font-size: 1.5rem;
+    transition: all 0.5s ease-in-out;
+}
+
+.footer-container .social_icons a:hover {
+    color: #DADADB;
+}</style>
+	</head>
+	<body>
+		<a href="#skip" class="visually-hidden">Skip to main content</a>
+
+		<header>
+			<a href="/" class="home-link">Dark Tales Sleuth</a>
+			<nav>
+				<h2 class="visually-hidden">Top level navigation menu</h2>
+				<ul class="nav">
+					<li class="nav-item"><a href="/about">About</a></li>
+					<li class="nav-item"><a href="/my-cases">My Cases</a></li>
+					<li class="nav-item"><a href="/blog/">All Posts</a></li>
+					<li class="nav-item"><a href="/about-me">About Me</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="skip">
+			
+<h1>Notes on The Tiger&#39;s Cave</h1>
+
+<div class="posttalk-metadata">
+  <time datetime="2021-06-04 5:00 PM">04 June 2021</time>
+</div>
+<ul class="post-metadata">
+	<li><a href="/tags/evening-tales-for-the-winter/" class="post-tag">Evening Tales for the Winter</a>, </li>
+	<li><a href="/tags/adolf-frederik-elmquist/" class="post-tag">Adolf Frederik Elmquist</a>, </li>
+	<li><a href="/tags/laesefrugter/" class="post-tag">Laesefrugter</a></li>
+</ul>
+
+<p>Investigating &quot;<a href="https://archive.org/details/eveningtalesfor00unkngoog/page/n246/mode/2up">The Tiger's Cave</a>&quot; was more interesting than the story itself.</p>
+<p>I dislike this story. It's a straightforward South American adventure yarn that reminds me a bit of pulp fiction from the early twentieth century, with an exotic native damsel and intrepid white explorers. This in itself is not necessarily a deal-breaker for me, but the story also includes some animal cruelty that I just found, well, gross. I wasn't entirely looking forward to tackling, or writing about, this case.</p>
+<p>But the research uncovered a couple of interesting people that I hadn't known about before, and that makes writing this post fun again.</p>
+<p>&quot;The Tiger's Cave&quot; first appeared in <a href="https://archive.org/details/monthlymagazineo11lond/page/256/mode/2up"><em>The Monthly Magazine</em>, March 1831 (New Series Volume 11, Number 63)</a>. The editors credit the narrative to &quot;A.F. Elmquist, of Copenhagen.&quot; However, I'm not sure Elmquist <em>wrote</em> the story....</p>
+<h3 id="adolph-frederik-elmquist" tabindex="-1">Adolph Frederik Elmquist <a class="header-anchor" href="#adolph-frederik-elmquist">#</a></h3>
+<img alt="Adolf Frederik Elmquist" loading="lazy" decoding="async" src="/img/5a-HnW2xlD0Bh-302.png" width="302" height="442">
+<p class="caption">Source: <a href="http://elmquist.info/bio5.html">Elmquist Family Website</a></p>
+<p>Adolph Frederik Elmquist (1788 - 1868) was a Danish publisher and editor. He came to prominence as editor of <em>Aarhus Stiftstidende</em><sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>, a post he acquired in about 1811. During his tenure the periodical's readership increased from 400 to 3000 subscribers, apparently due to his choice of &quot;entertaining and interesting&quot; content. In 1818 he founded the literary magazine <em>Læsefrugter, samling paa Literaturens Mark</em> (Fruits of Reading, a collection from the field of Literature), publishing a total of 66 volumes between 1818-1840.<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup></p>
+<p><em>Læsefrugter</em>, and probably also <em>Aarhus Stiftstidende</em>, leaned towards popular literature: tales of adventure, crime, and murder, what the <a href="https://biografiskleksikon.lex.dk/A._F._Elmquist">Danish Biographical Lexicon</a> snootily refers to as &quot;fairly ordinary entertainment&quot; (according to the <a href="https://translate.google.com/translate?hl=en&amp;sl=da&amp;u=https://biografiskleksikon.lex.dk/A._F._Elmquist&amp;prev=search&amp;pto=aue">Google translation</a>, anyway). The journal primarily published translations<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup> of well-known foreign authors, along with original material from Danish authors, including Hans Christian Andersen and Bernhard Severin Ingemann. Notably, <em>Læsefrugter</em> published some of the first short stories by Steen Steensen Blicher, who went on to write what is considered the first modern crime novel, <a href="https://multoghost.wordpress.com/2013/03/20/reading-the-rector-of-veilbye-the-first-modern-crime-novel/"><em>The Rector of Veilbye</em></a> (1829).</p>
+<p>Elmquist was more of a publisher/editor than a writer; but various biographies I've found do imply that he contributed to his own periodicals on occasion. So it's possible that Elmquist wrote &quot;The Tiger's Cave.&quot; However, I found no evidence that Elmquist was either interested in or knowledgeable about South America, and none of the characters in the story have Danish sounding names. So I'm inclined to think that &quot;The Tiger's Cave&quot; is actually an English translation/adaptation of a story from <em>Læsefrugter</em>. And since I don't read Danish, I can't take the investigation farther than that.</p>
+<p>[UPDATE January 2024: Thanks to Tara Challoner, I got a little farther and found an earlier German version of this story. Read about it <a href="/blog/2024-01-02-revisiting-the-tigers-cave/">here</a>.  ]</p>
+<h3 id="richard-phillips-and-the-monthly-magazine" tabindex="-1">Richard Phillips and <em>The Monthly Magazine</em> <a class="header-anchor" href="#richard-phillips-and-the-monthly-magazine">#</a></h3>
+<img alt="Adolf Frederik Elmquist" loading="lazy" decoding="async" src="/img/sir_richard_phillips-i1JFG5G0v4-400.png" width="412" height="500" srcset="/img/sir_richard_phillips-i1JFG5G0v4-400.png 400w, /img/sir_richard_phillips-i1JFG5G0v4-412.png 412w" sizes="50vw">
+<p class="caption">Source: <a href="https://commons.wikimedia.org/wiki/File:Sir_Richard_Phillips.jpg">Wikimedia</a></p>
+<p><a href="https://en.wikipedia.org/wiki/Monthly_Magazine"><em>The Monthly Magazine or British Register</em></a> was an English periodical founded in 1796 by <a href="https://en.wikipedia.org/wiki/Richard_Phillips_(publisher)">Sir Richard Phillips</a>, best known today as an early &quot;<a href="https://archive.org/details/b30389380">vegetarian activist</a>.&quot; As Geoffrey Carnall puts it, <em>The Monthly Magazine</em> was &quot;the journal of the Dissenters, the Unitarians--radicals in religion and politics alike,&quot; founded to propagate liberal principles &quot;against the forces of panic conservatism&quot;. <sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup></p>
+<p>Beyond its politics, the magazine also has an interesting literary history. It was the original intended venue for <em>The Rime of the Ancient Mariner,</em> and published the work of notable authors including Samuel Coleridge, Robert Southey, and William Taylor of Norwich. Some of Charles Dickens' early fiction appeared in <em>The Monthly</em>.</p>
+<p>In 1825 Phillips sold off the <em>The Monthly Magazine</em>, which by that time was becoming unprofitable. The following year the new owners began a new series (restarting it from Volume One), and downplayed the magazine's political nature. By Volume 9 of the new series (1830), the editorial staff completely disavowed the politics of <em>The Monthly's</em> founders, asserting the revamped magazine's fealty to &quot;the Crown, the Constitution, and the Religion of the Empire&quot; [<a href="https://www.biodiversitylibrary.org/page/2448818#page/9/mode/1up"><em>Preface to the Ninth Volume</em></a>].</p>
+<p>&quot;The Tiger's Cave&quot; appeared in the new series run of <em>The Monthly Magazine</em>, so Phillips is a bit out of scope for this article. Still, I found him and the history of the magazine interesting enough to mention, so I did it anyway!</p>
+<p><strong>Biographies of A.F. Elmquist (all in Danish)</strong></p>
+<ul>
+<li>From <a href="https://www.gravsted.dk/person.php?navn=afelmquist"><em>Kendtes Gravsted</em></a> (Famous Burial Sites) - (<a href="https://translate.google.com/translate?hl=en&amp;sl=da&amp;u=https://www.gravsted.dk/person.php%3Fnavn%3Dafelmquist&amp;prev=search&amp;pto=aue">Google translation</a>)</li>
+<li>From the <a href="https://biografiskleksikon.lex.dk/A._F._Elmquist">Danish Biographical Lexicon</a> - (<a href="https://translate.google.com/translate?hl=en&amp;sl=da&amp;u=https://biografiskleksikon.lex.dk/A._F._Elmquist&amp;prev=search&amp;pto=aue">Google translation</a>)</li>
+<li>From the <a href="http://elmquist.info/bio5.html">Elmquist Family website</a> - (<a href="https://translate.google.com/translate?sl=auto&amp;tl=en&amp;u=http://elmquist.info/bio5.html">Google translation</a>)</li>
+</ul>
+<p><a href="http://localhost:8080/pages/comments/#notes-on-the-tiger-s-cave"><em>Comments on this post</em></a></p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p><em>Aarhus Stiftstidende...</em> <em>Stiftstidende</em> seems to mean something like <em>newspaper</em>, so let's translate this as <em>Aarhus News</em>. <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p><em>between 1818-1840...</em> To be precise, between 1818-1833, and again in 1839-1840. <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p><em>translations...</em> I believe Elmquist did many of the translations from German himself, though I no longer can find where I read that. <a href="#fnref3" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn4" class="footnote-item"><p>Carnall, Geoffrey, &quot;The Monthly Magazine,&quot; <em>The Review of English Studies</em> Vol. 5 No 18, April 1954. (<a href="https://www.jstor.org/stable/510942">JSTOR link</a>) <a href="#fnref4" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+
+<ul class="links-nextprev"><li><a href="/blog/2021-06-04-notes-on-the-flying-dutchman/">&#8592;</a> <span style="color: #9B9C9D">Previous</span></li><li><span style="color: #9B9C9D">Next</span> <a href="/blog/2021-06-12-the-cavern-of-steenfoll/">&#8594</a></li>
+</ul>
+
+		</main>
+
+		<!-- footer -->
+		<hr />
+
+<div class="footer-container">
+	<p>&copy; 2024 Nina B. Zumel</p>
+	<div class="social_icons">
+	    <a
+			href="mailto:nzumel@mzlabs.com?subject=Comment%20from%20Dark%20Tales%20Sleuth"
+			aria-label="Email"
+			target="_blank"
+			rel="noopener noreferrer"
+		>
+			<i class="fas fa-fw fa-envelope"></i>
+		</a>
+		<a
+			href="https://micro.blog/MultoGhost"
+			aria-label="Micro.blog"
+			target="_blank"
+			rel="noopener noreferrer"
+		>
+			<i class="fab fa-fw fa-microblog"></i>
+		</a>
+		<a
+			href="https://multoghost.wordpress.com/"
+			aria-label="Multo (Ghost)"
+			target="_blank"
+			rel="noopener noreferrer"
+		>
+			<i class="fab fa-fw fa-wordpress"></i>
+		</a>
+		<a
+			href="/feed.xml"
+			aria-label="RSS"
+			target="_blank"
+			rel="noopener noreferrer"
+		>
+			<i class="fa fa-fw fa-rss-square"></i>
+		</a>
+
+	</div>
+</div>
+		<!-- /footer-- >
+
+		<!-- Current page: /blog/2021-06-05-notes-on-the-tigers-cave/ -->
+	</body>
+</html>

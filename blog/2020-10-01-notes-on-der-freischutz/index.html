@@ -1,0 +1,686 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Notes on Der Freischutz</title>
+		<meta name="description" content="Filling in the Literary Blanks">
+		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Dark Tales Sleuth">
+		<link rel="alternate" href="/feed/feed.json" type="application/json" title="Dark Tales Sleuth">
+
+        
+		<link rel="me" href="https://micro.blog/MultoGhost">
+		<link rel="authorization_endpoint" href="https://indieauth.com/auth">
+		<link rel="token_endpoint" href="https://tokens.indieauth.com/token">
+		<link href="https://github.com/ninazumel" rel="me">
+		<script src="https://kit.fontawesome.com/9bbe6f85f9.js" crossorigin="anonymous"></script>
+		
+		<style>/**
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #f8f8f2;
+	background: none;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+	border-radius: 0.3em;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #272822;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #8292a2;
+}
+
+.token.punctuation {
+	color: #f8f8f2;
+}
+
+.token.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #f92672;
+}
+
+.token.boolean,
+.token.number {
+	color: #ae81ff;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #a6e22e;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+	color: #f8f8f2;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+	color: #e6db74;
+}
+
+.token.keyword {
+	color: #66d9ef;
+}
+
+.token.regex,
+.token.important {
+	color: #fd971f;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+/*
+ * New diff- syntax
+ */
+
+pre[class*="language-diff-"] {
+	--eleventy-code-padding: 1.25em;
+	padding-left: var(--eleventy-code-padding);
+	padding-right: var(--eleventy-code-padding);
+}
+.token.deleted {
+	background-color: hsl(0, 51%, 37%);
+	color: inherit;
+}
+.token.inserted {
+	background-color: hsl(126, 31%, 39%);
+	color: inherit;
+}
+
+/* Make the + and - characters unselectable for copy/paste */
+.token.prefix.unchanged,
+.token.prefix.inserted,
+.token.prefix.deleted {
+	-webkit-user-select: none;
+	user-select: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+.token.prefix.inserted,
+.token.prefix.deleted {
+	width: var(--eleventy-code-padding);
+	background-color: rgba(0,0,0,.2);
+}
+
+/* Optional: full-width background color */
+.token.inserted:not(.prefix),
+.token.deleted:not(.prefix) {
+	display: block;
+	margin-left: calc(-1 * var(--eleventy-code-padding));
+	margin-right: calc(-1 * var(--eleventy-code-padding));
+	text-decoration: none; /* override del, ins, mark defaults */
+	color: inherit; /* override del, ins, mark defaults */
+}
+* { box-sizing: border-box; }
+/* Defaults */
+:root {
+	--font-family: Georgia, Times, -serif; /* Tahoma, -apple-system, system-ui, sans-serif; */
+	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+}
+
+/* Theme colors */
+:root {
+	--color-gray-20: #e0e0e0;
+	--color-gray-50: #C0C0C0;
+	--color-gray-70: #4D4D4D;
+	--color-gray-90: #333;
+
+	--description-color: #9B9C9D;
+	--background-color: #fff;
+
+	--text-color: var(--color-gray-70);
+	--text-color-link:  #2d2fb5;
+	--text-color-link-active: #5f2b48;
+	--text-color-link-visited: var(--color-gray-50); /* #17050F; */
+
+	--syntax-tab-size: 2;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-gray-20: #e0e0e0;
+		--color-gray-50: #C0C0C0;
+		--color-gray-70: #dad8d8;
+		--color-gray-90: #dad8d8;
+
+		/* --text-color is assigned to --color-gray-_ above.*/
+		--text-color: var(--color-gray-20);
+		--text-color-link: #1493fb;
+		--text-color-link-active: #6969f7;
+		--text-color-link-visited: #a6a6f8;
+
+		--background-color: #15202b;
+	}
+}
+
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	font-size: 18px;  /* a little bigger to accomodate a serif font */
+	color: var(--text-color);
+	background-color: var(--background-color);
+}
+html {
+	overflow-y: scroll;
+}
+body {
+	max-width: 50em;
+}
+
+/* different horizontal rules  https://www.w3schools.com/howto/howto_css_dividers.asp */
+ /* Dashed border */
+ hr.dashed {
+	border-top: 1px dashed #bbb;
+  }
+  
+  /* Dotted border */
+  hr.dotted {
+	border-top: 1px dotted #bbb;
+  }
+  
+  /* Solid border */
+  hr.solid {
+	border-top: 1px solid #bbb;
+  }
+  
+
+/* 
+https://css-tricks.com/barebones-css-for-fluid-images/ 
+Without this, images generated by eleventy-img will always use the largest available size
+-- ie, not be responsive.
+*/
+img {
+	max-width: 100%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+  }
+  img[width] {
+	width: auto; /* Defer to max-width */
+  }
+  img[width][height] {
+	height: auto; /* Preserve aspect ratio */
+  }
+  
+  /* Let SVG scale without boundaries */
+  img[src$=".svg"] {
+	width: 100%;
+	height: auto;
+	max-width: none;
+  }
+  
+
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+p {
+	line-height: 1.5;
+	/* font-size: 1.2em; */
+}
+
+P.caption {
+	text-align: center;
+	font-style: italic;
+	font-size: 0.9em;
+	color: #9B9C9D;
+ }
+
+li {
+	line-height: 1.5;
+	/* font-size: 1.2em; */
+}
+
+a[href] {
+	color: var(--text-color-link);
+	text-decoration: none; 
+}
+a[href]:visited {
+	color: var(--text-color-link-visited);
+}
+a[href]:hover,
+a[href]:active {
+	color: var(--text-color-link-active);
+}
+
+main {
+	padding: 1rem;
+}
+main :first-child {
+	margin-top: 0;
+}
+
+header {
+	border-bottom: 1px dashed var(--color-gray-20);
+}
+header:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.links-nextprev {
+	text-align: center;
+	list-style: none;
+	border-top: 1px dashed var(--color-gray-20);
+	padding: 1em 0;
+}
+
+
+table {
+	margin: 1em 0;
+}
+table td,
+table th {
+	padding-right: 1em;
+}
+
+pre,
+code {
+	font-family: var(--font-family-monospace);
+}
+pre:not([class*="language-"]) {
+	margin: .5em 0;
+	line-height: 1.375; /* 22px /16 */
+	-moz-tab-size: var(--syntax-tab-size);
+	-o-tab-size: var(--syntax-tab-size);
+	tab-size: var(--syntax-tab-size);
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+}
+code {
+	word-break: break-all;
+}
+
+/* Header */
+header {
+	display: flex;
+	gap: 1em .5em;
+	flex-wrap: wrap;
+	align-items: center;
+	padding: 1em;
+}
+.home-link {
+	font-size: 1.5em; /* 24px /16 (I think)*/
+	font-weight: 700;
+	margin-right: 2em;
+}
+.home-link:link:not(:hover) {
+	text-decoration: none;
+}
+
+/* Nav */
+.nav {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.nav-item {
+	display: inline-block;
+	margin-right: 1em;
+}
+.nav-item a[href]:not(:hover) {
+	text-decoration: none;
+}
+.nav a[href][aria-current="page"] {
+	text-decoration: underline;
+}
+
+/* Posts list */
+.postlist {
+	list-style: none;
+	padding: 0;
+	padding-left: 0; /* 1.5rem; */
+}
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	counter-increment: start-from -1;
+	margin-bottom: 1em;
+	padding-bottom: 50px;
+	/* padding: 8px 16px; */
+	border-bottom: 1px dashed var(--color-gray-20);
+}
+
+/* 
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	content: "" counter(start-from, decimal-leading-zero) ". ";
+	line-height: 100%;
+	text-align: right;
+	margin-left: -1.5rem;
+}
+*/
+
+.postlist-date,
+.postlist-item:before {
+	font-size: 0.8125em; /* 13px /16 */
+	color: var(--color-gray-90);
+}
+.postlist-date {
+	word-spacing: -0.5px;
+	padding-left: .25em;
+}
+.postlist-link {
+	font-size: 1em; /* 1.1875em;  19px /16 */
+	font-weight: 700; 
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration: none; 
+	/* text-decoration-thickness: 1px; */
+}
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+/* Tags */
+.post-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+	font-style: italic;
+}
+.postlist-item > .post-tag {
+	align-self: center;
+}
+
+/* Tags list */
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: .5em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.post-metadata time {
+	margin-right: 1em;
+}
+
+.post-metadata li {
+	font-size: 0.875em;
+}
+
+/* metadata for posts and talks */
+
+.posttalk-metadata {
+	list-style: none;
+	padding-left: 0;
+	color: var(--description-color);
+}
+
+.posttalk-metadata li {
+	font-size: 1.1em;
+}
+
+/* Direct Links / Markdown Headers */
+.header-anchor {
+	text-decoration: none;
+	font-style: normal;
+	font-size: 1em;
+	margin-left: .1em;
+}
+a[href].header-anchor,
+a[href].header-anchor:visited {
+	color: transparent;
+}
+a[href].header-anchor:focus,
+a[href].header-anchor:hover {
+	text-decoration: underline;
+}
+a[href].header-anchor:focus,
+:hover > a[href].header-anchor {
+	color: #aaa;
+}
+
+h2 + .header-anchor {
+	font-size: 1.5em;
+}
+
+/* Footer */
+hr {
+    border: none;
+    background-color: #DADADB;
+    height: 1px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+    hr {
+        width: 100%;
+    }
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2rem 0;
+    background-color: var(--background-color0);
+	;
+}
+
+.footer-container p {
+    font-size: 1rem;
+    color: #9B9C9D;
+}
+
+.footer-container .social_icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0 1rem;
+}
+
+.footer-container .social_icons a {
+    color: #9B9C9D;
+    font-size: 1.5rem;
+    transition: all 0.5s ease-in-out;
+}
+
+.footer-container .social_icons a:hover {
+    color: #DADADB;
+}</style>
+	</head>
+	<body>
+		<a href="#skip" class="visually-hidden">Skip to main content</a>
+
+		<header>
+			<a href="/" class="home-link">Dark Tales Sleuth</a>
+			<nav>
+				<h2 class="visually-hidden">Top level navigation menu</h2>
+				<ul class="nav">
+					<li class="nav-item"><a href="/about">About</a></li>
+					<li class="nav-item"><a href="/my-cases">My Cases</a></li>
+					<li class="nav-item"><a href="/blog/">All Posts</a></li>
+					<li class="nav-item"><a href="/about-me">About Me</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="skip">
+			
+<h1>Notes on Der Freischutz</h1>
+
+<div class="posttalk-metadata">
+  <time datetime="2020-09-30 5:00 PM">30 September 2020</time>
+</div>
+<ul class="post-metadata">
+	<li><a href="/tags/evening-tales-for-the-winter/" class="post-tag">Evening Tales for the Winter</a>, </li>
+	<li><a href="/tags/johann-august-apel/" class="post-tag">Johann August Apel</a>, </li>
+	<li><a href="/tags/thomas-de-quincey/" class="post-tag">Thomas de Quincey</a>, </li>
+	<li><a href="/tags/das-gespensterbuch/" class="post-tag">Das Gespensterbuch</a></li>
+</ul>
+
+<p><em>I thought this post would be straightforward, but then I dug too deep.</em></p>
+<hr>
+<p>&quot;<a href="https://archive.org/details/eveningtalesfor00unkngoog/page/n80/mode/2up">Der Freischutz</a>&quot; (aka &quot;The Fatal Marksman&quot;) is yet again a deal-with-the-devil tale. It's based on the German folktale of a hunter who receives a handful of magic bullets that are guaranteed to hit whatever he aims at. All except one bullet, which the devil controls.</p>
+<p>For once, the version in <em>Evening Tales for the Winter</em> credits the original story: it's from Johann August Apel, and the German original comes from Volume one of the <em>Gestpensterbuch</em> (Ghost Book), first published in 1810. The uncredited translator is Thomas de Quincey, as can be verified in <a href="https://archive.org/details/thomasdequincey00greegoog/page/n20/mode/2up">this 1908 bibliography</a>.</p>
+<p>De Quincey's version (with both translator and original author uncredited) first appeared as &quot;<a href="https://archive.org/details/populartalesroma03musaiala/page/140/mode/2up?q=fatal">The Fatal Marksman</a>&quot; in <em>Popular Tales and Romances of the Northern Nations, Vol 3</em> (1823). Curiously, it's one of the few stories whose authorship is not attributed. The anthology editor only speaks of &quot;the author of the Freischutz&quot; in the <a href="https://archive.org/details/populartalesroma01mus/page/n7/mode/2up">Preface</a> (in Volume 1), even though he or she does mention Apel's <em>Gespensterbuch</em> collaborator, Friedrich Laun, by name four pages later.</p>
+<p>The attribution to Apel came later, in <a href="https://archive.org/details/talesofwildwonde00borr/page/128/mode/2up"><em>Tales of the Wild and Wonderful</em></a> (1825). This seems to be the source that Henry St. Clair took the story from.</p>
+<h3 id="another-version-another-mystery" tabindex="-1">Another Version, Another Mystery <a class="header-anchor" href="#another-version-another-mystery">#</a></h3>
+<p>Apel's version of &quot;Der Freischutz&quot; seems to have become rather popular; it formed the basis for Carl Maria von Weber's <a href="https://en.wikipedia.org/wiki/Der_Freisch%C3%BCtz">opera of the same name</a>, which is probably the version of the story best known today. However, what really interests me is another version of the tale, allegedly by E. T. A. Hoffman.</p>
+<p>According to an 1847 <a href="https://books.google.com/books?id=cZlTAAAAcAAJ&amp;newbks=1&amp;newbks_redir=0&amp;printsec=frontcover&amp;pg=PA801&amp;dq=atheneum+1031+1847&amp;hl=en#v=onepage&amp;q=atheneum%201031%201847&amp;f=false"><em>Athenaeum</em></a> article, Hoffman also wrote a version of &quot;Der Freischutz&quot;, rendered into English by the reviewer as &quot;The Affianced Bride.&quot; This version tells the story of a huntsman who takes the magic bullets, and accidentally kills his bride. So far, so good; this is the story Apel tells, as well. The alleged Hoffman version goes on to tell how the huntman vows never to marry again, but then breaks his promise, with the expected consequences.</p>
+<p>Based on the (English) snippets provided in the Athenaem article (see page 813 [<a href="https://books.google.com/books?id=cZlTAAAAcAAJ&amp;newbks=1&amp;newbks_redir=0&amp;printsec=frontcover&amp;pg=PA801&amp;dq=atheneum+1031+1847&amp;hl=en#v=onepage&amp;q=spectre&amp;f=false">direct link found here</a>]), it looks worth reading. I wondered if I could find it.</p>
+<p>The French translation referred to is <em>Contes nocturnes de Hoffmann</em>, translator P. Christian. I found an <a href="https://gallica.bnf.fr/ark:/12148/bpt6k67729j/f9.image">1862 edition, here</a>, though it must have been originally published in 1847 or before. The story, in French, is &quot;Le Spectre Fiancé.&quot; I don't read French, but from what I could work out, it is the same tale mentioned in the <em>Athenaeum</em> review. However....</p>
+<p>It is <em>not</em> the story &quot;Le Spectre Fiancé&quot; mentioned in <a href="http://www.isfdb.org/cgi-bin/title.cgi?1227918">ISFDB</a>, which I verified is indeed &quot;Das unheimliche Gast,&quot; known in English as &quot;The Uncanny Guest&quot;---a completely different story. I could not find anything that plausibly matched the tale I was looking for in <a href="https://digital.staatsbibliothek-berlin.de/werkansicht/?PPN=PPN897441524">the complete works of Hoffman</a>. But of course, I could have missed something, since I'm trying to compare a story in French to works in German -- neither of which are languages I read.</p>
+<p>In fact, looking at the table of contents of <em>Contes nocturnes de Hoffmann</em>, I realized I didn't recognize any of the titles, except &quot;L'elixir du Diable&quot; --- which does not seem to be Hoffman's <em>The Devil's Elixir</em> (Hoffman's work is a two volume novel, for one thing).</p>
+<p>So what are these French tales? Retellings, with different character names (that's how I tried to match the stories)? Stories falsely or erroneously attributed to Hoffman? Or simply known Hoffman tales that I've never heard of? I'd love it if someone who is more familiar with Hoffman (and can read French) would let me know.</p>
+<p><strong>Reference</strong></p>
+<p>Anonymous, &quot;Hoffman and Fantastic Literature--[Contes Nocturnes de Hoffman--La Vie de E.T.A. Hoffman, por Prof. Christian]&quot;, <em>The Athenaeum</em> No. 1031, pp 811-813. July 31, 1847.</p>
+
+<ul class="links-nextprev"><li><a href="/blog/2020-09-23-notes-on-the-nikkur-holl/">&#8592;</a> <span style="color: #9B9C9D">Previous</span></li><li><span style="color: #9B9C9D">Next</span> <a href="/blog/2020-10-16-notes-on-the-boarwolf/">&#8594</a></li>
+</ul>
+
+		</main>
+
+		<!-- footer -->
+		<hr />
+
+<div class="footer-container">
+	<p>&copy; 2024 Nina B. Zumel</p>
+	<div class="social_icons">
+	    <a
+			href="mailto:nzumel@mzlabs.com?subject=Comment%20from%20Dark%20Tales%20Sleuth"
+			aria-label="Email"
+			target="_blank"
+			rel="noopener noreferrer"
+		>
+			<i class="fas fa-fw fa-envelope"></i>
+		</a>
+		<a
+			href="https://micro.blog/MultoGhost"
+			aria-label="Micro.blog"
+			target="_blank"
+			rel="noopener noreferrer"
+		>
+			<i class="fab fa-fw fa-microblog"></i>
+		</a>
+		<a
+			href="https://multoghost.wordpress.com/"
+			aria-label="Multo (Ghost)"
+			target="_blank"
+			rel="noopener noreferrer"
+		>
+			<i class="fab fa-fw fa-wordpress"></i>
+		</a>
+		<a
+			href="/feed.xml"
+			aria-label="RSS"
+			target="_blank"
+			rel="noopener noreferrer"
+		>
+			<i class="fa fa-fw fa-rss-square"></i>
+		</a>
+
+	</div>
+</div>
+		<!-- /footer-- >
+
+		<!-- Current page: /blog/2020-10-01-notes-on-der-freischutz/ -->
+	</body>
+</html>
