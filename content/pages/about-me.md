@@ -12,7 +12,7 @@ eleventyNavigation:
     <img src="/img/cactus_flower.jpeg" alt="Cactus Flower">
 
     <div class="author_description">
-        <p>~ About this site ~</p>
+        <p>~ About Me ~</p>
     </div>
 </div>
 

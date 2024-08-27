@@ -37,7 +37,7 @@ Unless otherwise indicated, authorship attributions are from ISFDB, and original
 
 [**The Prophesy**](https://archive.org/details/dli.bengal.10689.11170/page/n327/mode/2up): by [James Hobart Caunter](https://en.wikipedia.org/wiki/John_Hobart_Caunter). First published in _The Court Magazine, and Belle Assemblée_, Jan, 1833. \[Author and source information - ISDFB\]
 
-[**My Two Aunts**](https://archive.org/details/dli.bengal.10689.14572/page/n303/mode/2up): by [William Pitt Scargill](https://en.wikisource.org/wiki/Dictionary_of_National_Biography,_1885-1900/Scargill,_William_Pitt). First published in _The New Monthly Magazine and Literary Journal_, Vol 39 (Sept, 1833). \[Author information -- [Tara Challoner, for ISFDB](/blog/2021-10-18-notes-on-nina-dalgarooki/)\]
+[**My Two Aunts**](https://archive.org/details/dli.bengal.10689.14572/page/n303/mode/2up): by [William Pitt Scargill](https://en.wikisource.org/wiki/Dictionary_of_National_Biography,_1885-1900/Scargill,_William_Pitt). First published in _The New Monthly Magazine and Literary Journal_, Vol 39 (Sept, 1833). \[Author information -- [Tara Challoner, for ISFDB](/pages/comments/#tara-challoner-january-2-2024-1)\]
 
 - As an aside, the novels _Blue Stocking Hall_ and _Tales of My Time_, both credited to Scargill, were actually written by [Anna Maria Chetwode](https://en.wikipedia.org/wiki/Anna_Maria_Chetwode). See also [here](https://www.jstor.org/stable/10.3318/priac.2019.119.02).
 </div>

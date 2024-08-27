@@ -1,12 +1,12 @@
 ---
 layout: layouts/home.njk
-title: Comments from the Original Blog
+title: Comments on Posts
 ---
   
   <div class="message-box">
-<h2>Comments from the Original Blog</h2>
+<h2>Comments on Posts</h2>
 
-When I moved this blog from Wordpress, the comments did not come along. Fortunately, the comments were relatively few, so I could move
+When I moved this blog from Wordpress, the comments did not come along. Fortunately, there weren't very many, so I could move
 them here manually. 
 
 Unfortunately, I don't have a comment mechanism for this version of the blog, but please feel free to drop me a note, using the mail icon in the footer.
@@ -18,7 +18,8 @@ I will add it to this page and associate it with the relevant blog post.
 <br>
 
 <div class="message-box">
-<h2>Notes on the Tiger's Cave</h2>
+
+## [Notes on the Tiger's Cave](/blog/2021-06-05-notes-on-the-tigers-cave/)
 
 #### Tara Challoner, December 23, 2023
 
@@ -31,9 +32,7 @@ Thanks, Tara! I will check this out.
 
 #### Nina Zumel, January 1, 2024
 
-Thanks for the leads — this is what I was able to find:
-
-[Revisiting the Tiger’s Cave](/blog/2024-01-02-revisiting-the-tigers-cave/)
+Thanks for the leads — this is what I was able to find: [Revisiting the Tiger’s Cave](/blog/2024-01-02-revisiting-the-tigers-cave/)
 
 #### Tara Challoner, January 2, 2024
 
@@ -54,7 +53,8 @@ Ha, yes, Peter Haining is infamous among ghost story aficionados (among others) 
 <br>
 
 <div class="message-box">
-<h2>Notes on Nina Dalgarooki</h2>
+
+## [Notes on Nina Dalgarooki](/blog/2021-10-18-notes-on-nina-dalgarooki/)
 
 #### Tara Challoner, January 2, 2024
 
@@ -69,7 +69,8 @@ Great work, and thank you! I’ll update my Volume 3 page!
 <br>
 
 <div class="message-box">
-<h2>Revisiting the Tiger's Cave</h2>
+
+## [Revisiting the Tiger's Cave](/blog/2024-01-02-revisiting-the-tigers-cave/)
 
 *Note that this comment chain isn't actually about "The Tiger's Cave." Dr. Aguirre simply used this post to start a conversation.*
 

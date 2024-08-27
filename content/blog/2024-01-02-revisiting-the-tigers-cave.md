@@ -11,7 +11,7 @@ tags:
 
 At the time, I surmised that it was probably a translation of a story from the Danish literary magazine _Laesefrugter_, edited by Adolph Frederik Elmquist. Since I don’t read Danish, I couldn’t research any further—in particular, I couldn’t find out what the original story was, when it was published, or who wrote it.
 
-But recently, commenter Tara Challoner [let me know](https://darktalessleuth.wordpress.com/2021/06/04/notes-on-the-tigers-cave/comment-page-1/#comment-29) that she had found an earlier English appearance of this story—May 30, 1829—that itself seemed to be from the _Edinburgh Literary Journal_. This earlier appearance indicated that the original story was German. Ah!
+But recently, commenter Tara Challoner [let me know](/pages/comments/#tara-challoner-december-23-2023) that she had found an earlier English appearance of this story—May 30, 1829—that itself seemed to be from the _Edinburgh Literary Journal_. This earlier appearance indicated that the original story was German. Ah!
 
 <!--more-->
 
@@ -47,5 +47,6 @@ Nor do we know who is responsible for the English translation in _The Monthly Ma
 
 So there we have it! Any Danish or German literary sleuths who feel like verifying my work or filling in any holes, please do. And thank you, Tara Challoner!
 
+[*Comments on this post*](/pages/comments/#revisiting-the-tiger-s-cave)
 
 [^1]:  The translator of the ELJ version is one of the so-called [“Misses Corbett”](https://en.wikipedia.org/wiki/Misses_Corbett), the collective name for the two Scottish sisters Walterina Cunningham and Grace Corbett. The sisters jointly produced the anthologies _The Odd Volume_ (Vol 1 1826, Vol II 1827) and _Tales and Legends_ (1828), along with a number of other anthologies, novels, poems and plays. They seem to have been familiar with the contemporary British fad for German gothic, and it makes sense that at least one of them would be literate enough in German to translate. Whether they knew Danish, I don’t know.

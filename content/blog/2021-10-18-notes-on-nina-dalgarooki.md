@@ -63,3 +63,7 @@ Louisa Devey was Rosina's friend, and her literary executor. As it says on the b
 A different episode, in which Rosina attempts to disrupt the premiere performance of one of Edward's plays, at an event sponsored by Charles Dickens. Did you know that Dickens also tried to have his wife committed? Probably to force her to agree to a separation, because Dickens had a mistress -- possibly his wife's own sister. Yup.
 
 - Latané, D.E. "Edward Bulwer Lytton’s committal of his wife Rosina to a private mental asylum in 1858", [_The Victorian Web_](https://www.victorianweb.org/authors/bulwer/latane.html)
+
+* * *
+
+[*Comments on this post*](/pages/comments/#notes-on-nina-dalgarooki)

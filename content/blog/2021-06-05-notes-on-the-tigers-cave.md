@@ -47,6 +47,8 @@ In 1825 Phillips sold off the _The Monthly Magazine_, which by that time was bec
 * From the [Danish Biographical Lexicon](https://biografiskleksikon.lex.dk/A._F._Elmquist) - ([Google translation](https://translate.google.com/translate?hl=en&sl=da&u=https://biografiskleksikon.lex.dk/A._F._Elmquist&prev=search&pto=aue)) 
 * From the [Elmquist Family website](http://elmquist.info/bio5.html) - ([Google translation](https://translate.google.com/translate?sl=auto&tl=en&u=http://elmquist.info/bio5.html))
 
+[*Comments on this post*](http://localhost:8080/pages/comments/#notes-on-the-tiger-s-cave)
+
 
 [^1]:_Aarhus Stiftstidende..._ _Stiftstidende_ seems to mean something like _newspaper_, so let's translate this as _Aarhus News_. 
 
