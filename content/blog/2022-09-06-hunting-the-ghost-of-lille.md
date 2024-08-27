@@ -1,13 +1,11 @@
 ---
 title: "Hunting the Ghost of Lille"
 date: "2022-09-06"
-categories: 
-  - "miscellany"
 tags: 
-  - "ghost-stories"
-  - "haunted-house"
-  - "lord-halifax"
-  - "sabine-baring-gould"
+  - Miscellany
+  - Lord Halifax
+  - Sabine Baring-Gould
+  - with pdf
 ---
 
 I found the story of the Ghost of Lille in an interesting volume called _Lord Halifax's Ghost Book_, a selection of the "true" ghost stories collected by Charles Lindley Wood, the second Viscount Halifax (1839-1934), over the course of his life.
@@ -17,8 +15,6 @@ The published extracts from Halifax's "Ghost Book" were selected by Halifax's so
 Some remarks by Halifax _fils_ got me curious about the story, so I did a little hunting:
 
 The basic narrative tells of an English family that has rented a house in Lille, France, just prior to the French Revolution. The house has a local reputation of being haunted, and indeed the family and their servants hear strange footsteps in the night, and even see a mysterious figure going through certain bedrooms. The ghost appears to be related to a giant iron cage in the attic. Rumor is that a young man had been imprisoned in that cage by his guardian, who wanted the young man's inheritance. The young man died of neglect, but his guardian, haunted (either literally or metaphorically -- who's to say) by his evil deed, abandoned the house, which is how it came available to rent, "and very cheap, for that part of the world." Ha!
-
-<!--more-->
 
 This "true" ghost story first came to public notice in a "garbled" version by an anonymous teller of true ghost stories, in [_The Album_ for 1822](https://books.google.co.uk/books?id=4dQRAAAAYAAJ&printsec=frontcover#v=onepage&q&f=true), No. III, November 1822. This version was reprinted the following year, in a collection called [_Accredited Ghost Stories_](https://archive.org/details/accreditedghost00jarvgoog/page/n125/mode/2up) (1823), edited by T. M. Jarvis. Jarvis adds this commentary to the account:
 
@@ -40,7 +36,7 @@ After _Cornhill Magazine_ published the article, Baring-Gould received a letter 
 
 I've transcribed both the "true" and "garbled" versions of the tale for your reading pleasure. It's fun to compare the two, and see how the story morphed and expanded in the telling.
 
-- [**The Ghost of Lille: The Pennyman Version**](https://darktalessleuth.wordpress.com/wp-content/uploads/2022/09/ghostoflille_pennyman.pdf) -- taken from Sabine Baring-Gould's _Cornhill Magazine_ article, "The Man in the Iron Cage."
-- [**The Ghost of Lille: The "Garbled" Version**](https://darktalessleuth.wordpress.com/wp-content/uploads/2022/09/ghostoflille_garbled.pdf) - taken from _Accredited Ghost Stories_, ed. T. M. Jarvis.
+- [**The Ghost of Lille: The Pennyman Version**](/files/stories/ghostoflille_pennyman.pdf) -- taken from Sabine Baring-Gould's _Cornhill Magazine_ article, "The Man in the Iron Cage."
+- [**The Ghost of Lille: The "Garbled" Version**](/files/stories/ghostoflille_garbled.pdf) - taken from _Accredited Ghost Stories_, ed. T. M. Jarvis.
 
 Compare, and enjoy.

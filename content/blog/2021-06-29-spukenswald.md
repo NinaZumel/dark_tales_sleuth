@@ -1,13 +1,9 @@
 ---
 title: "Spukenswald"
 date: "2021-06-29"
-categories: 
-  - "miscellany"
 tags: 
-  - "burtons-gentlemans-magazine"
-  - "ghost-stories"
-  - "gothic-tales"
-  - "lambert-a-wilmer"
+  - Miscellany
+  - Lambert A Wilmer
 ---
 
 The Internet Archive is a treasure trove that sometimes gives up wonderful little delights: "Spukenswald" is one such gem. I found it while excavating the Christmas 1909 issue of a magazine called [_The Scrap Book_](https://archive.org/details/thescrapbookv08n06190912). I wrote about this on _Multo_, but since my research into the provenance of the tale (which was unattributed in _The Scrap Book_) turned up something interesting, I thought I'd share it here, too.

@@ -30,7 +30,7 @@ These are literary investigations that pop up while I'm in the middle of another
 
 </div>
 
-And in case I forgot any of them, here's a link to [all posts about Miscellany Cases.](https://darktalessleuth.wordpress.com/category/miscellany/)
+And in case I forgot any of them, here's a link to [all posts about Miscellany Cases.](/tags/miscellany/)
 
 <p><small>
 Illustration by John Gilbert, from <em>The Book of Brave Old Ballads</em> (c. 1870s). Source: <a href="https://www.reusableart.com/block-border-03.html">ReusableArt.com</a>

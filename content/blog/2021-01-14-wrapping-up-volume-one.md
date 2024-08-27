@@ -1,19 +1,15 @@
 ---
 title: "Wrapping up Volume One!"
 date: "2021-01-14"
-categories: 
-  - "evening-tales-for-the-winter-1856"
 tags: 
-  - "ghost-stories"
-  - "gothic-tales"
-  - "james-ridley"
-  - "tales-of-the-genii"
-  - "valancourt-books"
+  - Evening Tales for the Winter
+  - James Ridley
+  - Tales of the Genii
 ---
 
 I'll finish up my posts on Volume One of _Evening Tales for the Winter_ with a brief discussion of the remaining three stories.
 
-"[The Cavern of Death](https://archive.org/details/eveningtalesfor00unkngoog/page/n124/mode/2up)" is a longer novella in the gothic style, set (of course) in the depths of the Black Forest. It starts out well enough, with a handsome young couple in love, an interfering father, intrigue, family skeletons, and the mysterious dark cavern of the title. I confess that I gave up about midway through. Full-blown gothic isn't one of my preferred genres, and this got a little too gothic for me.
+"[**The Cavern of Death**](https://archive.org/details/eveningtalesfor00unkngoog/page/n124/mode/2up)" is a longer novella in the gothic style, set (of course) in the depths of the Black Forest. It starts out well enough, with a handsome young couple in love, an interfering father, intrigue, family skeletons, and the mysterious dark cavern of the title. I confess that I gave up about midway through. Full-blown gothic isn't one of my preferred genres, and this got a little too gothic for me.
 
 <!--more-->
 
@@ -27,7 +23,7 @@ If you are interested in reading the original 1794 novel, it's been [reissued by
 
 * * *
 
-"[The Dervise Alfouran](https://archive.org/details/eveningtalesfor00unkngoog/page/n168/mode/2up)" and "[Hassan Assar](https://archive.org/details/eveningtalesfor00unkngoog/page/n176/mode/2up)" are both originally from the 1764 collection [_Tales of the Genii_](https://archive.org/stream/talesofgenii00morerich?ref=ol#page/n5/mode/2up) by "Sir Charles Morell, Formerly Ambassador for the British Settlements in India to the Great Mogul." They were supposedly translations of a Persian work by an imam named Horam.
+"[**The Dervise Alfouran**](https://archive.org/details/eveningtalesfor00unkngoog/page/n168/mode/2up)" and "[**Hassan Assar**](https://archive.org/details/eveningtalesfor00unkngoog/page/n176/mode/2up)" are both originally from the 1764 collection [_Tales of the Genii_](https://archive.org/stream/talesofgenii00morerich?ref=ol#page/n5/mode/2up) by "Sir Charles Morell, Formerly Ambassador for the British Settlements in India to the Great Mogul." They were supposedly translations of a Persian work by an imam named Horam.
 
 In reality, the tales are an English-authored pastiche of _The Arabian Nights_, which first appeared in English over the period 1706-1708 as an anonymous translation of Antione Galland's French translation (1704-1717). Galland's translation is the first European appearance of the story cycle known as _One Thousand and One Nights_, or _The Arabian Nights_. The author of _Tales of the Genii_, James Ridley, briefly held a chaplaincy with the East India Company, though I can't tell whether he ever went to India (I think he didn't). At the time that he wrote _Tales of the Genii_, Ridley held a church living in Essex that had been handed down from his father. He died in 1765.
 

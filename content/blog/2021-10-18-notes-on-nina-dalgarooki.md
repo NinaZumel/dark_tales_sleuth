@@ -1,19 +1,16 @@
 ---
 title: "Notes on Nina Dalgarooki"
 date: "2021-10-18"
-categories: 
-  - "evening-tales-for-the-winter-1856"
 tags: 
-  - "edward-bulwer-lytton"
-  - "rosina-bulwer-lytton"
-  - "the-new-monthly-magazine"
+  - Evening Tales for the Winter
+  - Rosina Bulwer Lytton
 ---
 
 _A fun story, by an interesting, and possibly underappreciated, author._
 
 * * *
 
-I'd planned not to write detailed posts about Volume Three of _Evening Tales for Winter_ ; most of the stories are fairly dreary. But I'll make an exception for "[Nina Dalgarooki](https://books.google.com/books?id=OkcFAAAAQAAJ&pg=PA63&lpg=PA63&dq=%22nina+dalgarooki%22&source=bl&ots=Id1id40d6V&sig=ACfU3U1aVv4bElAWVQdFLDiNyfojQHaDiA&hl=en&sa=X&ved=2ahUKEwjGh8iA9cPzAhUhHbkGHYZLALcQ6AF6BAgLEAM#v=onepage&q=%22nina%20dalgarooki%22&f=false)." It's a fun, witty and satirical supernatural tale; you might call it a fairy tale for adults.
+I'd planned not to write detailed posts about Volume Three of _Evening Tales for Winter_; most of the stories are fairly dreary. But I'll make an exception for "[Nina Dalgarooki](https://books.google.com/books?id=OkcFAAAAQAAJ&pg=PA63&lpg=PA63&dq=%22nina+dalgarooki%22&source=bl&ots=Id1id40d6V&sig=ACfU3U1aVv4bElAWVQdFLDiNyfojQHaDiA&hl=en&sa=X&ved=2ahUKEwjGh8iA9cPzAhUhHbkGHYZLALcQ6AF6BAgLEAM#v=onepage&q=%22nina%20dalgarooki%22&f=false)." It's a fun, witty and satirical supernatural tale; you might call it a fairy tale for adults.
 
 Nina Dalgarooki is a beautiful and vain young Russian countess, about to travel to Siberia with her father. She hates the idea of wasting, and possibly endangering, her lovely appearance in the dreary wastelands, and wishes she could "bank" her good looks until she needs them.
 
@@ -21,15 +18,13 @@ Nina Dalgarooki is a beautiful and vain young Russian countess, about to travel 
 
 Luckily, her favorite servant Catherine just happens to know a wizard, who helps Nina with her scheme. All goes well in Siberia, but after that Nina goes to Paris, and then to London, and things don't work out quite as she expected.
 
-<!--more-->
-
 [You can read "Nina Dalgarooki" here](https://books.google.com/books?id=OkcFAAAAQAAJ&pg=PA63&lpg=PA63&dq=%22nina+dalgarooki%22&source=bl&ots=Id1id40d6V&sig=ACfU3U1aVv4bElAWVQdFLDiNyfojQHaDiA&hl=en&sa=X&ved=2ahUKEwjGh8iA9cPzAhUhHbkGHYZLALcQ6AF6BAgLEAM#v=onepage&q=%22nina%20dalgarooki%22&f=false).
 
 "Nina Dalgarooki" appeared in _The New Monthly Magazine and Literary Journal_, Vol 47 (May, 1836). It is not attributed in ISDFB -- but I stumbled upon the author, quite by accident!
 
 From _The London Morning Post_, May 13, 1836:
 
-> Nina Dalgarooki—Everybody is agreed that the gem of the May number of the " New Monthly Magazine" is a story called "Nina Dalgarooki," but few are aware, we believe, that it is from the pen of Mrs. Lytton Bulwer. It is a brilliant and interesting satire. The writer shows a deep knowledge of society, and, in the words of a sprightly critic, writes of it with a golden arrow, and sprinkles the page with diamond dust.
+> Nina Dalgarooki—Everybody is agreed that the gem of the May number of the "New Monthly Magazine" is a story called "Nina Dalgarooki," but few are aware, we believe, that it is from the pen of Mrs. Lytton Bulwer. It is a brilliant and interesting satire. The writer shows a deep knowledge of society, and, in the words of a sprightly critic, writes of it with a golden arrow, and sprinkles the page with diamond dust.
 
 Mrs. Lytton Bulwer is the writer [Rosina Bulwer Lytton](https://en.wikipedia.org/wiki/Rosina_Bulwer_Lytton), the wife of the infamously turgid novelist, Edward "[It was a dark and stormy night](https://www.phrases.org.uk/meanings/it-was-a-dark-and-stormy-night.html)" Bulwer-Lytton. "Nina Dalgarooki" appears to be one of her earlier works. The surnames are switched because Edward was in fact born Edward Lytton Bulwer, Lytton being his mother's surname and Bulwer being his father's. He changed his name to Edward Lytton Bulwer-Lytton in 1844, when his mother died and he assumed the arms of Lytton.
 

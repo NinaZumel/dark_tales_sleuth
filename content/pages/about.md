@@ -31,7 +31,7 @@ literature -- it was all getting too complicated for *Multo*.
 
 Hence, *Dark Tales Sleuth*. Here's where I've shared my successes and my failures, and also shared some of the stories that I like the best, in a format that's friendlier and more readable than the (rather dirty) scan of [*Evening Tales for the Winter*](https://archive.org/details/eveningtalesfor00unkngoog) that's at the Internet Archive.
 
-I started off the blog with fruits of an early literary investigation, into the sources of two of Vincent Price's spooky readings for Caedmon Records. Since then, I've also added the results of other literary mysteries that I've come across. 
+Since then, I've also added the results of other literary mysteries that I've come across. 
 
 *Dark Tales Sleuth* was originally hosted at Wordpress.com, but since it's now less active than it was, I've moved it to a static site on Github Pages. You can still follow it via RSS, and you can drop me a note by using the email icon in the footer of the blog.
 

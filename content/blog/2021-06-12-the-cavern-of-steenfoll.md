@@ -1,21 +1,15 @@
 ---
 title: "The Cavern of Steenfoll"
 date: "2021-06-12"
-categories: 
-  - "evening-tales-for-the-winter-1856"
-  - "miscellany"
 tags: 
-  - "fairy-tales"
-  - "nikkur-holl"
-  - "r-p-gillies"
-  - "s-mendel"
-  - "translation"
-  - "wilhelm-hauff"
+  - Evening Tales for the Winter
+  - Miscellany
+  - RP Gillies
+  - Wilhelm Hauff
+  - with pdf
 ---
 
-"[The Cavern of Steenfoll,](https://darktalessleuth.wordpress.com/wp-content/uploads/2021/06/thecavernofsteenfoll.pdf)" subtitled "A Scottish Legend," is a dark and lovely tale from the pen of German Romantic writer [Wilhelm Hauff](https://en.wikipedia.org/wiki/Wilhelm_Hauff). If you've been following my research on _Evening Tales for the Winter_, then it will also be a familiar tale to you; for it is a scene-for-scene retelling of "[The Nikkur Holl](https://darktalessleuth.wordpress.com/2020/09/23/notes-on-the-nikkur-holl/)" by Scottish author R. P. Gillies.
-
-<!--more-->
+"[The Cavern of Steenfoll,](/files/stories/thecavernofsteenfoll.pdf)" subtitled "A Scottish Legend," is a dark and lovely tale from the pen of German Romantic writer [Wilhelm Hauff](https://en.wikipedia.org/wiki/Wilhelm_Hauff). If you've been following my research on _Evening Tales for the Winter_, then it will also be a familiar tale to you; for it is a scene-for-scene retelling of "[The Nikkur Holl](/blog/2020-09-23-notes-on-the-nikkur-holl/)" by Scottish author R. P. Gillies.
 
 I first noticed it while looking up another tale from that anthology in Everett Bleiler's _Guide to Supernatural Fiction_ (1983). Bleiler noted the similarity between the two stories, though he did not know who wrote "The Nikkur Holl". Once I saw the connection, I had to investigate, thinking perhaps that Gillies, who was a enthusiast and translator of German literature, might have translated or adapted Hauff's story without attribution. People were pretty loose about attributions in the early 19th century.
 
@@ -27,8 +21,8 @@ Before his tragically early death from typhoid fever at age 24, Hauff had begun 
 
 Gillies' version is the original, of course, but Hauff's rendition is also quite good. It's shorter and faster-paced than Gillies', as well. If you like, you can compare them both and decide which you like better.
 
-- The Nikkur Holl ([pdf](https://darktalessleuth.wordpress.com/wp-content/uploads/2020/09/nikkurholl.pdf)) ([epub](https://www.dropbox.com/s/7kletac4682jnvj/NikkurHoll.epub?dl=0))
-- The Cavern of Steenfoll ([pdf](https://darktalessleuth.wordpress.com/wp-content/uploads/2021/06/thecavernofsteenfoll.pdf))
+- The Nikkur Holl ([pdf](/files/stories/nikkurholl.pdf)) ([epub](https://www.dropbox.com/s/7kletac4682jnvj/NikkurHoll.epub?dl=0))
+- The Cavern of Steenfoll ([pdf](/files/stories/thecavernofsteenfoll.pdf))
 
 Enjoy!
 

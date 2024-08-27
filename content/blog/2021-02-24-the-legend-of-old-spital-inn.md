@@ -1,28 +1,20 @@
 ---
 title: "The Legend of Old Spital Inn"
 date: "2021-02-24"
-categories: 
-  - "miscellany"
-  - "vincent-price-and-caedmon"
 tags: 
-  - "aztec-mythology"
-  - "folklore"
-  - "hand-of-glory"
-  - "juan-torquemada"
-  - "mexico"
-  - "sabine-baring-gould"
-  - "superstition"
-  - "vincent-price"
-  - "william-henderson"
+  - Miscellany
+  - Vincent Price and Caedmon
+  - Hand of Glory
+  - with pdf
 ---
 
-One of the pieces that Vincent Price reads on his 1974 spooky tales album, [_A Graveyard of Ghost Tales_](https://darktalessleuth.wordpress.com/2020/09/14/a-graveyard-of-ghost-tales-1974/), is a story called "The Ghostly Hand of Spital House," by Dorothy Gladys Spicer. This is a fun and engaging tale about some bandits who try to rob an inn with the help of a _hand of glory_ : a candle (or candle-holder) made from the hand of a hanged man. Lighting the hand of glory puts all the sleeping occupants of the house into an even deeper sleep, from which they don't awaken until the hand is extinguished. You can see how this would be a _(cough)_ handy tool for robbers and catburglars to have.
+One of the pieces that Vincent Price reads on his 1974 spooky tales album, [_A Graveyard of Ghost Tales_](https://multoghost.wordpress.com/2019/09/23/vincent-price-reads-a-graveyard-of-ghost-tales/), is a story called "The Ghostly Hand of Spital House," by Dorothy Gladys Spicer. This is a fun and engaging tale about some bandits who try to rob an inn with the help of a _hand of glory_ : a candle (or candle-holder) made from the hand of a hanged man. Lighting the hand of glory puts all the sleeping occupants of the house into an even deeper sleep, from which they don't awaken until the hand is extinguished. You can see how this would be a _(cough)_ handy tool for robbers and catburglars to have.
 
 <!--more-->
 
 Recently (while researching something else), I came upon an early version of the Spital House story, along with some variations, in William Henderson's 1879 _Notes on the Folk-lore of the Northern Counties of England and the Borders_ (this is a second, expanded, edition of his earlier _Folk-lore of the Northern Counties_). These may be the source texts that Dorothy Gladys Spicer built her more elaborate version around. So I thought I would share them with you.
 
-- Read "[The Legend of Old Spital Inn](https://darktalessleuth.wordpress.com/wp-content/uploads/2021/02/legendofspitalinn.pdf)" from William Henderson.
+- Read "[The Legend of Old Spital Inn](/files/stories/legendofspitalinn.pdf)" from William Henderson.
 - [Listen to Vincent Price read "The Ghostly Hand of Spital House"](https://youtu.be/nnWVsIhNqaM?t=1828) (30:28 into the recording).
 
 ### An Aztec Variation
@@ -38,6 +30,8 @@ See [this post on my _Multo_ blog](https://multoghost.wordpress.com/2015/07/26/m
 Getting back to the hand of glory, the relevant passage of _Monarquía indiana_ is the beginning of Book 14, Chapter 22. If you read Spanish, you can find it [here](https://www.historicas.unam.mx/publicaciones/publicadigital/monarquia/volumen/04/05Libro_Catorce/miv4127.pdf) (the whole _Monarquía indiana_ is online [here](https://www.historicas.unam.mx/publicaciones/publicadigital/monarquia/index.html)). Otherwise, here's my translation (re-paragraphed for legibility):
 
 * * *
+
+#### On the thieves that existed among these natives in the period of their infidelity, and the ghosts or phantoms that appeared to these native people at night
 
 Among the abuses of these people was that in their false [judicial astrology](https://en.wikipedia.org/wiki/Judicial_astrology) they had a sign that was called [_ce acatl_](https://en.wikipedia.org/wiki/Ce_Acatl_Topiltzin). It was said that those who were born under this sign, if they were noble, would be very restless; and if low and common people, were destined to become thieves, practicing the superstitious and evil art of those that they called _temacpalytotique_. These would usually be fifteen or twenty in number, and when they wanted to rob any house they made the image of _ce acatl_, or that of the god Quetzalcohuatl, and they went dancing all together to where they wanted to commit the crime, led by the one who carried the figure or idol of this false god (who was certainly false, since he was leading people as wicked as these), and another who also carried the arm of a woman who had died in her first childbirth (these swindlers had cut off her left arm and hand for use in their evildoing).
 

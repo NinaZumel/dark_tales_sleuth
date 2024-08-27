@@ -1,15 +1,11 @@
 ---
 title: "Notes on Der Freischutz"
 date: "2020-10-01"
-categories: 
-  - "evening-tales-for-the-winter-1856"
 tags: 
-  - "e-t-a-hoffman"
-  - "folklore"
-  - "ghost-stories"
-  - "gothic-tales"
-  - "johann-august-apel"
-  - "thomas-de-quincey"
+  - Evening Tales for the Winter
+  - Johann August Apel
+  - Thomas de Quincey
+  - Das Gespensterbuch
 ---
 
 _I thought this post would be straightforward, but then I dug too deep._
@@ -19,8 +15,6 @@ _I thought this post would be straightforward, but then I dug too deep._
 "[Der Freischutz](https://archive.org/details/eveningtalesfor00unkngoog/page/n80/mode/2up)" (aka "The Fatal Marksman") is yet again a deal-with-the-devil tale. It's based on the German folktale of a hunter who receives a handful of magic bullets that are guaranteed to hit whatever he aims at. All except one bullet, which the devil controls.
 
 For once, the version in _Evening Tales for the Winter_ credits the original story: it's from Johann August Apel, and the German original comes from Volume one of the _Gestpensterbuch_ (Ghost Book), first published in 1810. The uncredited translator is Thomas de Quincey, as can be verified in [this 1908 bibliography](https://archive.org/details/thomasdequincey00greegoog/page/n20/mode/2up).
-
-<!--more-->
 
 De Quincey's version (with both translator and original author uncredited) first appeared as "[The Fatal Marksman](https://archive.org/details/populartalesroma03musaiala/page/140/mode/2up?q=fatal)" in _Popular Tales and Romances of the Northern Nations, Vol 3_ (1823). Curiously, it's one of the few stories whose authorship is not attributed. The anthology editor only speaks of "the author of the Freischutz" in the [Preface](https://archive.org/details/populartalesroma01mus/page/n7/mode/2up) (in Volume 1), even though he or she does mention Apel's _Gespensterbuch_ collaborator, Friedrich Laun, by name four pages later.
 

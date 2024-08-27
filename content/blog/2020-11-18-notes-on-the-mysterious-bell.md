@@ -1,21 +1,16 @@
 ---
 title: "Notes on The Mysterious Bell"
 date: "2020-11-18"
-categories: 
-  - "evening-tales-for-the-winter-1856"
 tags: 
-  - "ghost-stories"
-  - "new-york-statesman"
-  - "sea-tale"
+  - Evening Tales for the Winter
+  - with pdf
 ---
 
-"[The Mysterious Bell](https://darktalessleuth.wordpress.com/wp-content/uploads/2020/11/themysteriousbell.pdf)" is a short, enigmatic tale that feels like the beginning of an unfinished story, but I like it. It reminds me a bit of the spooky sea tales of William Hope Hodgson, or of the Belgian writer Jean Ray. It also has hints of what could be science fiction elements.
+"[The Mysterious Bell](/files/stories/themysteriousbell.pdf)" is a short, enigmatic tale that feels like the beginning of an unfinished story, but I like it. It reminds me a bit of the spooky sea tales of William Hope Hodgson, or of the Belgian writer Jean Ray. It also has hints of what could be science fiction elements.
 
 > It came careering over the waters with a rapid motion, and as it drew near, exhibited to our wondering gaze a single black mast, rising from the centre of what seemed a square and solid block of wood, but without yard or sail, nor did any living creature appear upon it.
 
 Science fiction or ghost story or both -- it is not only intriguing for the mystery within the narrative, but as a literary sleuthing puzzle, too.
-
-<!--more-->
 
 It took only a little internet search to notice that the story had been floating around U.S. newspapers quite a bit in early-mid 1828, after having appeared in the weekly _New-York Mirror and Ladies Literary Gazette_ for October 20, 1827. The _New-York Mirror_ had this to say:
 
@@ -27,7 +22,7 @@ And that was as far as I got, because _The New York Stateman_ isn't online. I as
 
 "The Mysterious Bell -- A Fragment," marked "For the Statesman" and signed "B.", appeared in _The New-York Statesman_, April 29, 1825.
 
-[![Clipping from the original publication of "The Mysterious Bell"](http://darktalessleuth.wordpress.com/wp-content/uploads/2020/11/mysteriousbell_clip.png "MysteriousBell_clip.png")](http://darktalessleuth.wordpress.com/wp-content/uploads/2020/11/mysteriousbell_clip.png)
+{% image "./images/mysteriousbell_clip.png", "Clipping from the original publication of The Mysterious Bell", "40vw" %}
 
 Beyond that, it cannot be traced. Is this the original publication? Who is "B."? Was this fragment indeed the start of an abortive attempt at a novel or longer story? We may never know.
 

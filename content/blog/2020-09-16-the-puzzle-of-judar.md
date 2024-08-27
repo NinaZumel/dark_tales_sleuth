@@ -1,24 +1,14 @@
 ---
 title: "The Puzzle of Judar"
 date: "2020-09-16"
-categories: 
-  - "evening-tales-for-the-winter-1856"
 tags: 
-  - "folktales"
-  - "george-lamb"
-  - "joseph-von-hammer"
-  - "richard-burton"
-  - "story-of-judar"
-  - "thousand-and-one-nights"
-  - "translation"
-  - "william-forsell-kirby"
+  - Evening Tales for the Winter
+  - Thousand and One Nights
 ---
 
 > A certain merchant had three sons; the eldest was named Sálih, the second Selim, and the youngest Judar.
 
 So opens "[The Story of Judar](https://archive.org/details/eveningtalesfor00unkngoog/page/n98/mode/2up)," from Volume One of _Evening Tales for the Winter_. It's the story of a young man who gains some magic artifacts from a Maghrebi magician, and uses them to make his way in the world. In many ways, it's a tale quite similar to the more famous "Aladdin."
-
-<!--more-->
 
 A little websearching easily revealed that this story is from _The Thousand and One Nights_; search for it and up pops the version from Richard Burton's famous translation, from the 1880's. He titled it ["Judar and his Brethren"](https://www.gutenberg.org/files/3440/3440-h/3440-h.htm#chap39).
 
