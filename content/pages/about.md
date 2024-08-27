@@ -1,5 +1,4 @@
 ---
-permalink: /about
 layout: layouts/bigimage.njk
 title: About Dark Tales Sleuth
 eleventyNavigation:

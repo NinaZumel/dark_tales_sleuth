@@ -1,5 +1,4 @@
 ---
-permalink: /about-me
 layout: layouts/home.njk
 title: About Me
 eleventyNavigation:

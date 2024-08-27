@@ -1,5 +1,4 @@
 ---
-permalink: /my-cases
 layout: layouts/bigimage.njk
 title: My Cases
 eleventyNavigation:
