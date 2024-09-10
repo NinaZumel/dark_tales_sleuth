@@ -31,7 +31,7 @@ These are literary investigations that pop up while I’m in the middle of anoth
 An early case, tracking down the sources of Vincent Price's readings on two spooky LPs he recorded for Caedmon Records in the 1970s.
 </div>
 
-<p><small>
+<p class="credit">
  Image: From <em>Miss Madelyn Mack, Detective</em>, by Hugh C. Weir (1914).  Source: <a href="https://archive.org/details/missmadelynmack00massgoog/page/n10/mode/2up">Internet Archive</a>
-</small></p>
+</p>
 

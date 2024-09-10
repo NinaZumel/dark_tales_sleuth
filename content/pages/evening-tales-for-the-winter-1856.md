@@ -29,5 +29,5 @@ You can find a (rather dirty) scan of _Evening Tales for the Winter_ [at the Int
 
 </div>
 
-<p><small>Image: From <a href="https://archive.org/details/astrologerofnine00raph/page/n41/mode/2up"><em>The Astrologer of the Nineteenth Century</em></a>, which also features a reprinting of a story that appears in Volume Two of <em>Evening Tales for the Winter</em>.
-</small></p>
+<p class="credit">Image: From <a href="https://archive.org/details/astrologerofnine00raph/page/n41/mode/2up"><em>The Astrologer of the Nineteenth Century</em></a>, which also features a reprinting of a story that appears in Volume Two of <em>Evening Tales for the Winter</em>.
+</p>

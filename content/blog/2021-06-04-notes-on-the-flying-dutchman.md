@@ -15,7 +15,7 @@ The tale's author is Scotland-born doctor and travel writer [John Howison](http:
 
 Howison's stories, essays, and travelogues were hugely popular with the reading public. However, he seems to have had some sort of falling-out with William Blackwood, the founder and publisher of the eponymous magazine. Perhaps because of this, even though five of Howison's tales (including this one) were reprinted in the popular _Tales from Blackwood_ series (1856-61), they are conspicuously unattributed.
 
-Other than "Vanderdecken's Message Home," none of the Howison tales that I've read are supernatural, though they can be characterized as "tales of terror"[^1]: adventure stories with some gothic overtones, characterized by accounts of near-death experiences. If you liked "The Flying Dutchman" aka "Vanderdecken's Message Home," here are a few more Howison tales that might be of interest.
+Other than "Vanderdecken's Message Home," none of the Howison tales that I've read are supernatural, though they can be characterized as "tales of terror"[^1] : adventure stories with some gothic overtones, characterized by accounts of near-death experiences. If you liked "The Flying Dutchman" aka "Vanderdecken's Message Home," here are a few more Howison tales that might be of interest.
 
 - [The Floating Beacon](https://www.gutenberg.org/files/31826/31826-h/31826-h.htm#THE_FLOATING_BEACON): _Blackwood's_ October 1821, reprinted in _Tales from Blackwood_ Volume 1 (along with "Vanderdecken's Message Home"). The protagonist is shipwrecked and reluctantly rescued by some sketchy people.
 - [Fatal Repast](https://books.google.com/books?id=pVaz22ZN2D8C&pg=PA80&source=gbs_toc_r&cad=3#v=onepage&q&f=false): _Blackwood's_ July 1821, reprinted in _Tales from Blackwood_ Volume 10. Hints of karma and the supernatural, centered on the maritime superstitions surrounding stormy petrels ("Mother Carey's chickens"). One unfortunate passing use of an ethnic slur.
@@ -27,5 +27,4 @@ The three other Howison tales for Blackwood's are "The Florida Pirate" (_Blackwo
 
 Enjoy!
 
-
-[^1]: Woertendyke, Gretchen. "John Howison's New Gothic Nationalism and Transatlantic Exchange," *Early American Literature*, Vol 43 No 2 (2008). [JSTOR link](https://www.jstor.org/stable/25057559?seq=1)
+[^1]: Woertendyke, Gretchen. "John Howison's New Gothic Nationalism and Transatlantic Exchange," Early American Literature, Vol 43 No 2 (2008). [JSTOR link](https://www.jstor.org/stable/25057559?seq=1)

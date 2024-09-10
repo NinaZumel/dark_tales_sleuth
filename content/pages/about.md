@@ -36,9 +36,9 @@ Since then, I've also added the results of other literary mysteries that I've co
 
 </div>
 
-<p><small>Image: From <em>Miss Madelyn Mack, Detective</em>, by Hugh C. Weir (1914). 
+<p class="credit"l>Image: From <em>Miss Madelyn Mack, Detective</em>, by Hugh C. Weir (1914). 
 Source: <a href="https://archive.org/details/missmadelynmack00massgoog/page/n10/mode/2up">Internet Archive</a>.
-</small></p>
+</p>
 
 
 

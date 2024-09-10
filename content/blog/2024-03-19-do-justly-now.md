@@ -35,11 +35,11 @@ Shame on me -- it's not his.
 
 The passage, as we will see, is a loose translation/interpolation of a verse at the end of Chapter II of [_Pirkei Avot_](https://en.wikipedia.org/wiki/Pirkei_Avot), a collection of sayings and maxims from the ancient Jewish rabbis. As far as I can tell, Streane never translated or wrote extensively on the _Pirkei Avot_. He did translate the [_Chagigah_](https://archive.org/details/atranslationtre00stregoog/page/n8/mode/2up), another treatise from the Talmud, and in the introduction to that work he mentions the 1877 translation [_Pirqe Aboth, or Sayings of the Jewish Fathers_](https://sacred-texts.com/jud/sjf/index.htm) by Charles Taylor.
 
-Taylor's translation of Chapter II, verse 19[^1] runs as follows (the bolding is mine):
+Taylor's translation of Chapter II, verse 19{% marginnote "numbering", "The verse numbering differs across different versions of the _Pirkei Avot_."%} runs as follows (the bolding is mine):
 
 > R. Tarphon said, The day is short, and the task is great, and the workmen are sluggish, and the reward is much, and the Master of the house is urgent. He said, **It is not for thee to finish the work, nor art thou free to desist therefrom;** if thou hast learned much Thorah, they give thee much reward; and faithful is the Master of thy work, who will pay thee the reward of thy work, and know that the recompence of the reward of the righteous is for the time to come.
 
-The text is said to be a commentary on Micah 6:8. Here's the [King James' Bible version](https://sacred-texts.com/bib/kjv/mic006.htm#008) of the relevant verse[^2] :
+The text is said to be a commentary on Micah 6:8. Here's the [King James' Bible version](https://sacred-texts.com/bib/kjv/mic006.htm#008) of the relevant verse: {% marginnote "kjb", "I selected the King James version simply because that's the English-language version of the Bible at sacred-texts.com." %}
 
 > He hath shewed thee, O man, what is good; and what doth the LORD require of thee, but to do justly, and to love mercy, and to walk humbly with thy God?
 
@@ -80,6 +80,4 @@ I guess to be fair, attributing the quote to "The Talmud" isn't wrong; just inco
 
 And as I said the first time around: whoever said it, it's a beautiful passage.
 
-[^1]: The verse numbering differs across different versions of the _Pirkei Avot_.
-    
-[^2]: I selected the King James version simply because that's the English-language version of the Bible at sacred-texts.com.
+

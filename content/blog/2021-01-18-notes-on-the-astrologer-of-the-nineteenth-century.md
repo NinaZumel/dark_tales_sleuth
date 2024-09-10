@@ -19,7 +19,7 @@ _[The Necromancer; or the Tale of the Black Forest](https://www.valancourtbooks.
 
 So far, so good. But here's where it gets interesting. A comparison of _The Necromancer_ to "The Astrologer" shows the two plots are basically the same--_but the texts are different_. Moreover, the names have changed: the two principal characters in _The Necromancer_ are Herrman and Hellfried; in "The Astrologer" they are Herrman and Cronheim. Other details differ, as well.
 
-It's known that Teuthold took liberties in his translation, going so far as to lift a story from Friedrich Schiller and insert it into _The Necromancer_[^2]. Could "The Astrologer" be from an alternative translation of _Der Geisterbanner_? Or is it a plagiarism of Teuthold's work? The latter seemed most likely, and I assume it's what Bleiler believed, but I wanted to find out.
+It's known that Teuthold took liberties in his translation, going so far as to lift a story from Friedrich Schiller and insert it into _The Necromancer_.{% marginnote "n1", "Apparently, Kahlert liked Schiller's addition so much he retranslated it into German and inserted it into the next edition of _Der Geisterbanner_." %} Could "The Astrologer" be from an alternative translation of _Der Geisterbanner_? Or is it a plagiarism of Teuthold's work? The latter seemed most likely, and I assume it's what Bleiler believed, but I wanted to find out.
 
 ### Raphael, the Metropolitan Astrologer
 
@@ -65,4 +65,4 @@ This is a bit longer than my usual story notes, and I'm not done yet! [Next post
 
 [^1]: In 2007, German scholar Norbert Besch uncovered contemporary evidence that Peter Teuthold was a pseudonym for Peter Will, a German expatriate who moved to London, and who translated a number of German works. This discovery was presented to the public for the first time by James Jenkins, in the preface to the [2007 Valancourt Books edition of _The Necromancer_](https://www.valancourtbooks.com/the-necromancer-or-the-tale-of-the-black-forest-1794.html), along with other circumstantial evidence that lent credence to this claim. Will also translated Carl Grosses's _Der Genius_ as [_Horrid Mysteries_](https://www.valancourtbooks.com/horrid-mysteries-1796.html)\---one of the other seven "horrid novels." 
 
-[^2]: Apparently, Kahlert liked this addition so much he retranslated it into German and inserted it into the next edition of _Der Geisterbanner_. 
+

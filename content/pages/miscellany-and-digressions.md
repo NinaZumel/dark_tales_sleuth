@@ -28,10 +28,12 @@ These are literary investigations that pop up while I'm in the middle of another
 
 [**Hunting the Ghost of Lille:**](/blog/2022-09-06-hunting-the-ghost-of-lille/) Two versions of a "true" haunted house story from Lille, France.
 
-</div>
-
 And in case I forgot any of them, here's a link to [all posts about Miscellany Cases.](/tags/miscellany/)
 
-<p><small>
+</div>
+
+
+
+<p class="credit" >
 Illustration by John Gilbert, from <em>The Book of Brave Old Ballads</em> (c. 1870s). Source: <a href="https://www.reusableart.com/block-border-03.html">ReusableArt.com</a>
-</small></p>
+</p>
