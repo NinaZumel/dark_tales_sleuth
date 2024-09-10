@@ -183,6 +183,135 @@ pre[class*="language-diff-"] {
 	text-decoration: none; /* override del, ins, mark defaults */
 	color: inherit; /* override del, ins, mark defaults */
 }
+/* minimal implementation; just plain text in the margin, no blockquotes, code, etc */
+/* only (unnumbered) margin notes, no sidenotes */
+/* stripped down from https://github.com/edwardtufte/tufte-css */
+
+/* need this for correct sidenote numbering; but I'm not using sidenotes */
+/*
+body {
+    counter-reset: sidenote-counter; 
+} 
+*/
+
+
+/* since I imagine these will change with different templates */
+:root {
+    --content-width: 65%;
+    --image-padding: 5%;
+    --image-max: 60%;  /* total image+padding <= content-width */
+    --notewidth: 30%; 
+    /* content-width + notewidth <  100%. I think you should leave some wiggle room. */
+    --note-right-margin: -45%;
+    /* if this margin is -(notewidth), the note will start just on the right border of the text */
+    /* so push it a little to the right (more negative) */
+}
+
+article {
+	padding-top: 1rem; 
+}
+
+/* make room for the notes in the article container */
+article > p,
+article > pre,
+article > ul {
+    width: var(--content-width);
+}
+
+/* 
+  blockquotes should be a little shorter 
+  This assumes that left indentation is 2em, which is what it looks like.
+  */
+article > blockquote {
+    width: calc(var(--content-width) - 2em); 
+}
+
+
+article > hr {
+    max-width: var(--content-width);
+    margin: 0
+}
+
+/* keep images/captions in the text column, rather than centered in the article container */
+article > img {
+    margin-left: 0;
+    padding-left: var(--image-padding);
+    max-width: var(--image-max); 
+}
+
+article > p.caption {
+	text-align: left;
+    padding-left: var(--image-padding);
+	font-style: italic;
+	font-size: 0.9em;
+	color: #9B9C9D;
+ }
+
+ /* finally, the margin note */
+.marginnote {    
+    float: right;
+    clear: right;
+    width: var(--notewidth);         
+    margin-right: var(--note-right-margin);
+    margin-top: 0.3rem;
+    margin-bottom: 0;
+    font-size: 0.8rem;
+    line-height: 1.3;
+    vertical-align: baseline;
+    position: relative;
+    /* border: 2px solid blue; */
+}
+
+
+input.margin-toggle {
+    display: none;
+}
+
+
+label.margin-toggle {    
+    display: none;
+
+}
+
+/* The mobile fallback: */
+/* making max-width bigger makes the note fall inline sooner */
+@media (max-width: 768px) {  
+    body {
+        width: 84%;
+        padding-left: 8%;
+        padding-right: 8%;
+    }
+
+    hr,
+    article > p,
+    article > blockquote,
+    article > pre {
+        width: 100%;
+    }
+
+    label.margin-toggle {
+        display: inline;
+    }
+       
+    .marginnote {           
+         display: none;        
+        }    
+
+      
+    .margin-toggle:checked + .marginnote {            
+        display: block;            
+        float: left;            
+        left: 1rem;            
+        clear: both;            
+        width: 95%;            
+        margin: 1rem 2.5%;            
+        vertical-align: baseline;            
+        position: relative;        
+    }
+    label {
+        cursor: pointer;
+    }
+}
 * { box-sizing: border-box; }
 /* Defaults */
 :root {
@@ -244,7 +373,7 @@ html {
 	overflow-y: scroll;
 }
 body {
-	max-width: 50em;
+	max-width: 70em; /* 50em; */
 }
 
 /* different horizontal rules  https://www.w3schools.com/howto/howto_css_dividers.asp */
@@ -309,11 +438,19 @@ p {
 	/* font-size: 1.2em; */
 }
 
-P.caption {
+p.caption {
 	text-align: center;
 	font-style: italic;
 	font-size: 0.9em;
 	color: #9B9C9D;
+ }
+
+ /* for the credits at the bottom of a page */
+p.credit {
+	max-width: 50em;
+	font-size: 0.9em;
+	margin-left: auto;
+	margin-right: auto;
  }
 
 li {
@@ -388,6 +525,15 @@ code {
 	word-break: break-all;
 }
 
+/*
+  Custom containters
+*/
+div.message-box {
+	max-width: 50em; 
+	margin-left: auto;
+	margin-right: auto;
+}
+
 /* Header */
 header {
 	display: flex;
@@ -428,6 +574,7 @@ header {
 	list-style: none;
 	padding: 0;
 	padding-left: 0; /* 1.5rem; */
+	max-width: 50em;
 }
 .postlist-item {
 	display: flex;
@@ -605,6 +752,7 @@ hr {
 
 		<main id="skip">
 			
+
 <h1>The Legend of Old Spital Inn</h1>
 
 <div class="posttalk-metadata">
@@ -617,7 +765,9 @@ hr {
 	<li><a href="/dark_tales_sleuth/tags/with-pdf/" class="post-tag">with pdf</a></li>
 </ul>
 
-<p>One of the pieces that Vincent Price reads on his 1974 spooky tales album, <a href="https://multoghost.wordpress.com/2019/09/23/vincent-price-reads-a-graveyard-of-ghost-tales/"><em>A Graveyard of Ghost Tales</em></a>, is a story called &quot;The Ghostly Hand of Spital House,&quot; by Dorothy Gladys Spicer. This is a fun and engaging tale about some bandits who try to rob an inn with the help of a <em>hand of glory</em> : a candle (or candle-holder) made from the hand of a hanged man. Lighting the hand of glory puts all the sleeping occupants of the house into an even deeper sleep, from which they don't awaken until the hand is extinguished. You can see how this would be a <em>(cough)</em> handy tool for robbers and catburglars to have.</p>
+
+<article>
+	<p>One of the pieces that Vincent Price reads on his 1974 spooky tales album, <a href="https://multoghost.wordpress.com/2019/09/23/vincent-price-reads-a-graveyard-of-ghost-tales/"><em>A Graveyard of Ghost Tales</em></a>, is a story called &quot;The Ghostly Hand of Spital House,&quot; by Dorothy Gladys Spicer. This is a fun and engaging tale about some bandits who try to rob an inn with the help of a <em>hand of glory</em> : a candle (or candle-holder) made from the hand of a hanged man. Lighting the hand of glory puts all the sleeping occupants of the house into an even deeper sleep, from which they don't awaken until the hand is extinguished. You can see how this would be a <em>(cough)</em> handy tool for robbers and catburglars to have.</p>
 <!--more-->
 <p>Recently (while researching something else), I came upon an early version of the Spital House story, along with some variations, in William Henderson's 1879 <em>Notes on the Folk-lore of the Northern Counties of England and the Borders</em> (this is a second, expanded, edition of his earlier <em>Folk-lore of the Northern Counties</em>). These may be the source texts that Dorothy Gladys Spicer built her more elaborate version around. So I thought I would share them with you.</p>
 <ul>
@@ -635,6 +785,7 @@ hr {
 <p>Among the abuses of these people was that in their false <a href="https://en.wikipedia.org/wiki/Judicial_astrology">judicial astrology</a> they had a sign that was called <a href="https://en.wikipedia.org/wiki/Ce_Acatl_Topiltzin"><em>ce acatl</em></a>. It was said that those who were born under this sign, if they were noble, would be very restless; and if low and common people, were destined to become thieves, practicing the superstitious and evil art of those that they called <em>temacpalytotique</em>. These would usually be fifteen or twenty in number, and when they wanted to rob any house they made the image of <em>ce acatl</em>, or that of the god Quetzalcohuatl, and they went dancing all together to where they wanted to commit the crime, led by the one who carried the figure or idol of this false god (who was certainly false, since he was leading people as wicked as these), and another who also carried the arm of a woman who had died in her first childbirth (these swindlers had cut off her left arm and hand for use in their evildoing).</p>
 <p>The one who brought this hand carried it on his left shoulder, and before entering the house that they were going to rob, they gave two blows on the ground with the dead woman's arm, and at the door they gave as many blows on the thresholds; with the result, they say, that all those who were inside would fall asleep or unconscious, and none of them could speak or move from the place where they lay, and those who were awake were dumbfounded and amazed, and couldn't speak though they wanted to, and saw the damage but couldn't avert it. ...</p>
 
+</article>
 <ul class="links-nextprev"><li><a href="/dark_tales_sleuth/blog/2021-01-26-side-excursion-the-struggling-astrologer-issue-one/">&#8592;</a> <span style="color: #9B9C9D">Previous</span></li><li><span style="color: #9B9C9D">Next</span> <a href="/dark_tales_sleuth/blog/2021-03-20-notes-on-peter-rugg-the-missing-man/">&#8594</a></li>
 </ul>
 

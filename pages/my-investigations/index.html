@@ -138,7 +138,7 @@ html {
 	overflow-y: scroll;
 }
 body {
-	max-width: 50em;
+	max-width: 70em; /* 50em; */
 }
 
 /* different horizontal rules  https://www.w3schools.com/howto/howto_css_dividers.asp */
@@ -203,11 +203,19 @@ p {
 	/* font-size: 1.2em; */
 }
 
-P.caption {
+p.caption {
 	text-align: center;
 	font-style: italic;
 	font-size: 0.9em;
 	color: #9B9C9D;
+ }
+
+ /* for the credits at the bottom of a page */
+p.credit {
+	max-width: 50em;
+	font-size: 0.9em;
+	margin-left: auto;
+	margin-right: auto;
  }
 
 li {
@@ -282,6 +290,15 @@ code {
 	word-break: break-all;
 }
 
+/*
+  Custom containters
+*/
+div.message-box {
+	max-width: 50em; 
+	margin-left: auto;
+	margin-right: auto;
+}
+
 /* Header */
 header {
 	display: flex;
@@ -322,6 +339,7 @@ header {
 	list-style: none;
 	padding: 0;
 	padding-left: 0; /* 1.5rem; */
+	max-width: 50em;
 }
 .postlist-item {
 	display: flex;
@@ -516,9 +534,9 @@ hr {
 <h4 id="vincent-price-and-caedmon-records" tabindex="-1"><a href="/dark_tales_sleuth/pages/vincent-price-and-caedmon-records/">Vincent Price and Caedmon Records</a> <a class="header-anchor" href="#vincent-price-and-caedmon-records">#</a></h4>
 <p>An early case, tracking down the sources of Vincent Price's readings on two spooky LPs he recorded for Caedmon Records in the 1970s.</p>
 </div>
-<p><small>
+<p class="credit">
  Image: From <em>Miss Madelyn Mack, Detective</em>, by Hugh C. Weir (1914).  Source: <a href="https://archive.org/details/missmadelynmack00massgoog/page/n10/mode/2up">Internet Archive</a>
-</small></p>
+</p>
 
 
 		</main>

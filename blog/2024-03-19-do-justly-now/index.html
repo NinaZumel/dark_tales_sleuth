@@ -183,6 +183,135 @@ pre[class*="language-diff-"] {
 	text-decoration: none; /* override del, ins, mark defaults */
 	color: inherit; /* override del, ins, mark defaults */
 }
+/* minimal implementation; just plain text in the margin, no blockquotes, code, etc */
+/* only (unnumbered) margin notes, no sidenotes */
+/* stripped down from https://github.com/edwardtufte/tufte-css */
+
+/* need this for correct sidenote numbering; but I'm not using sidenotes */
+/*
+body {
+    counter-reset: sidenote-counter; 
+} 
+*/
+
+
+/* since I imagine these will change with different templates */
+:root {
+    --content-width: 65%;
+    --image-padding: 5%;
+    --image-max: 60%;  /* total image+padding <= content-width */
+    --notewidth: 30%; 
+    /* content-width + notewidth <  100%. I think you should leave some wiggle room. */
+    --note-right-margin: -45%;
+    /* if this margin is -(notewidth), the note will start just on the right border of the text */
+    /* so push it a little to the right (more negative) */
+}
+
+article {
+	padding-top: 1rem; 
+}
+
+/* make room for the notes in the article container */
+article > p,
+article > pre,
+article > ul {
+    width: var(--content-width);
+}
+
+/* 
+  blockquotes should be a little shorter 
+  This assumes that left indentation is 2em, which is what it looks like.
+  */
+article > blockquote {
+    width: calc(var(--content-width) - 2em); 
+}
+
+
+article > hr {
+    max-width: var(--content-width);
+    margin: 0
+}
+
+/* keep images/captions in the text column, rather than centered in the article container */
+article > img {
+    margin-left: 0;
+    padding-left: var(--image-padding);
+    max-width: var(--image-max); 
+}
+
+article > p.caption {
+	text-align: left;
+    padding-left: var(--image-padding);
+	font-style: italic;
+	font-size: 0.9em;
+	color: #9B9C9D;
+ }
+
+ /* finally, the margin note */
+.marginnote {    
+    float: right;
+    clear: right;
+    width: var(--notewidth);         
+    margin-right: var(--note-right-margin);
+    margin-top: 0.3rem;
+    margin-bottom: 0;
+    font-size: 0.8rem;
+    line-height: 1.3;
+    vertical-align: baseline;
+    position: relative;
+    /* border: 2px solid blue; */
+}
+
+
+input.margin-toggle {
+    display: none;
+}
+
+
+label.margin-toggle {    
+    display: none;
+
+}
+
+/* The mobile fallback: */
+/* making max-width bigger makes the note fall inline sooner */
+@media (max-width: 768px) {  
+    body {
+        width: 84%;
+        padding-left: 8%;
+        padding-right: 8%;
+    }
+
+    hr,
+    article > p,
+    article > blockquote,
+    article > pre {
+        width: 100%;
+    }
+
+    label.margin-toggle {
+        display: inline;
+    }
+       
+    .marginnote {           
+         display: none;        
+        }    
+
+      
+    .margin-toggle:checked + .marginnote {            
+        display: block;            
+        float: left;            
+        left: 1rem;            
+        clear: both;            
+        width: 95%;            
+        margin: 1rem 2.5%;            
+        vertical-align: baseline;            
+        position: relative;        
+    }
+    label {
+        cursor: pointer;
+    }
+}
 * { box-sizing: border-box; }
 /* Defaults */
 :root {
@@ -244,7 +373,7 @@ html {
 	overflow-y: scroll;
 }
 body {
-	max-width: 50em;
+	max-width: 70em; /* 50em; */
 }
 
 /* different horizontal rules  https://www.w3schools.com/howto/howto_css_dividers.asp */
@@ -309,11 +438,19 @@ p {
 	/* font-size: 1.2em; */
 }
 
-P.caption {
+p.caption {
 	text-align: center;
 	font-style: italic;
 	font-size: 0.9em;
 	color: #9B9C9D;
+ }
+
+ /* for the credits at the bottom of a page */
+p.credit {
+	max-width: 50em;
+	font-size: 0.9em;
+	margin-left: auto;
+	margin-right: auto;
  }
 
 li {
@@ -388,6 +525,15 @@ code {
 	word-break: break-all;
 }
 
+/*
+  Custom containters
+*/
+div.message-box {
+	max-width: 50em; 
+	margin-left: auto;
+	margin-right: auto;
+}
+
 /* Header */
 header {
 	display: flex;
@@ -428,6 +574,7 @@ header {
 	list-style: none;
 	padding: 0;
 	padding-left: 0; /* 1.5rem; */
+	max-width: 50em;
 }
 .postlist-item {
 	display: flex;
@@ -605,6 +752,7 @@ hr {
 
 		<main id="skip">
 			
+
 <h1>Do Justly, Now</h1>
 
 <div class="posttalk-metadata">
@@ -617,7 +765,9 @@ hr {
 	<li><a href="/dark_tales_sleuth/tags/rabbi-rami-shapiro/" class="post-tag">Rabbi Rami Shapiro</a></li>
 </ul>
 
-<p><em>I'm starting a new category for tracking down specific citations of wrongly or incompletely attributed quotes. This is the first post, based on a <a href="http://ninazumel.com/short_thoughts/blog/2023-05-12-do-justly-now/">previous post</a> from my microblog Short Thoughts.</em></p>
+
+<article>
+	<p><em>I'm starting a new category for tracking down specific citations of wrongly or incompletely attributed quotes. This is the first post, based on a <a href="http://ninazumel.com/short_thoughts/blog/2023-05-12-do-justly-now/">previous post</a> from my microblog Short Thoughts.</em></p>
 <hr>
 <pre><code>
 Do not be daunted
@@ -636,11 +786,15 @@ to abandon it.
 <p>Shame on me -- it's not his.</p>
 <!--more-->
 <p>The passage, as we will see, is a loose translation/interpolation of a verse at the end of Chapter II of <a href="https://en.wikipedia.org/wiki/Pirkei_Avot"><em>Pirkei Avot</em></a>, a collection of sayings and maxims from the ancient Jewish rabbis. As far as I can tell, Streane never translated or wrote extensively on the <em>Pirkei Avot</em>. He did translate the <a href="https://archive.org/details/atranslationtre00stregoog/page/n8/mode/2up"><em>Chagigah</em></a>, another treatise from the Talmud, and in the introduction to that work he mentions the 1877 translation <a href="https://sacred-texts.com/jud/sjf/index.htm"><em>Pirqe Aboth, or Sayings of the Jewish Fathers</em></a> by Charles Taylor.</p>
-<p>Taylor's translation of Chapter II, verse 19<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup> runs as follows (the bolding is mine):</p>
+<p>Taylor's translation of Chapter II, verse 19<label for="numbering" class="margin-toggle">⊕</label>
+<input type="checkbox" id="numbering" class="margin-toggle">
+<span class="marginnote">The verse numbering differs across different versions of the <em>Pirkei Avot</em>.</span> runs as follows (the bolding is mine):</p>
 <blockquote>
 <p>R. Tarphon said, The day is short, and the task is great, and the workmen are sluggish, and the reward is much, and the Master of the house is urgent. He said, <strong>It is not for thee to finish the work, nor art thou free to desist therefrom;</strong> if thou hast learned much Thorah, they give thee much reward; and faithful is the Master of thy work, who will pay thee the reward of thy work, and know that the recompence of the reward of the righteous is for the time to come.</p>
 </blockquote>
-<p>The text is said to be a commentary on Micah 6:8. Here's the <a href="https://sacred-texts.com/bib/kjv/mic006.htm#008">King James' Bible version</a> of the relevant verse<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup> :</p>
+<p>The text is said to be a commentary on Micah 6:8. Here's the <a href="https://sacred-texts.com/bib/kjv/mic006.htm#008">King James' Bible version</a> of the relevant verse: <label for="kjb" class="margin-toggle">⊕</label>
+<input type="checkbox" id="kjb" class="margin-toggle">
+<span class="marginnote">I selected the King James version simply because that's the English-language version of the Bible at sacred-texts.com.</span></p>
 <blockquote>
 <p>He hath shewed thee, O man, what is good; and what doth the LORD require of thee, but to do justly, and to love mercy, and to walk humbly with thy God?</p>
 </blockquote>
@@ -674,16 +828,8 @@ knowing that &quot;this, too, shall pass.&quot;
 <p>What's more puzzling to me is: how on Earth did Annesley William Streane's name get attached to the quote? It's not uncommon for memeable quotes to detach from their authors, and re-attach to some plausible, more famous, person. But Streane isn't exactly famous--he doesn't even have a Wikipedia page.</p>
 <p>I guess to be fair, attributing the quote to &quot;The Talmud&quot; isn't wrong; just incomplete. I'm also sorry that I helped to propagate an inaccuracy with my original attribution. This post is my way of making up for it, to the extent that I can.</p>
 <p>And as I said the first time around: whoever said it, it's a beautiful passage.</p>
-<hr class="footnotes-sep">
-<section class="footnotes">
-<ol class="footnotes-list">
-<li id="fn1" class="footnote-item"><p>The verse numbering differs across different versions of the <em>Pirkei Avot</em>. <a href="#fnref1" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn2" class="footnote-item"><p>I selected the King James version simply because that's the English-language version of the Bible at sacred-texts.com. <a href="#fnref2" class="footnote-backref">↩︎</a></p>
-</li>
-</ol>
-</section>
 
+</article>
 <ul class="links-nextprev"><li><a href="/dark_tales_sleuth/blog/2024-01-02-revisiting-the-tigers-cave/">&#8592;</a> <span style="color: #9B9C9D">Previous</span></li><li><span style="color: #9B9C9D">Next</span> <a href="/dark_tales_sleuth/blog/2024-03-25-encourage-the-beautiful/">&#8594</a></li>
 </ul>
 

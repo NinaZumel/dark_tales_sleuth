@@ -183,6 +183,135 @@ pre[class*="language-diff-"] {
 	text-decoration: none; /* override del, ins, mark defaults */
 	color: inherit; /* override del, ins, mark defaults */
 }
+/* minimal implementation; just plain text in the margin, no blockquotes, code, etc */
+/* only (unnumbered) margin notes, no sidenotes */
+/* stripped down from https://github.com/edwardtufte/tufte-css */
+
+/* need this for correct sidenote numbering; but I'm not using sidenotes */
+/*
+body {
+    counter-reset: sidenote-counter; 
+} 
+*/
+
+
+/* since I imagine these will change with different templates */
+:root {
+    --content-width: 65%;
+    --image-padding: 5%;
+    --image-max: 60%;  /* total image+padding <= content-width */
+    --notewidth: 30%; 
+    /* content-width + notewidth <  100%. I think you should leave some wiggle room. */
+    --note-right-margin: -45%;
+    /* if this margin is -(notewidth), the note will start just on the right border of the text */
+    /* so push it a little to the right (more negative) */
+}
+
+article {
+	padding-top: 1rem; 
+}
+
+/* make room for the notes in the article container */
+article > p,
+article > pre,
+article > ul {
+    width: var(--content-width);
+}
+
+/* 
+  blockquotes should be a little shorter 
+  This assumes that left indentation is 2em, which is what it looks like.
+  */
+article > blockquote {
+    width: calc(var(--content-width) - 2em); 
+}
+
+
+article > hr {
+    max-width: var(--content-width);
+    margin: 0
+}
+
+/* keep images/captions in the text column, rather than centered in the article container */
+article > img {
+    margin-left: 0;
+    padding-left: var(--image-padding);
+    max-width: var(--image-max); 
+}
+
+article > p.caption {
+	text-align: left;
+    padding-left: var(--image-padding);
+	font-style: italic;
+	font-size: 0.9em;
+	color: #9B9C9D;
+ }
+
+ /* finally, the margin note */
+.marginnote {    
+    float: right;
+    clear: right;
+    width: var(--notewidth);         
+    margin-right: var(--note-right-margin);
+    margin-top: 0.3rem;
+    margin-bottom: 0;
+    font-size: 0.8rem;
+    line-height: 1.3;
+    vertical-align: baseline;
+    position: relative;
+    /* border: 2px solid blue; */
+}
+
+
+input.margin-toggle {
+    display: none;
+}
+
+
+label.margin-toggle {    
+    display: none;
+
+}
+
+/* The mobile fallback: */
+/* making max-width bigger makes the note fall inline sooner */
+@media (max-width: 768px) {  
+    body {
+        width: 84%;
+        padding-left: 8%;
+        padding-right: 8%;
+    }
+
+    hr,
+    article > p,
+    article > blockquote,
+    article > pre {
+        width: 100%;
+    }
+
+    label.margin-toggle {
+        display: inline;
+    }
+       
+    .marginnote {           
+         display: none;        
+        }    
+
+      
+    .margin-toggle:checked + .marginnote {            
+        display: block;            
+        float: left;            
+        left: 1rem;            
+        clear: both;            
+        width: 95%;            
+        margin: 1rem 2.5%;            
+        vertical-align: baseline;            
+        position: relative;        
+    }
+    label {
+        cursor: pointer;
+    }
+}
 * { box-sizing: border-box; }
 /* Defaults */
 :root {
@@ -244,7 +373,7 @@ html {
 	overflow-y: scroll;
 }
 body {
-	max-width: 50em;
+	max-width: 70em; /* 50em; */
 }
 
 /* different horizontal rules  https://www.w3schools.com/howto/howto_css_dividers.asp */
@@ -309,11 +438,19 @@ p {
 	/* font-size: 1.2em; */
 }
 
-P.caption {
+p.caption {
 	text-align: center;
 	font-style: italic;
 	font-size: 0.9em;
 	color: #9B9C9D;
+ }
+
+ /* for the credits at the bottom of a page */
+p.credit {
+	max-width: 50em;
+	font-size: 0.9em;
+	margin-left: auto;
+	margin-right: auto;
  }
 
 li {
@@ -388,6 +525,15 @@ code {
 	word-break: break-all;
 }
 
+/*
+  Custom containters
+*/
+div.message-box {
+	max-width: 50em; 
+	margin-left: auto;
+	margin-right: auto;
+}
+
 /* Header */
 header {
 	display: flex;
@@ -428,6 +574,7 @@ header {
 	list-style: none;
 	padding: 0;
 	padding-left: 0; /* 1.5rem; */
+	max-width: 50em;
 }
 .postlist-item {
 	display: flex;
@@ -605,6 +752,7 @@ hr {
 
 		<main id="skip">
 			
+
 <h1>Notes on The Astrologer of the Nineteenth Century</h1>
 
 <div class="posttalk-metadata">
@@ -618,12 +766,16 @@ hr {
 	<li><a href="/dark_tales_sleuth/tags/peter-will/" class="post-tag">Peter Will</a></li>
 </ul>
 
-<p><em>A literary sleuthing case with an unexpected payoff.</em></p>
+
+<article>
+	<p><em>A literary sleuthing case with an unexpected payoff.</em></p>
 <p>UPDATE 3/21/21: The <em>Ex-Classics Website</em> recently put up <a href="https://www.exclassics.com/necro/necrointro.htm">a version of <em>The Necromancer</em>, directly from the original sources, with footnotes</a>. Check it out!</p>
 <p>In 1983, in his authoritative reference <em>The Guide to Supernatural Fiction</em>, Everett Bleiler identified &quot;<a href="https://archive.org/details/eveningtalesfor00unkngoog/page/n188/mode/2up?q=volkert">The Astrologer of the Nineteenth Century</a>,&quot; from <em>Tales of Terror</em>/<em>Evening Tales for the Winter</em> as the first part of <em>The Necromancer</em>, a work best known today for being one of the <a href="https://www.valancourtbooks.com/jane-austens-northanger-abbey-horrid-novels.html">seven &quot;horrid novels&quot;</a> that Jane Austen mentions in <em>Northanger Abbey</em>.</p>
 <p><em><a href="https://www.valancourtbooks.com/the-necromancer-or-the-tale-of-the-black-forest-1794.html">The Necromancer; or the Tale of the Black Forest</a></em> is a 1794 translation by one Peter Teuthold<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>, of <em>Der Geisterbanner: Eine Wundergeschichte aus mündlichen und schriftlichen Traditionen gesammelt</em> (<em>The Spectral Banner: A Wondrous Tale Collected from Oral and Written Traditions</em>), a novel written by Karl Friedrich Kahlert under the name Lorenz Flammenberg, and published in 1792.</p>
 <p>So far, so good. But here's where it gets interesting. A comparison of <em>The Necromancer</em> to &quot;The Astrologer&quot; shows the two plots are basically the same--<em>but the texts are different</em>. Moreover, the names have changed: the two principal characters in <em>The Necromancer</em> are Herrman and Hellfried; in &quot;The Astrologer&quot; they are Herrman and Cronheim. Other details differ, as well.</p>
-<p>It's known that Teuthold took liberties in his translation, going so far as to lift a story from Friedrich Schiller and insert it into <em>The Necromancer</em><sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>. Could &quot;The Astrologer&quot; be from an alternative translation of <em>Der Geisterbanner</em>? Or is it a plagiarism of Teuthold's work? The latter seemed most likely, and I assume it's what Bleiler believed, but I wanted to find out.</p>
+<p>It's known that Teuthold took liberties in his translation, going so far as to lift a story from Friedrich Schiller and insert it into <em>The Necromancer</em>.<label for="n1" class="margin-toggle">⊕</label>
+<input type="checkbox" id="n1" class="margin-toggle">
+<span class="marginnote">Apparently, Kahlert liked Schiller's addition so much he retranslated it into German and inserted it into the next edition of <em>Der Geisterbanner</em>.</span> Could &quot;The Astrologer&quot; be from an alternative translation of <em>Der Geisterbanner</em>? Or is it a plagiarism of Teuthold's work? The latter seemed most likely, and I assume it's what Bleiler believed, but I wanted to find out.</p>
 <h3 id="raphael-the-metropolitan-astrologer" tabindex="-1">Raphael, the Metropolitan Astrologer <a class="header-anchor" href="#raphael-the-metropolitan-astrologer">#</a></h3>
 <p>Cut to the chase: I found the text from <em>Tales of Terror</em> and <em>Evening Tales for the Winter</em> in the 1825 astrological volume <a href="https://archive.org/details/astrologerofnine00raph/page/n29/mode/2up"><em>The Astrologer Of The Nineteenth Century</em></a>, allegedly authored &quot;By the Members of the Mercurii; Raphael, The Metropolitan Astrologer; The Editor of the Prophetic Almanack; and Other Sidereal Artists of First-Rate Eminence.&quot;</p>
 <p>It turns out this tome is a compilation of the issues of the failed 1824 periodical <em>The Struggling Astrologer</em>, edited by the English astrologer <a href="https://en.wikipedia.org/wiki/Robert_Cross_Smith">Robert Cross Smith</a>, the first of many astrologers who wrote under the name <a href="https://www.encyclopedia.com/science/encyclopedias-almanacs-transcripts-and-maps/smith-robert-cross-1795-1832">Raphael</a>.</p>
@@ -652,11 +804,10 @@ By T. Dutton, Esq.
 <ol class="footnotes-list">
 <li id="fn1" class="footnote-item"><p>In 2007, German scholar Norbert Besch uncovered contemporary evidence that Peter Teuthold was a pseudonym for Peter Will, a German expatriate who moved to London, and who translated a number of German works. This discovery was presented to the public for the first time by James Jenkins, in the preface to the <a href="https://www.valancourtbooks.com/the-necromancer-or-the-tale-of-the-black-forest-1794.html">2007 Valancourt Books edition of <em>The Necromancer</em></a>, along with other circumstantial evidence that lent credence to this claim. Will also translated Carl Grosses's <em>Der Genius</em> as <a href="https://www.valancourtbooks.com/horrid-mysteries-1796.html"><em>Horrid Mysteries</em></a>---one of the other seven &quot;horrid novels.&quot; <a href="#fnref1" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn2" class="footnote-item"><p>Apparently, Kahlert liked this addition so much he retranslated it into German and inserted it into the next edition of <em>Der Geisterbanner</em>. <a href="#fnref2" class="footnote-backref">↩︎</a></p>
-</li>
 </ol>
 </section>
 
+</article>
 <ul class="links-nextprev"><li><a href="/dark_tales_sleuth/blog/2021-01-14-wrapping-up-volume-one/">&#8592;</a> <span style="color: #9B9C9D">Previous</span></li><li><span style="color: #9B9C9D">Next</span> <a href="/dark_tales_sleuth/blog/2021-01-26-side-excursion-the-struggling-astrologer-issue-one/">&#8594</a></li>
 </ul>
 

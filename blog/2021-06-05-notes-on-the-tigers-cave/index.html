@@ -183,6 +183,135 @@ pre[class*="language-diff-"] {
 	text-decoration: none; /* override del, ins, mark defaults */
 	color: inherit; /* override del, ins, mark defaults */
 }
+/* minimal implementation; just plain text in the margin, no blockquotes, code, etc */
+/* only (unnumbered) margin notes, no sidenotes */
+/* stripped down from https://github.com/edwardtufte/tufte-css */
+
+/* need this for correct sidenote numbering; but I'm not using sidenotes */
+/*
+body {
+    counter-reset: sidenote-counter; 
+} 
+*/
+
+
+/* since I imagine these will change with different templates */
+:root {
+    --content-width: 65%;
+    --image-padding: 5%;
+    --image-max: 60%;  /* total image+padding <= content-width */
+    --notewidth: 30%; 
+    /* content-width + notewidth <  100%. I think you should leave some wiggle room. */
+    --note-right-margin: -45%;
+    /* if this margin is -(notewidth), the note will start just on the right border of the text */
+    /* so push it a little to the right (more negative) */
+}
+
+article {
+	padding-top: 1rem; 
+}
+
+/* make room for the notes in the article container */
+article > p,
+article > pre,
+article > ul {
+    width: var(--content-width);
+}
+
+/* 
+  blockquotes should be a little shorter 
+  This assumes that left indentation is 2em, which is what it looks like.
+  */
+article > blockquote {
+    width: calc(var(--content-width) - 2em); 
+}
+
+
+article > hr {
+    max-width: var(--content-width);
+    margin: 0
+}
+
+/* keep images/captions in the text column, rather than centered in the article container */
+article > img {
+    margin-left: 0;
+    padding-left: var(--image-padding);
+    max-width: var(--image-max); 
+}
+
+article > p.caption {
+	text-align: left;
+    padding-left: var(--image-padding);
+	font-style: italic;
+	font-size: 0.9em;
+	color: #9B9C9D;
+ }
+
+ /* finally, the margin note */
+.marginnote {    
+    float: right;
+    clear: right;
+    width: var(--notewidth);         
+    margin-right: var(--note-right-margin);
+    margin-top: 0.3rem;
+    margin-bottom: 0;
+    font-size: 0.8rem;
+    line-height: 1.3;
+    vertical-align: baseline;
+    position: relative;
+    /* border: 2px solid blue; */
+}
+
+
+input.margin-toggle {
+    display: none;
+}
+
+
+label.margin-toggle {    
+    display: none;
+
+}
+
+/* The mobile fallback: */
+/* making max-width bigger makes the note fall inline sooner */
+@media (max-width: 768px) {  
+    body {
+        width: 84%;
+        padding-left: 8%;
+        padding-right: 8%;
+    }
+
+    hr,
+    article > p,
+    article > blockquote,
+    article > pre {
+        width: 100%;
+    }
+
+    label.margin-toggle {
+        display: inline;
+    }
+       
+    .marginnote {           
+         display: none;        
+        }    
+
+      
+    .margin-toggle:checked + .marginnote {            
+        display: block;            
+        float: left;            
+        left: 1rem;            
+        clear: both;            
+        width: 95%;            
+        margin: 1rem 2.5%;            
+        vertical-align: baseline;            
+        position: relative;        
+    }
+    label {
+        cursor: pointer;
+    }
+}
 * { box-sizing: border-box; }
 /* Defaults */
 :root {
@@ -244,7 +373,7 @@ html {
 	overflow-y: scroll;
 }
 body {
-	max-width: 50em;
+	max-width: 70em; /* 50em; */
 }
 
 /* different horizontal rules  https://www.w3schools.com/howto/howto_css_dividers.asp */
@@ -309,11 +438,19 @@ p {
 	/* font-size: 1.2em; */
 }
 
-P.caption {
+p.caption {
 	text-align: center;
 	font-style: italic;
 	font-size: 0.9em;
 	color: #9B9C9D;
+ }
+
+ /* for the credits at the bottom of a page */
+p.credit {
+	max-width: 50em;
+	font-size: 0.9em;
+	margin-left: auto;
+	margin-right: auto;
  }
 
 li {
@@ -388,6 +525,15 @@ code {
 	word-break: break-all;
 }
 
+/*
+  Custom containters
+*/
+div.message-box {
+	max-width: 50em; 
+	margin-left: auto;
+	margin-right: auto;
+}
+
 /* Header */
 header {
 	display: flex;
@@ -428,6 +574,7 @@ header {
 	list-style: none;
 	padding: 0;
 	padding-left: 0; /* 1.5rem; */
+	max-width: 50em;
 }
 .postlist-item {
 	display: flex;
@@ -605,6 +752,7 @@ hr {
 
 		<main id="skip">
 			
+
 <h1>Notes on The Tiger&#39;s Cave</h1>
 
 <div class="posttalk-metadata">
@@ -616,21 +764,31 @@ hr {
 	<li><a href="/dark_tales_sleuth/tags/laesefrugter/" class="post-tag">Laesefrugter</a></li>
 </ul>
 
-<p>Investigating &quot;<a href="https://archive.org/details/eveningtalesfor00unkngoog/page/n246/mode/2up">The Tiger's Cave</a>&quot; was more interesting than the story itself.</p>
+
+<article>
+	<p>Investigating &quot;<a href="https://archive.org/details/eveningtalesfor00unkngoog/page/n246/mode/2up">The Tiger's Cave</a>&quot; was more interesting than the story itself.</p>
 <p>I dislike this story. It's a straightforward South American adventure yarn that reminds me a bit of pulp fiction from the early twentieth century, with an exotic native damsel and intrepid white explorers. This in itself is not necessarily a deal-breaker for me, but the story also includes some animal cruelty that I just found, well, gross. I wasn't entirely looking forward to tackling, or writing about, this case.</p>
 <p>But the research uncovered a couple of interesting people that I hadn't known about before, and that makes writing this post fun again.</p>
 <p>&quot;The Tiger's Cave&quot; first appeared in <a href="https://archive.org/details/monthlymagazineo11lond/page/256/mode/2up"><em>The Monthly Magazine</em>, March 1831 (New Series Volume 11, Number 63)</a>. The editors credit the narrative to &quot;A.F. Elmquist, of Copenhagen.&quot; However, I'm not sure Elmquist <em>wrote</em> the story....</p>
 <h3 id="adolph-frederik-elmquist" tabindex="-1">Adolph Frederik Elmquist <a class="header-anchor" href="#adolph-frederik-elmquist">#</a></h3>
 <img alt="Adolf Frederik Elmquist" loading="lazy" decoding="async" src="/dark_tales_sleuth/img/5a-HnW2xlD0Bh-302.png" width="302" height="442">
 <p class="caption">Source: <a href="http://elmquist.info/bio5.html">Elmquist Family Website</a></p>
-<p>Adolph Frederik Elmquist (1788 - 1868) was a Danish publisher and editor. He came to prominence as editor of <em>Aarhus Stiftstidende</em><sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>, a post he acquired in about 1811. During his tenure the periodical's readership increased from 400 to 3000 subscribers, apparently due to his choice of &quot;entertaining and interesting&quot; content. In 1818 he founded the literary magazine <em>Læsefrugter, samling paa Literaturens Mark</em> (Fruits of Reading, a collection from the field of Literature), publishing a total of 66 volumes between 1818-1840.<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup></p>
-<p><em>Læsefrugter</em>, and probably also <em>Aarhus Stiftstidende</em>, leaned towards popular literature: tales of adventure, crime, and murder, what the <a href="https://biografiskleksikon.lex.dk/A._F._Elmquist">Danish Biographical Lexicon</a> snootily refers to as &quot;fairly ordinary entertainment&quot; (according to the <a href="https://translate.google.com/translate?hl=en&amp;sl=da&amp;u=https://biografiskleksikon.lex.dk/A._F._Elmquist&amp;prev=search&amp;pto=aue">Google translation</a>, anyway). The journal primarily published translations<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup> of well-known foreign authors, along with original material from Danish authors, including Hans Christian Andersen and Bernhard Severin Ingemann. Notably, <em>Læsefrugter</em> published some of the first short stories by Steen Steensen Blicher, who went on to write what is considered the first modern crime novel, <a href="https://multoghost.wordpress.com/2013/03/20/reading-the-rector-of-veilbye-the-first-modern-crime-novel/"><em>The Rector of Veilbye</em></a> (1829).</p>
+<p>Adolph Frederik Elmquist (1788 - 1868) was a Danish publisher and editor. He came to prominence as editor of <em>Aarhus Stiftstidende</em>,<label for="aarhus" class="margin-toggle">⊕</label>
+<input type="checkbox" id="aarhus" class="margin-toggle">
+<span class="marginnote"><em>Stiftstidende</em> seems to mean something like <em>newspaper</em>, so let's translate this as <em>Aarhus News</em>.</span> a post he acquired in about 1811. During his tenure the periodical's readership increased from 400 to 3000 subscribers, apparently due to his choice of &quot;entertaining and interesting&quot; content. In 1818 he founded the literary magazine <em>Læsefrugter, samling paa Literaturens Mark</em> (Fruits of Reading, a collection from the field of Literature), publishing a total of 66 volumes between 1818-1840.<label for="laesefrugter" class="margin-toggle">⊕</label>
+<input type="checkbox" id="laesefrugter" class="margin-toggle">
+<span class="marginnote">To be precise, between 1818-1833, and again in 1839-1840. </span></p>
+<p><em>Læsefrugter</em>, and probably also <em>Aarhus Stiftstidende</em>, leaned towards popular literature: tales of adventure, crime, and murder, what the <a href="https://biografiskleksikon.lex.dk/A._F._Elmquist">Danish Biographical Lexicon</a> snootily refers to as &quot;fairly ordinary entertainment&quot; (according to the <a href="https://translate.google.com/translate?hl=en&amp;sl=da&amp;u=https://biografiskleksikon.lex.dk/A._F._Elmquist&amp;prev=search&amp;pto=aue">Google translation</a>, anyway). The journal primarily published translations <label for="translations" class="margin-toggle">⊕</label>
+<input type="checkbox" id="translations" class="margin-toggle">
+<span class="marginnote">I believe Elmquist did many of the translations from German himself, though I no longer can find where I read that.</span> of well-known foreign authors, along with original material from Danish authors, including Hans Christian Andersen and Bernhard Severin Ingemann. Notably, <em>Læsefrugter</em> published some of the first short stories by Steen Steensen Blicher, who went on to write what is considered the first modern crime novel, <a href="https://multoghost.wordpress.com/2013/03/20/reading-the-rector-of-veilbye-the-first-modern-crime-novel/"><em>The Rector of Veilbye</em></a> (1829).</p>
 <p>Elmquist was more of a publisher/editor than a writer; but various biographies I've found do imply that he contributed to his own periodicals on occasion. So it's possible that Elmquist wrote &quot;The Tiger's Cave.&quot; However, I found no evidence that Elmquist was either interested in or knowledgeable about South America, and none of the characters in the story have Danish sounding names. So I'm inclined to think that &quot;The Tiger's Cave&quot; is actually an English translation/adaptation of a story from <em>Læsefrugter</em>. And since I don't read Danish, I can't take the investigation farther than that.</p>
 <p>[UPDATE January 2024: Thanks to Tara Challoner, I got a little farther and found an earlier German version of this story. Read about it <a href="/dark_tales_sleuth/blog/2024-01-02-revisiting-the-tigers-cave/">here</a>.  ]</p>
 <h3 id="richard-phillips-and-the-monthly-magazine" tabindex="-1">Richard Phillips and <em>The Monthly Magazine</em> <a class="header-anchor" href="#richard-phillips-and-the-monthly-magazine">#</a></h3>
 <img alt="Adolf Frederik Elmquist" loading="lazy" decoding="async" src="/dark_tales_sleuth/img/sir_richard_phillips-i1JFG5G0v4-400.png" width="412" height="500" srcset="/dark_tales_sleuth/img/sir_richard_phillips-i1JFG5G0v4-400.png 400w, /dark_tales_sleuth/img/sir_richard_phillips-i1JFG5G0v4-412.png 412w" sizes="50vw">
 <p class="caption">Source: <a href="https://commons.wikimedia.org/wiki/File:Sir_Richard_Phillips.jpg">Wikimedia</a></p>
-<p><a href="https://en.wikipedia.org/wiki/Monthly_Magazine"><em>The Monthly Magazine or British Register</em></a> was an English periodical founded in 1796 by <a href="https://en.wikipedia.org/wiki/Richard_Phillips_(publisher)">Sir Richard Phillips</a>, best known today as an early &quot;<a href="https://archive.org/details/b30389380">vegetarian activist</a>.&quot; As Geoffrey Carnall puts it, <em>The Monthly Magazine</em> was &quot;the journal of the Dissenters, the Unitarians--radicals in religion and politics alike,&quot; founded to propagate liberal principles &quot;against the forces of panic conservatism&quot;. <sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup></p>
+<p><a href="https://en.wikipedia.org/wiki/Monthly_Magazine"><em>The Monthly Magazine or British Register</em></a> was an English periodical founded in 1796 by <a href="https://en.wikipedia.org/wiki/Richard_Phillips_(publisher)">Sir Richard Phillips</a>, best known today as an early &quot;<a href="https://archive.org/details/b30389380">vegetarian activist</a>.&quot; As Geoffrey Carnall <label for="carnall" class="margin-toggle">⊕</label>
+<input type="checkbox" id="carnall" class="margin-toggle">
+<span class="marginnote">Carnall, Geoffrey, 'The Monthly Magazine,' <em>The Review of English Studies</em> Vol. 5 No 18, April 1954. (<a href="https://www.jstor.org/stable/510942">JSTOR link</a>)</span> puts it, <em>The Monthly Magazine</em> was &quot;the journal of the Dissenters, the Unitarians--radicals in religion and politics alike,&quot; founded to propagate liberal principles &quot;against the forces of panic conservatism&quot;.</p>
 <p>Beyond its politics, the magazine also has an interesting literary history. It was the original intended venue for <em>The Rime of the Ancient Mariner,</em> and published the work of notable authors including Samuel Coleridge, Robert Southey, and William Taylor of Norwich. Some of Charles Dickens' early fiction appeared in <em>The Monthly</em>.</p>
 <p>In 1825 Phillips sold off the <em>The Monthly Magazine</em>, which by that time was becoming unprofitable. The following year the new owners began a new series (restarting it from Volume One), and downplayed the magazine's political nature. By Volume 9 of the new series (1830), the editorial staff completely disavowed the politics of <em>The Monthly's</em> founders, asserting the revamped magazine's fealty to &quot;the Crown, the Constitution, and the Religion of the Empire&quot; [<a href="https://www.biodiversitylibrary.org/page/2448818#page/9/mode/1up"><em>Preface to the Ninth Volume</em></a>].</p>
 <p>&quot;The Tiger's Cave&quot; appeared in the new series run of <em>The Monthly Magazine</em>, so Phillips is a bit out of scope for this article. Still, I found him and the history of the magazine interesting enough to mention, so I did it anyway!</p>
@@ -641,20 +799,8 @@ hr {
 <li>From the <a href="http://elmquist.info/bio5.html">Elmquist Family website</a> - (<a href="https://translate.google.com/translate?sl=auto&amp;tl=en&amp;u=http://elmquist.info/bio5.html">Google translation</a>)</li>
 </ul>
 <p><a href="/dark_tales_sleuth/pages/comments/#notes-on-the-tiger-s-cave"><em>Comments on this post</em></a></p>
-<hr class="footnotes-sep">
-<section class="footnotes">
-<ol class="footnotes-list">
-<li id="fn1" class="footnote-item"><p><em>Aarhus Stiftstidende...</em> <em>Stiftstidende</em> seems to mean something like <em>newspaper</em>, so let's translate this as <em>Aarhus News</em>. <a href="#fnref1" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn2" class="footnote-item"><p><em>between 1818-1840...</em> To be precise, between 1818-1833, and again in 1839-1840. <a href="#fnref2" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn3" class="footnote-item"><p><em>translations...</em> I believe Elmquist did many of the translations from German himself, though I no longer can find where I read that. <a href="#fnref3" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn4" class="footnote-item"><p>Carnall, Geoffrey, &quot;The Monthly Magazine,&quot; <em>The Review of English Studies</em> Vol. 5 No 18, April 1954. (<a href="https://www.jstor.org/stable/510942">JSTOR link</a>) <a href="#fnref4" class="footnote-backref">↩︎</a></p>
-</li>
-</ol>
-</section>
 
+</article>
 <ul class="links-nextprev"><li><a href="/dark_tales_sleuth/blog/2021-06-04-notes-on-the-flying-dutchman/">&#8592;</a> <span style="color: #9B9C9D">Previous</span></li><li><span style="color: #9B9C9D">Next</span> <a href="/dark_tales_sleuth/blog/2021-06-12-the-cavern-of-steenfoll/">&#8594</a></li>
 </ul>
 

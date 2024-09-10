@@ -183,6 +183,135 @@ pre[class*="language-diff-"] {
 	text-decoration: none; /* override del, ins, mark defaults */
 	color: inherit; /* override del, ins, mark defaults */
 }
+/* minimal implementation; just plain text in the margin, no blockquotes, code, etc */
+/* only (unnumbered) margin notes, no sidenotes */
+/* stripped down from https://github.com/edwardtufte/tufte-css */
+
+/* need this for correct sidenote numbering; but I'm not using sidenotes */
+/*
+body {
+    counter-reset: sidenote-counter; 
+} 
+*/
+
+
+/* since I imagine these will change with different templates */
+:root {
+    --content-width: 65%;
+    --image-padding: 5%;
+    --image-max: 60%;  /* total image+padding <= content-width */
+    --notewidth: 30%; 
+    /* content-width + notewidth <  100%. I think you should leave some wiggle room. */
+    --note-right-margin: -45%;
+    /* if this margin is -(notewidth), the note will start just on the right border of the text */
+    /* so push it a little to the right (more negative) */
+}
+
+article {
+	padding-top: 1rem; 
+}
+
+/* make room for the notes in the article container */
+article > p,
+article > pre,
+article > ul {
+    width: var(--content-width);
+}
+
+/* 
+  blockquotes should be a little shorter 
+  This assumes that left indentation is 2em, which is what it looks like.
+  */
+article > blockquote {
+    width: calc(var(--content-width) - 2em); 
+}
+
+
+article > hr {
+    max-width: var(--content-width);
+    margin: 0
+}
+
+/* keep images/captions in the text column, rather than centered in the article container */
+article > img {
+    margin-left: 0;
+    padding-left: var(--image-padding);
+    max-width: var(--image-max); 
+}
+
+article > p.caption {
+	text-align: left;
+    padding-left: var(--image-padding);
+	font-style: italic;
+	font-size: 0.9em;
+	color: #9B9C9D;
+ }
+
+ /* finally, the margin note */
+.marginnote {    
+    float: right;
+    clear: right;
+    width: var(--notewidth);         
+    margin-right: var(--note-right-margin);
+    margin-top: 0.3rem;
+    margin-bottom: 0;
+    font-size: 0.8rem;
+    line-height: 1.3;
+    vertical-align: baseline;
+    position: relative;
+    /* border: 2px solid blue; */
+}
+
+
+input.margin-toggle {
+    display: none;
+}
+
+
+label.margin-toggle {    
+    display: none;
+
+}
+
+/* The mobile fallback: */
+/* making max-width bigger makes the note fall inline sooner */
+@media (max-width: 768px) {  
+    body {
+        width: 84%;
+        padding-left: 8%;
+        padding-right: 8%;
+    }
+
+    hr,
+    article > p,
+    article > blockquote,
+    article > pre {
+        width: 100%;
+    }
+
+    label.margin-toggle {
+        display: inline;
+    }
+       
+    .marginnote {           
+         display: none;        
+        }    
+
+      
+    .margin-toggle:checked + .marginnote {            
+        display: block;            
+        float: left;            
+        left: 1rem;            
+        clear: both;            
+        width: 95%;            
+        margin: 1rem 2.5%;            
+        vertical-align: baseline;            
+        position: relative;        
+    }
+    label {
+        cursor: pointer;
+    }
+}
 * { box-sizing: border-box; }
 /* Defaults */
 :root {
@@ -244,7 +373,7 @@ html {
 	overflow-y: scroll;
 }
 body {
-	max-width: 50em;
+	max-width: 70em; /* 50em; */
 }
 
 /* different horizontal rules  https://www.w3schools.com/howto/howto_css_dividers.asp */
@@ -309,11 +438,19 @@ p {
 	/* font-size: 1.2em; */
 }
 
-P.caption {
+p.caption {
 	text-align: center;
 	font-style: italic;
 	font-size: 0.9em;
 	color: #9B9C9D;
+ }
+
+ /* for the credits at the bottom of a page */
+p.credit {
+	max-width: 50em;
+	font-size: 0.9em;
+	margin-left: auto;
+	margin-right: auto;
  }
 
 li {
@@ -388,6 +525,15 @@ code {
 	word-break: break-all;
 }
 
+/*
+  Custom containters
+*/
+div.message-box {
+	max-width: 50em; 
+	margin-left: auto;
+	margin-right: auto;
+}
+
 /* Header */
 header {
 	display: flex;
@@ -428,6 +574,7 @@ header {
 	list-style: none;
 	padding: 0;
 	padding-left: 0; /* 1.5rem; */
+	max-width: 50em;
 }
 .postlist-item {
 	display: flex;
@@ -605,6 +752,7 @@ hr {
 
 		<main id="skip">
 			
+
 <h1>Notes on Peter Rugg, the Missing Man</h1>
 
 <div class="posttalk-metadata">
@@ -615,12 +763,20 @@ hr {
 	<li><a href="/dark_tales_sleuth/tags/william-austin/" class="post-tag">William Austin</a></li>
 </ul>
 
-<p>&quot;<a href="https://archive.org/details/eveningtalesfor00unkngoog/page/n256/mode/2up">Peter Rugg, the Missing Man</a>&quot; first appeared in <em>The New England Galaxy</em> on September 10, 1824. This &quot;cursed traveller&quot; tale, about a man doomed to ride forever in search of his home in Boston, evidently caused quite an impression on readers. Like the Angels of Mons<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup> or the so-called Legend of the Three Crowns of East Anglia<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>, Peter Rugg crossed over from fiction into the status of &quot;authentic&quot; regional legend.</p>
+
+<article>
+	<p>&quot;<a href="https://archive.org/details/eveningtalesfor00unkngoog/page/n256/mode/2up">Peter Rugg, the Missing Man</a>&quot; first appeared in <em>The New England Galaxy</em> on September 10, 1824. This &quot;cursed traveller&quot; tale, about a man doomed to ride forever in search of his home in Boston, evidently caused quite an impression on readers. Like the Angels of Mons<label for="mons" class="margin-toggle">⊕</label>
+<input type="checkbox" id="mons" class="margin-toggle">
+<span class="marginnote"><em>Angels of Mons...</em> From Arthur Machen's '<a href="https://americanliterature.com/author/arthur-machen/short-story/the-bowmen">The Bowmen</a>' (1914).</span> or the so-called Legend of the Three Crowns of East Anglia,<label for="crowns" class="margin-toggle">⊕</label>
+<input type="checkbox" id="crowns" class="margin-toggle">
+<span class="marginnote"><em>Legend of the Three Crowns of East Anglia...</em> Actually invented by M.R. James in '<a href="http://www.gutenberg.net.au/ebooks06/0605921h.html">A Warning to the Curious</a>' (1925).</span> Peter Rugg crossed over from fiction into the status of &quot;authentic&quot; regional legend.</p>
 <blockquote>
 <p>...as I stood recently on the door-step of Bennett's hotel in Hartford, [I] heard a man say, &quot;There goes Peter Rugg and his child! He looks wet and weary, and farther from Boston than ever.&quot;</p>
 </blockquote>
 <p>The author of &quot;Peter Rugg,&quot; <a href="https://en.wikipedia.org/wiki/William_Austin_(American_writer)">William Austin</a>, is considered a precursor to, and influence on, Nathaniel Hawthorne. Like Hawthorne, he tended to set stories in New England, often with references back to the pre-colonial period. He also shared with Hawthorne an affinity for supernaturalish tales with moralistic or didactic themes. Hawthorne even included Peter Rugg as a character in his allegorical meta-fiction &quot;<a href="https://exiw.wordpress.com/2021/03/02/a-virtuosos-collection/">A Virtuoso's Collection</a>&quot; (1842).</p>
-<p>The story included in <em>Evening Tales for the Winter</em> is only half the Peter Rugg saga. Austin wrote a sequel<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup> the following year, under the name Jonathan Dunwell (who is the narrator of the first part). I consider &quot;Further Account of Peter Rugg&quot; an inferior story, but you can judge for yourself.</p>
+<p>The story included in <em>Evening Tales for the Winter</em> is only half the Peter Rugg saga. Austin wrote a sequel<label for="sequel" class="margin-toggle">⊕</label>
+<input type="checkbox" id="sequel" class="margin-toggle">
+<span class="marginnote">According to <a href="https://oracle-reunion.pagesperso-orange.fr/documents/peter_rugg__the_missing_man__the_eclipsing_revolut.html">this article</a>, it was two sequels, published 1826 and 1827; but I think the version in Austin's literary papers (which is split into two parts) is the entire saga.</span> the following year, under the name Jonathan Dunwell (who is the narrator of the first part). I consider &quot;Further Account of Peter Rugg&quot; an inferior story, but you can judge for yourself.</p>
 <ul>
 <li>Read both parts of the Peter Rugg saga in <a href="https://archive.org/details/literarypapersof00aust/page/n25/mode/2up"><em>The Literary Papers of William Austin</em></a> (1890), at the Internet Archive.</li>
 <li>And here's <a href="https://archive.org/details/peterruggmissing00austiala/page/n7/mode/2up">a lovely illustrated version of the entire saga</a>, from 1910.</li>
@@ -635,18 +791,8 @@ hr {
 <p>And finally, <a href="https://archive.org/details/literarypapersof00aust/page/60/mode/2up">&quot;Martha Gardner&quot;</a>, which is not a fun read (too polemic and preachy), but worth noting for its pronounced anti-Corporation, pro-ordinary citizen stance (and it's also supernatural).</p>
 <p>None of these stories have proved as memorable as &quot;Peter Rugg,&quot; but &quot;The Man With the Cloaks&quot; and &quot;The Late Joseph Natterstrom&quot; are still worth reading, and they, along with &quot;Peter Rugg,&quot; are all fine examples of early American supernatural fiction.</p>
 <p>Enjoy!</p>
-<hr class="footnotes-sep">
-<section class="footnotes">
-<ol class="footnotes-list">
-<li id="fn1" class="footnote-item"><p><em>Angels of Mons...</em> From Arthur Machen's &quot;<a href="https://americanliterature.com/author/arthur-machen/short-story/the-bowmen">The Bowmen</a>&quot; (1914). <a href="#fnref1" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn2" class="footnote-item"><p><em>Legend of the Three Crowns of East Anglia...</em> Actually invented by M.R. James in &quot;<a href="http://www.gutenberg.net.au/ebooks06/0605921h.html">A Warning to the Curious</a>&quot; (1925). <a href="#fnref2" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn3" class="footnote-item"><p><em>sequel...</em> According to <a href="https://oracle-reunion.pagesperso-orange.fr/documents/peter_rugg__the_missing_man__the_eclipsing_revolut.html">this article</a>, it was two sequels, published 1826 and 1827; but I think the version in Austin's literary papers (which is split into two parts) is the entire saga. <a href="#fnref3" class="footnote-backref">↩︎</a></p>
-</li>
-</ol>
-</section>
 
+</article>
 <ul class="links-nextprev"><li><a href="/dark_tales_sleuth/blog/2021-02-24-the-legend-of-old-spital-inn/">&#8592;</a> <span style="color: #9B9C9D">Previous</span></li><li><span style="color: #9B9C9D">Next</span> <a href="/dark_tales_sleuth/blog/2021-06-04-notes-on-the-flying-dutchman/">&#8594</a></li>
 </ul>
 
