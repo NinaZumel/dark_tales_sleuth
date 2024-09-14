@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Dark Tales Sleuth</title>
+		<title>Haunted Stump Folktales</title>
 		<meta name="description" content="Filling in the Literary Blanks">
 		<link rel="alternate" href="/dark_tales_sleuth/feed/feed.xml" type="application/atom+xml" title="Dark Tales Sleuth">
 		<link rel="alternate" href="/dark_tales_sleuth/feed/feed.json" type="application/json" title="Dark Tales Sleuth">
@@ -15,81 +15,309 @@
 		<link href="https://github.com/ninazumel" rel="me">
 		<script src="https://kit.fontawesome.com/9bbe6f85f9.js" crossorigin="anonymous"></script>
 		
-		<style>/* For displaying image and description*/
+		<style>/**
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
+ */
 
-.author_container {
-	text-align: center;
-	vertical-align: middle;
-}
-
-.author_container img {
-	  max-width: 175px;
-	  border-radius: 50%;
-	  display: block;
-	  margin-left: auto;
-	  margin-right: auto;
-}
-
-.author_description {
-	margin-left: auto;
-    margin-right: auto;
-	line-height: 1;
-
-}
-
-.author_description p {
-	font-style: italic;
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #f8f8f2;
+	background: none;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+	border-radius: 0.3em;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #272822;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #8292a2;
+}
+
+.token.punctuation {
+	color: #f8f8f2;
+}
+
+.token.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #f92672;
+}
+
+.token.boolean,
+.token.number {
+	color: #ae81ff;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #a6e22e;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+	color: #f8f8f2;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+	color: #e6db74;
+}
+
+.token.keyword {
+	color: #66d9ef;
+}
+
+.token.regex,
+.token.important {
+	color: #fd971f;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+/*
+ * New diff- syntax
+ */
+
+pre[class*="language-diff-"] {
+	--eleventy-code-padding: 1.25em;
+	padding-left: var(--eleventy-code-padding);
+	padding-right: var(--eleventy-code-padding);
+}
+.token.deleted {
+	background-color: hsl(0, 51%, 37%);
+	color: inherit;
+}
+.token.inserted {
+	background-color: hsl(126, 31%, 39%);
+	color: inherit;
+}
+
+/* Make the + and - characters unselectable for copy/paste */
+.token.prefix.unchanged,
+.token.prefix.inserted,
+.token.prefix.deleted {
+	-webkit-user-select: none;
+	user-select: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+.token.prefix.inserted,
+.token.prefix.deleted {
+	width: var(--eleventy-code-padding);
+	background-color: rgba(0,0,0,.2);
+}
+
+/* Optional: full-width background color */
+.token.inserted:not(.prefix),
+.token.deleted:not(.prefix) {
+	display: block;
+	margin-left: calc(-1 * var(--eleventy-code-padding));
+	margin-right: calc(-1 * var(--eleventy-code-padding));
+	text-decoration: none; /* override del, ins, mark defaults */
+	color: inherit; /* override del, ins, mark defaults */
+}
+/* minimal implementation; just plain text in the margin, no blockquotes, code, etc */
+/* only (unnumbered) margin notes, no sidenotes */
+/* stripped down from https://github.com/edwardtufte/tufte-css */
+
+/* need this for correct sidenote numbering; but I'm not using sidenotes */
+/*
+body {
+    counter-reset: sidenote-counter; 
+} 
+*/
+
+
+/* since I imagine these will change with different templates */
+:root {
+    --content-width: 65%;
+    --image-padding: 5%;
+    --image-max: 60%;  /* total image+padding <= content-width */
+    --notewidth: 30%; 
+    /* content-width + notewidth <  100%. I think you should leave some wiggle room. */
+    --note-right-margin: -45%;
+    /* if this margin is -(notewidth), the note will start just on the right border of the text */
+    /* so push it a little to the right (more negative) */
+}
+
+article {
+	padding-top: 1rem; 
+}
+
+/* make room for the notes in the article container */
+article > p,
+article > pre,
+article > ul {
+    width: var(--content-width);
+}
+
+/* 
+  blockquotes should be a little shorter 
+  This assumes that left indentation is 2em, which is what it looks like.
+  */
+article > blockquote {
+    width: calc(var(--content-width) - 2em); 
+}
+
+
+article > hr {
+    max-width: var(--content-width);
+    margin: 0
+}
+
+article > h1, 
+article > h2,
+article > h3,
+article > h4 {
+    max-width: var(--content-width);
+}
+
+/* keep images/captions in the text column, rather than centered in the article container */
+article > img {
+    margin-left: 0;
+    padding-left: var(--image-padding);
+    max-width: var(--image-max); 
+}
+
+article > p.caption {
+	text-align: left;
+    padding-left: var(--image-padding);
+	font-style: italic;
+	font-size: 0.9em;
 	color: #9B9C9D;
-}
+ }
 
-.padded_author_container {
-	text-align: center;
-	padding-top: 50px;
-}
-
-.padded_author_container img {
-	max-width: 250px;
-	border-radius: 50%;
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-}
-/* Message Box */
-.message-box {
-	--color-message-box:  var(--background-color); 
-    --border-color:  #f5f5dc; /*; beige, according to my R color chart */
-
-	display: block;
-	background-color: var(--color-message-box);
-	color: var(--color-gray-90);
-	padding: 1em 0.625em;  /* 16px 10px /16 */
-	padding-left: 2em;  /* bit more on the left */
-	padding-right: 2em;  /* to balance it */
-	border: 2px solid var(--border-color);
-}
-.message-box ol {
-	margin-top: 0;
-}
-
-.message-box h1 {
-	text-align: center;
-}
-
-.message-box h2 {
-	text-align: center;
-}
-
-.message-box h3 {
-	text-align: center;
+ /* finally, the margin note */
+.marginnote {    
+    float: right;
+    clear: right;
+    width: var(--notewidth);         
+    margin-right: var(--note-right-margin);
+    margin-top: 0.3rem;
+    margin-bottom: 0;
+    font-size: 0.8rem;
+    line-height: 1.3;
+    vertical-align: baseline;
+    position: relative;
+    /* border: 2px solid blue; */
 }
 
 
+input.margin-toggle {
+    display: none;
+}
 
-@media (prefers-color-scheme: dark) {
-	.message-box {
-		--color-message-box: var(--background-color);
-	}
+
+label.margin-toggle {    
+    display: none;
+
+}
+
+/* The mobile fallback: */
+/* making max-width bigger makes the note fall inline sooner */
+@media (max-width: 768px) {  
+    body {
+        width: 84%;
+        padding-left: 8%;
+        padding-right: 8%;
+    }
+
+    hr,
+    article > p,
+    article > blockquote,
+    article > pre {
+        width: 100%;
+    }
+
+    label.margin-toggle {
+        display: inline;
+    }
+       
+    .marginnote {           
+         display: none;        
+        }    
+
+      
+    .margin-toggle:checked + .marginnote {            
+        display: block;            
+        float: left;            
+        left: 1rem;            
+        clear: both;            
+        width: 95%;            
+        margin: 1rem 2.5%;            
+        vertical-align: baseline;            
+        position: relative;        
+    }
+    label {
+        cursor: pointer;
+    }
 }
 * { box-sizing: border-box; }
 /* Defaults */
@@ -532,118 +760,27 @@ hr {
 		<main id="skip">
 			
 
+<h1>Haunted Stump Folktales</h1>
 
-<h1>Tags</h1>
-
-<ul>
-
-	
-	<li><a href="/dark_tales_sleuth/tags/evening-tales-for-the-winter/" class="post-tag">Evening Tales for the Winter</a></li>
-
-	
-	<li><a href="/dark_tales_sleuth/tags/thousand-and-one-nights/" class="post-tag">Thousand and One Nights</a></li>
-
-	
-	<li><a href="/dark_tales_sleuth/tags/thomas-de-quincey/" class="post-tag">Thomas de Quincey</a></li>
-
-	
-	<li><a href="/dark_tales_sleuth/tags/friedrich-laun/" class="post-tag">Friedrich Laun</a></li>
-
-	
-	<li><a href="/dark_tales_sleuth/tags/das-gespensterbuch/" class="post-tag">Das Gespensterbuch</a></li>
-
-	
-	<li><a href="/dark_tales_sleuth/tags/rp-gillies/" class="post-tag">RP Gillies</a></li>
-
-	
-	<li><a href="/dark_tales_sleuth/tags/with-pdf/" class="post-tag">with pdf</a></li>
-
-	
-	<li><a href="/dark_tales_sleuth/tags/johann-august-apel/" class="post-tag">Johann August Apel</a></li>
-
-	
-	<li><a href="/dark_tales_sleuth/tags/james-ridley/" class="post-tag">James Ridley</a></li>
-
-	
-	<li><a href="/dark_tales_sleuth/tags/tales-of-the-genii/" class="post-tag">Tales of the Genii</a></li>
-
-	
-	<li><a href="/dark_tales_sleuth/tags/karl-friedrich-kahlert/" class="post-tag">Karl Friedrich Kahlert</a></li>
-
-	
-	<li><a href="/dark_tales_sleuth/tags/lorenz-flammenberg/" class="post-tag">Lorenz Flammenberg</a></li>
-
-	
-	<li><a href="/dark_tales_sleuth/tags/peter-teuthold/" class="post-tag">Peter Teuthold</a></li>
-
-	
-	<li><a href="/dark_tales_sleuth/tags/peter-will/" class="post-tag">Peter Will</a></li>
-
-	
-	<li><a href="/dark_tales_sleuth/tags/miscellany/" class="post-tag">Miscellany</a></li>
-
-	
-	<li><a href="/dark_tales_sleuth/tags/john-dee/" class="post-tag">John Dee</a></li>
-
-	
-	<li><a href="/dark_tales_sleuth/tags/vincent-price-and-caedmon/" class="post-tag">Vincent Price and Caedmon</a></li>
-
-	
-	<li><a href="/dark_tales_sleuth/tags/hand-of-glory/" class="post-tag">Hand of Glory</a></li>
-
-	
-	<li><a href="/dark_tales_sleuth/tags/william-austin/" class="post-tag">William Austin</a></li>
-
-	
-	<li><a href="/dark_tales_sleuth/tags/john-howison/" class="post-tag">John Howison</a></li>
-
-	
-	<li><a href="/dark_tales_sleuth/tags/blackwood-s-magazine/" class="post-tag">Blackwood&#39;s Magazine</a></li>
-
-	
-	<li><a href="/dark_tales_sleuth/tags/adolf-frederik-elmquist/" class="post-tag">Adolf Frederik Elmquist</a></li>
-
-	
-	<li><a href="/dark_tales_sleuth/tags/laesefrugter/" class="post-tag">Laesefrugter</a></li>
-
-	
-	<li><a href="/dark_tales_sleuth/tags/wilhelm-hauff/" class="post-tag">Wilhelm Hauff</a></li>
-
-	
-	<li><a href="/dark_tales_sleuth/tags/lambert-a-wilmer/" class="post-tag">Lambert A Wilmer</a></li>
-
-	
-	<li><a href="/dark_tales_sleuth/tags/rosina-bulwer-lytton/" class="post-tag">Rosina Bulwer Lytton</a></li>
-
-	
-	<li><a href="/dark_tales_sleuth/tags/lord-halifax/" class="post-tag">Lord Halifax</a></li>
-
-	
-	<li><a href="/dark_tales_sleuth/tags/sabine-baring-gould/" class="post-tag">Sabine Baring-Gould</a></li>
-
-	
-	<li><a href="/dark_tales_sleuth/tags/quotes/" class="post-tag">Quotes</a></li>
-
-	
-	<li><a href="/dark_tales_sleuth/tags/pirkei-avot/" class="post-tag">Pirkei Avot</a></li>
-
-	
-	<li><a href="/dark_tales_sleuth/tags/rabbi-tarfon/" class="post-tag">Rabbi Tarfon</a></li>
-
-	
-	<li><a href="/dark_tales_sleuth/tags/rabbi-rami-shapiro/" class="post-tag">Rabbi Rami Shapiro</a></li>
-
-	
-	<li><a href="/dark_tales_sleuth/tags/george-henry-lewes/" class="post-tag">George Henry Lewes</a></li>
-
-	
-	<li><a href="/dark_tales_sleuth/tags/johann-wolfgang-von-goethe/" class="post-tag">Johann Wolfgang Von Goethe</a></li>
-
-	
+<div class="posttalk-metadata">
+  <time datetime="2024-08-26 5:00 PM">26 August 2024</time>
+</div>
+<ul class="post-metadata">
+	<li><a href="/dark_tales_sleuth/tags/miscellany/" class="post-tag">Miscellany</a>, </li>
 	<li><a href="/dark_tales_sleuth/tags/folklore/" class="post-tag">folklore</a></li>
-
 </ul>
 
+
+<article>
+	<p>Over on <em>Multo</em>, I've got an assembly of haunted stump stories. Ghostly hands, spiritual voices, and cursed disasters abound. I'm sure there are more such tales out there, but these are the ones I've found so far.</p>
+<blockquote>
+<p>While trawling the HathiTrust archive the other day, I stumbled on a delighful, privately-published little booklet called <em>The Haunted Stump; or The Story of The Amputated Hand</em>, by Erasmus Foster Darby. The book gives two versions of an Ohio ghost story about phantom hands that clutch out at the people who pass a spooky old tree stump. Good, campfire tale stuff!</p>
+</blockquote>
+<p><a href="https://multoghost.wordpress.com/2024/09/14/hunting-for-haunted-stumps/">Check it out</a>.</p>
+
+</article>
+<ul class="links-nextprev"><li><a href="/dark_tales_sleuth/blog/2024-08-27-welcome-to-new-blog/">&#8592;</a> <span style="color: #9B9C9D">Previous</span></li>
+</ul>
 
 		</main>
 
@@ -670,6 +807,6 @@ hr {
 </div>
 		<!-- /footer-- >
 
-		<!-- Current page: /dark_tales_sleuth/tags/ -->
+		<!-- Current page: /dark_tales_sleuth/blog/2024-09-14-haunted-stump/ -->
 	</body>
 </html>
