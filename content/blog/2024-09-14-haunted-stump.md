@@ -1,6 +1,6 @@
 ---
 title: Haunted Stump Folktales
-date: "2024-08-27"
+date: "2024-09-14"
 tags: 
   - Miscellany
   - folklore
