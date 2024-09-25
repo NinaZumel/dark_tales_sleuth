@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Selected Stories of Austin Philips</title>
+		<title>The Post Office Stories of Austin Philips</title>
 		<meta name="description" content="Filling in the Literary Blanks">
 		<link rel="alternate" href="/dark_tales_sleuth/feed/feed.xml" type="application/atom+xml" title="Dark Tales Sleuth">
 		<link rel="alternate" href="/dark_tales_sleuth/feed/feed.json" type="application/json" title="Dark Tales Sleuth">
@@ -15,67 +15,309 @@
 		<link href="https://github.com/ninazumel" rel="me">
 		<script src="https://kit.fontawesome.com/9bbe6f85f9.js" crossorigin="anonymous"></script>
 		
-		<style>/* For displaying image and description*/
+		<style>/**
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
+ */
 
-.top_container {
-	text-align: center;
-	vertical-align: middle;
-}
-
-.top_container img {
-	  max-width: 400px;
-	  display: block;
-	  margin-left: auto;
-	  margin-right: auto;
-}
-
-.top_description {
-	margin-left: auto;
-    margin-right: auto;
-	line-height: 1;
-
-}
-
-.top_description p {
-	font-style: italic;
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #f8f8f2;
+	background: none;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 	font-size: 1em;
-	color: #9B9C9D;
-}
-/* Message Box */
-.message-box {
-	--color-message-box:  var(--background-color); 
-    --border-color:  #f5f5dc; /*; beige, according to my R color chart */
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
 
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+	border-radius: 0.3em;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #272822;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #8292a2;
+}
+
+.token.punctuation {
+	color: #f8f8f2;
+}
+
+.token.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #f92672;
+}
+
+.token.boolean,
+.token.number {
+	color: #ae81ff;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #a6e22e;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+	color: #f8f8f2;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+	color: #e6db74;
+}
+
+.token.keyword {
+	color: #66d9ef;
+}
+
+.token.regex,
+.token.important {
+	color: #fd971f;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+/*
+ * New diff- syntax
+ */
+
+pre[class*="language-diff-"] {
+	--eleventy-code-padding: 1.25em;
+	padding-left: var(--eleventy-code-padding);
+	padding-right: var(--eleventy-code-padding);
+}
+.token.deleted {
+	background-color: hsl(0, 51%, 37%);
+	color: inherit;
+}
+.token.inserted {
+	background-color: hsl(126, 31%, 39%);
+	color: inherit;
+}
+
+/* Make the + and - characters unselectable for copy/paste */
+.token.prefix.unchanged,
+.token.prefix.inserted,
+.token.prefix.deleted {
+	-webkit-user-select: none;
+	user-select: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+.token.prefix.inserted,
+.token.prefix.deleted {
+	width: var(--eleventy-code-padding);
+	background-color: rgba(0,0,0,.2);
+}
+
+/* Optional: full-width background color */
+.token.inserted:not(.prefix),
+.token.deleted:not(.prefix) {
 	display: block;
-	background-color: var(--color-message-box);
-	color: var(--color-gray-90);
-	padding: 1em 0.625em;  /* 16px 10px /16 */
-	padding-left: 2em;  /* bit more on the left */
-	padding-right: 2em;  /* to balance it */
-	border: 2px solid var(--border-color);
+	margin-left: calc(-1 * var(--eleventy-code-padding));
+	margin-right: calc(-1 * var(--eleventy-code-padding));
+	text-decoration: none; /* override del, ins, mark defaults */
+	color: inherit; /* override del, ins, mark defaults */
 }
-.message-box ol {
-	margin-top: 0;
+/* minimal implementation; just plain text in the margin, no blockquotes, code, etc */
+/* only (unnumbered) margin notes, no sidenotes */
+/* stripped down from https://github.com/edwardtufte/tufte-css */
+
+/* need this for correct sidenote numbering; but I'm not using sidenotes */
+/*
+body {
+    counter-reset: sidenote-counter; 
+} 
+*/
+
+
+/* since I imagine these will change with different templates */
+:root {
+    --content-width: 65%;
+    --image-padding: 5%;
+    --image-max: 60%;  /* total image+padding <= content-width */
+    --notewidth: 30%; 
+    /* content-width + notewidth <  100%. I think you should leave some wiggle room. */
+    --note-right-margin: -45%;
+    /* if this margin is -(notewidth), the note will start just on the right border of the text */
+    /* so push it a little to the right (more negative) */
 }
 
-.message-box h1 {
-	text-align: center;
+article {
+	padding-top: 1rem; 
 }
 
-.message-box h2 {
-	text-align: center;
+/* make room for the notes in the article container */
+article > p,
+article > pre,
+article > ul {
+    width: var(--content-width);
 }
 
-.message-box h3 {
-	text-align: center;
+/* 
+  blockquotes should be a little shorter 
+  This assumes that left indentation is 2em, which is what it looks like.
+  */
+article > blockquote {
+    width: calc(var(--content-width) - 2em); 
 }
 
 
+article > hr {
+    max-width: var(--content-width);
+    margin: 0
+}
 
-@media (prefers-color-scheme: dark) {
-	.message-box {
-		--color-message-box: var(--background-color);
-	}
+article > h1, 
+article > h2,
+article > h3,
+article > h4 {
+    max-width: var(--content-width);
+}
+
+/* keep images/captions in the text column, rather than centered in the article container */
+article > img {
+    margin-left: 0;
+    padding-left: var(--image-padding);
+    max-width: var(--image-max); 
+}
+
+article > p.caption {
+	text-align: left;
+    padding-left: var(--image-padding);
+	font-style: italic;
+	font-size: 0.9em;
+	color: #9B9C9D;
+ }
+
+ /* finally, the margin note */
+.marginnote {    
+    float: right;
+    clear: right;
+    width: var(--notewidth);         
+    margin-right: var(--note-right-margin);
+    margin-top: 0.3rem;
+    margin-bottom: 0;
+    font-size: 0.8rem;
+    line-height: 1.3;
+    vertical-align: baseline;
+    position: relative;
+    /* border: 2px solid blue; */
+}
+
+
+input.margin-toggle {
+    display: none;
+}
+
+
+label.margin-toggle {    
+    display: none;
+
+}
+
+/* The mobile fallback: */
+/* making max-width bigger makes the note fall inline sooner */
+@media (max-width: 768px) {  
+    body {
+        width: 84%;
+        padding-left: 8%;
+        padding-right: 8%;
+    }
+
+    hr,
+    article > p,
+    article > blockquote,
+    article > pre {
+        width: 100%;
+    }
+
+    label.margin-toggle {
+        display: inline;
+    }
+       
+    .marginnote {           
+         display: none;        
+        }    
+
+      
+    .margin-toggle:checked + .marginnote {            
+        display: block;            
+        float: left;            
+        left: 1rem;            
+        clear: both;            
+        width: 95%;            
+        margin: 1rem 2.5%;            
+        vertical-align: baseline;            
+        position: relative;        
+    }
+    label {
+        cursor: pointer;
+    }
 }
 * { box-sizing: border-box; }
 /* Defaults */
@@ -518,29 +760,31 @@ hr {
 		<main id="skip">
 			
 
+<h1>The Post Office Stories of Austin Philips</h1>
 
-<div class="top_container">
-    <img alt="A postal investigator confronts a criminal boarding a stagecoach." loading="lazy" decoding="async" src="/dark_tales_sleuth/img/crime-in-post-office-illo-uSs_pVmu-k-400.png" width="967" height="1052" srcset="/dark_tales_sleuth/img/crime-in-post-office-illo-uSs_pVmu-k-400.png 400w, /dark_tales_sleuth/img/crime-in-post-office-illo-uSs_pVmu-k-800.png 800w, /dark_tales_sleuth/img/crime-in-post-office-illo-uSs_pVmu-k-967.png 967w" sizes="100vw">
-<p></p><div class="top_description">
-<p>&quot;He is stopped in the street by a plain-clothes detective.&quot;</p>
-</div><p></p>
+<div class="posttalk-metadata">
+  <time datetime="2024-09-24 5:00 PM">24 September 2024</time>
 </div>
-<div class="message-box">
-<h2>Selected Stories of Austin Philips (1875-1947)</h2>
-<p>Austin Philips was a British author and the son of a postmaster, who not only became a postmaster himself, but also served in an investigative branch of the Post Office which &quot;co-operated with the British Intelligence Services in checking suspect mail.&quot;[Ashley, 1918] These experiences made their way into much of his writing, which included Post Office crime novels, Post Office-related short stories and even <a href="https://www.poetryexplorer.net/poem.php?id=10115327">Post Office poems</a>. He wrote a variety of other short fiction, novels, plays, and poetry as well.</p>
-<p>This selection will focus on Philips' Post Office detective stories, ghost stories, and articles, as well as collecting some non-Post Office supernatural tales.</p>
-</div>
-<br>
-<div class="message-box">
-<h2>Stories and Articles</h2>
-<p><a href="/dark_tales_sleuth/austin-philips/crime-in-the-post-office/"><strong>Crime in the Post Office</strong></a>: One of Philips' earliest articles, published in <em>The Strand</em>, October 1907. A non-fiction account of post office-related crime---including a still-unsolved murder---and the department that investigates those crimes.</p>
-</div>
-<p class="credit">
- Image: Illustration from  "Crime in the Post Office", by Austin Philips (1907).  Source: <a href="https://archive.org/details/TheStrandMagazineAnIllustratedMonthly/TheStrandMagazine1907bVol.XxxivJul-dec/page/n417/mode/1up?view=theater">Internet Archive</a>
-</p>
-<p class="credit">
-[Ashley, 2018]  Ashley, Mike (editor). <em>Glimpses of the Unknown: Lost Ghost Stories</em>, British Public Library <em>Tales of the Weird</em> series (2018), p.40.
-</p>
+<ul class="post-metadata">
+	<li><a href="/dark_tales_sleuth/tags/austin-philips/" class="post-tag">Austin Philips</a>, </li>
+	<li><a href="/dark_tales_sleuth/tags/with-html-transcription/" class="post-tag">with html transcription</a></li>
+</ul>
+
+
+<article>
+	<p>I'm starting a <a href="/dark_tales_sleuth/pages/austin-philips/">new project</a>! This one is more &quot;literary excavation&quot; than &quot;literary sleuthing.&quot;</p>
+<p>Austin Philips was a British author and the son of a postmaster, who not only became a postmaster himself, but also served in an investigative branch of the Post Office which &quot;co-operated with the British Intelligence Services in checking suspect mail [1].&quot;<label for="ashley" class="margin-toggle">⊕</label>
+<input type="checkbox" id="ashley" class="margin-toggle">
+<span class="marginnote">[1] Ashley, Mike (editor), <em>Glimpses of the Unknown: Lost Ghost Stories</em>, British Public Library (2018), p. 40.</span> These experiences made their way into much of his writing, which included Post Office crime novels, Post Office-related short stories and even <a href="https://www.poetryexplorer.net/poem.php?id=10115327">Post Office poems</a>. He wrote a variety of other short fiction, novels, plays, and poetry as well.</p>
+<p>I first discovered Philips in Mike Ashley's anthology <a href="https://multoghost.wordpress.com/2019/01/01/reading-glimpses-of-the-unknown/"><em>Glimpses of the Unknown</em></a> back in 2019. The Philips selection was indeed a Post Office ghost story, and the idea of a Post Office Investigator intrigued me. So I added Philips and his Post Office stories to my wishlist of things to read, along with other authors and series in the collection. Now I'm starting to hunt some of these stories down.</p>
+<p>Of course, I don't have access to all the archives that Mike Ashley and other professional anthologists do; but there's still a fair bit of it online. And more of it is public domain in the U.S. than was the case in 2019. With respect to Austin Philips, I'm concentrating on Post Office stories and ghost stories, so I probably won't collect all that I find here on <em>Dark Tales Sleuth.</em></p>
+<p>The first story is a non-fiction article that Philips wrote for <em>The Strand</em>, entitled <a href="/dark_tales_sleuth/austin-philips/crime-in-the-post-office/"><strong>&quot;Crime in the Post Office&quot;</strong></a>. This is one of his earliest publications, and recounts several crimes related to the Post Office and its functions. Most of these crimes (except for one horrible murder) were resolved by the Post Office's Confidential Inquiry Branch, which I suppose must be one of the places Philips worked.  It's interesting reading, even today.</p>
+<p>I'm also doing something a bit different this time. Rather than transcribing the stories to PDF, I'll transcribe them directly to the blog as HTML; this is friendlier for folks who read on mobile, and is still plenty readable on a laptop or desktop. If you'd really rather have PDF, drop me an email. If I get enough requests, I'll do both.</p>
+<p>Please enjoy. I look forward to finding and posting more stories!</p>
+
+</article>
+<ul class="links-nextprev"><li><a href="/dark_tales_sleuth/blog/2024-09-14-haunted-stump/">&#8592;</a> <span style="color: #9B9C9D">Previous</span></li>
+</ul>
 
 		</main>
 
@@ -567,6 +811,6 @@ hr {
 </div>
 		<!-- /footer-- >
 
-		<!-- Current page: /dark_tales_sleuth/pages/austin-philips/ -->
+		<!-- Current page: /dark_tales_sleuth/blog/2024-09-25-austin-philips/ -->
 	</body>
 </html>
