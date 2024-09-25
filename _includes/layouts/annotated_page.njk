@@ -1,0 +1,17 @@
+---
+layout: layouts/base.njk
+---
+
+{%- css %}{% include "public/css/marginnote.css" %}{% endcss %}
+
+
+<h1>{{ title }}</h1>
+
+<div class="posttalk-metadata">
+  By {{ author }}<br>
+  Published in <em>{{ first_published }}</em>, {{ publication_date }}
+</div>
+
+<article>
+{{ content | safe }}
+</article>

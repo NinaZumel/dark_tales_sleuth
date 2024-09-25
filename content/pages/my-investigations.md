@@ -18,6 +18,10 @@ eleventyNavigation:
 
 Case Complete! _Evening Tales for the Winter_ is an 1856 anthology of gothic and supernatural tales, compiled by Henry St. Clair. Many of these  "Wonderful & Supernatural Stories," were translated from German sources. Neither the translators nor original authors/stories are credited, so I’ve tracked down author and translator attributions for the stories included.
 
+#### [Selected Stories of Austin Philips](/pages/austin-philips/)
+
+Current active case. I'm collecting as many of the Post Office detective and Post Office supernatural short stories of Austin Philips as I can find online. Possibly some non-post office ghost stories, too.
+
 #### [Quote Attributions](/pages/quote-attributions/)
 
 In progress. My attempts to correctly attribute incorrectly or incompletely attributed quotes.
