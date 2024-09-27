@@ -2,7 +2,7 @@
 layout: layouts/annotated_page.njk
 title: Crime in the Post Office
 author: Austin Philips
-first_published: The Strand
+first_published: The Strand Magazine
 publication_date: October 1907
 ---
 
@@ -17,7 +17,7 @@ There is a prevalent belief, common even in the service itself, especially in pr
 So perfect is the machinery at headquarters that if, at any office in the United Kingdom, letters are going astray, it is possible, by means of system, built up and perfected through years of practical experience, for an investigating officer to put his finger on the pulse of the mischief and, sooner or later, to bring the offender to book.
 
 {% image "./images/crime-in-post-office-illo.png", "A postal investigator confronts a criminal boarding a stagecoach." %}
-<p class="caption">"He is stopped in the street by a plain-clothes detective."  <a href="https://archive.org/details/TheStrandMagazineAnIllustratedMonthly/TheStrandMagazine1907bVol.XxxivJul-dec/page/n417/mode/1up?view=theater">Image Source</a></p>
+<p class="caption">"He is stopped in the street by a plain-clothes detective."  Illlustration by A. Twidle. <a href="https://archive.org/details/TheStrandMagazineAnIllustratedMonthly/TheStrandMagazine1907bVol.XxxivJul-dec/page/n417/mode/1up?view=theater">Image Source</a></p>
 
 And this is the more wonderful when it is remembered that at some offices the staff is numbered in hundreds and that millions of letters are dealt with in the year. A thief, however raw and inexperienced, seldom steals letters which he himself should deliver or sort. He takes, rather, such as come to him missorted or out of course, in such a way as to leave him, as he believes, utterly unidentified with the theft. But some day or other a missorted letter comes into his hands, just as dozens of other missorted letters have come, and presently, when he has opened it and has put the contents in his pocket, he is stopped in the street or in the office by a plain-clothes detective. Then he is taken to the postmaster's room, where he is asked inconvenient questions by a strange gentleman, to whom, in the majority of cases, he is only too glad to make a clean breast of the matter from beginning to end.
 

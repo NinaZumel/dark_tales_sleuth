@@ -18,6 +18,10 @@ Austin Philips was a British author and the son of a postmaster, who not only be
 
 This selection will focus on Philips' Post Office detective stories, ghost stories, and articles, as well as collecting some non-Post Office supernatural tales.
 
+<p class="credit">
+[Ashley, 2018]  Ashley, Mike (editor). <em>Glimpses of the Unknown: Lost Ghost Stories</em>, British Public Library <em>Tales of the Weird</em> series (2018), p.40.
+</p>
+
 </div>
 <br>
 <div class="message-box">
@@ -25,11 +29,10 @@ This selection will focus on Philips' Post Office detective stories, ghost stori
 
 [**Crime in the Post Office**](/austin-philips/crime-in-the-post-office/): One of Philips' earliest articles, published in *The Strand*, October 1907. A non-fiction account of post office-related crime---including a still-unsolved murder---and the department that investigates those crimes.
 
+[**A Dead Letter**](/austin-philips/a-dead-letter/): A moaning ghost visits the Post Office on Christmas Eve. From *The Strand*, January 1909.
+
 </div>
 
 <p class="credit">
- Image: Illustration from  "Crime in the Post Office", by Austin Philips (1907).  Source: <a href="https://archive.org/details/TheStrandMagazineAnIllustratedMonthly/TheStrandMagazine1907bVol.XxxivJul-dec/page/n417/mode/1up?view=theater">Internet Archive</a>
-</p>
-<p class="credit">
-[Ashley, 2018]  Ashley, Mike (editor). <em>Glimpses of the Unknown: Lost Ghost Stories</em>, British Public Library <em>Tales of the Weird</em> series (2018), p.40.
+ Image: Illustration by A. Twidle for "Crime in the Post Office", by Austin Philips (1907).  Source: <a href="https://archive.org/details/TheStrandMagazineAnIllustratedMonthly/TheStrandMagazine1907bVol.XxxivJul-dec/page/n417/mode/1up?view=theater">Internet Archive</a>
 </p>
