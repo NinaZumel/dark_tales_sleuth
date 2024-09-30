@@ -141,7 +141,7 @@ Young Fraser set his arms on the table nearest him, and on his arms he set his f
 
 "It was my great-grandfather!" he said, simply, and I knew that what he said was true. "He was once postmaster here, but they dismissed him on suspicion of stealing a letter—a letter with money in it that could never be traced. It's a skeleton in the family cupboard, and that's why I've always made out that I'm the third Fraser in the office. But I'm not—I'm the fourth. And we've a miniature of my great grandfather at home. I'm as like him as two peas, and they say I'm like him in character as well.  So"—he faced me confident and sure—"so he came to me to help him, to clear him of the shame that won't let him rest. And I'm going to do it !"
 
-Bold as the boy's assurance was, somehow I had no doght, that he would make it good.  And when I asked him how, he laughed, with the same glad eyes that were in the face of the Thing, and pointed to the floor as the Thing had pointed, and answered me:—
+Bold as the boy's assurance was, somehow I had no doubt, that he would make it good.  And when I asked him how, he laughed, with the same glad eyes that were in the face of the Thing, and pointed to the floor as the Thing had pointed, and answered me:—
 
 "The letter is there—underneath the tables; it slipped off them and fell through a chink in the boards!"
 
