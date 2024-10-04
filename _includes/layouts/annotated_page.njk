@@ -7,9 +7,16 @@ layout: layouts/base.njk
 
 <h1>{{ title }}</h1>
 
+{% if pub_info %}
+{% set pubText = pub_info %}
+{% else %}
+{% set pubText = "Published in " %}
+{% endif %}
+
+
 <ul class="posttalk-metadata">
   <li>By {{ author }}</li>
-  <li>Published in <em>{{ first_published }}</em>, {{ publication_date }}</li>
+  <li>{{pubText}} <em>{{ first_published }}</em>, {{ publication_date }}</li>
 </ul>
 
 <article>
