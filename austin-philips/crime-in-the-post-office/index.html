@@ -498,8 +498,10 @@ header {
 	color: var(--description-color);
 }
 
-.posttalk-metadata li {
-	font-size: 1.1em;
+.posttalk-metadata ul {
+	list-style-type: none; /* no bullets */
+	padding: 0;  /* no indentation, either */
+	margin: 0;
 }
 
 /* Direct Links / Markdown Headers */
@@ -595,10 +597,15 @@ hr {
 
 <h1>Crime in the Post Office</h1>
 
-<div class="posttalk-metadata">
-  By Austin Philips<br>
-  Published in <em>The Strand Magazine</em>, October 1907
-</div>
+
+
+
+
+
+<ul class="posttalk-metadata">
+  <li>By Austin Philips</li>
+  <li>Published in  <em>The Strand Magazine</em>, October 1907</li>
+</ul>
 
 <article>
 <p>Every phase of social evolution has brought with it a parasite. Before the introduction of coins there were no makers of base money; before the time of bank-notes forgers were not. Even the submarine cable gave the ocean a new inhabitant of predatory instincts which fed upon its parent. So with each successive postal development has come, from within the Post Office itself, a fresh criminal to prey upon the extension which gives him his means of existence. The sorting office, the savings bank, the postal order, and the registered letter, all have been attacked; assuredly the telephone will carry its own peculiar crime.</p>

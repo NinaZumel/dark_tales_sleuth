@@ -498,8 +498,10 @@ header {
 	color: var(--description-color);
 }
 
-.posttalk-metadata li {
-	font-size: 1.1em;
+.posttalk-metadata ul {
+	list-style-type: none; /* no bullets */
+	padding: 0;  /* no indentation, either */
+	margin: 0;
 }
 
 /* Direct Links / Markdown Headers */
@@ -595,10 +597,15 @@ hr {
 
 <h1>A Dead Letter</h1>
 
-<div class="posttalk-metadata">
-  By Austin Philips<br>
-  Published in <em>The Strand Magazine</em>, January 1909
-</div>
+
+
+
+
+
+<ul class="posttalk-metadata">
+  <li>By Austin Philips</li>
+  <li>Published in  <em>The Strand Magazine</em>, January 1909</li>
+</ul>
 
 <article>
 <p>When the last of the mail-bags had been opened; when, on the chock-a-block tables, the sorted letters stood in serried, marshalled rows, young Fraser and I carried them across to the swing-seated postmen's benches and dumped them down in handfuls, cards and cakes and children's toys alike.  Then only, did we pull chairs to the frosty fire, set feet on the iron over-part of the stove, and sip our parboiled, milkless tea from the long jugs that served at once as teapot and as cup.</p>
