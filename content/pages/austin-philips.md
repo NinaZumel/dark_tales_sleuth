@@ -31,6 +31,8 @@ This selection will focus on Philips' Post Office detective stories, ghost stori
 
 [**A Dead Letter**](/austin-philips/a-dead-letter/): A moaning ghost visits the Post Office on Christmas Eve. From *The Strand*, January 1909.
 
+[**The Telegram**](/austin-philips/the-telegram/): A naive young telegraph operator finds herself at a fork in the road. From *The Strand*, July 1909.
+
 </div>
 
 <p class="credit">

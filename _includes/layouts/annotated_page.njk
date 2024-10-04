@@ -7,10 +7,10 @@ layout: layouts/base.njk
 
 <h1>{{ title }}</h1>
 
-<div class="posttalk-metadata">
-  By {{ author }}<br>
-  Published in <em>{{ first_published }}</em>, {{ publication_date }}
-</div>
+<ul class="posttalk-metadata">
+  <li>By {{ author }}</li>
+  <li>Published in <em>{{ first_published }}</em>, {{ publication_date }}</li>
+</ul>
 
 <article>
 {{ content | safe }}
