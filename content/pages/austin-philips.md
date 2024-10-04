@@ -16,7 +16,7 @@ title: Selected Stories of Austin Philips
 
 Austin Philips was a British author and the son of a postmaster, who not only became a postmaster himself, but also served in an investigative branch of the Post Office which "co-operated with the British Intelligence Services in checking suspect mail."[Ashley, 2018] These experiences made their way into much of his writing, which included Post Office crime novels, Post Office-related short stories and even [Post Office poems](https://www.poetryexplorer.net/poem.php?id=10115327). He wrote a variety of other short fiction, novels, plays, and poetry as well.
 
-This selection will focus on Philips' Post Office detective stories, ghost stories, and articles, as well as collecting some non-Post Office supernatural tales.
+This selection will focus on Philips' Post Office detective stories, ghost stories, and articles, as well as collecting some non-Post Office crime tales.
 
 <p class="credit">
 [Ashley, 2018]  Ashley, Mike (editor). <em>Glimpses of the Unknown: Lost Ghost Stories</em>, British Public Library <em>Tales of the Weird</em> series (2018), p.40.
