@@ -31,7 +31,7 @@ Sometimes I investigate quotes, and other literary mysteries, too.
 
 #### [Selected Stories of Austin Philips](/pages/austin-philips/)
 
-I'm collecting as many of the Post Office detective and Post Office supernatural short stories of Austin Philips as I can find online. Possibly some non-post office ghost stories, too.
+I'm collecting as many of the Post Office detective and Post Office supernatural short stories of Austin Philips as I can find online. Possibly some non-post office crime stories, too.
 
 
 #### [Miscellany and Digressions](/pages/miscellany-and-digressions/)

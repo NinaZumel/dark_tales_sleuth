@@ -33,6 +33,8 @@ This selection will focus on Philips' Post Office detective stories, ghost stori
 
 [**The Telegram**](/austin-philips/the-telegram/): A naive young telegraph operator finds herself at a fork in the road. From *The Strand*, July 1909.
 
+[**The Missing Word**](/austin-philips/the-missing-word/): In the midst of a midnight storm, an old telegraph operator tells his colleagues about the night he "heard" his fellow telegraphist's murder. From *Pall Mall*, November 1907.
+
 </div>
 
 <p class="credit">
