@@ -1,0 +1,921 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>The Booby Trap</title>
+		<meta name="description" content="Filling in the Literary Blanks">
+		<link rel="alternate" href="/dark_tales_sleuth/feed/feed.xml" type="application/atom+xml" title="Dark Tales Sleuth">
+		<link rel="alternate" href="/dark_tales_sleuth/feed/feed.json" type="application/json" title="Dark Tales Sleuth">
+
+        
+		<link rel="me" href="https://micro.blog/MultoGhost">
+		<link rel="authorization_endpoint" href="https://indieauth.com/auth">
+		<link rel="token_endpoint" href="https://tokens.indieauth.com/token">
+		<link href="https://github.com/ninazumel" rel="me">
+		<script src="https://kit.fontawesome.com/9bbe6f85f9.js" crossorigin="anonymous"></script>
+		
+		<style>/* minimal implementation; just plain text in the margin, no blockquotes, code, etc */
+/* only (unnumbered) margin notes, no sidenotes */
+/* stripped down from https://github.com/edwardtufte/tufte-css */
+
+/* need this for correct sidenote numbering; but I'm not using sidenotes */
+/*
+body {
+    counter-reset: sidenote-counter; 
+} 
+*/
+
+
+/* since I imagine these will change with different templates */
+:root {
+    --content-width: 65%;
+    --image-padding: 5%;
+    --image-max: 60%;  /* total image+padding <= content-width */
+    --notewidth: 30%; 
+    /* content-width + notewidth <  100%. I think you should leave some wiggle room. */
+    --note-right-margin: -45%;
+    /* if this margin is -(notewidth), the note will start just on the right border of the text */
+    /* so push it a little to the right (more negative) */
+}
+
+article {
+	padding-top: 1rem; 
+}
+
+/* make room for the notes in the article container */
+article > p,
+article > pre,
+article > ul {
+    width: var(--content-width);
+}
+
+/* 
+  blockquotes should be a little shorter 
+  This assumes that left indentation is 2em, which is what it looks like.
+  */
+article > blockquote {
+    width: calc(var(--content-width) - 2em); 
+}
+
+
+article > hr {
+    max-width: var(--content-width);
+    margin: 0
+}
+
+article > h1, 
+article > h2,
+article > h3,
+article > h4 {
+    max-width: var(--content-width);
+}
+
+/* keep images/captions in the text column, rather than centered in the article container */
+article > img {
+    margin-left: 0;
+    padding-left: var(--image-padding);
+    max-width: var(--image-max); 
+}
+
+article > p.caption {
+	text-align: left;
+    padding-left: var(--image-padding);
+	font-style: italic;
+	font-size: 0.9em;
+	color: #9B9C9D;
+ }
+
+ /* finally, the margin note */
+.marginnote {    
+    float: right;
+    clear: right;
+    width: var(--notewidth);         
+    margin-right: var(--note-right-margin);
+    margin-top: 0.3rem;
+    margin-bottom: 0;
+    font-size: 0.8rem;
+    line-height: 1.3;
+    vertical-align: baseline;
+    position: relative;
+    /* border: 2px solid blue; */
+}
+
+
+input.margin-toggle {
+    display: none;
+}
+
+
+label.margin-toggle {    
+    display: none;
+
+}
+
+/* The mobile fallback: */
+/* making max-width bigger makes the note fall inline sooner */
+@media (max-width: 768px) {  
+    body {
+        width: 84%;
+        padding-left: 8%;
+        padding-right: 8%;
+    }
+
+    hr,
+    article > p,
+    article > blockquote,
+    article > pre {
+        width: 100%;
+    }
+
+    label.margin-toggle {
+        display: inline;
+    }
+       
+    .marginnote {           
+         display: none;        
+        }    
+
+      
+    .margin-toggle:checked + .marginnote {            
+        display: block;            
+        float: left;            
+        left: 1rem;            
+        clear: both;            
+        width: 95%;            
+        margin: 1rem 2.5%;            
+        vertical-align: baseline;            
+        position: relative;        
+    }
+    label {
+        cursor: pointer;
+    }
+}
+* { box-sizing: border-box; }
+/* Defaults */
+:root {
+	--font-family: Georgia, Times, -serif; /* Tahoma, -apple-system, system-ui, sans-serif; */
+	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+}
+
+/* Theme colors */
+:root {
+	--color-gray-20: #e0e0e0;
+	--color-gray-50: #C0C0C0;
+	--color-gray-70: #4D4D4D;
+	--color-gray-90: #333;
+
+	--description-color: #9B9C9D;
+	--background-color: #fff;
+
+	--text-color: var(--color-gray-70);
+	--text-color-link:  #2d2fb5;
+	--text-color-link-active: #5f2b48;
+	--text-color-link-visited: var(--color-gray-50); /* #17050F; */
+
+	--syntax-tab-size: 2;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-gray-20: #e0e0e0;
+		--color-gray-50: #C0C0C0;
+		--color-gray-70: #dad8d8;
+		--color-gray-90: #dad8d8;
+
+		/* --text-color is assigned to --color-gray-_ above.*/
+		--text-color: var(--color-gray-20);
+		--text-color-link: #1493fb;
+		--text-color-link-active: #6969f7;
+		--text-color-link-visited: #a6a6f8;
+
+		--background-color: #15202b;
+	}
+}
+
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	font-size: 18px;  /* a little bigger to accomodate a serif font */
+	color: var(--text-color);
+	background-color: var(--background-color);
+}
+html {
+	overflow-y: scroll;
+}
+body {
+	max-width: 70em; /* 50em; */
+}
+
+/* different horizontal rules  https://www.w3schools.com/howto/howto_css_dividers.asp */
+ /* Dashed border */
+ hr.dashed {
+	border-top: 1px dashed #bbb;
+  }
+  
+  /* Dotted border */
+  hr.dotted {
+	border-top: 1px dotted #bbb;
+  }
+  
+  /* Solid border */
+  hr.solid {
+	border-top: 1px solid #bbb;
+  }
+  
+
+/* 
+https://css-tricks.com/barebones-css-for-fluid-images/ 
+Without this, images generated by eleventy-img will always use the largest available size
+-- ie, not be responsive.
+*/
+img {
+	max-width: 100%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+  }
+  img[width] {
+	width: auto; /* Defer to max-width */
+  }
+  img[width][height] {
+	height: auto; /* Preserve aspect ratio */
+  }
+  
+  /* Let SVG scale without boundaries */
+  img[src$=".svg"] {
+	width: 100%;
+	height: auto;
+	max-width: none;
+  }
+  
+
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+p {
+	line-height: 1.5;
+	/* font-size: 1.2em; */
+}
+
+p.caption {
+	text-align: center;
+	font-style: italic;
+	font-size: 0.9em;
+	color: #9B9C9D;
+ }
+
+ /* for the credits at the bottom of a page */
+p.credit {
+	max-width: 50em;
+	font-size: 0.9em;
+	margin-left: auto;
+	margin-right: auto;
+ }
+
+li {
+	line-height: 1.5;
+	/* font-size: 1.2em; */
+}
+
+a[href] {
+	color: var(--text-color-link);
+	text-decoration: none; 
+}
+a[href]:visited {
+	color: var(--text-color-link-visited);
+}
+a[href]:hover,
+a[href]:active {
+	color: var(--text-color-link-active);
+}
+
+main {
+	padding: 1rem;
+}
+main :first-child {
+	margin-top: 0;
+}
+
+header {
+	border-bottom: 1px dashed var(--color-gray-20);
+}
+header:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.links-nextprev {
+	text-align: center;
+	list-style: none;
+	border-top: 1px dashed var(--color-gray-20);
+	padding: 1em 0;
+}
+
+
+table {
+	margin: 1em 0;
+}
+table td,
+table th {
+	padding-right: 1em;
+}
+
+pre,
+code {
+	font-family: var(--font-family-monospace);
+}
+pre:not([class*="language-"]) {
+	margin: .5em 0;
+	line-height: 1.375; /* 22px /16 */
+	-moz-tab-size: var(--syntax-tab-size);
+	-o-tab-size: var(--syntax-tab-size);
+	tab-size: var(--syntax-tab-size);
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+}
+code {
+	word-break: break-all;
+}
+
+/*
+  Custom containters
+*/
+div.message-box {
+	max-width: 50em; 
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* Header */
+header {
+	display: flex;
+	gap: 1em .5em;
+	flex-wrap: wrap;
+	align-items: center;
+	padding: 1em;
+}
+.home-link {
+	font-size: 1.5em; /* 24px /16 (I think)*/
+	font-weight: 700;
+	margin-right: 2em;
+}
+.home-link:link:not(:hover) {
+	text-decoration: none;
+}
+
+/* Nav */
+.nav {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.nav-item {
+	display: inline-block;
+	margin-right: 1em;
+}
+.nav-item a[href]:not(:hover) {
+	text-decoration: none;
+}
+.nav a[href][aria-current="page"] {
+	text-decoration: underline;
+}
+
+/* Posts list */
+.postlist {
+	list-style: none;
+	padding: 0;
+	padding-left: 0; /* 1.5rem; */
+	max-width: 50em;
+}
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	counter-increment: start-from -1;
+	margin-bottom: 1em;
+	padding-bottom: 50px;
+	/* padding: 8px 16px; */
+	border-bottom: 1px dashed var(--color-gray-20);
+}
+
+/* 
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	content: "" counter(start-from, decimal-leading-zero) ". ";
+	line-height: 100%;
+	text-align: right;
+	margin-left: -1.5rem;
+}
+*/
+
+.postlist-date,
+.postlist-item:before {
+	font-size: 0.8125em; /* 13px /16 */
+	color: var(--color-gray-90);
+}
+.postlist-date {
+	word-spacing: -0.5px;
+	padding-left: .25em;
+}
+.postlist-link {
+	font-size: 1em; /* 1.1875em;  19px /16 */
+	font-weight: 700; 
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration: none; 
+	/* text-decoration-thickness: 1px; */
+}
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+/* Tags */
+.post-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+	font-style: italic;
+}
+.postlist-item > .post-tag {
+	align-self: center;
+}
+
+/* Tags list */
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: .5em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.post-metadata time {
+	margin-right: 1em;
+}
+
+.post-metadata li {
+	font-size: 0.875em;
+}
+
+/* metadata for posts and talks */
+
+.posttalk-metadata {
+	list-style: none;
+	padding-left: 0;
+	color: var(--description-color);
+}
+
+.posttalk-metadata ul {
+	list-style-type: none; /* no bullets */
+	padding: 0;  /* no indentation, either */
+	margin: 0;
+}
+
+/* Direct Links / Markdown Headers */
+.header-anchor {
+	text-decoration: none;
+	font-style: normal;
+	font-size: 1em;
+	margin-left: .1em;
+}
+a[href].header-anchor,
+a[href].header-anchor:visited {
+	color: transparent;
+}
+a[href].header-anchor:focus,
+a[href].header-anchor:hover {
+	text-decoration: underline;
+}
+a[href].header-anchor:focus,
+:hover > a[href].header-anchor {
+	color: #aaa;
+}
+
+h2 + .header-anchor {
+	font-size: 1.5em;
+}
+
+/* Footer */
+hr {
+    border: none;
+    background-color: #DADADB;
+    height: 1px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+    hr {
+        width: 100%;
+    }
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2rem 0;
+    background-color: var(--background-color0);
+	;
+}
+
+.footer-container p {
+    font-size: 1rem;
+    color: #9B9C9D;
+}
+
+.footer-container .social_icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0 1rem;
+}
+
+.footer-container .social_icons a {
+    color: #9B9C9D;
+    font-size: 1.5rem;
+    transition: all 0.5s ease-in-out;
+}
+
+.footer-container .social_icons a:hover {
+    color: #DADADB;
+}</style>
+	</head>
+	<body>
+		<a href="#skip" class="visually-hidden">Skip to main content</a>
+
+		<header>
+			<a href="/dark_tales_sleuth/" class="home-link">Dark Tales Sleuth</a>
+			<nav>
+				<h2 class="visually-hidden">Top level navigation menu</h2>
+				<ul class="nav">
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/about/">About</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/my-investigations/">My Cases</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/blog/">All Posts</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/comments/">Comments</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/about-me/">About Me</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="skip">
+			
+
+
+<h1>The Booby Trap</h1>
+
+
+
+
+
+
+<ul class="posttalk-metadata">
+  <li>By Austin Philips</li>
+  <li>Published in  <em>Nash&#39;s Magazine</em>, November 1909</li>
+</ul>
+
+<article>
+<p>The blue-clad postman stroked his cob's ear with a dexterous
+whip. Because he was a punctual man who had been kept waiting, there
+was a touch of stingo about the flick. The animal jumped off, settling
+to a trot. For a minute the cart showed scarlet against the great
+white road.  But before it had gone a hundred yards it was hidden in
+the dust of six weeks' drought.</p>
+<p>Betty Marsh, the postmistress, turned and went into the
+shop. Presently she came out again with some knitting. She sat down in
+the porch.  Opposite to her, on the other seat, a huge tortoise-shell cat blinked and stared. Betty Marsh was a woman of thirty-five. She was pretty, still. Her features were alert and well-marked.  Her carriage was quick and free. For all her years of country life, she had the air of having once been a dweller in towns.</p>
+<p>It was barely seven; but no one ever troubled the little post office
+after the mail had gone.  So she knitted undisturbed, with needles
+that glittered in the sunset. Every now and then she paused and looked
+idly down the road. Children and passers-by gave her good evenings
+from time to time. Except for the fact that her husband had gone away
+she was perfectly content. Over and above the shop and the post
+office, which was <em>her</em> province, he was a rent collector for the lord
+of the manor. And sometimes, as now, his duties took him away for a
+day or two into the remoter parts of the moor that the village
+fringed.</p>
+<p>Presently, however, a vague, inexplicable feeling of uneasiness
+mastered the postmistress there as she sat. And she looked up
+suddenly, as if in obedience to some compelling, alien will. She saw a
+man standing at the gate. He was a stranger. He looked ill-clad,
+ill-nourished, dirty and unkempt.</p>
+<p>Though she was a courageous woman, she felt the finger of fear, sudden
+and cold, at her heart.  There had been a cruel murder at the big town
+ten miles away, and only that morning she had been reading about it in
+a local paper that was turgid with all the dished-up horrors of the
+crime.  Nevertheless, she forced her trembling fingers to the needles
+again, and bent her head resolutely over her work. Then the latch
+clicked; the gate swung; and footsteps crunched the gravelled
+path. And the cat on the seat opposite moved uneasily and mewed.</p>
+<p>Betty Marsh jumped to her feet, and stood before the door with
+outstretched arms. Her first thought was for the post office and the
+money in the till. The man was in the porch now. The cat growled at
+him, spat venomously, and fled at the sight of his lifted hand.</p>
+<p>&quot;What does this mean?&quot; asked the woman stoutly, for all her fear.</p>
+<p>The man looked at her. His bloodshot eyes smiled. So did the lips
+beneath his straggling red beard and moustache. As her terror grew,
+his evil leer increased. And when, with a cry of horror, she started
+back, he laughed aloud. It was a very evil laugh.</p>
+<p>&quot;Yes, Betty; it's me!&quot; he said. &quot;It's your old friend and accomplice,
+Arthur Lowe. But you don't seem pleased to see him!&quot;</p>
+<p>The woman shuddered. She shrank from the hand whose fingers had
+touched her own. Then she faced him, flashing out a torrent of words.</p>
+<p>&quot;Friend?&quot; she echoed. &quot;Enemy, you mean!  You know that I was never
+a friend of yours.  You know that I was no accomplice. I was an
+ignorant little girl who just cashed the postal order to oblige
+you—because you told her a lie about how you came by it. You said that
+because it had a woman's name on it, it had to be signed in that name,
+and that only a woman could get the money. How should I have known
+that it came out of a stolen letter ? I wrote what you asked, and went
+to the post office, and then got taken up when you were caught. But
+the judge believed my story—so did every one else.  That's why they
+let me go when you were sentenced....!&quot;</p>
+<p>She broke off, breathless. The man leered still, leaned forward and
+touched her familiarly on the shoulder. She tried to shrink away—but
+her back was against the door.</p>
+<p>&quot;That be hanged for a tale!&quot; he said. &quot;You knew what you were doing
+well enough. You weren't a fool. But because you cried and looked
+pretty, and all that, they let you off!&quot;</p>
+<p>The woman stamped her foot. &quot;It's a lie.  It's a foul lie,&quot; she
+cried. &quot;And what's more, you know it!&quot;</p>
+<p>The other came closer still. &quot;What if I do?&quot;  he asked. &quot;What if I
+do? Others don't!  Then he thrust his horrible face into hers and drew
+a bow at a venture. &quot;I'll wager you never let on to your husband that
+you'd been in quod!&quot;</p>
+<p>The drop of her eyelids, the swift in-taking of her breath, her sudden
+cry, all told him that his shaft had got home.</p>
+<p>&quot;He doesn't know! &quot; he triumphed.</p>
+<p>The postmistress faced him squarely. She spoke in even, confident
+tones.</p>
+<p>&quot;No, he doesn't know,&quot; she conceded. &quot;I never told him. I thought
+there was no need.  It wasn't as if I had anything to be ashamed of.
+And it all happened long before I met him.  Though I wish—her voice
+faltered and broke—&quot;oh, <em>how</em> I wish I had! But I'll tell him the
+moment he comes back!&quot;</p>
+<p>Before the words were out of her mouth she saw her mistake, and the
+gleam in the tramp's eyes. She had let her enemy know that she was
+alone.</p>
+<p>The wretch that had once been Arthur Lowe, post-office clerk, smiled.</p>
+<p>&quot;So hubby's away, is he? Well, my dear, that makes things
+easier. There's only one of you to deal with. You must just give me
+the money now and square things up with him afterwards.&quot;</p>
+<p>&quot;Or else?&quot;</p>
+<p>&quot;Or else I shall take it!&quot; And he pushed past her into the little
+shop.</p>
+<p>But its darkness tricked him. And while he stumbled over a chair the
+postmistress had passed in behind the counter and had pulled open a
+drawer. She snatched up the whistle that the village postboy used of
+mornings and set it to her lips.</p>
+<p>&quot;Now!&quot; she cried. &quot;Now go or I'll whistle for help!&quot;</p>
+<p>Then, in the waning light, she saw his face change. The triumph left
+it; the leer was gone.  Fear came and stayed—the fear that follows a
+hunted creature, be he man or beast.</p>
+<p>&quot;My God!&quot; he cried. &quot;Don't do that !  Give me some money and I'll go!&quot;</p>
+<p>But she shook her head.</p>
+<p>&quot;Not a shilling,&quot; she retorted. &quot;Not a copper!&quot; And again she held the
+whistle to her lips.</p>
+<p>The tramp fell to cursing. He cursed her with every conceivable
+curse. But he never advanced a step. The counter was between them
+still.  Betty Marsh pointed to the door.</p>
+<p>&quot;Go!&quot; she said, again.</p>
+<p>Suddenly he changed his tone. &quot;I must have the money,&quot; he whined. &quot;I
+<em>must</em> have it. I'm on the rocks. It means life and death to me.  Give
+me a few shillings, Betty, for the love of God! &quot;</p>
+<p>The postmistress took her purse from her pocket and flung it across
+the intervening space.  &quot;Take that!&quot; she cried. &quot;There's some silver
+in it. Two or three shillings only. You're welcome to it. It's all I
+have to give !&quot;</p>
+<p>But he persisted still.</p>
+<p>&quot;Give me more, Betty!&quot; he cried. &quot;Give me gold. Give me five pounds. I
+want to go abroad. I want to make a new start. Help me to emigrate! &quot;
+His voice was piteous now, and his body cringed and fawned.</p>
+<p>But Betty Marsh was adamant. She pointed to the door.</p>
+<p>&quot;If you're not gone in sixty seconds,&quot; she said, &quot;I'll blow!&quot;</p>
+<p>He played his last card.</p>
+<p>&quot;If you whistle, the whole village will know that you've been a
+gaol-bird!&quot; he whispered.</p>
+<p>She snapped the fingers of her free hand.  &quot;D'you think they'd
+believe you? &quot; she cried scornfully. &quot;<em>You</em>, a tramp and a thief and
+Heaven knows what else. Now, mind, I give you sixty seconds. Pick up
+the purse and clear out!&quot;</p>
+<p>There, in the fading light, his eyes searched hers and read that she
+meant what she said. With more curses he picked up the purse. He
+fumbled a moment with the door, opened it and passed out.  Betty Marsh
+followed. Standing in the porch, she saw him go down the little
+gravelled walk, out of the gate, into the highway—and beyond.  When he
+was out of sight she sank down on to the bench where her knitting
+still lay. In the hour of her triumph she was more frightened than
+ever.  She had had time to think. And, knowing Arthur Lowe, she knew
+that he would come back in the night and take the money that she had
+refused to give.</p>
+<p>For a minute she made up her mind to run, hot foot, to the constable
+at the far end of the village, to implore his protection, to have her
+persecutor caught and locked up. But only for a minute. In spite of
+what she had said, she was afraid of the scandal. The village,
+intolerant, uncharitable, and gossiping, would make her life
+unbearable. She and her husband—if he still stuck to her—would have to
+leave. He would be obliged to give up his job. And she would lose the
+post office and the little shop and the white-walled, black-beamed,
+dormer-windowed cottage that she loved.</p>
+<p>Perhaps, after all, he would not come? Perhaps he had really
+gone—gone for good. But her knowledge of Arthur Lowe's character froze
+the hope as it budded. Common sense insisted that it was absurd to
+expect anything but the worst. He would return, by stealth, to steal.
+But he should not find.</p>
+<p>She ran into the shop, pulled out the post-office drawer, and hurried
+into the kitchen.  From the kitchen the stairs ran up. And soon the
+drawer lay snug and safe under her bed.  Then she went back for the
+shop money. That, too, she hid upstairs. When Arthur Lowe came there
+would be nothing to steal. And if, hunting still, he so much as set
+foot on the first stair, she would rush to her bedroom window, throw
+it wide and blow. Scandal or no scandal, she would summon help,
+then. For a sense of duty was bred deep into her bones, and she would
+not spare herself so that she saved what she held in trust.</p>
+<p>She supped hastily, slenderly—as a woman sups when there is no man
+by. Then she jumped to her feet with a cry of alarm. In her haste to
+hide the money she had forgotten to lock the shop door. Snatching up
+the candle, she hurried out.  But the key was gone. And as her hair
+stood on end and her skin grew to goose-flesh and her breath caught,
+the horrible certainty glimpsed on to her. She knew now why Arthur
+Lowe had fumbled with the door.</p>
+<p>Again she made up her mind to summon help.  Once more she vacillated;
+once more she shrank from the scandal to be. Then, though she was only
+too sure that the thief would come, she gave herself the utterly
+improbable chance that he might not. But, since she feared that he
+would enter unheard, she cast about for something to serve her as
+alarum.</p>
+<p>The shop door was bell-less and bolt-less, both.  It had a latch. It
+had had a key. The key was gone. The latch was too high for any
+protecting chair-back to wedge under it. There was no means of making
+it secure. Nor could she move a piece of furniture into the shop for
+buttress.  Arthur Lowe would have no difficulty in getting in.</p>
+<p>But, entrance effected, what then? There was now nothing for him to
+take. And she, hearing him come, and if he so much as put foot upon
+the first stair, would set the whistle to her lips and blow till all
+the village flocked to help. Yet supposing that sleep overcame her and
+she did not hear? With the thought a means of alarum came.</p>
+<p>In the kitchen corner a superb grandfather's clock comfortably
+ticked. She opened the case, lifted off the heavy, leaden weight,
+staggered out into the shop, and let it fall on to the counter.  Then
+she dragged a chair to the door, picked up the weight and mounted,
+drawing dificult breath.</p>
+<p>The door must, in any case, go unfastened.  Why not, then, leave it
+ajar altogether? She opened it a few inches. On the top she rested one
+end of the leaden, sausage-shaped weight.  The other end she set upon
+the framework. It was a perfect, resonant booby-trap. At the first
+touch of the thief's hands the door would swing inwards, and the
+weight come crashing to the ground. The weight balanced
+beautifully. It was a simple, splendid scheme. She tip-toed down from
+the chair, which she carried to the counter's side. Then she passed
+into the kitchen and up the narrow staircase to her room. There she
+locked the door and put a chair-back under the handle. She got into
+bed in her clothes. She lay listening and still. But for long the
+hammer-hammer of her heart was all that she heard.</p>
+<p>Then she began to imagine all manner of noises, to hear sounds that
+were not; to start feverishly at the lightest rustle of the
+sheets. She lost all sense of time. She seemed to have lain there a
+full twelve hours. And, above all, she missed the familiar, comforting
+tick and strike of the clock at the foot of the stairs.</p>
+<p>At last, after a thousand empty frights and false, nerve-destroying
+alarms, the faintest, feeblest, yet definite sound came up to her
+through the half- open lattice pane. Betty Marsh sat up in bed, hair
+on end, skin goose-flesh again. And on the door of the shop there was
+a sound as of a fingernail grating on wood. Betty Marsh gripped her
+whistle and tried to moisten her lips. The door creaked on its
+hinges. Then there was a sudden thud—the thud of a heavy weight
+meeting a soft body. A wail followed, faint, human, and distinct. Then
+silence; nothing but silence.  And on Betty Marsh's forehead the beads
+burst out and stood, large as rain-drops in July.</p>
+<p>&quot;I've killed him,&quot; she thought simply. &quot;Oh, my God, my God! What
+will become of me? &quot;</p>
+<p>The darkness and solitude appalled her. The long, unceasing thought of
+the horror downstairs almost sent her mad. She had never meant to hurt
+him—only to frighten him and to give the alarm. And now she was—a
+murderess! The word was printed in flaming capitals on the eyelids
+that she uselessly closed. In the horrible silence she tortured her
+brain with questionings.  What was her position in the sight of the
+law?  Was she justified in what she had done? Would she once more be a
+gaol-bird by Arthur Lowe's means? Her head ached, and her forehead
+burned, and Fear sat at the head of her pillow and set his icy finger
+on her heart. Yet always, beneath the terror and the pain and the
+aching of her eyes, one thought stayed thankful and quick. &quot;Whatever
+happens,&quot; she said to herself, &quot;my husband will never know that I
+have hidden something from him all these years !&quot;</p>
+<p>At last, when the darkness had grown to greyness, and the greyness
+to the full light of the summer morning, she got up and walked across
+to the looking-glass that topped the oak, brass-handled chest of
+drawers. There were crows' feet around and about her eyes: the eyes
+themselves were swollen and sore. She looked ten years older. She
+felt a hundred. She regarded her image with curious care.</p>
+<p>&quot;Yes; I suppose I am a murderess!&quot; she said. And she smoothed her
+hair, turned the key, and went downstairs, tip-toeing, as in the
+presence of death.</p>
+<p>She passed out of the kitchen, into the little shop where nothing was
+touched or altered from the night before. Only the door was a little
+more ajar—and in the opening the big tortoise-shell cat was lying with
+the clock-weight resting half upon his back, half upon the floor. The
+beast's eyes were sightless and staring. It was quite cold: quite
+dead.</p>
+<p>Betty Marsh staggered backwards, clutched at the counter, leaned
+bewilderedly against it. Then she laughed aloud, voicing the relief
+that made her heart light. But presently a passion of remorse
+mastered her. She caught the cat to her bosom, and, childless woman
+that she was, wailed for it as any Rachel might have wailed for her
+slaughtered babe. After a while she carried it tenderly into the
+garden behind the cottage and dug a grave. When she had buried it she
+repeated the Lord's Prayer softly to herself, very reverently and in
+supreme innocence. She said other prayers, too. And she ended by
+whispering fervently, &quot;Lord, be merciful to me, a sinner!&quot;</p>
+<p>When she came back to the shop it was seven o'clock, and the sun was
+high in the heavens.  Far down the road a cloud of dust heralded the
+approaching mail-cart. As it swung into sight she saw that the postman
+was not alone. Some one was sitting beside him on the box. It was her
+husband. Almost before the cart drew level with the gate he jumped
+down, running up the path to take her in his arms.</p>
+<p>&quot;You're back early, dear!&quot; she said.</p>
+<p>He smiled into her tired eyes, holding her at arm's length.</p>
+<p>&quot;Yes,&quot; he answered. &quot;I got as far as Murcester last night and was
+waiting for James here to give me a lift at five this morning.&quot; He
+broke off, pulled up by a sudden recollection.</p>
+<p>&quot;They've got the murderer at last,&quot; he cried.  &quot;I saw him brought in!&quot;</p>
+<p>His wife shuddered, averting her face.</p>
+<p>&quot;How awful!&quot; she whispered. And then, &quot;Wherever did they catch him?&quot;
+she asked.</p>
+<p>&quot;On this very road, about ten last night. A mounted policeman nearly
+ran over him only half a mile from here!&quot;</p>
+<p>Betty Marsh's head began to ache afresh. A new suspicion was stabbing
+her brain.</p>
+<p>&quot;What was he like to look at?&quot; she forced from the dry lips that
+almost refused sound.</p>
+<p>Her husband's jolly eyes grew hard, his lips primmed, and his voice
+came out vindictively as he answered:</p>
+<p>&quot;Like? Why, just like what one would expect a murderer to be. A
+ruffianly looking brute with bloodshot eyes, and red, tangled hair,
+and a horrible, cruel face. But he'll swing right enough—won't he,
+James? So finish all murderers, say I!&quot; And he turned sharply to the
+postman for confirmation.</p>
+<p>But before James could answer Betty Marsh's husband felt his wife
+become a dead weight on his outstretched arms.</p>
+
+</article>
+		</main>
+
+		<!-- footer -->
+		<hr>
+
+<div class="footer-container">
+	<p>&copy; 2024 Nina B. Zumel</p>
+	<div class="social_icons">
+	    <a href="mailto:nzumel@mzlabs.com?subject=Comment%20from%20Dark%20Tales%20Sleuth" aria-label="Email" target="_blank" rel="noopener noreferrer">
+			<i class="fas fa-fw fa-envelope"></i>
+		</a>
+		<a href="https://micro.blog/MultoGhost" aria-label="Micro.blog" target="_blank" rel="noopener noreferrer">
+			<i class="fab fa-fw fa-microblog"></i>
+		</a>
+		<a href="https://multoghost.wordpress.com/" aria-label="Multo (Ghost)" target="_blank" rel="noopener noreferrer">
+			<i class="fab fa-fw fa-wordpress"></i>
+		</a>
+		<a href="/dark_tales_sleuth/feed.xml" aria-label="RSS" target="_blank" rel="noopener noreferrer">
+			<i class="fa fa-fw fa-rss-square"></i>
+		</a>
+
+	</div>
+</div>
+		<!-- /footer-- >
+
+		<!-- Current page: /dark_tales_sleuth/austin-philips/the-booby-trap/ -->
+	</body>
+</html>
