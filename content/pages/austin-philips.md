@@ -35,6 +35,8 @@ This selection will focus on Philips' Post Office detective stories, ghost stori
 
 [**The Missing Word**](/austin-philips/the-missing-word/): In the midst of a midnight storm, an old telegraph operator tells his colleagues about the night he "heard" his fellow telegraphist's murder. From *Pall Mall*, November 1907.
 
+[**The Booby Trap**](/austin-philips/the-booby-trap/): A postmistress contends with a person out of her past; one who knows her dark secret. From *Nash's Magazine*, November 1909.
+
 </div>
 
 <p class="credit">
