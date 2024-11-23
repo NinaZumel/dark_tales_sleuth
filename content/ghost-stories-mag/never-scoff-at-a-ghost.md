@@ -25,7 +25,7 @@ Shortly after the stranger's death, horses are said to have been heard circling
 the Livingston house, the steady tread, tread of their hoofs jarring the nerves of the inhabitants. Dishes pitched from their shelves and were broken; pieces of coal sprang from the fire; a barn burned down; heads were cut from chickens—all with no physical, human explanation.
 
 Next came sounds of the grinding of shears as they clipped. Suits of clothes, 
-hair from women's heads, shoes, curtains—all were cliped to shreds. This gave rise to the "Wizard Clip" as the name of the Livingston ghost.
+hair from women's heads, shoes, curtains—all were clipped to shreds. This gave rise to the "Wizard Clip" as the name of the Livingston ghost.
 
 Rumor declares that a woman, a skeptic, going to visit the Livingstons, had in
 the pocket of her dress a silk cap. She scoffed at the Livingston haunt—and
