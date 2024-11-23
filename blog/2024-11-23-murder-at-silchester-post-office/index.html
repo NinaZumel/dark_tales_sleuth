@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Never Scoff at a Ghost</title>
+		<title>The Murder at Silchester Post Office</title>
 		<meta name="description" content="Filling in the Literary Blanks">
 		<link rel="alternate" href="/dark_tales_sleuth/feed/feed.xml" type="application/atom+xml" title="Dark Tales Sleuth">
 		<link rel="alternate" href="/dark_tales_sleuth/feed/feed.json" type="application/json" title="Dark Tales Sleuth">
@@ -15,7 +15,175 @@
 		<link href="https://github.com/ninazumel" rel="me">
 		<script src="https://kit.fontawesome.com/9bbe6f85f9.js" crossorigin="anonymous"></script>
 		
-		<style>/* minimal implementation; just plain text in the margin, no blockquotes, code, etc */
+		<style>/**
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #f8f8f2;
+	background: none;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+	border-radius: 0.3em;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #272822;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #8292a2;
+}
+
+.token.punctuation {
+	color: #f8f8f2;
+}
+
+.token.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #f92672;
+}
+
+.token.boolean,
+.token.number {
+	color: #ae81ff;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #a6e22e;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+	color: #f8f8f2;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+	color: #e6db74;
+}
+
+.token.keyword {
+	color: #66d9ef;
+}
+
+.token.regex,
+.token.important {
+	color: #fd971f;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+/*
+ * New diff- syntax
+ */
+
+pre[class*="language-diff-"] {
+	--eleventy-code-padding: 1.25em;
+	padding-left: var(--eleventy-code-padding);
+	padding-right: var(--eleventy-code-padding);
+}
+.token.deleted {
+	background-color: hsl(0, 51%, 37%);
+	color: inherit;
+}
+.token.inserted {
+	background-color: hsl(126, 31%, 39%);
+	color: inherit;
+}
+
+/* Make the + and - characters unselectable for copy/paste */
+.token.prefix.unchanged,
+.token.prefix.inserted,
+.token.prefix.deleted {
+	-webkit-user-select: none;
+	user-select: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+.token.prefix.inserted,
+.token.prefix.deleted {
+	width: var(--eleventy-code-padding);
+	background-color: rgba(0,0,0,.2);
+}
+
+/* Optional: full-width background color */
+.token.inserted:not(.prefix),
+.token.deleted:not(.prefix) {
+	display: block;
+	margin-left: calc(-1 * var(--eleventy-code-padding));
+	margin-right: calc(-1 * var(--eleventy-code-padding));
+	text-decoration: none; /* override del, ins, mark defaults */
+	color: inherit; /* override del, ins, mark defaults */
+}
+/* minimal implementation; just plain text in the margin, no blockquotes, code, etc */
 /* only (unnumbered) margin notes, no sidenotes */
 /* stripped down from https://github.com/edwardtufte/tufte-css */
 
@@ -598,42 +766,29 @@ hr {
 		<main id="skip">
 			
 
+<h1>The Murder at Silchester Post Office</h1>
 
-<h1>Never Scoff at a Ghost</h1>
-
-
-
-
-
-
-<ul class="posttalk-metadata">
-  <li>By George William Wilder</li>
-  <li>Published in  <em>Ghost Stories Magazine</em>, January 1927</li>
+<div class="posttalk-metadata">
+  <time datetime="2024-11-22 4:00 PM">22 November 2024</time>
+</div>
+<ul class="post-metadata">
+	<li><a href="/dark_tales_sleuth/tags/austin-philips/" class="post-tag">Austin Philips</a>, </li>
+	<li><a href="/dark_tales_sleuth/tags/with-html-transcription/" class="post-tag">with html transcription</a></li>
 </ul>
 
+
 <article>
-<p>How often have you heard people say &quot;Ghosts? Nonsense! No such thing.&quot;
-&quot;Who can believe that any but human beings of flesh and blood exist on
-this globe?&quot; &quot;There is no such thing as a haunt—and certainly no such
-thing as vengeance after death. This is a material world&quot;?</p>
-<p>Attend the case of Wizard Clip of West Virginia:</p>
-<p>Long years ago, history states, in a little town in Jefferson County, West
-Virginia, a man lay dying. He was in the cabin of a neighbor, Adam Livingston.
-Death seemed inevitable, and Livingston did all in his power to relieve the physical suffering of his guest.</p>
-<p>Came the dying man's request that Livingston get a spiritual adviser, a clergyman. Livingston refused.</p>
-<p>The guest died, and from the time of that death, through many years that
-followed, a series of portentous events colored the life of Adam Livingston that only ended when he, himself—in terror and a nervous wreck—sought the aid of a recognized minister of the gospel and received what amounted to divine amelioration.</p>
-<p>Shortly after the stranger's death, horses are said to have been heard circling
-the Livingston house, the steady tread, tread of their hoofs jarring the nerves of the inhabitants. Dishes pitched from their shelves and were broken; pieces of coal sprang from the fire; a barn burned down; heads were cut from chickens—all with no physical, human explanation.</p>
-<p>Next came sounds of the grinding of shears as they clipped. Suits of clothes,
-hair from women's heads, shoes, curtains—all were clipped to shreds. This gave rise to the &quot;Wizard Clip&quot; as the name of the Livingston ghost.</p>
-<p>Rumor declares that a woman, a skeptic, going to visit the Livingstons, had in
-the pocket of her dress a silk cap. She scoffed at the Livingston haunt—and
-when her cap was removed from her pocket, the cap was in shreds, plainly having been clipped. But no one ever saw the shears or the wielder of the cutting blades.</p>
-<p>You never <em>saw</em> a ghost—you never <em>touched</em> a ghost—perhaps you never <em>heard</em> a ghost. But how can you say that they don't exist? Beware of scoffing! Beware—lest your clothes fall away in shreds, lest the haunt of horses tramping feet wreck your peace. Beware—lest scoffing bring upon you shattered nerves,
-a restless spirit, a craving for peace that can be satisfied nowhere.</p>
+	<p><a href="/dark_tales_sleuth/austin-philips/murder-at-silchester-post-office/">&quot;The Murder at Silchester Post Office&quot;</a> is Austin Philips' fictional reconstruction of
+the September, 1900 murder of George Fell, caretaker at the Birkenhead Post Office. Philips had written about this crime earlier, as part of
+his 1907 non-fiction <em>Strand</em> article <a href="/dark_tales_sleuth/austin-philips/crime-in-the-post-office/">&quot;Crime in the Post Office.&quot;</a></p>
+<p>The real murder was never solved. In this story, Philips imagines how the crime might have taken place, and also proposes a solution to the crime.</p>
+<p>I wouldn't be surprised if Philips' solution was true in general outline, though of course he couldn't name any specific person. Note that---as
+in real life---this murder is investigated by the local police, not by Post Office detectives.</p>
 
 </article>
+<ul class="links-nextprev"><li><a href="/dark_tales_sleuth/blog/2024-10-23-the-booby-trap/">&#8592;</a> <span style="color: #9B9C9D">Previous</span></li>
+</ul>
+
 		</main>
 
 		<!-- footer -->
@@ -659,6 +814,6 @@ a restless spirit, a craving for peace that can be satisfied nowhere.</p>
 </div>
 		<!-- /footer-- >
 
-		<!-- Current page: /dark_tales_sleuth/ghost-stories-mag/never-scoff-at-a-ghost/ -->
+		<!-- Current page: /dark_tales_sleuth/blog/2024-11-23-murder-at-silchester-post-office/ -->
 	</body>
 </html>
