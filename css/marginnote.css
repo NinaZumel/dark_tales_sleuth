@@ -54,6 +54,10 @@ article > h4 {
     max-width: var(--content-width);
 }
 
+article > center {
+    max-width: var(--content-width);
+}
+
 /* keep images/captions in the text column, rather than centered in the article container */
 article > img {
     margin-left: 0;
