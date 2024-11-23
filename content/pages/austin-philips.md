@@ -37,6 +37,8 @@ This selection will focus on Philips' Post Office detective stories, ghost stori
 
 [**The Booby Trap**](/austin-philips/the-booby-trap/): A postmistress contends with a person out of her past; one who knows her dark secret. From *Nash's Magazine*, November 1909.
 
+[**The Murder at Silchester Post Office**](/austin-philips/murder-at-silchester-post-office/): Philips' fictional reconstruction of---and solution to---the still-unsolved real-life murder of George Fell at the Birkenhead Post Office in 1900.
+
 </div>
 
 <p class="credit">
