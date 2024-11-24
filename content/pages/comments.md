@@ -6,7 +6,7 @@ eleventyNavigation:
   order: 4
 ---
   
-  <div class="message-box">
+<div class="message-box">
 <h2>Comments on Posts</h2>
 
 When I moved this blog from Wordpress, the comments did not come along. Since there weren't very many, it was easy to move

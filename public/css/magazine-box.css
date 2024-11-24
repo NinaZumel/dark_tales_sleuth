@@ -1,0 +1,34 @@
+/* MagazineBox */
+.magazine-box {
+	--color-message-box:  var(--background-color); 
+    --border-color:  #f5f5dc; /*; beige, according to my R color chart */
+
+	display: block;
+	background-color: var(--color-message-box);
+	color: var(--color-gray-90);
+	padding: 1em 0.625em;  /* 16px 10px /16 */
+	padding-left: 2em;  /* bit more on the left */
+	padding-right: 2em;  /* to balance it */
+	border: 2px solid var(--border-color);
+}
+
+.magazine-box img {
+	float: left;
+	max-width:100px;
+	height:auto;
+	margin-right: 10px; /* Space between image and text */
+}
+
+.magazine-box h1 {
+	text-align: center;
+}
+
+.magazine-box h2 {
+	text-align: center;
+}
+
+@media (prefers-color-scheme: dark) {
+	.magazine-box {
+		--color-message-box: var(--background-color);
+	}
+}
