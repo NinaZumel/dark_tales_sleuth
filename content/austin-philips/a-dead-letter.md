@@ -29,9 +29,9 @@ Fraser whistled, with averted face. But his silence seemed to me to invite confi
 
 "Don't think I'm mad, or that I've been drinking or taking drugs," I began.
 
-"As if I should," he interrupted; "as if I should. You're the very last chap to do any- thing of that sort. We all know that. And, besides, if you were you couldn't——"
+"As if I should," he interrupted; "as if I should. You're the very last chap to do anything of that sort. We all know that. And, besides, if you were you couldn't——"
 
-"Win pots as I do, you mean?"{% marginnote "win-pots", "*win pots*: I think this is an expression for winning a round of poker." %}
+"Win pots as I do, you mean?"{% marginnote "win-pots", "*win pots*:~~I think this is an expression for winning a round of poker.~~ A reader comments that in their experience, \"pots\" usually means \"cups, medals, awards for athletic or sporting prowess\". This makes more sense than my guess." %}
 
 "Exactly," he acquiesced. "That's just what I was going to say."
 
@@ -43,7 +43,7 @@ Again the boy whistled, and this time he faced me fair and square. His eyes narr
 
 So, staring into the fire, resolutely avoiding his face, I began, because I knew it was the only way to make him believe and understand.
 
-"It was last week, on night duty, about this time, in the office here.  The sorting tables were clear, just as they are now. I had taken the letters round to the postmen's benches, and was going to have a sit down and a rest and a cup of tea. But before I did so I had another look at the sorting tables, just to see that I hadn't left anything on them, though I knew I hadn't. You know how one does that ?"
+"It was last week, on night duty, about this time, in the office here.  The sorting tables were clear, just as they are now. I had taken the letters round to the postmen's benches, and was going to have a sit down and a rest and a cup of tea. But before I did so I had another look at the sorting tables, just to see that I hadn't left anything on them, though I knew I hadn't. You know how one does that?"
 
 "I know," said the boy at my side. "Just as a painter looks at a picture when he's finished it—as any man who's done a job looks when he's glad the job's done."
 
