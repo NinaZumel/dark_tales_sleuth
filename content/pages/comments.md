@@ -106,3 +106,34 @@ Nina
 Well, that was useful, thanks a lot, Nina. I’ve already written to Christine for info. Yes, like Sara Wilkinson, Crookenden was a very active hack, and not entirely negligible as a writer either. I dream of the time when some library will at last digitise the entire corpus of Gothic novels, chapbooks, bluebooks, stories, plays and poems and offer it online to everyone for free. Then Franco Moretti will be able to do his distant reading thing on the lot and reveal hidden wonders. Thanks again, Manuel
 
  </div>
+
+ <br>
+
+<div class="message-box">
+
+## [A Dead Letter](/austin-philips/a-dead-letter/)
+
+#### Helen Kemp, November 30, 2024
+
+Hi Nina
+ 
+A friend pointed me towards you and I am really enjoying your work – thank you so much!
+ 
+I’ve just read ‘A Dead Letter’ and noted your note on ‘win pots’. When I’ve come across ‘pots’ before it has usually meant ‘cups, medals, awards’ for athletic or sporting prowess – this might fit a bit better here as being a more ‘healthy’ option than poker!
+
+#### Nina Zumel, November 30, 2024
+
+Hi Helen!
+ 
+Thanks for the kind words! I’m glad you enjoy my blog(s).
+ 
+Thanks also for the comment about the phrase “win pots” – poker was a guess, after I googled the phrase. But what you say also makes sense.
+I’ll amend the note.
+
+
+#### Helen Kemp, November 30, 2024
+
+So glad you like the idea, Nina. I’ve remembered that the word ‘pothunters’ was an early 20th C thing, for those who chased sporting trophies. It’s the title of a book by P G Wodehouse. 
+
+
+</div>

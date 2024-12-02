@@ -31,7 +31,7 @@ Fraser whistled, with averted face. But his silence seemed to me to invite confi
 
 "As if I should," he interrupted; "as if I should. You're the very last chap to do anything of that sort. We all know that. And, besides, if you were you couldn't——"
 
-"Win pots as I do, you mean?"{% marginnote "win-pots", "*win pots*:~~I think this is an expression for winning a round of poker.~~ A reader comments that in their experience, \"pots\" usually means \"cups, medals, awards for athletic or sporting prowess\". This makes more sense than my guess." %}
+"Win pots as I do, you mean?"{% marginnote "win-pots", "*win pots*:~~I think this is an expression for winning a round of poker.~~ [A reader comments](/pages/comments/#helen-kemp-november-30-2024) that in their experience, \"pots\" usually means \"cups, medals, awards for athletic or sporting prowess\". This makes more sense than my guess." %}
 
 "Exactly," he acquiesced. "That's just what I was going to say."
 
@@ -173,3 +173,4 @@ It was the second time that I had read those words that night.
 *Annotations by Nina Zumel* <br>
 *Illustrations by A.J. Gough, for the original publication of this story in The Strand.*
 
+[*Comments on this story*](/pages/comments/#a-dead-letter)
