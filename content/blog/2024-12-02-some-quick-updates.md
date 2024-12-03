@@ -4,6 +4,7 @@ date: "2024-12-02"
 tags: 
   - Austin Philips
   - winter tales
+  - Miscellany
 ---
 
 Reader Helen Kemp sent in a correction to one of my notes on the story [A Dead Letter](/austin-philips/a-dead-letter/).
