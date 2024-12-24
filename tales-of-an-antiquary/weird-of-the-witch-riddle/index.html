@@ -1,0 +1,716 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>The Weird of the Witch Riddle</title>
+		<meta name="description" content="Filling in the Literary Blanks">
+		<link rel="alternate" href="/dark_tales_sleuth/feed/feed.xml" type="application/atom+xml" title="Dark Tales Sleuth">
+		<link rel="alternate" href="/dark_tales_sleuth/feed/feed.json" type="application/json" title="Dark Tales Sleuth">
+
+        
+		<link rel="me" href="https://micro.blog/MultoGhost">
+		<link rel="authorization_endpoint" href="https://indieauth.com/auth">
+		<link rel="token_endpoint" href="https://tokens.indieauth.com/token">
+		<link href="https://github.com/ninazumel" rel="me">
+		<script src="https://kit.fontawesome.com/9bbe6f85f9.js" crossorigin="anonymous"></script>
+		
+		<style>/* minimal implementation; just plain text in the margin, no blockquotes, code, etc */
+/* only (unnumbered) margin notes, no sidenotes */
+/* stripped down from https://github.com/edwardtufte/tufte-css */
+
+/* need this for correct sidenote numbering; but I'm not using sidenotes */
+/*
+body {
+    counter-reset: sidenote-counter; 
+} 
+*/
+
+
+/* since I imagine these will change with different templates */
+:root {
+    --content-width: 65%;
+    --image-padding: 5%;
+    --image-max: 60%;  /* total image+padding <= content-width */
+    --notewidth: 30%; 
+    /* content-width + notewidth <  100%. I think you should leave some wiggle room. */
+    --note-right-margin: -45%;
+    /* if this margin is -(notewidth), the note will start just on the right border of the text */
+    /* so push it a little to the right (more negative) */
+}
+
+article {
+	padding-top: 1rem; 
+}
+
+/* make room for the notes in the article container */
+article > p,
+article > pre,
+article > ul {
+    width: var(--content-width);
+}
+
+/* 
+  blockquotes should be a little shorter 
+  This assumes that left indentation is 2em, which is what it looks like.
+  */
+article > blockquote {
+    width: calc(var(--content-width) - 2em); 
+}
+
+
+article > hr {
+    max-width: var(--content-width);
+    margin: 0
+}
+
+article > h1, 
+article > h2,
+article > h3,
+article > h4 {
+    max-width: var(--content-width);
+}
+
+article > center {
+    max-width: var(--content-width);
+}
+
+/* keep images/captions in the text column, rather than centered in the article container */
+article > img {
+    margin-left: 0;
+    padding-left: var(--image-padding);
+    max-width: var(--image-max); 
+}
+
+article > p.caption {
+	text-align: left;
+    padding-left: var(--image-padding);
+	font-style: italic;
+	font-size: 0.9em;
+	color: #9B9C9D;
+ }
+
+ /* finally, the margin note */
+.marginnote {    
+    float: right;
+    clear: right;
+    width: var(--notewidth);         
+    margin-right: var(--note-right-margin);
+    margin-top: 0.3rem;
+    margin-bottom: 0;
+    font-size: 0.8rem;
+    line-height: 1.3;
+    vertical-align: baseline;
+    position: relative;
+    /* border: 2px solid blue; */
+}
+
+
+input.margin-toggle {
+    display: none;
+}
+
+
+label.margin-toggle {    
+    display: none;
+
+}
+
+/* The mobile fallback: */
+/* making max-width bigger makes the note fall inline sooner */
+@media (max-width: 768px) {  
+    body {
+        width: 84%;
+        padding-left: 8%;
+        padding-right: 8%;
+    }
+
+    hr,
+    article > p,
+    article > blockquote,
+    article > pre {
+        width: 100%;
+    }
+
+    label.margin-toggle {
+        display: inline;
+    }
+       
+    .marginnote {           
+         display: none;        
+        }    
+
+      
+    .margin-toggle:checked + .marginnote {            
+        display: block;            
+        float: left;            
+        left: 1rem;            
+        clear: both;            
+        width: 95%;            
+        margin: 1rem 2.5%;            
+        vertical-align: baseline;            
+        position: relative;        
+    }
+    label {
+        cursor: pointer;
+    }
+}
+* { box-sizing: border-box; }
+/* Defaults */
+:root {
+	--font-family: Georgia, Times, -serif; /* Tahoma, -apple-system, system-ui, sans-serif; */
+	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+}
+
+/* Theme colors */
+:root {
+	--color-gray-20: #e0e0e0;
+	--color-gray-50: #C0C0C0;
+	--color-gray-70: #4D4D4D;
+	--color-gray-90: #333;
+
+	--description-color: #9B9C9D;
+	--background-color: #fff;
+
+	--text-color: var(--color-gray-70);
+	--text-color-link:  #2d2fb5;
+	--text-color-link-active: #5f2b48;
+	--text-color-link-visited: var(--color-gray-50); /* #17050F; */
+
+	--syntax-tab-size: 2;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-gray-20: #e0e0e0;
+		--color-gray-50: #C0C0C0;
+		--color-gray-70: #dad8d8;
+		--color-gray-90: #dad8d8;
+
+		/* --text-color is assigned to --color-gray-_ above.*/
+		--text-color: var(--color-gray-20);
+		--text-color-link: #1493fb;
+		--text-color-link-active: #6969f7;
+		--text-color-link-visited: #a6a6f8;
+
+		--background-color: #15202b;
+	}
+}
+
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	font-size: 18px;  /* a little bigger to accomodate a serif font */
+	color: var(--text-color);
+	background-color: var(--background-color);
+}
+html {
+	overflow-y: scroll;
+}
+body {
+	max-width: 70em; /* 50em; */
+}
+
+/* different horizontal rules  https://www.w3schools.com/howto/howto_css_dividers.asp */
+ /* Dashed border */
+ hr.dashed {
+	border-top: 1px dashed #bbb;
+  }
+  
+  /* Dotted border */
+  hr.dotted {
+	border-top: 1px dotted #bbb;
+  }
+  
+  /* Solid border */
+  hr.solid {
+	border-top: 1px solid #bbb;
+  }
+  
+
+/* 
+https://css-tricks.com/barebones-css-for-fluid-images/ 
+Without this, images generated by eleventy-img will always use the largest available size
+-- ie, not be responsive.
+*/
+img {
+	max-width: 100%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+  }
+  img[width] {
+	width: auto; /* Defer to max-width */
+  }
+  img[width][height] {
+	height: auto; /* Preserve aspect ratio */
+  }
+  
+  /* Let SVG scale without boundaries */
+  img[src$=".svg"] {
+	width: 100%;
+	height: auto;
+	max-width: none;
+  }
+  
+
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+p {
+	line-height: 1.5;
+	/* font-size: 1.2em; */
+}
+
+p.caption {
+	text-align: center;
+	font-style: italic;
+	font-size: 0.9em;
+	color: #9B9C9D;
+ }
+
+ /* for the credits at the bottom of a page */
+p.credit {
+	max-width: 50em;
+	font-size: 0.9em;
+	margin-left: auto;
+	margin-right: auto;
+ }
+
+
+/* for inline annotations, like translations */
+ span.inline-note {
+	font-size: 0.9em;
+	font-style: italic;
+}
+
+li {
+	line-height: 1.5;
+	/* font-size: 1.2em; */
+}
+
+a[href] {
+	color: var(--text-color-link);
+	text-decoration: none; 
+}
+a[href]:visited {
+	color: var(--text-color-link-visited);
+}
+a[href]:hover,
+a[href]:active {
+	color: var(--text-color-link-active);
+}
+
+main {
+	padding: 1rem;
+}
+main :first-child {
+	margin-top: 0;
+}
+
+header {
+	border-bottom: 1px dashed var(--color-gray-20);
+}
+header:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.links-nextprev {
+	text-align: center;
+	list-style: none;
+	border-top: 1px dashed var(--color-gray-20);
+	padding: 1em 0;
+}
+
+
+table {
+	margin: 1em 0;
+}
+table td,
+table th {
+	padding-right: 1em;
+}
+
+pre,
+code {
+	font-family: var(--font-family-monospace);
+}
+pre:not([class*="language-"]) {
+	margin: .5em 0;
+	line-height: 1.375; /* 22px /16 */
+	-moz-tab-size: var(--syntax-tab-size);
+	-o-tab-size: var(--syntax-tab-size);
+	tab-size: var(--syntax-tab-size);
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+}
+code {
+	word-break: break-all;
+}
+
+/*
+  Custom containters
+*/
+div.message-box {
+	max-width: 50em; 
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div.magazine-box {
+	max-width: 50em; 
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+/* Header */
+header {
+	display: flex;
+	gap: 1em .5em;
+	flex-wrap: wrap;
+	align-items: center;
+	padding: 1em;
+}
+.home-link {
+	font-size: 1.5em; /* 24px /16 (I think)*/
+	font-weight: 700;
+	margin-right: 2em;
+}
+.home-link:link:not(:hover) {
+	text-decoration: none;
+}
+
+/* Nav */
+.nav {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.nav-item {
+	display: inline-block;
+	margin-right: 1em;
+}
+.nav-item a[href]:not(:hover) {
+	text-decoration: none;
+}
+.nav a[href][aria-current="page"] {
+	text-decoration: underline;
+}
+
+/* Posts list */
+.postlist {
+	list-style: none;
+	padding: 0;
+	padding-left: 0; /* 1.5rem; */
+	max-width: 50em;
+}
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	counter-increment: start-from -1;
+	margin-bottom: 1em;
+	padding-bottom: 50px;
+	/* padding: 8px 16px; */
+	border-bottom: 1px dashed var(--color-gray-20);
+}
+
+/* 
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	content: "" counter(start-from, decimal-leading-zero) ". ";
+	line-height: 100%;
+	text-align: right;
+	margin-left: -1.5rem;
+}
+*/
+
+.postlist-date,
+.postlist-item:before {
+	font-size: 0.8125em; /* 13px /16 */
+	color: var(--color-gray-90);
+}
+.postlist-date {
+	word-spacing: -0.5px;
+	padding-left: .25em;
+}
+.postlist-link {
+	font-size: 1em; /* 1.1875em;  19px /16 */
+	font-weight: 700; 
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration: none; 
+	/* text-decoration-thickness: 1px; */
+}
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+/* Tags */
+.post-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+	font-style: italic;
+}
+.postlist-item > .post-tag {
+	align-self: center;
+}
+
+/* Tags list */
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: .5em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.post-metadata time {
+	margin-right: 1em;
+}
+
+.post-metadata li {
+	font-size: 0.875em;
+}
+
+/* metadata for posts and talks */
+
+.posttalk-metadata {
+	list-style: none;
+	padding-left: 0;
+	color: var(--description-color);
+}
+
+.posttalk-metadata ul {
+	list-style-type: none; /* no bullets */
+	padding: 0;  /* no indentation, either */
+	margin: 0;
+}
+
+/* Direct Links / Markdown Headers */
+.header-anchor {
+	text-decoration: none;
+	font-style: normal;
+	font-size: 1em;
+	margin-left: .1em;
+}
+a[href].header-anchor,
+a[href].header-anchor:visited {
+	color: transparent;
+}
+a[href].header-anchor:focus,
+a[href].header-anchor:hover {
+	text-decoration: underline;
+}
+a[href].header-anchor:focus,
+:hover > a[href].header-anchor {
+	color: #aaa;
+}
+
+h2 + .header-anchor {
+	font-size: 1.5em;
+}
+
+/* Footer */
+hr {
+    border: none;
+    background-color: #DADADB;
+    height: 1px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+    hr {
+        width: 100%;
+    }
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2rem 0;
+    background-color: var(--background-color0);
+	;
+}
+
+.footer-container p {
+    font-size: 1rem;
+    color: #9B9C9D;
+}
+
+.footer-container .social_icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0 1rem;
+}
+
+.footer-container .social_icons a {
+    color: #9B9C9D;
+    font-size: 1.5rem;
+    transition: all 0.5s ease-in-out;
+}
+
+.footer-container .social_icons a:hover {
+    color: #DADADB;
+}</style>
+	</head>
+	<body>
+		<a href="#skip" class="visually-hidden">Skip to main content</a>
+
+		<header>
+			<a href="/dark_tales_sleuth/" class="home-link">Dark Tales Sleuth</a>
+			<nav>
+				<h2 class="visually-hidden">Top level navigation menu</h2>
+				<ul class="nav">
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/about/">About</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/my-investigations/">My Cases</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/blog/">All Posts</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/comments/">Comments</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/about-me/">About Me</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="skip">
+			
+
+
+<h1>The Weird of the Witch Riddle</h1>
+
+
+
+
+
+
+<ul class="posttalk-metadata">
+  <li>By Richard Thomson</li>
+  <li>From Volume 2 of  <em>Tales of an Antiquary: Chiefly illustrative of the manners, traditions, and remarkable localities of ancient London</em>, 1828</li>
+</ul>
+
+<article>
+<p><em>Transcriber's note: This is another Puritan/Calvinist witch tale, set in Scotland. The witches' speech is in Scottish (or the author's approximation of it). For readers who may have a little difficulty deciphering the Scottish, I've attempted to also render those passages into standard English. These attempted &quot;translations&quot; are heavily dictionary-based, along with the occasional guess, since I don't know the Scots language.</em></p>
+<p><em>The text has also been re-paragraphed, for legibility.</em></p>
+<hr>
+<p>&quot;The Nobleman,&quot; began Captain Franck,&quot;who told me of this adventure, is a most enterprising Fisher in all the Scotish Lochs and Waters; whether they be those which lie silently environed by dark moors, or those which roll in boisterous cataracts over rocky mountains, or those which flow on to the sea in glittering streams, over sparkling and silver sands. Perchance, however, he is a thought too much enamoured of the Borderers' moss-trooping way of murdering fish by moonshine; or martyring them in nocturnal darkness with the blaze of a wisp, and a barbed spear, like a prejudicated native of the North  —but then he will throw you fourteen yards of line upon the water with one hand, and his fly will fall on it like thistle-down in a March gale; and will bring you his prey to shore without hazard to his line, or abatement to his diversion.</p>
+<p>&quot;Yet, because the divine soul is man's chiefest excellence, I may call these his worst gifts, seeing that he was ever a zealous professor in the reformed Scottish Kirk;<label for="kirk" class="margin-toggle">⊕</label>
+<input type="checkbox" id="kirk" class="margin-toggle">
+<span class="marginnote"><em>Scottish Kirk</em>: The reformed Church of Scotland, created during the 16th. c. Scottish Reformation. It was &quot;Presbyterian in structure, and Calvinist in doctrine.&quot; (<a href="https://en.wikipedia.org/wiki/Covenanters#Background">Wikipedia</a>)</span> being the choice companion of those famous Christians John Welch, Bruce, Rutherford, Dickson, the Marquess of Argyle, and others, whose names put forth a sweet smell like spikenard; from whom he had an early light that Prelacy is idolatry, and liturgical rites, only spells of the Arch Enemy, which he was bound to fight against, both with carnal and spiritual opposition.<label for="swipe" class="margin-toggle">⊕</label>
+<input type="checkbox" id="swipe" class="margin-toggle">
+<span class="marginnote"><em>Prelacy is idolatry...</em>: a swipe at the Anglican and Catholic churches, which have somewhat similar religious rites.</span></p>
+<p>&quot;Well, Sir, I have heard this honourable worthy recount, that in the year forty-five, what time the Saint-suppressing Prelate, Laud,<label for="laud" class="margin-toggle">⊕</label>
+<input type="checkbox" id="laud" class="margin-toggle">
+<span class="marginnote"><em>the Saint-suppressing Prelate, Laud</em>: William Laud, Archbishop of Canterbury. Arrested by Parliament in 1640 and executed towards the end of the First English Civil War, in January 1645. (<a href="https://en.wikipedia.org/wiki/William_Laud">Wikipedia</a>)</span> was brought to the block, when the late Charles was beleaguered at Oxford, and a full year after the Scots had advanced their army into England, he was sojourning at Drumkilbo Castle, which lies not much space from the Loch of Pitloil.</p>
+<p>&quot;It there fortuned that on the night of Tuesday, the ninth of January, he could not close the casements of his eyes, nor get Somnus to felicitate the nocturnal season with his wonted gift of repose; but he lay wide awake in contemplation, looking on the waning moon, until there sprang up in his mind a sudden and strange desire to rise and go forth unto the Loch of Pitloil. Now, as this honourable person knew that the dream is not sent for nought, and that the fervent impression of the spirit is not to be despised, he arose, even in the gloom of that cheerless season, when the night was growing into morning, though it was yet far from the springing of dawn.</p>
+<p>&quot;His only companion was a Land-Spaniel of a most fair breed and form, the gift of that zealous saint, the Lady Culross,—the very Judith of the Scotish Church;—and as he went forward his dog started a large and lusty hare, called a Maukin by the Scots, which was sitting upon a broad gritty stone, washing her face with her feet. She made but small haste to fly from the dog, as though her life were but of little value, and the dog was as slow in pursuing as if they had mutually agreed not to hurt each other: so that this worthy person had leisure enough to mark the hare, and see that on one flank there was a remarkable brand, of an obscure blackish colour, altogether different from the rest of her fur, seeming to be about the size of a newly-minted crown.</p>
+<p>&quot;In the more remote and solitary part of the Loch, there are some ill-contrived huts, or obscure caves, which resemble dungeons rather than habitable houses, occupied by certain female infernals. Towards these foul earth-holes the dog chased the hare, and at length seemed to catch her in the very act of entering; but by the time the honourable relator came up, the prey was gone, and his Land-Spaniel lay panting on the ground in the agonies of death, without any fur in his mouth, presently becoming stiff as a stake. With much wonder and dolour he turned him from the mort, and was about to enter the hovel after the hare, when he heard within loud and frequent guffaws of laughter with eldritch screeches, and a sound as if one were sifting with a riddle;<label for="riddle" class="margin-toggle">⊕</label>
+<input type="checkbox" id="riddle" class="margin-toggle">
+<span class="marginnote"><em>riddle</em>: &quot;A sieve with coarse meshes, usually of wire, for separating coarser materials from finer, as chaff from grain, cinders from ashes, or gravel from sand.&quot; (<a href="https://gcide.gnu.org.ua/?q=riddle&amp;define=Define&amp;strategy=.">Source</a>)</span>
+whilst through the window shined a light, as broad and red as a beacon-fire.</p>
+<p>&quot;Without muttering any Papistical charms, or making any idolatrous sign, the undaunted professor went up to the window, and through the broken shutter he saw several women of the neighbourhood whom he knew,—all of them <em>malae famae</em><label for="malae" class="margin-toggle">⊕</label>
+<input type="checkbox" id="malae" class="margin-toggle">
+<span class="marginnote"><em>malae famae</em>: Literally, &quot;ill-famed&quot;; infamous, notorious</span> for Witchcraft,—standing about a fire, over which one was shaking a riddle full of small waxen images, some being dressed like ordinary men and women, others like Scotish Preachers, and others like Bishops and Curates; of the which, as the riddle shook, many would fall over into the fire, when the hags all screeched and yelled with laughter.</p>
+<p>&quot;As he looked, Sir, he heard one of the Witches say in broad Scots, 'And quhat
+maks ye sae late this e'en, Cummer<label for="cummer" class="margin-toggle">⊕</label>
+<input type="checkbox" id="cummer" class="margin-toggle">
+<span class="marginnote"><em>Cummer</em>: literally, <em>co-mother</em> -- used by a woman to address the godmother of her child, or the mother of one of her godchildren. Informally, a form of address to a close friend. Similar to the Spanish <em>comadre</em>. I might translate this sometimes as <em>Sister</em>.</span> Alie?'<br><span class="inline-note">And what makes you so late this evening, Cummer Alie?</span></p>
+<p>&quot;'Quhat suld it be,' answered the other, 'but a man wha crossit my path? sae I was fain to tak' the shape o' a Maukin, and rin awa frae his doggie; though ye ken I couldna rin vera fast being sae auld, but I cast a bit spell on the Spaniel, that he suldna pit me out o' breath.'<br>
+<span class="inline-note">What should it be, but a man who crosed my path? I had to take the shape of a maulkin [hare] and run away from his dog; though of course I couldn't run very fast, being so old. But I cast a little spell on the Spaniel, so that he wouldn't put me out of breath.</span></p>
+<p>&quot;'That was a braw trick, woman,' said another Pythoness; 'and quhat did ye
+else till the man and his dog?'
+<br><span class="inline-note">That was a fine trick, woman. And what else did you do to the man and his dog?<br></span></p>
+<p>&quot;'If ye gang till the bole, Cummer, ye'll see the tyke's carcase,' quoth the Witch with an infernal leer; 'but the man I couldna touch, seeing that he's a real professor o' the Kirk. And now I hae tauld ye all can spier, ye maun tell me quat
+ye're doing the night wi' that riddle?'
+<br><span class="inline-note">If you go to the window, Cummer, you'll see the dog's carcass. But I couldn't touch the man, seeing that he's a true professor of the Kirk [Church]. And now that I've answered all your questions, would you tell me what you're doing with that riddle [sieve]?</span></p>
+<p>&quot;'Oh! woman,' said the Witch who shook the sieve, 'gif this preaching in Scotland gae on an' prosper, a' our trade will be clean dune awa; for nane now come till us spiering after charms to find stolen goods, or to cure their ails, or, quhat ye ken we like muckle better, to do their enemies a foul turn: but sin the ministers hae gaed about preaching, awa the people gang to them wi' a' their complaints, an' naebody has an enemy left to spite !'
+<br><span class="inline-note">Oh! Woman... if this preaching in Scotland continues and prospers, all our trade will go clean away; for no one will come to us asking for charms to find stolen goods, or to cure their ailments, or---what you know we like best---to do their enemies a foul turn. But since the ministers have gone about preaching, the people go to them with all of their complaints, and nobody has an enemy left to spite!</span></p>
+<p>&quot;'Deed! woman, that's een sae,' answered the other Witch, ' but how will we mend it wi' this riddle?'
+<br><span class="inline-note">Indeed, woman, that's so! But how will we mend it with this riddle?</span></p>
+<p>&quot;'See ye not,' answered she, whom I may fitly call the Hecate of this assembly, pointing to the magic images; 'see ye not the garments o' these figures? Weel, they're the Witch-pictures o' the Kirk of Scotland! the Foul Thief Himself gied till us to shew quhat will be the end o' it. We daurna stick them wi' prins and roast them, but gin we can shake them a' out o' the riddle, they'll be owercome,
+and Fiend hae't but we'll try ! And Oh! lasses, wad it no' be a braw warl gin we could shake them a' intil the low? But gin the least ane o' them stan' in the riddle at the first cock-craw, we'll lose the day for ever! Sae, Cummers, let's a' to the wark again: ilka ane pit a hand to the riddle to shake it weel, and ilka ane a fit to the dance whiles we harry it, and ilka ane a voice to the sang quhilk we maun chant ower it.'
+<br><span class="inline-note">Don't you see the garments on these figures? They're the witch-pictures of the Church of Scotland! The Foul Thief himself gave them to us to show what will be the end of it. We daren't stick them with pins and roast them, but if we can shake them out of the riddle, they'll be overcome, and for the Fiend's sake, we'll try! And Oh! Lasses, wouldn't it be a grand thing if we could shake them all into the fire? But if the least one of them remains in the riddle at first cock-crow, we'll lose the day forever! So, Sisters, let's all get to work again; each one put a hand to the riddle to shake it well, and each one a bit of music for the dance while we agitate it, and each one a voice to the song that we chant over it.&quot;</span></p>
+<p class="credit">
+`Weel shake the riddle, Cummers, weel shake the sieve,<br>
+He wha is stoutest, the langest shall live!'
+</p>
+<p>&quot;Well, Sir, these were some of their infernal incantations, but, do what they might, they could not shake the thousandth part of the Witch-pictures out of the riddle, though they whirled it round with demoniacal gyrations. However, one notable prelatical figure, with a mitre and lawn sleeves, speedily fell out of the sieve, the head parting from the body.</p>
+<p>&quot;'That's braw,' said one Witch, 'his weird will be dree'd the morn, and though he's far awa I'll be by his black scaffold!' <br><span class="inline-note">That's splendid! He'll suffer his fate by morning, and though he's far away, I'll be by his black scaffold!</span></p>
+<p>'And I, said another; 'and I,' said all.</p>
+<p><label for="curate" class="margin-toggle">⊕</label>
+<input type="checkbox" id="curate" class="margin-toggle">
+<span class="marginnote">The references to Curates and Prelates, and (later) to rochets and lawn-sleeves refer to the priests and ministers of the Anglican and Roman Catholic churches. The effigies in sober garments represent Calvinists.</span>&quot;But to abbreviate this narrative of Satan's malignity and deception, I must tell you that in the very midst of their impious orgies the first cock crew shrilly and clearly, but, though they had shaken out a few images dressed like Curates and Prelates, the riddle remained full of effigies in sober garments, which could not be moved, and which appeared most incalculably to increase.</p>
+<p>&quot;'Blessed be God!' exclaimed the honourable witness of this wondrous vision, aloud, 'though Satan may sift the Church, yet shall he never triumph over it!' upon which the hags gave a loud shriek, and with the fire, the riddle, and the magical effigies, all disappeared through the roof of the hovel!</p>
+<p>&quot;For the excellent Nobleman who certified this, he declares that he found himself lying alone on Tipperfin-Muir, half petrified with cold, and the winter day just dawning upon him. He never after could point out the exact hovel where this scene was acted, whence many wild-ass-colts of unbelief would deduct that he had only wandered in his sleep, and had dreamed of Witchcraft.</p>
+<p><label for="rochet" class="margin-toggle">⊕</label>
+<input type="checkbox" id="rochet" class="margin-toggle">
+<span class="marginnote"><em>rochets</em>: a white vestment generally worn by a Roman Catholic or Anglican bishop in choir dress (<a href="https://en.wikipedia.org/wiki/Rochet">Wikipedia</a>). <em>Lawn</em> is a light cotton fabric, presumably what some vestments are made of. </span>&quot;Howbeit, the most righteous execution of the Arch-Episcopos, Laud, at the very time predicted, shewed the vision to be a true prophecy; and no doubt that the downfall of more rochets and lawn-sleeves shall yet be revealed, but, though a shaking season for the Church may be to come, yet I have confidence that the Enemy shall sift and persecute it in vain.&quot;</p>
+<hr>
+<p>Reference for the Scottish passages: <a href="https://dsl.ac.uk/"><em>Dictionaries of the Scots Language</em></a>.</p>
+<p>Rendering of Scottish into standard English by Nina Zumel</p>
+
+</article>
+		</main>
+
+		<!-- footer -->
+		<hr>
+
+<div class="footer-container">
+	<p>&copy; 2024 Nina B. Zumel</p>
+	<div class="social_icons">
+	    <a href="mailto:nzumel@mzlabs.com?subject=Comment%20from%20Dark%20Tales%20Sleuth" aria-label="Email" target="_blank" rel="noopener noreferrer">
+			<i class="fas fa-fw fa-envelope"></i>
+		</a>
+		<a href="https://micro.blog/MultoGhost" aria-label="Micro.blog" target="_blank" rel="noopener noreferrer">
+			<i class="fab fa-fw fa-microblog"></i>
+		</a>
+		<a href="https://multoghost.wordpress.com/" aria-label="Multo (Ghost)" target="_blank" rel="noopener noreferrer">
+			<i class="fab fa-fw fa-wordpress"></i>
+		</a>
+		<a href="/dark_tales_sleuth/feed.xml" aria-label="RSS" target="_blank" rel="noopener noreferrer">
+			<i class="fa fa-fw fa-rss-square"></i>
+		</a>
+
+	</div>
+</div>
+		<!-- /footer-- >
+
+		<!-- Current page: /dark_tales_sleuth/tales-of-an-antiquary/weird-of-the-witch-riddle/ -->
+	</body>
+</html>
