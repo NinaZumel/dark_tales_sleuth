@@ -54,7 +54,7 @@ Hill, in whose doorway I had sought temporary shelter, and my home
 in the middle reaches of Riverside drive, there lay several miles of
 slippery streets. I could not walk the distance. Unfatigued I would
 have hesitated to attempt the hike in the face of the storm which made
-all making a real eltone to already make my way on foot. The nickel
+all walking a real effort. But, already about "all in", I know I could not make my way on foot. The nickel
 must go for a subway ride which would carry me over a portion of my
 journey.
 
