@@ -35,7 +35,7 @@ whilst through the window shined a light, as broad and red as a beacon-fire.
 maks ye sae late this e'en, Cummer{% marginnote "cummer","*Cummer*: literally, *co-mother* -- used by a woman to address the godmother of her child, or the mother of one of her godchildren. Informally, a form of address to a close friend. Similar to the Spanish *comadre*. I might translate this sometimes as *Sister*." %} Alie?'<br><span class="inline-note">And what makes you so late this evening, Cummer Alie?</span>
 
 "'Quhat suld it be,' answered the other, 'but a man wha crossit my path? sae I was fain to tak' the shape o' a Maukin, and rin awa frae his doggie; though ye ken I couldna rin vera fast being sae auld, but I cast a bit spell on the Spaniel, that he suldna pit me out o' breath.'<br>
-<span class="inline-note">What should it be, but a man who crosed my path? I had to take the shape of a maulkin [hare] and run away from his dog; though of course I couldn't run very fast, being so old. But I cast a little spell on the Spaniel, so that he wouldn't put me out of breath.</span>
+<span class="inline-note">What should it be, but a man who crossed my path? I had to take the shape of a maulkin [hare] and run away from his dog; though of course I couldn't run very fast, being so old. But I cast a little spell on the Spaniel, so that he wouldn't put me out of breath.</span>
 
 "'That was a braw trick, woman,' said another Pythoness; 'and quhat did ye
 else till the man and his dog?'
