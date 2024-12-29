@@ -140,7 +140,7 @@ p.credit {
 
 
 /* for inline annotations, like translations */
- span.inline-note {
+span.inline-note {
 	font-size: 0.9em;
 	font-style: italic;
 }
