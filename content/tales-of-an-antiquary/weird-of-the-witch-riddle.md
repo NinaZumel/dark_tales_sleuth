@@ -1,7 +1,7 @@
 ---
 title: The Weird of the Witch Riddle
 pub_info: "From Volume 2 of "
-first_published: "Tales of an Antiquary: Chiefly illustrative of the manners, traditions, and remarkable localities of ancient London"
+first_published: "Tales of an Antiquary"
 publication_date: 1828
 author: Richard Thomson
 ---
