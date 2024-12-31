@@ -112,4 +112,6 @@ for his invention, by which, and by the discovery of a golden wedge or two in hi
 
 ---
 
+List of [Selected Stories from *Tales of An Antiquary*, Volume 3](/pages/tales-of-an-antiquary/#volume-3)
+
 Annotations by Nina Zumel

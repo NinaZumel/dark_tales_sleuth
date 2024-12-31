@@ -167,5 +167,6 @@ As he gained the plain, a troop of figures, like skeletons and fiends, of the mo
 *At this point, the bandits notice that Captain Carlton has fallen asleep, and are about to kill him, when a contingent of Dutch soldiers bursts in. They rescue the Captain, but unhappily for us, we never get the rest of the story.*
 
 ---
+List of [Selected Stories from *Tales of An Antiquary*, Volume 2](/pages/tales-of-an-antiquary/#volume-2)
 
 Annotations by Nina Zumel

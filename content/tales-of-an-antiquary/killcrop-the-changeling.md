@@ -113,4 +113,6 @@ Towards morning a deep sleep fell upon him, from which he awoke not till the sun
 
 This transcription is from the version of the story published in *Nimmo's Popular Tales*, Vol II (1866), with corrections based on the original text from *Tales of an Antiquary*. 
 
+List of [Selected Stories from *Tales of An Antiquary*, Volume 3](/pages/tales-of-an-antiquary/#volume-3)
+
 Annotations by Nina Zumel

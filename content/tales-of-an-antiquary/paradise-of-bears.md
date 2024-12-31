@@ -291,5 +291,6 @@ mild, and gentle for their companions, "He's only fit for Prince
 Bardolph of Bernelandt, to live in **_The Paradise of Bears_**."
 
 ---
+List of [Selected Stories from *Tales of An Antiquary*, Volume 1](/pages/tales-of-an-antiquary/#volume-1)
 
 Annotations by Nina Zumel

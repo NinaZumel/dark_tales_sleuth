@@ -77,6 +77,8 @@ He wha is stoutest, the langest shall live!'
 
 ---
 
+List of [Selected Stories from *Tales of An Antiquary*, Volume 2](/pages/tales-of-an-antiquary/#volume-2)
+
 Reference for the Scottish passages: [*Dictionaries of the Scots Language*](https://dsl.ac.uk/).
 
 Rendering of Scottish into standard English by Nina Zumel

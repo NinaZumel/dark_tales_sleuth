@@ -29,5 +29,6 @@ author: Richard Thomson
 It is not possible to set down the prolonged hum which attended the conclusion of this narrative; and they who carried away no part of the good advice Buffet-the-Beast had given them, failed not to remember his illustrations, especially that which is here inserted. 
 
 ---
+List of [Selected Stories from *Tales of An Antiquary*, Volume 2](/pages/tales-of-an-antiquary/#volume-2)
 
 Annotations by Nina Zumel

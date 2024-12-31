@@ -204,4 +204,6 @@ tower, and the story goes that it is there to this day.
 
 ---
 
+List of [Selected Stories from *Tales of An Antiquary*, Volume 1](/pages/tales-of-an-antiquary/#volume-1)
+
 Annotations by Nina Zumel
