@@ -148,7 +148,7 @@ that he was soon awaked by a gentle sound as of singing; and he
 deemed, in that wild sense which men have between sleeping and waking,
 that it was the voice of Lottchen. He started up, as ye may guess, and
 right before him stood a fair white dove, so sheen and beauteous in
-it's lustre, that it even lighted all around it in that dark prison-house. 
+its lustre, that it even lighted all around it in that dark prison-house. 
 
 Now this sprite, neighbours, was what your Almaine deems to be
 a good holy guardian-angel, come out of pure love to protect her
