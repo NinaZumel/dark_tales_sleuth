@@ -33,7 +33,7 @@ Volume 1 covers the period from 1100-1560. Many of the stories are pastiches of 
 
 [**The Severed Arm; or The Wehr-wolf of Limousin**](https://freeread.com.au/@RGLibrary/Unknown/Anon/TheSeveredArm.html) (Link to *Roy Glashan's Library*): According to Roy Glashan, this may be the first Gothic werewolf story ever published. It was reprinted several times in the nineteenth century, and once in abridged form by Peter Haining. Glanshan's version is the complete version, I believe from *Tales of an Antiquary*.
 
-[**The Legend of the Broken Turret**](/tales-of-an-antiquary/legend-of-the-broken-turret/): The history of St. Agnes of the Broken Tower, an old ruined church in Nuremberg. It's a tale of dealings with the devil, and tragic romance.
+[**The Legend of the Broken Turret**](/tales-of-an-antiquary/legend-of-the-broken-turret/): Brave soldiers, dealings with the devil, and tragic romance form the history of a ruined church in Nuremberg.
 
 [**The Paradise of Bears**](/tales-of-an-antiquary/paradise-of-bears/): A sweet little fairy tale about a gentle orphan who learns the secret of where bears really go when they "hibernate."
 </div>
