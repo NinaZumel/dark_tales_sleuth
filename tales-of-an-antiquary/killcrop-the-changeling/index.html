@@ -1,0 +1,735 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Killcrop the Changeling</title>
+		<meta name="description" content="Filling in the Literary Blanks">
+		<link rel="alternate" href="/dark_tales_sleuth/feed/feed.xml" type="application/atom+xml" title="Dark Tales Sleuth">
+		<link rel="alternate" href="/dark_tales_sleuth/feed/feed.json" type="application/json" title="Dark Tales Sleuth">
+
+        
+		<link rel="me" href="https://micro.blog/MultoGhost">
+		<link rel="authorization_endpoint" href="https://indieauth.com/auth">
+		<link rel="token_endpoint" href="https://tokens.indieauth.com/token">
+		<link href="https://github.com/ninazumel" rel="me">
+		<script src="https://kit.fontawesome.com/9bbe6f85f9.js" crossorigin="anonymous"></script>
+		
+		<style>/* minimal implementation; just plain text in the margin, no blockquotes, code, etc */
+/* only (unnumbered) margin notes, no sidenotes */
+/* stripped down from https://github.com/edwardtufte/tufte-css */
+
+/* need this for correct sidenote numbering; but I'm not using sidenotes */
+/*
+body {
+    counter-reset: sidenote-counter; 
+} 
+*/
+
+
+/* since I imagine these will change with different templates */
+:root {
+    --content-width: 65%;
+    --image-padding: 5%;
+    --image-max: 60%;  /* total image+padding <= content-width */
+    --notewidth: 30%; 
+    /* content-width + notewidth <  100%. I think you should leave some wiggle room. */
+    --note-right-margin: -45%;
+    /* if this margin is -(notewidth), the note will start just on the right border of the text */
+    /* so push it a little to the right (more negative) */
+}
+
+article {
+	padding-top: 1rem; 
+}
+
+/* make room for the notes in the article container */
+article > p,
+article > pre,
+article > ul {
+    width: var(--content-width);
+}
+
+/* 
+  blockquotes should be a little shorter 
+  This assumes that left indentation is 2em, which is what it looks like.
+  */
+article > blockquote {
+    width: calc(var(--content-width) - 2em); 
+}
+
+
+article > hr {
+    max-width: var(--content-width);
+    margin: 0
+}
+
+article > h1, 
+article > h2,
+article > h3,
+article > h4 {
+    max-width: var(--content-width);
+}
+
+article > center {
+    max-width: var(--content-width);
+}
+
+/* keep images/captions in the text column, rather than centered in the article container */
+article > img {
+    margin-left: 0;
+    padding-left: var(--image-padding);
+    max-width: var(--image-max); 
+}
+
+article > p.caption {
+	text-align: left;
+    padding-left: var(--image-padding);
+	font-style: italic;
+	font-size: 0.9em;
+	color: #9B9C9D;
+ }
+
+.footnote-item {
+    max-width: var(--content-width); 
+}
+
+ /* finally, the margin note */
+.marginnote {    
+    float: right;
+    clear: right;
+    width: var(--notewidth);         
+    margin-right: var(--note-right-margin);
+    margin-top: 0.3rem;
+    margin-bottom: 0;
+    font-size: 0.8rem;
+    line-height: 1.3;
+    vertical-align: baseline;
+    position: relative;
+    /* border: 2px solid blue; */
+}
+
+
+input.margin-toggle {
+    display: none;
+}
+
+
+label.margin-toggle {    
+    display: none;
+
+}
+
+/* The mobile fallback: */
+/* making max-width bigger makes the note fall inline sooner */
+@media (max-width: 768px) {  
+    body {
+        width: 84%;
+        padding-left: 8%;
+        padding-right: 8%;
+    }
+
+    hr,
+    article > p,
+    article > blockquote,
+    article > pre {
+        width: 100%;
+    }
+
+    label.margin-toggle {
+        display: inline;
+    }
+       
+    .marginnote {           
+         display: none;        
+        }    
+
+      
+    .margin-toggle:checked + .marginnote {            
+        display: block;            
+        float: left;            
+        left: 1rem;            
+        clear: both;            
+        width: 95%;            
+        margin: 1rem 2.5%;            
+        vertical-align: baseline;            
+        position: relative;        
+    }
+    label {
+        cursor: pointer;
+    }
+}
+* { box-sizing: border-box; }
+/* Defaults */
+:root {
+	--font-family: Georgia, Times, -serif; /* Tahoma, -apple-system, system-ui, sans-serif; */
+	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+}
+
+/* Theme colors */
+:root {
+	--color-gray-20: #e0e0e0;
+	--color-gray-50: #C0C0C0;
+	--color-gray-70: #4D4D4D;
+	--color-gray-90: #333;
+
+	--description-color: #9B9C9D;
+	--background-color: #fff;
+
+	--text-color: var(--color-gray-70);
+	--text-color-link:  #2d2fb5;
+	--text-color-link-active: #5f2b48;
+	--text-color-link-visited: var(--color-gray-50); /* #17050F; */
+
+	--syntax-tab-size: 2;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-gray-20: #e0e0e0;
+		--color-gray-50: #C0C0C0;
+		--color-gray-70: #dad8d8;
+		--color-gray-90: #dad8d8;
+
+		/* --text-color is assigned to --color-gray-_ above.*/
+		--text-color: var(--color-gray-20);
+		--text-color-link: #1493fb;
+		--text-color-link-active: #6969f7;
+		--text-color-link-visited: #a6a6f8;
+
+		--background-color: #15202b;
+	}
+}
+
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	font-size: 18px;  /* a little bigger to accomodate a serif font */
+	color: var(--text-color);
+	background-color: var(--background-color);
+}
+html {
+	overflow-y: scroll;
+}
+body {
+	max-width: 70em; /* 50em; */
+}
+
+/* different horizontal rules  https://www.w3schools.com/howto/howto_css_dividers.asp */
+ /* Dashed border */
+ hr.dashed {
+	border-top: 1px dashed #bbb;
+  }
+  
+  /* Dotted border */
+  hr.dotted {
+	border-top: 1px dotted #bbb;
+  }
+  
+  /* Solid border */
+  hr.solid {
+	border-top: 1px solid #bbb;
+  }
+  
+
+/* 
+https://css-tricks.com/barebones-css-for-fluid-images/ 
+Without this, images generated by eleventy-img will always use the largest available size
+-- ie, not be responsive.
+*/
+img {
+	max-width: 100%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+  }
+  img[width] {
+	width: auto; /* Defer to max-width */
+  }
+  img[width][height] {
+	height: auto; /* Preserve aspect ratio */
+  }
+  
+  /* Let SVG scale without boundaries */
+  img[src$=".svg"] {
+	width: 100%;
+	height: auto;
+	max-width: none;
+  }
+  
+
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+p {
+	line-height: 1.5;
+	/* font-size: 1.2em; */
+}
+
+p.caption {
+	text-align: center;
+	font-style: italic;
+	font-size: 0.9em;
+	color: #9B9C9D;
+ }
+
+ /* for the credits at the bottom of a page */
+p.credit {
+	max-width: 50em;
+	font-size: 0.9em;
+	margin-left: auto;
+	margin-right: auto;
+ }
+
+
+/* for inline annotations, like translations */
+span.inline-note {
+	font-size: 0.9em;
+	font-style: italic;
+}
+
+li {
+	line-height: 1.5;
+	/* font-size: 1.2em; */
+}
+
+a[href] {
+	color: var(--text-color-link);
+	text-decoration: none; 
+}
+a[href]:visited {
+	color: var(--text-color-link-visited);
+}
+a[href]:hover,
+a[href]:active {
+	color: var(--text-color-link-active);
+}
+
+main {
+	padding: 1rem;
+}
+main :first-child {
+	margin-top: 0;
+}
+
+header {
+	border-bottom: 1px dashed var(--color-gray-20);
+}
+header:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.links-nextprev {
+	text-align: center;
+	list-style: none;
+	border-top: 1px dashed var(--color-gray-20);
+	padding: 1em 0;
+}
+
+
+table {
+	margin: 1em 0;
+}
+table td,
+table th {
+	padding-right: 1em;
+}
+
+pre,
+code {
+	font-family: var(--font-family);
+	font-size: 0.95em;
+}
+pre:not([class*="language-"]) {
+	margin: .5em 0;
+	line-height: 1.375; /* 22px /16 */
+	-moz-tab-size: var(--syntax-tab-size);
+	-o-tab-size: var(--syntax-tab-size);
+	tab-size: var(--syntax-tab-size);
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+}
+code {
+	word-break: break-all;
+}
+
+/*
+  Custom containters
+*/
+div.message-box {
+	max-width: 50em; 
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div.magazine-box {
+	max-width: 50em; 
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+/* Header */
+header {
+	display: flex;
+	gap: 1em .5em;
+	flex-wrap: wrap;
+	align-items: center;
+	padding: 1em;
+}
+.home-link {
+	font-size: 1.5em; /* 24px /16 (I think)*/
+	font-weight: 700;
+	margin-right: 2em;
+}
+.home-link:link:not(:hover) {
+	text-decoration: none;
+}
+
+/* Nav */
+.nav {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.nav-item {
+	display: inline-block;
+	margin-right: 1em;
+}
+.nav-item a[href]:not(:hover) {
+	text-decoration: none;
+}
+.nav a[href][aria-current="page"] {
+	text-decoration: underline;
+}
+
+/* Posts list */
+.postlist {
+	list-style: none;
+	padding: 0;
+	padding-left: 0; /* 1.5rem; */
+	max-width: 50em;
+}
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	counter-increment: start-from -1;
+	margin-bottom: 1em;
+	padding-bottom: 50px;
+	/* padding: 8px 16px; */
+	border-bottom: 1px dashed var(--color-gray-20);
+}
+
+/* 
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	content: "" counter(start-from, decimal-leading-zero) ". ";
+	line-height: 100%;
+	text-align: right;
+	margin-left: -1.5rem;
+}
+*/
+
+.postlist-date,
+.postlist-item:before {
+	font-size: 0.8125em; /* 13px /16 */
+	color: var(--color-gray-90);
+}
+.postlist-date {
+	word-spacing: -0.5px;
+	padding-left: .25em;
+}
+.postlist-link {
+	font-size: 1em; /* 1.1875em;  19px /16 */
+	font-weight: 700; 
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration: none; 
+	/* text-decoration-thickness: 1px; */
+}
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+/* Tags */
+.post-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+	font-style: italic;
+}
+.postlist-item > .post-tag {
+	align-self: center;
+}
+
+/* Tags list */
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: .5em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.post-metadata time {
+	margin-right: 1em;
+}
+
+.post-metadata li {
+	font-size: 0.875em;
+}
+
+/* metadata for posts and talks */
+
+.posttalk-metadata {
+	list-style: none;
+	padding-left: 0;
+	color: var(--description-color);
+}
+
+.posttalk-metadata ul {
+	list-style-type: none; /* no bullets */
+	padding: 0;  /* no indentation, either */
+	margin: 0;
+}
+
+/* Direct Links / Markdown Headers */
+.header-anchor {
+	text-decoration: none;
+	font-style: normal;
+	font-size: 1em;
+	margin-left: .1em;
+}
+a[href].header-anchor,
+a[href].header-anchor:visited {
+	color: transparent;
+}
+a[href].header-anchor:focus,
+a[href].header-anchor:hover {
+	text-decoration: underline;
+}
+a[href].header-anchor:focus,
+:hover > a[href].header-anchor {
+	color: #aaa;
+}
+
+h2 + .header-anchor {
+	font-size: 1.5em;
+}
+
+/* Footer */
+hr {
+    border: none;
+    background-color: #DADADB;
+    height: 1px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+    hr {
+        width: 100%;
+    }
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2rem 0;
+    background-color: var(--background-color0);
+	;
+}
+
+.footer-container p {
+    font-size: 1rem;
+    color: #9B9C9D;
+}
+
+.footer-container .social_icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0 1rem;
+}
+
+.footer-container .social_icons a {
+    color: #9B9C9D;
+    font-size: 1.5rem;
+    transition: all 0.5s ease-in-out;
+}
+
+.footer-container .social_icons a:hover {
+    color: #DADADB;
+}</style>
+	</head>
+	<body>
+		<a href="#skip" class="visually-hidden">Skip to main content</a>
+
+		<header>
+			<a href="/dark_tales_sleuth/" class="home-link">Dark Tales Sleuth</a>
+			<nav>
+				<h2 class="visually-hidden">Top level navigation menu</h2>
+				<ul class="nav">
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/about/">About</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/my-investigations/">My Cases</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/blog/">All Posts</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/comments/">Comments</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/about-me/">About Me</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="skip">
+			
+
+
+<h1>Killcrop the Changeling</h1>
+
+
+
+
+
+
+<ul class="posttalk-metadata">
+  <li>By Richard Thomson</li>
+  <li>From Volume 3 of  <em>Tales of an Antiquary</em>, 1828</li>
+</ul>
+
+<article>
+<p>Before the city walls of London were generally removed, and when several portions of the embattled bulwark with its high towers were yet remaining, that part of the plain, old-fashioned road leading from Barbican to the Bars by Faun's Alley was denominated Pickaxe Street; in which ominously sounding part of London there was an old house, long since destroyed, which had at a former period been inhabited by one Jonah Gumphion, an eminent undertaker, who displayed what he called the sign of &quot;Both Ends,&quot; in two large wooden models of a cradle and a coffin, which swung above his door.</p>
+<p>The house itself was built of brown bricks, but round the windows were rich borders of red ones; and some parts of the erection were garnished with white stone.</p>
+<p>Jonah Gumphion died in debt at the conclusion of his lease; and the tenement which he occupied being part of a property then waiting an award of the Court of the Chancery in the cause of &quot;Clutch <em>versus</em> Readyclaw;&quot; neither party paid any regard to the state of the habitation, and thus it daily grew less worth disputing about. The windows, in which many of the panes were either lost or fractured, became darker and darker by time, and dust, and cobwebs; the tiled penthouse over the shop fell into decay; the shop windows were shut up, but the shutters were broken and mouldering away; the narrow door, covered with ten years' soil, looked as if it had not been unclosed for ages; and a cloud of obscurity hid the once white and richly traced fanlight which appeared above it.</p>
+<p>About the time our story commences, the building presented this lamentable spectacle, and many and terrible were the reports concerning it; for the common people believe, that to shut up a house and leave it to decay, is as sure to generate fairies, goblins, and spirits in the deserted chambers, as the keeping in of a glass-house fire for an hundred years is to produce a Salamander in the ashes. Added to this argument, it was urged that the last occupant was one who was familiar with death; that he had received many a corpse into his dwelling; that it was very probable some of them had returned; and finally, that it was certainly so. All this had no trifling effect on the character of the building; and the haunted house of Pickaxe Street was so well known throughout the neighborhood, that everyone prophesied, that to whichever of the two contending parties the property should be decreed, they would find it of little or no value, since they could neither inhabit it themselves, nor would anyone else venture to lodge in it, though it were offered rent free.</p>
+<p>The consideration of these points led the legal advisers of Messrs. Clutch and Readyclaw to persuade their clients conjointly to advertise for some bold and adventuresome person to reside in Mr. Gumphion's vacant residence, until their suit should be decided; to which, as it was but too evident that such a consummation was even yet at a very far period, they with some hesitation consented; and the following advertisement was accordingly inserted in the <em>Postman</em>:</p>
+<blockquote>
+<p>&quot;This is to give notice, that if any person will undertake to lodge for a time in the dilapidated house known by the sign of 'Both Ends,' of late in the occupation of Mr. Jonah Gumphion, Undertaker, deceased, No. 107, Pickaxe Street, nigh unto the Three Cups Inn, he shall be found in all provisions and furniture, and rewarded for his trouble. It is not to be believed what many people say concerning this house, for such reports are idly raised by ignorant or interested individuals; but it is recommended that none apply but a bold and undaunted person, who will not be intimidated from his purpose in living there. More particulars may be known of Mr. Zaccheus Demur, Attorney in Furnival's Inn, or of Mr. Moses Mortmain, attorney of New Inn, Solicitors in the Cause of Clutch against Readyclaw in Chancery, for whom this offer is made.&quot;</p>
+</blockquote>
+<p>The peace of Aix-le-Chapelle, which took place in October 1748, caused the crew of the <em>Devourer</em>, a first-rate man-of-war, to be paid off. One of these disbanded veterans was an ancient and valiant mariner, called Noah Fluke. In the sea-fight off Toulon which took place four years previously, of which he was both an active and triumphant eye-witness, his faithful friend and superior officer, Lieutenant Hartwell, had died in his arms, whilst recommending his widow and infant son to his protection; and without consulting any other feeling than his grief for his patron's death, and the warmth which he felt about his heart when the request was made, Fluke readily engaged to become their friend.</p>
+<p>&quot;And, d'ye see,&quot; he would say, when relating the circumstance, &quot;who so fitting as I, that had known him from the time he was as high as a handspike? And, somehow, methought he weighed his anchor more cheerily when I'd given him my hard hand in token of promise, like.&quot;</p>
+<p>Fluke, when he returned to England, which was but for a very short period, found the lieutenant's widow so deeply affected by her loss, that it was evident that half his charges would soon be at an end. He gave her his best consolation in his power, although it was somewhat of the roughest; but to this he added his own prize-money, with whatever wealth he possessed, in the most delicate manner he was able, and then left her with an exhortation to &quot;keep her helm hard up against sorrow,&quot; and the assurance that &quot;whilst Noah Fluke had his head above water, there was a pilot for her and her little one to the end of life's voyage.&quot;</p>
+<p>When the honest-hearted sailor next came back, which was not until the <em>Devourer</em> was paid off, as already stated, he found that the lieutenant's widow had gone to her long home about a twelve-month previous, leaving her son in the care of the persons with whom she had resided, until Fluke should return to take the charge upon himself. A few lines, written but a short time before the dissolution of Matilda Hartwell, were presented to the old mariner, who wetted the paper through his tears, and then spent the rest of his grief and affection in embracing little Basil, who held his hand and received his rough caresses with all the delighted confidence of the most artless childhood.</p>
+<p>Though Fluke, during a long service at sea, had become possessed of some property, yet it was but very little to support himself and the son of his old officer. The widow had left nothing but her prayers and blessings for her child and his protector. The wars were over, and the means which had formerly filled the seaman's purse were no longer available; besides, some wounds, especially those of time, had greatly unfitted him for active employment; while his young companion had already, with the sweetest endearments, twined so about his heart, that he could not summon up courage to leave him. In truth, little Basil was a most engaging infant, or rather child, for he was of that age when the inability of infancy was lost in the expanding powers of childhood; and the weeping April of the earliest hours of life has passed over into the glad serene May of its opening years.</p>
+<p>It was at this period, when old Fluke found his affection for his charge every day increasing, and when he was every day becoming more anxious concerning his future support, that the advertisement in the <em>Postman</em>, already mentioned, caught his attention; and in this manner he reflected upon it:</p>
+<p>&quot;Why, what have we here?—if any person will undertake to lodge—lapidated house—ay, why, what then?—plenty of people ready and willing—no fear, no fear—found in their rations—why, what are the lubbers spelling after? Oh! Here's the breakers ahead, I see—not to be believed what many people say—no, by George! The world's full of lies—recommended none need apply but a bold and undaunted—I'm off, devil of a thing do I fear, man or hobgoblin! Mr. Zaccheus Demur. Here goes—Furnival's Inn, ahoy!&quot;</p>
+<p>Notwithstanding the frequent appearance of this advertisement, no person had as yet applied to either of the solicitors at all qualified to discharge the office of residing in the &quot;Both Ends&quot; of Pickaxe Street; and Mr. Demur, with considerable honesty, stated to Fluke all that had been invented and reported concerning it.</p>
+<p>When the old sailor had calmly heard him out, he said, &quot;Well, brother, all this may be true, and mayhap it aren't, to which last I incline; but, d'ye see, I've been at sea ever since I was as tall as a cook's kettle, and I was never afraid yet, though to be sure I've met with some devildoms in my time, for the old one's at work upon the waters as well as on the land. But all that's neither here nor there: I'll take watch in the old undertaker's cabin; and damme, but I'll keep a clear ship of everything, whether it has two legs or four!&quot;</p>
+<p>&quot;Well but, Mr. Fluke,&quot; interrupted the lawyer, &quot;the man for such a situation should be pious as well as brave; and excuse me if I offend, but you&quot;—</p>
+<p>&quot;Avast heaving, Master Scrivener, I don't pretend to be a parson any more than my neighbors; but you don't know the heart of a sailor. Why, look ye, brother, a man that's always in danger a'rn't such a fool as to be one of your wicked ones; for, d'ye see me, the best ship may start a plank, and the fairest wind blow up to a storm. But, howsomever, I'll walk your deck in Pickaxe Street, as I said heretofore, if you'll enter me. As for anything of this world, I don't fear it a rope's end, for I'll give 'em as good as they bring, and so let 'em look to it; and as for anything from the other, d'ye mind me, why, the Great Commander of all is too good to let aught appear to hurt or disturb an old faithful sailor and his young innocent orphan.&quot;</p>
+<p>The solicitor objected no further, but concluded the engagement with Fluke, who was to remove immediately to his new dwelling, which was furnished with as many conveniences as could be hastily gotten together, though all of Mr. Gumphion's property which time had not destroyed was yet remaining in the apartments.</p>
+<p>It might be supposed that young Basil Hartwell would have been much alarmed at the prospect of inhabiting so terrible an abode; but no! His mind seemed animated by a soul which was not of earth; a gentleness so angelic, that the old mariner would sometimes say an evil spirit could not remain where that blessed little one was; an innocence so pure and so lovely, that he seemed to represent what the children of men might have been had they been born in Paradise; and he placed so sincere a love and confidence upon his rough but almost doting foster-father, that he would not have feared to have ventured into the wildest dangers, provided it were by the side of old Noah Fluke. Added to all this, he was as beautiful a creature as lived under heaven: the fairest flaxen hair, light laughing blue eyes, and all those features which have been attributed to youthful loveliness, were to be found in Basil Hartwell.</p>
+<p>Although Fluke, to use his own expression, was &quot;captain, cook, and loblolly boy&quot; in Pickaxe Street, yet the little Basil never complained of loneliness; indeed, an additional gladness of heart seemed to have taken possession of him since they had resided there. He would sing to his beloved protector all his little childish songs, or amuse himself with his infantile histories; and if perchance he were for a short time left alone, he would roam about the house, and through its ruined chambers, caroling the same stanzas, or sit laughing at the gay scenes which presented themselves to his youthful fancy. In his night visions, too, the child would express his joy aloud; for then he said that he conversed with a number of &quot;pretty ladies dressed in bright green, who lived in a beautiful garden full of flowers and fountains.&quot; These personages, he added, would sometimes appear to him when he was alone in the daytime, and court him to go along with them; but that, whenever his father entered the room, they all went away, and he could not find them.</p>
+<p>Old Fluke knew not well what to make of this story; for as he was not versed in popular superstitions, he was not aware that fairies, when they fixed their attentions on a mortal, ever select the most lovely in feature and the most angelic in mind, whom they endeavor to allure to their society by exhibiting all the glittering but deceitful pleasures of their green island. Woe unto the unhappy wretch who is seduced by them! For false and fleeting as are all the enjoyments of this world, those of the fairy world are much more so; and the victim they have gained must for years remain a prisoner in its scenes of gaudy mockery , unless some undaunted friend have the firmness and bravery to attempt his rescue.</p>
+<p>There was on the first floor of the house of Pickaxe Street a room of large dimensions, and grand but old-fashioned fittings-up, which, while in the possession of Mr. Gumphion, had been used as a state funeral apartment, and several of his richly-carved sconces were still hanging upon the walls. The cornice and lower sides of the room were formed of dark brown wainscot; but the greater part of it was covered with a light green paper, having a large pattern printed upon it in a flock of octogonal pieces of oak, and the ample curtains which hung mouldering round the darkened windows were of heavy green damask, of which also were formed the cushions of the antique mahogany chairs. As this apartment was much too large for the residence of Noah Fluke and Basil, it was abandoned to decay; but the door being unfastened, the child took particular delight in wandering into what he called the &quot;pretty green room,&quot; and in contemplating its richness, although to anyone else it sent the cold chill to the heart which arises from viewing a desolate state-chamber.</p>
+<p>It chanced that, one sunny morning in spring little Basil withdrew, singing merrily up to the green apartment, whence old Fluke, to his great surprise, still continued to hear the chant louder, and even in sweeter tones, than those of his foster-son. His surprise, however, was soon increased, and his fears greatly excited, when suddenly a heavy fall, succeeded by a loud and piercing shriek from Basil, sounded from the chamber. In his youngest and most active days Fluke never obeyed a command with such rapidity as he followed the cry of his young companion. Hastily seizing his cutlass, and striding up four stairs at a time, he rushed into the room, and beheld the form of his little friend stretched lifeless upon the floor.</p>
+<p>Flinging down the weapon in an agony of terror, and kneeling upon one knee, he raised the body on the other; but what was his horror, to behold the beautiful features, which he had so loved to look upon, distorted by strong convulsions! Those bright azure eyes were become pale and glazed, and were staring wildly upon vacancy; the plump glowing cheeks were changed to a sallow hue, and had so much fallen in, that the mouth, drawn back and extended at the sides, pointed outward, like that of a fox, whilst it was also open with a malignant smile. Even the hair and form of little Basil were equally changed; for in place of the long flowing golden locks which hung around his head, the creature whom Fluke now beheld had coarse red hair, matted in streaming flakes; and the youthful symmetry of young Hartwell was exchanged for a tall and gaunt form, the joints of which were all out of proportion to the rest of the body.</p>
+<p>When the old mariner had beheld all this, loud and vehement were his cries for his &quot;own brave boy,&quot; and frequent were his execrations against the devils who had conveyed him away. The thing which he now saw filled him with horror; and so great was his disgust, that he would instantly have quitted the house and all his prospects of employment, had not the hope of recovering Basil induced him to remain. But terrible indeed was the society of that changeling with whom he now associated. It never spoke; but wherever Fluke turned, there it was before his eyes, grinning, mocking, and staring wildly upon him; and if perchance the old sailor gave vent to his fury and distress in words, and called the being beside him an imp, and elf-child, or whatever else rose in his mind, these grimaces became ten times more terrible and disgusting. When he had prepared his meals, all desire for which had left him, the changeling sat opposite to him, devouring everything that appeared upon the table, and then uttered strange and inarticulate sounds for more. In this terrific society passed the day and the following night, but the next morning Fluke determined to carry his spectral companion to a celebrated German doctor, who kept the &quot;Dragon Overthrown,&quot; in Barbican.</p>
+<p>Friedrich von Drenschendrugger von Finischmann was a short stout figure, usually dressed in an old scarlet coat and waistcoat, which was ornamented with faded gold embroidery, and wore upon his head within doors a crimson velvet night-cap, which was exchanged when he visited for a very large white wig, lined with blue silk, and surmounted by a small cocked hat bound with gold. But it was his boots which were the greatest rarity, surpassing all modern fashions of Jockey, Wellington, Hessian, Blucher, or Masquerade: they were of broad dimensions, especially at the tops, where they were bound with narrow edging of silver plate; and in addition to all this splendor, the doctor also carried a long gold-headed amber cane, whilst out of his coat-pockets were usually seen the necks and labels of two large bottles of his own &quot;Vitae Elixir of the Moon,&quot; which he introduced upon all occasions, and recommended for all diseases.</p>
+<p>To this German Hippocrates, then, Fluke led his supernatural companion; and not a little surprise was expressed by Finischmann at the dreadful appearance of the changeling, and the recital of the mariner's story.</p>
+<p>&quot;Herrn den himmel!&quot; ejaculated the doctor, &quot;you shall take him out of mine house; it is eine Killcrop,<label for="killcrop" class="margin-toggle">⊕</label>
+<input type="checkbox" id="killcrop" class="margin-toggle">
+<span class="marginnote"> <em>Killcrop</em>: 17th c. term for a fairy or demon changeling, especially one that is always hungry. From Low German <em>kilkrop</em>.</span> like what I have seen in de castle of Baron von Bloosterbugle, at Karkhentooth, in mine old land. I will not let you stay; I shall be frightened out of my wits. Engel den meine! As I am an honest man and goot doctor, it is ein Wechselbald: dat is what you call ein Teufel kind, ein Kleinergeist—I cannot tell you what it is. You schauntrell, why does you not take away that klein fend? I tell you it is Killcrop der changeling, der Teufel of Pickaxe Street!&quot; <label for="german" class="margin-toggle">⊕</label>
+<input type="checkbox" id="german" class="margin-toggle">
+<span class="marginnote"><em>Engel den meine!</em>: Angel of mine! <em>Wechselbald</em>: changeling; <em>ein Teufel kind, ein Kleinergeist</em>: a devil child, a little spirit; <em>klein fend</em>: little fiend; <em>Teufel</em>: Devil.</span></p>
+<p>&quot;Why, ay, brother, I believe you're right,&quot; answered Fluke; &quot;but I came to you for sailing orders, and here you're for sending me off to sea without them. Come, shut your mouth, and open your medicine chest, and give this Killcrop, as you call him, a spell of your craft.&quot;</p>
+<p>&quot;Der Teufel!&quot; replied the German, starting back, &quot;I does not make physics for geisters, and thors,<label for="geisters" class="margin-toggle">⊕</label>
+<input type="checkbox" id="geisters" class="margin-toggle">
+<span class="marginnote"> <em>geisters, and thors</em>: spirits and fools</span> and Killcrops; I does desire dat you will get you both out of mine house.&quot;</p>
+<p>&quot;And what am I to do with this hobgoblin?&quot; returned Fluke.</p>
+<p>&quot;Whatever you likes,&quot; said the alarmed Von Finischmann, &quot;only you shall take him out of my sight. Der himmel! I wonders when I was ever see anything so terrible. Bah! Bah! I was forget your old man, as you call alte Bootsknecht; I shall tell you dat in eine gasse, dat ist eine street of Little Briteine, you shall fint what you call ein Stern-denter, dat ist ein astrologer, and he shall tell you what to do.&quot;</p>
+<p>&quot;Thank ye, Mr. Doctor, thanky, I'll be in his wake with this flying Dutchman in the reefing of a foresail. But what does he call his ship, and who's captain, eh, brother?&quot;</p>
+<p>&quot;Aha! Der nahm des mannes, as you call,---he is ist mein goot frent;---he is call Tolemee Horoskope, and he was living at der Zeichem, as you was call a sign, of der Globe and der Comet. Now I does desires dat you schall go, donner und blitzen! Der Teufel! Hagel!&quot;</p>
+<p>&quot;Well, well, brother,&quot; answered Fluke, &quot;I'm off, so good morning t'ye, and many thanks for your advice; we shall speak ships again some time.&quot;</p>
+<p>The sailor and his spectral companion, who had evinced a thousand goblin tricks during this conference, now departed for Little Britain, but great was the reluctance and opposition which the changeling exhibited to such a proceeding, and it was by main force only that Fluke dragged him into the astrologer's house. The moment that Horoscope beheld the creature, he raised his hand to Fluke, who was about to relate his story, and said:</p>
+<p>&quot;Old man, I know your desires, but speak not a word till I give you permission. Parable, lead this child into my study, and turn the key; and, dost hear?—No prattling, if thou wouldst not have a legion let loose upon thee! Now, friend, thy story.&quot;</p>
+<p>Fluke then related in his own peculiar manner all that has already been told, and concluded by entreating of the astrologer to point out some means whereby he should be relieved from his unearthly companion, and recover his young Basil. Horoscope stated in reply, that the boy had been seduced away by fairies, who had left in his place one of their own elf-children; and that there was but one way to be pursued for the reversing of the spell, which required considerable courage and perseverance.</p>
+<p>&quot;This day,&quot; said the astrologer, &quot;is one of the four great divisions of the year, upon all of which men have power over fairies; and it is, moreover, the holy season of Our Lady's Annunciation.<label for="annunciation" class="margin-toggle">⊕</label>
+<input type="checkbox" id="annunciation" class="margin-toggle">
+<span class="marginnote">The Feast of the Annunciation is March 25, near the time of the Vernal Equinox.</span> Thou must then immediately go to those dark and marshy fields which lie to the north-east of this place in Finsbury, and prepare thee a grave; in which at night-time thou must place the changeling, repeating such a spell as I shall give thee. All this must be done alone; and alone and in silence thou must watch through the night, with thy back towards the grave. If these ceremonies be faithfully performed, when the first rays of the sun shall cast thy shadow upon the ground, look upon the grave, and thy Basil shall be restored; but if the least point be omitted, another quarter of a year must pass ere this spell can be repeated. Go now, prepare the grave, and at night come hither for thy elf-child and the spell.&quot;</p>
+<p>Fluke departed, after thanking the astrologer, and promising the strictest attention to his instructions. Having prepared the grave, he passed the remainder of the day in refreshing himself for his night's watching; and about the hour of nine he went to Horoscope's for his charge, taking with him a dark lanthorn [lantern] and his cutlass.</p>
+<p>The changeling and the old mariner were soon on the road to Finsbury Fields, which at the time of this history spread its marshy wildness on either side of what is now called the Pavement, leaving only a long lane, guarded with low hedges passing between them, though the place is now occupied by splendid shops and stately dwelling-houses. Fluke's first care was to lay the elf in the grave, and much was he surprised to find him passive, and comparatively gentle to what he had formerly seen him; and then, holding up the lanthorn to Horoscope's written instructions, he read over the changeling the following spell:</p>
+<pre><code>&quot;Receive, O earth! O virgin earth!
+This elf within thy narrow bed;
+And raise to life with second birth,
+That beauteous form so lately fled.
+
+Throughout the night, throughout the night,
+Mine eyes shall watch, mine heart shall grieve,
+But the first rays of golden light,
+Those tears, those sorrows shall relieve.
+
+'Tis done!---in darkness works the spell,
+No mortal sight thy work shall see;
+But morn shall prove it wrought full well,
+And give my Basil back to me.&quot;
+</code></pre>
+<p>Having uttered these lines, Fluke wrapped himself in his watch-coat, unsheathed his cutlass, and then, turning his back to the grave, and to the east, sat down in much anxiety of mind upon a mound of earth. The night which followed was dark, fearful, and tempestuous; the lightning, and rain, and wind were continually in motion, and with the storm there seemed to mingle shouts from the grave; and sometimes he heard, or thought he heard, several voices, with singing and with laughter. Then again it would seem as if a procession passed him on horseback, with the bridle-bits and stirrups ringing loudly and merrily; but though the gloom of the midnight was too deep for discerning anything through it, the old mariner actually imagined that he saw a shadowy train ride by him, one of which bore something before him on his saddle-bow. When it had passed, a blaze of light seemed to burst out of the grave, followed by such strange sounds of mourning and shouting that the honest sailor could scarcely refrain from turning round to look upon it; but the remembrance of Horoscope's words made him resist the temptation.</p>
+<p>Towards morning a deep sleep fell upon him, from which he awoke not till the sun's beams cast his shadow on the ground before him. He rose in a moment, and rushing to the spot where the grave was, he found instead of it a small mound of the most beautiful green turf, with little Basil Hartwell lying upon it asleep, and as lovely as when he was conveyed to Fairyland. Words cannot express Fluke's joy as he clasped the boy to his bosom, and departed. The same morning also, to increase his happiness, and set all his future fears at rest, the payment of a very large sum of prize-money, which had long been litigated, put an end to his continuing a resident in <strong><em>The Haunted House in Pickaxe Street</em>.</strong></p>
+<hr>
+<p>This transcription is from the version of the story published in <em>Nimmo's Popular Tales</em>, Vol II (1866), with corrections based on the original text from <em>Tales of an Antiquary</em>.</p>
+<p>List of <a href="/dark_tales_sleuth/pages/tales-of-an-antiquary/#volume-3">Selected Stories from <em>Tales of An Antiquary</em>, Volume 3</a></p>
+<p>Annotations by Nina Zumel</p>
+
+</article>
+		</main>
+
+		<!-- footer -->
+		<hr>
+
+<div class="footer-container">
+	<p>&copy; 2024 Nina B. Zumel</p>
+	<div class="social_icons">
+	    <a href="mailto:nzumel@mzlabs.com?subject=Comment%20from%20Dark%20Tales%20Sleuth" aria-label="Email" target="_blank" rel="noopener noreferrer">
+			<i class="fas fa-fw fa-envelope"></i>
+		</a>
+		<a href="https://micro.blog/MultoGhost" aria-label="Micro.blog" target="_blank" rel="noopener noreferrer">
+			<i class="fab fa-fw fa-microblog"></i>
+		</a>
+		<a href="https://multoghost.wordpress.com/" aria-label="Multo (Ghost)" target="_blank" rel="noopener noreferrer">
+			<i class="fab fa-fw fa-wordpress"></i>
+		</a>
+		<a href="/dark_tales_sleuth/feed.xml" aria-label="RSS" target="_blank" rel="noopener noreferrer">
+			<i class="fa fa-fw fa-rss-square"></i>
+		</a>
+
+	</div>
+</div>
+		<!-- /footer-- >
+
+		<!-- Current page: /dark_tales_sleuth/tales-of-an-antiquary/killcrop-the-changeling/ -->
+	</body>
+</html>

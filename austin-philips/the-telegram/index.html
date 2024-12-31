@@ -90,6 +90,10 @@ article > p.caption {
 	color: #9B9C9D;
  }
 
+.footnote-item {
+    max-width: var(--content-width); 
+}
+
  /* finally, the margin note */
 .marginnote {    
     float: right;
@@ -298,7 +302,7 @@ p.credit {
 
 
 /* for inline annotations, like translations */
- span.inline-note {
+span.inline-note {
 	font-size: 0.9em;
 	font-style: italic;
 }
@@ -354,7 +358,8 @@ table th {
 
 pre,
 code {
-	font-family: var(--font-family-monospace);
+	font-family: var(--font-family);
+	font-size: 0.95em;
 }
 pre:not([class*="language-"]) {
 	margin: .5em 0;

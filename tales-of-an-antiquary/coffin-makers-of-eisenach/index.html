@@ -1,0 +1,744 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>The Coffin-Makers of Eisenach</title>
+		<meta name="description" content="Filling in the Literary Blanks">
+		<link rel="alternate" href="/dark_tales_sleuth/feed/feed.xml" type="application/atom+xml" title="Dark Tales Sleuth">
+		<link rel="alternate" href="/dark_tales_sleuth/feed/feed.json" type="application/json" title="Dark Tales Sleuth">
+
+        
+		<link rel="me" href="https://micro.blog/MultoGhost">
+		<link rel="authorization_endpoint" href="https://indieauth.com/auth">
+		<link rel="token_endpoint" href="https://tokens.indieauth.com/token">
+		<link href="https://github.com/ninazumel" rel="me">
+		<script src="https://kit.fontawesome.com/9bbe6f85f9.js" crossorigin="anonymous"></script>
+		
+		<style>/* minimal implementation; just plain text in the margin, no blockquotes, code, etc */
+/* only (unnumbered) margin notes, no sidenotes */
+/* stripped down from https://github.com/edwardtufte/tufte-css */
+
+/* need this for correct sidenote numbering; but I'm not using sidenotes */
+/*
+body {
+    counter-reset: sidenote-counter; 
+} 
+*/
+
+
+/* since I imagine these will change with different templates */
+:root {
+    --content-width: 65%;
+    --image-padding: 5%;
+    --image-max: 60%;  /* total image+padding <= content-width */
+    --notewidth: 30%; 
+    /* content-width + notewidth <  100%. I think you should leave some wiggle room. */
+    --note-right-margin: -45%;
+    /* if this margin is -(notewidth), the note will start just on the right border of the text */
+    /* so push it a little to the right (more negative) */
+}
+
+article {
+	padding-top: 1rem; 
+}
+
+/* make room for the notes in the article container */
+article > p,
+article > pre,
+article > ul {
+    width: var(--content-width);
+}
+
+/* 
+  blockquotes should be a little shorter 
+  This assumes that left indentation is 2em, which is what it looks like.
+  */
+article > blockquote {
+    width: calc(var(--content-width) - 2em); 
+}
+
+
+article > hr {
+    max-width: var(--content-width);
+    margin: 0
+}
+
+article > h1, 
+article > h2,
+article > h3,
+article > h4 {
+    max-width: var(--content-width);
+}
+
+article > center {
+    max-width: var(--content-width);
+}
+
+/* keep images/captions in the text column, rather than centered in the article container */
+article > img {
+    margin-left: 0;
+    padding-left: var(--image-padding);
+    max-width: var(--image-max); 
+}
+
+article > p.caption {
+	text-align: left;
+    padding-left: var(--image-padding);
+	font-style: italic;
+	font-size: 0.9em;
+	color: #9B9C9D;
+ }
+
+.footnote-item {
+    max-width: var(--content-width); 
+}
+
+ /* finally, the margin note */
+.marginnote {    
+    float: right;
+    clear: right;
+    width: var(--notewidth);         
+    margin-right: var(--note-right-margin);
+    margin-top: 0.3rem;
+    margin-bottom: 0;
+    font-size: 0.8rem;
+    line-height: 1.3;
+    vertical-align: baseline;
+    position: relative;
+    /* border: 2px solid blue; */
+}
+
+
+input.margin-toggle {
+    display: none;
+}
+
+
+label.margin-toggle {    
+    display: none;
+
+}
+
+/* The mobile fallback: */
+/* making max-width bigger makes the note fall inline sooner */
+@media (max-width: 768px) {  
+    body {
+        width: 84%;
+        padding-left: 8%;
+        padding-right: 8%;
+    }
+
+    hr,
+    article > p,
+    article > blockquote,
+    article > pre {
+        width: 100%;
+    }
+
+    label.margin-toggle {
+        display: inline;
+    }
+       
+    .marginnote {           
+         display: none;        
+        }    
+
+      
+    .margin-toggle:checked + .marginnote {            
+        display: block;            
+        float: left;            
+        left: 1rem;            
+        clear: both;            
+        width: 95%;            
+        margin: 1rem 2.5%;            
+        vertical-align: baseline;            
+        position: relative;        
+    }
+    label {
+        cursor: pointer;
+    }
+}
+* { box-sizing: border-box; }
+/* Defaults */
+:root {
+	--font-family: Georgia, Times, -serif; /* Tahoma, -apple-system, system-ui, sans-serif; */
+	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+}
+
+/* Theme colors */
+:root {
+	--color-gray-20: #e0e0e0;
+	--color-gray-50: #C0C0C0;
+	--color-gray-70: #4D4D4D;
+	--color-gray-90: #333;
+
+	--description-color: #9B9C9D;
+	--background-color: #fff;
+
+	--text-color: var(--color-gray-70);
+	--text-color-link:  #2d2fb5;
+	--text-color-link-active: #5f2b48;
+	--text-color-link-visited: var(--color-gray-50); /* #17050F; */
+
+	--syntax-tab-size: 2;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-gray-20: #e0e0e0;
+		--color-gray-50: #C0C0C0;
+		--color-gray-70: #dad8d8;
+		--color-gray-90: #dad8d8;
+
+		/* --text-color is assigned to --color-gray-_ above.*/
+		--text-color: var(--color-gray-20);
+		--text-color-link: #1493fb;
+		--text-color-link-active: #6969f7;
+		--text-color-link-visited: #a6a6f8;
+
+		--background-color: #15202b;
+	}
+}
+
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	font-size: 18px;  /* a little bigger to accomodate a serif font */
+	color: var(--text-color);
+	background-color: var(--background-color);
+}
+html {
+	overflow-y: scroll;
+}
+body {
+	max-width: 70em; /* 50em; */
+}
+
+/* different horizontal rules  https://www.w3schools.com/howto/howto_css_dividers.asp */
+ /* Dashed border */
+ hr.dashed {
+	border-top: 1px dashed #bbb;
+  }
+  
+  /* Dotted border */
+  hr.dotted {
+	border-top: 1px dotted #bbb;
+  }
+  
+  /* Solid border */
+  hr.solid {
+	border-top: 1px solid #bbb;
+  }
+  
+
+/* 
+https://css-tricks.com/barebones-css-for-fluid-images/ 
+Without this, images generated by eleventy-img will always use the largest available size
+-- ie, not be responsive.
+*/
+img {
+	max-width: 100%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+  }
+  img[width] {
+	width: auto; /* Defer to max-width */
+  }
+  img[width][height] {
+	height: auto; /* Preserve aspect ratio */
+  }
+  
+  /* Let SVG scale without boundaries */
+  img[src$=".svg"] {
+	width: 100%;
+	height: auto;
+	max-width: none;
+  }
+  
+
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+p {
+	line-height: 1.5;
+	/* font-size: 1.2em; */
+}
+
+p.caption {
+	text-align: center;
+	font-style: italic;
+	font-size: 0.9em;
+	color: #9B9C9D;
+ }
+
+ /* for the credits at the bottom of a page */
+p.credit {
+	max-width: 50em;
+	font-size: 0.9em;
+	margin-left: auto;
+	margin-right: auto;
+ }
+
+
+/* for inline annotations, like translations */
+span.inline-note {
+	font-size: 0.9em;
+	font-style: italic;
+}
+
+li {
+	line-height: 1.5;
+	/* font-size: 1.2em; */
+}
+
+a[href] {
+	color: var(--text-color-link);
+	text-decoration: none; 
+}
+a[href]:visited {
+	color: var(--text-color-link-visited);
+}
+a[href]:hover,
+a[href]:active {
+	color: var(--text-color-link-active);
+}
+
+main {
+	padding: 1rem;
+}
+main :first-child {
+	margin-top: 0;
+}
+
+header {
+	border-bottom: 1px dashed var(--color-gray-20);
+}
+header:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.links-nextprev {
+	text-align: center;
+	list-style: none;
+	border-top: 1px dashed var(--color-gray-20);
+	padding: 1em 0;
+}
+
+
+table {
+	margin: 1em 0;
+}
+table td,
+table th {
+	padding-right: 1em;
+}
+
+pre,
+code {
+	font-family: var(--font-family);
+	font-size: 0.95em;
+}
+pre:not([class*="language-"]) {
+	margin: .5em 0;
+	line-height: 1.375; /* 22px /16 */
+	-moz-tab-size: var(--syntax-tab-size);
+	-o-tab-size: var(--syntax-tab-size);
+	tab-size: var(--syntax-tab-size);
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+}
+code {
+	word-break: break-all;
+}
+
+/*
+  Custom containters
+*/
+div.message-box {
+	max-width: 50em; 
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div.magazine-box {
+	max-width: 50em; 
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+/* Header */
+header {
+	display: flex;
+	gap: 1em .5em;
+	flex-wrap: wrap;
+	align-items: center;
+	padding: 1em;
+}
+.home-link {
+	font-size: 1.5em; /* 24px /16 (I think)*/
+	font-weight: 700;
+	margin-right: 2em;
+}
+.home-link:link:not(:hover) {
+	text-decoration: none;
+}
+
+/* Nav */
+.nav {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.nav-item {
+	display: inline-block;
+	margin-right: 1em;
+}
+.nav-item a[href]:not(:hover) {
+	text-decoration: none;
+}
+.nav a[href][aria-current="page"] {
+	text-decoration: underline;
+}
+
+/* Posts list */
+.postlist {
+	list-style: none;
+	padding: 0;
+	padding-left: 0; /* 1.5rem; */
+	max-width: 50em;
+}
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	counter-increment: start-from -1;
+	margin-bottom: 1em;
+	padding-bottom: 50px;
+	/* padding: 8px 16px; */
+	border-bottom: 1px dashed var(--color-gray-20);
+}
+
+/* 
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	content: "" counter(start-from, decimal-leading-zero) ". ";
+	line-height: 100%;
+	text-align: right;
+	margin-left: -1.5rem;
+}
+*/
+
+.postlist-date,
+.postlist-item:before {
+	font-size: 0.8125em; /* 13px /16 */
+	color: var(--color-gray-90);
+}
+.postlist-date {
+	word-spacing: -0.5px;
+	padding-left: .25em;
+}
+.postlist-link {
+	font-size: 1em; /* 1.1875em;  19px /16 */
+	font-weight: 700; 
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration: none; 
+	/* text-decoration-thickness: 1px; */
+}
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+/* Tags */
+.post-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+	font-style: italic;
+}
+.postlist-item > .post-tag {
+	align-self: center;
+}
+
+/* Tags list */
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: .5em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.post-metadata time {
+	margin-right: 1em;
+}
+
+.post-metadata li {
+	font-size: 0.875em;
+}
+
+/* metadata for posts and talks */
+
+.posttalk-metadata {
+	list-style: none;
+	padding-left: 0;
+	color: var(--description-color);
+}
+
+.posttalk-metadata ul {
+	list-style-type: none; /* no bullets */
+	padding: 0;  /* no indentation, either */
+	margin: 0;
+}
+
+/* Direct Links / Markdown Headers */
+.header-anchor {
+	text-decoration: none;
+	font-style: normal;
+	font-size: 1em;
+	margin-left: .1em;
+}
+a[href].header-anchor,
+a[href].header-anchor:visited {
+	color: transparent;
+}
+a[href].header-anchor:focus,
+a[href].header-anchor:hover {
+	text-decoration: underline;
+}
+a[href].header-anchor:focus,
+:hover > a[href].header-anchor {
+	color: #aaa;
+}
+
+h2 + .header-anchor {
+	font-size: 1.5em;
+}
+
+/* Footer */
+hr {
+    border: none;
+    background-color: #DADADB;
+    height: 1px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+    hr {
+        width: 100%;
+    }
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2rem 0;
+    background-color: var(--background-color0);
+	;
+}
+
+.footer-container p {
+    font-size: 1rem;
+    color: #9B9C9D;
+}
+
+.footer-container .social_icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0 1rem;
+}
+
+.footer-container .social_icons a {
+    color: #9B9C9D;
+    font-size: 1.5rem;
+    transition: all 0.5s ease-in-out;
+}
+
+.footer-container .social_icons a:hover {
+    color: #DADADB;
+}</style>
+	</head>
+	<body>
+		<a href="#skip" class="visually-hidden">Skip to main content</a>
+
+		<header>
+			<a href="/dark_tales_sleuth/" class="home-link">Dark Tales Sleuth</a>
+			<nav>
+				<h2 class="visually-hidden">Top level navigation menu</h2>
+				<ul class="nav">
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/about/">About</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/my-investigations/">My Cases</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/blog/">All Posts</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/comments/">Comments</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/about-me/">About Me</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="skip">
+			
+
+
+<h1>The Coffin-Makers of Eisenach</h1>
+
+
+
+
+
+
+<ul class="posttalk-metadata">
+  <li>By Richard Thomson</li>
+  <li>From Volume 3 of  <em>Tales of an Antiquary</em>, 1828</li>
+</ul>
+
+<article>
+<p><em>Transcriber's Note: This tale is told by Singspsalm, the Lutheran Clerk (meaning cleric), to his audience. I've kept the introductory passage, but I've removed the quotation marks of Singspsalm's telling. I've also reparagraphed the text and done some additional formatting, for legibility.</em></p>
+<hr>
+<blockquote>
+<p>Many have heard in the night preparation of chests for them, in such sort as the coffin-makers did afterwards prepare indeed.<br>
+--- LAVATERUS OF GHOSTS AND SPIRITS.</p>
+</blockquote>
+<p>They who have known Eisenach for many years past, must remember a tall
+wooden pillar, standing near its entrance, on the road from Langensalza, bearing a carved and painted black 'scutcheon, surmounted by a Baron's helmet and mantling, and charged with the effigy of a hideous red-haired Dwarf, in a very ancient German habit, employed in making a coffin, over which he was looking with malicious joy, holding up a nail, and pointing to a scroll above him, on which was inscribed the words, —&quot;Only seven are wanting!&quot; Below the shield could be traced, by good eyes, the name of Adeliche Stark; though his story, and the date of its events, were entirely obliterated; yet as it was certain that every visitor to Eisenach used particularly to enquire about that strange armorial ensign, old Singpsalm, the Lutheran Clerk, used generally to satisfy them by the following story; which is the more curious, as it seems to contain an allusion to smoking, at the least two centuries before it became general in Europe.</p>
+<center>*   *   *</center>
+<p>In the earlier days of Eisenach, <code>[he would say, for everybody knows that it is a town which existed even before the time of the great Friedrich Rothbart]</code><label for="rothbart" class="margin-toggle">⊕</label>
+<input type="checkbox" id="rothbart" class="margin-toggle">
+<span class="marginnote"><em>Friedrich Rothbart</em>: Frederick I (1122-1190), Holy Roman Emperor from 1155 until his death. Known in German as <em>Kaiser Rotbart</em>, or &quot;Emperor Redbeard&quot;. (<a href="https://en.wikipedia.org/wiki/Frederick_Barbarossa">Wikipedia</a>)</span>, there used to live in it an idle fellow named Adeliche Stark, commonly called through the Principality <em>der Landstreicher</em>, or the Vagabond, because he was one of those individuals who, though they are continually padding the hoof after employment, always pray heartily that they may never find it. Frosche Stark, the father of this hero, was as industrious a woodman as ever lifted an axe in the Prince's forest-lands; but neither advice, nor example, his mother Trudchen's entreaties, nor his uncle Stiebel's stick, could make him anything else than Adeliche the Vagabond.</p>
+<p>But it is not to be thought that idleness alone was the cause of his
+not taking to work; no, truly, for he always asserted that it was
+simply his being too clever. There was not a man in all Thuringia who
+knew so many wild stories and songs as Adeliche; and the consequence
+was, that he was so much in request at the Bier-schenkes, that he
+could at last do little else but wander from one to another, where his
+time and his legends were recompensed by black beer, straw, and
+potatoes. It is not wonderful that such a life should at last clothe
+him in a jerkin of rags, with a pair of nether-stocks of the same
+silk, which procured him the new surname of  &quot;the Ragged
+Story-teller&quot;; whilst his constitution being daily undermined, it was
+usual to say of him when he was seen seated in his glory on the
+ale-house bench,— &quot;Ah!  there's Stark the Landstreicher knocking another nail in his coffin!&quot;</p>
+<p>But so delighted was Master Adeliche with this kind of life, that
+there was no man more contented, and very few so merry. Having nothing
+of his own, all that was given him was gain; and whilst he was telling
+his stories, if he could but get some generous traveller to bestow on
+him a flask of better wine, he not only made them happy, but became so
+himself in spite of his nakedness. However, to speak Heaven's honest
+truth, as a biographer should do, this love of &quot;a jolly full bottle&quot;
+was at once the spring and continuance of his ruin, since he ever
+liked a Kegel-platz, or bowling-alley, better than a Church; and
+Wenzel Malzmann, the Publican, better than Lorenz Puchertext the
+Priest. Dame Trudchen had nothing to answer for concerning him, since
+her advice was equally unceasing and useless; and one of her principal
+arguments against his intemperance was grounded on the effect which
+it must have upon his health, and was expressed in the common proverb,
+&quot;Adeliche Stark, Adeliche Stark, you're knocking another nail into
+your coffin!&quot;</p>
+<p>It is said to have been in the beginning of winter, after a long conversation, concluded with this ancient saw, that Adeliche set off to Malzmann's to decide upon a brewing which was that evening to be tried in full conclave.  There were to be Claus Brommell, the Charcoal-burner, and Karl Kranesnech, the tall Goat-herd, and little Velten Schwill, the Swine-keeper, and I know not how many others, all good men and true, to pass the night with him; for he had promised to regale them with some of his best stories, and as he could command a truss<label for="truss" class="margin-toggle">⊕</label>
+<input type="checkbox" id="truss" class="margin-toggle">
+<span class="marginnote"><em>truss</em>: an old English farming measurement (as for straw or hay); also a package or bundle. So I think this means Adeliche planned to sleep in the hay, in someone's stable.</span> in the stable he was not expected back till the morning.</p>
+<p>I never heard whether it were by the strength of the getranke <code>[drink]</code>, or the
+astonishing nature of Adeliche's tales, but it is said that about midnight, his host and his companions were all fast asleep, some on the floor, and some on the bier-bank remaining immoveable under the roughest means which he used to wake them. A loud voice was now heard without calling on host, house, and ostler, for shelter and provender; and Adeliche, after again stoutly though vainly kicking and shaking his friends, resolving that Wenzel should not lose a customer for the want of a little exertion, took up the lanthorn <code>[lantern]</code> and opened the door, where he saw a remarkably short and stout man leading an immense black horse, to which he bore somewhat of the proportion of a bear's
+whelp to an elephant.</p>
+<p>It was a strange-looking night abroad, for whilst the distant prospect lay beneath a most beautiful moonlight sky, the planet itself was veiled by a dark purple cloud which hung like a curtain half drawn up, immediately in front and over the house, the rays of golden light falling in streams from beneath it. Adeliche at first stared a little at the Traveller, but as he spake in a blunt and good-humoured voice, he lighted him first to put up his horse, and then ushered him into the Bier-schenke.</p>
+<p>&quot;How's this, mine Host?&quot; said the Stranger, looking at the slumbering peasants, &quot;is your ale so potent, or do ye always slumber thus soundly? I trow that I called lustily at the door, and my horse stamped and snorted loud enough to have waked half Eisenach.&quot;</p>
+<p>&quot;In good truth,&quot; answered Adeliche, &quot;I know not what ails them all, for it can hardly be the score of ale-cans that we've emptied. We met here to-night to take a draught of a fresh brewing with our Host Wenzel, — that's he in the goatskin jerkin lying across yonder table,— and I'd been telling them some old tales of the Nibelungen;<label for="nibelungen" class="margin-toggle">⊕</label>
+<input type="checkbox" id="nibelungen" class="margin-toggle">
+<span class="marginnote"><em>Nibelungen</em>: A supernatural underground race that guarded treasures and gold.</span> but about midnight, as I guess, they all fell asleep, and though I shook them soundly when I heard you call, there was no moving them any more than a full hogshead!&quot;</p>
+<p>&quot;No,&quot; returned the Traveller, tossing one off a bench on to the ground, and kicking another out of his way,  &quot;they won't wake at present, I'll warrant you; for they've been driving another nail in their coffins!&quot;</p>
+<p>Again Adeliche stared at his guest, whom he now observed to be dressed in a more ancient habit than any he had ever yet seen: his face had a singularly ugly and sarcastic expression, whilst a profusion of red hair, and immense pointed ears, like a satyr's, did not greatly improve it. But though Adeliche might have some odd thoughts about the Traveller, his frank and good-humoured manner soon gave him confidence, which increased when he drew from his pouch some excellent provisions and wine, and invited Adeliche to sit down and partake with him. It proved a noble feast to our story-teller, who endeavoured to requite it by several of his most interesting romances; at the end of which the Stranger said, —</p>
+<p>&quot;You tell these tales bravely, though I've heard them before, and methinks you might be better employed; for the song and the bier-kanne do but drive another nail into your coffin! But you speak of the Nibelungen-Land, I promise you there's some strange things there, that few people wot of.&quot;</p>
+<p>&quot;So I should guess,&quot; replied Adeliche,  &quot;since nobody knows where it is; for some tell us it's in Noroway, and some say it's in Burgundy.&quot;</p>
+<p>&quot;Be it where it may,&quot; rejoined the Traveller,  &quot;I came thence not an hour past. But you've played the host mightily well to-night, and I've a liking for
+you; now this odd thing I brought from the Nibelungen-Land, and, if
+you use it rightly, 'twill make you tell a better tale than you ever
+yet heard of.&quot;</p>
+<p>The Stranger again felt in his pouch, and produced a short bent tube of some kind of yellow metal, having a large bowl and cover at one end, to which he put a lighted match, and then passing the instrument to Adeliche, continued,— &quot;There, put the silver bit in your mouth, and suck away as you would with a reed in a Rhenish-cask.&quot;</p>
+<p>The simile was so perfectly adapted to Adeliche's understanding, that he soon became acquainted with the strange-looking tube, which seemed to inspire him with a feeling of delicious intoxication; and for awhile he thought himself in Paradise, clothed like a prince, and formed like an angel. Then, as he continued to inhale the fragrance of the burning perfume, he thought that a vast cloud of smoke arose from it, which conveyed him, in his own shape and dress, along with his short companion, to the side of a mountain, in a wild forest, which echoed with the deafening sound of ten thousand hammers.</p>
+<p>Whilst he was looking round him at the perfect solitude of the spot, and wondering where the workmen were concealed, the Traveller said to him,— &quot;Well, how like ye the Nibelungen-Land? This is the Knocking Mountain; and yonder,&quot; —he continued, pointing up to a terrific-looking cavity, at a great height, in a very precipitous part of it,— &quot;Yonder is the goat's gateway; climb up to it, and you'll see that which you won't forget for one while.&quot;</p>
+<p>&quot;I get up there!' exclaimed Adeliche, &quot;Why, there's not room on the rock for a goat to set one foot! And for climbing to it,—I could as soon mount the steeple of Eisenach outside!&quot;</p>
+<p>&quot;Try man, try,&quot; returned his companion; &quot;that perfume of mine has made you stronger than you think for;&quot; and so Adeliche set out cautiously and slowly, and, at length stood safely before the goat's gateway.</p>
+<p>Upon looking in, he saw a vast cavern lighted by immense lamps of brass, and containing some thousands of persons, shaped and habited like his conductor, all employed in making coffins; some being engaged in cutting them out, and others in joining them, the nailing of which produced a tremendous noise, to which the cavern replied with its countless echoes.</p>
+<p>When he was able to look more steadfastly, he saw that each coffin was marked with some person's name, and that as they were finished they seemed to be sent away through a passage in the earth. He next observed that some of the names were familiar to him; and he felt a strange sensation of fear, when he read those of Velten Schwill, Karl Kranesnech, and Wenzel Malzmann his Host, on coffins that were nearly finished; from which he half began to think that their heavy sleep would never have a wakening.  But he also observed that there were other coffins scarcely begun, and on one of these he read the name of Andreas Beyspiel, a hearty old shepherd, renowned throughout Thuringia for his temperance and piety.  His age was not certainly known, but some said he was more than an hundred, yet he looked as youthful as if he were only a quarter of it.</p>
+<p>Whilst Adeliche was making these remarks, one of the most malicious-looking Dwarfs in the whole crew, whose work was almost finished, called out to him:</p>
+<p>&quot;Ho! honest friend, art there?  Wilt buy thee a coffin now? Here's a sound one with thy name upon it&quot;, continued he, showing him the lid, which had &quot;Adeliche Stark&quot; fairly graven upon it. &quot;Do'st know, now, that I've been these twenty years making this for thee?  And I've often heard thy mother say thou wert driving a nail in thy coffin, when thou wert off to the Bier-sehenke.&quot;</p>
+<p>&quot;And art thou making that black box for me?&quot; said the trembling Adeliche.</p>
+<p>&quot;Aye,&quot; said the Dwarf,  &quot;I shall send it home to you when it's finished, and somehow the owner don't live many hours afterwards. I had a round three hundred nails to drive into it at first; I hammered in one for every night you were carousing with your mates; and now,&quot; added he, holding up a large nail and speaking in a solemn voice, &quot;only Seven are wanting!&quot;</p>
+<p>Adeliche heard no more, for whether it were the vapours of the perfume in his head, or the Dwarf's terrific words, he knew not, but he fell backwards, and on his recovery found himself alone in the forest, as wretched and ragged as ever.</p>
+<p>With the most perfect recollection of all which had passed, he wandered on through the wild wood, till he reached an iron-forge belonging to a Baron of Lower-Saxony, and as he had not a single coin in his pouch, and probably but a short time to live, he offered himself in a sort of desperate fit to blow at the furnace. In these old days there were no bellows, and so one of the smiths used to blow through an iron pipe; and whether this occupation gave him more breath, or temperance and labour made him more healthy, he could not tell, but he certainly began to look quite another man. He now wore a good coarse suit of clothes, and got together a little money; whilst years passed away and he heard no more of the coffin-makers, though he never forgot them.</p>
+<p>It was clear to Adeliche, that these Dwarfs could be no other than the ancient inhabitants of Germany, who were driven into the forests and mountains, when Attila, King of the Huns, overran the country about the year of God 432. They are said to have taken with them all their great riches and wonderful secrets, and to be still living in the Nibelungen-Land; but how true that may be I can't pretend to say.</p>
+<p>One thing, however, Adeliche had learned from their mountain-workshop, and that was the making of wooden bellows, by placing one box over another with a tube at one end, and then shutting them forcibly together. He made these chests somewhat in the form of coffins, and they raised so furious a blast, that many believed he had a familiar fiend confined in a box to blow for him as long as he lived. However, that was all an idle tale; but Adeliche told his secret only to the Baron and his fellows, who kept it so well, that to this day the name of the inventor is doubtful; though it is acknowledged that wooden bellows were first used in the Harz Forest. Schluter says, that the Bishop of Bamberg devised them; Andreas Reyher gives the credit to Klaus Schelhorn, a Miller of
+Schmalebuche; and Calvor makes it out that Ludwig Pfannenschmidt, Bellows-maker to the Harz, first brought them out of Thuringia, which seems to trace them to the descendants of Adeliche Stark.</p>
+<p>When the Baron died, he bequeathed the iron-forge to Adeliche in recompense
+for his invention, by which, and by the discovery of a golden wedge or two in his furnace, doubtless sent him from Nibelungen-Land, he grew so rich, that he bought an estate in his native country, and set up the pillar and escutcheon to record his story. He died perfectly hearty somewhere about the age of 137; having often repeated his fortunes to his great-great-grandchildren, and always closing his narrative with <em>&quot;Idleness and the tankard drive the nails of our coffins, but Temperance and Labour will build us a palace.&quot;</em></p>
+<hr>
+<p>List of <a href="/dark_tales_sleuth/pages/tales-of-an-antiquary/#volume-3">Selected Stories from <em>Tales of An Antiquary</em>, Volume 3</a></p>
+<p>Annotations by Nina Zumel</p>
+
+</article>
+		</main>
+
+		<!-- footer -->
+		<hr>
+
+<div class="footer-container">
+	<p>&copy; 2024 Nina B. Zumel</p>
+	<div class="social_icons">
+	    <a href="mailto:nzumel@mzlabs.com?subject=Comment%20from%20Dark%20Tales%20Sleuth" aria-label="Email" target="_blank" rel="noopener noreferrer">
+			<i class="fas fa-fw fa-envelope"></i>
+		</a>
+		<a href="https://micro.blog/MultoGhost" aria-label="Micro.blog" target="_blank" rel="noopener noreferrer">
+			<i class="fab fa-fw fa-microblog"></i>
+		</a>
+		<a href="https://multoghost.wordpress.com/" aria-label="Multo (Ghost)" target="_blank" rel="noopener noreferrer">
+			<i class="fab fa-fw fa-wordpress"></i>
+		</a>
+		<a href="/dark_tales_sleuth/feed.xml" aria-label="RSS" target="_blank" rel="noopener noreferrer">
+			<i class="fa fa-fw fa-rss-square"></i>
+		</a>
+
+	</div>
+</div>
+		<!-- /footer-- >
+
+		<!-- Current page: /dark_tales_sleuth/tales-of-an-antiquary/coffin-makers-of-eisenach/ -->
+	</body>
+</html>

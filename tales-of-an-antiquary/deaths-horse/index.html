@@ -1,0 +1,773 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Death&#39;s Horse: An unfinished tale</title>
+		<meta name="description" content="Filling in the Literary Blanks">
+		<link rel="alternate" href="/dark_tales_sleuth/feed/feed.xml" type="application/atom+xml" title="Dark Tales Sleuth">
+		<link rel="alternate" href="/dark_tales_sleuth/feed/feed.json" type="application/json" title="Dark Tales Sleuth">
+
+        
+		<link rel="me" href="https://micro.blog/MultoGhost">
+		<link rel="authorization_endpoint" href="https://indieauth.com/auth">
+		<link rel="token_endpoint" href="https://tokens.indieauth.com/token">
+		<link href="https://github.com/ninazumel" rel="me">
+		<script src="https://kit.fontawesome.com/9bbe6f85f9.js" crossorigin="anonymous"></script>
+		
+		<style>/* minimal implementation; just plain text in the margin, no blockquotes, code, etc */
+/* only (unnumbered) margin notes, no sidenotes */
+/* stripped down from https://github.com/edwardtufte/tufte-css */
+
+/* need this for correct sidenote numbering; but I'm not using sidenotes */
+/*
+body {
+    counter-reset: sidenote-counter; 
+} 
+*/
+
+
+/* since I imagine these will change with different templates */
+:root {
+    --content-width: 65%;
+    --image-padding: 5%;
+    --image-max: 60%;  /* total image+padding <= content-width */
+    --notewidth: 30%; 
+    /* content-width + notewidth <  100%. I think you should leave some wiggle room. */
+    --note-right-margin: -45%;
+    /* if this margin is -(notewidth), the note will start just on the right border of the text */
+    /* so push it a little to the right (more negative) */
+}
+
+article {
+	padding-top: 1rem; 
+}
+
+/* make room for the notes in the article container */
+article > p,
+article > pre,
+article > ul {
+    width: var(--content-width);
+}
+
+/* 
+  blockquotes should be a little shorter 
+  This assumes that left indentation is 2em, which is what it looks like.
+  */
+article > blockquote {
+    width: calc(var(--content-width) - 2em); 
+}
+
+
+article > hr {
+    max-width: var(--content-width);
+    margin: 0
+}
+
+article > h1, 
+article > h2,
+article > h3,
+article > h4 {
+    max-width: var(--content-width);
+}
+
+article > center {
+    max-width: var(--content-width);
+}
+
+/* keep images/captions in the text column, rather than centered in the article container */
+article > img {
+    margin-left: 0;
+    padding-left: var(--image-padding);
+    max-width: var(--image-max); 
+}
+
+article > p.caption {
+	text-align: left;
+    padding-left: var(--image-padding);
+	font-style: italic;
+	font-size: 0.9em;
+	color: #9B9C9D;
+ }
+
+.footnote-item {
+    max-width: var(--content-width); 
+}
+
+ /* finally, the margin note */
+.marginnote {    
+    float: right;
+    clear: right;
+    width: var(--notewidth);         
+    margin-right: var(--note-right-margin);
+    margin-top: 0.3rem;
+    margin-bottom: 0;
+    font-size: 0.8rem;
+    line-height: 1.3;
+    vertical-align: baseline;
+    position: relative;
+    /* border: 2px solid blue; */
+}
+
+
+input.margin-toggle {
+    display: none;
+}
+
+
+label.margin-toggle {    
+    display: none;
+
+}
+
+/* The mobile fallback: */
+/* making max-width bigger makes the note fall inline sooner */
+@media (max-width: 768px) {  
+    body {
+        width: 84%;
+        padding-left: 8%;
+        padding-right: 8%;
+    }
+
+    hr,
+    article > p,
+    article > blockquote,
+    article > pre {
+        width: 100%;
+    }
+
+    label.margin-toggle {
+        display: inline;
+    }
+       
+    .marginnote {           
+         display: none;        
+        }    
+
+      
+    .margin-toggle:checked + .marginnote {            
+        display: block;            
+        float: left;            
+        left: 1rem;            
+        clear: both;            
+        width: 95%;            
+        margin: 1rem 2.5%;            
+        vertical-align: baseline;            
+        position: relative;        
+    }
+    label {
+        cursor: pointer;
+    }
+}
+* { box-sizing: border-box; }
+/* Defaults */
+:root {
+	--font-family: Georgia, Times, -serif; /* Tahoma, -apple-system, system-ui, sans-serif; */
+	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+}
+
+/* Theme colors */
+:root {
+	--color-gray-20: #e0e0e0;
+	--color-gray-50: #C0C0C0;
+	--color-gray-70: #4D4D4D;
+	--color-gray-90: #333;
+
+	--description-color: #9B9C9D;
+	--background-color: #fff;
+
+	--text-color: var(--color-gray-70);
+	--text-color-link:  #2d2fb5;
+	--text-color-link-active: #5f2b48;
+	--text-color-link-visited: var(--color-gray-50); /* #17050F; */
+
+	--syntax-tab-size: 2;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-gray-20: #e0e0e0;
+		--color-gray-50: #C0C0C0;
+		--color-gray-70: #dad8d8;
+		--color-gray-90: #dad8d8;
+
+		/* --text-color is assigned to --color-gray-_ above.*/
+		--text-color: var(--color-gray-20);
+		--text-color-link: #1493fb;
+		--text-color-link-active: #6969f7;
+		--text-color-link-visited: #a6a6f8;
+
+		--background-color: #15202b;
+	}
+}
+
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	font-size: 18px;  /* a little bigger to accomodate a serif font */
+	color: var(--text-color);
+	background-color: var(--background-color);
+}
+html {
+	overflow-y: scroll;
+}
+body {
+	max-width: 70em; /* 50em; */
+}
+
+/* different horizontal rules  https://www.w3schools.com/howto/howto_css_dividers.asp */
+ /* Dashed border */
+ hr.dashed {
+	border-top: 1px dashed #bbb;
+  }
+  
+  /* Dotted border */
+  hr.dotted {
+	border-top: 1px dotted #bbb;
+  }
+  
+  /* Solid border */
+  hr.solid {
+	border-top: 1px solid #bbb;
+  }
+  
+
+/* 
+https://css-tricks.com/barebones-css-for-fluid-images/ 
+Without this, images generated by eleventy-img will always use the largest available size
+-- ie, not be responsive.
+*/
+img {
+	max-width: 100%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+  }
+  img[width] {
+	width: auto; /* Defer to max-width */
+  }
+  img[width][height] {
+	height: auto; /* Preserve aspect ratio */
+  }
+  
+  /* Let SVG scale without boundaries */
+  img[src$=".svg"] {
+	width: 100%;
+	height: auto;
+	max-width: none;
+  }
+  
+
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+p {
+	line-height: 1.5;
+	/* font-size: 1.2em; */
+}
+
+p.caption {
+	text-align: center;
+	font-style: italic;
+	font-size: 0.9em;
+	color: #9B9C9D;
+ }
+
+ /* for the credits at the bottom of a page */
+p.credit {
+	max-width: 50em;
+	font-size: 0.9em;
+	margin-left: auto;
+	margin-right: auto;
+ }
+
+
+/* for inline annotations, like translations */
+span.inline-note {
+	font-size: 0.9em;
+	font-style: italic;
+}
+
+li {
+	line-height: 1.5;
+	/* font-size: 1.2em; */
+}
+
+a[href] {
+	color: var(--text-color-link);
+	text-decoration: none; 
+}
+a[href]:visited {
+	color: var(--text-color-link-visited);
+}
+a[href]:hover,
+a[href]:active {
+	color: var(--text-color-link-active);
+}
+
+main {
+	padding: 1rem;
+}
+main :first-child {
+	margin-top: 0;
+}
+
+header {
+	border-bottom: 1px dashed var(--color-gray-20);
+}
+header:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.links-nextprev {
+	text-align: center;
+	list-style: none;
+	border-top: 1px dashed var(--color-gray-20);
+	padding: 1em 0;
+}
+
+
+table {
+	margin: 1em 0;
+}
+table td,
+table th {
+	padding-right: 1em;
+}
+
+pre,
+code {
+	font-family: var(--font-family);
+	font-size: 0.95em;
+}
+pre:not([class*="language-"]) {
+	margin: .5em 0;
+	line-height: 1.375; /* 22px /16 */
+	-moz-tab-size: var(--syntax-tab-size);
+	-o-tab-size: var(--syntax-tab-size);
+	tab-size: var(--syntax-tab-size);
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+}
+code {
+	word-break: break-all;
+}
+
+/*
+  Custom containters
+*/
+div.message-box {
+	max-width: 50em; 
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div.magazine-box {
+	max-width: 50em; 
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+/* Header */
+header {
+	display: flex;
+	gap: 1em .5em;
+	flex-wrap: wrap;
+	align-items: center;
+	padding: 1em;
+}
+.home-link {
+	font-size: 1.5em; /* 24px /16 (I think)*/
+	font-weight: 700;
+	margin-right: 2em;
+}
+.home-link:link:not(:hover) {
+	text-decoration: none;
+}
+
+/* Nav */
+.nav {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.nav-item {
+	display: inline-block;
+	margin-right: 1em;
+}
+.nav-item a[href]:not(:hover) {
+	text-decoration: none;
+}
+.nav a[href][aria-current="page"] {
+	text-decoration: underline;
+}
+
+/* Posts list */
+.postlist {
+	list-style: none;
+	padding: 0;
+	padding-left: 0; /* 1.5rem; */
+	max-width: 50em;
+}
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	counter-increment: start-from -1;
+	margin-bottom: 1em;
+	padding-bottom: 50px;
+	/* padding: 8px 16px; */
+	border-bottom: 1px dashed var(--color-gray-20);
+}
+
+/* 
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	content: "" counter(start-from, decimal-leading-zero) ". ";
+	line-height: 100%;
+	text-align: right;
+	margin-left: -1.5rem;
+}
+*/
+
+.postlist-date,
+.postlist-item:before {
+	font-size: 0.8125em; /* 13px /16 */
+	color: var(--color-gray-90);
+}
+.postlist-date {
+	word-spacing: -0.5px;
+	padding-left: .25em;
+}
+.postlist-link {
+	font-size: 1em; /* 1.1875em;  19px /16 */
+	font-weight: 700; 
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration: none; 
+	/* text-decoration-thickness: 1px; */
+}
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+/* Tags */
+.post-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+	font-style: italic;
+}
+.postlist-item > .post-tag {
+	align-self: center;
+}
+
+/* Tags list */
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: .5em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.post-metadata time {
+	margin-right: 1em;
+}
+
+.post-metadata li {
+	font-size: 0.875em;
+}
+
+/* metadata for posts and talks */
+
+.posttalk-metadata {
+	list-style: none;
+	padding-left: 0;
+	color: var(--description-color);
+}
+
+.posttalk-metadata ul {
+	list-style-type: none; /* no bullets */
+	padding: 0;  /* no indentation, either */
+	margin: 0;
+}
+
+/* Direct Links / Markdown Headers */
+.header-anchor {
+	text-decoration: none;
+	font-style: normal;
+	font-size: 1em;
+	margin-left: .1em;
+}
+a[href].header-anchor,
+a[href].header-anchor:visited {
+	color: transparent;
+}
+a[href].header-anchor:focus,
+a[href].header-anchor:hover {
+	text-decoration: underline;
+}
+a[href].header-anchor:focus,
+:hover > a[href].header-anchor {
+	color: #aaa;
+}
+
+h2 + .header-anchor {
+	font-size: 1.5em;
+}
+
+/* Footer */
+hr {
+    border: none;
+    background-color: #DADADB;
+    height: 1px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+    hr {
+        width: 100%;
+    }
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2rem 0;
+    background-color: var(--background-color0);
+	;
+}
+
+.footer-container p {
+    font-size: 1rem;
+    color: #9B9C9D;
+}
+
+.footer-container .social_icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0 1rem;
+}
+
+.footer-container .social_icons a {
+    color: #9B9C9D;
+    font-size: 1.5rem;
+    transition: all 0.5s ease-in-out;
+}
+
+.footer-container .social_icons a:hover {
+    color: #DADADB;
+}</style>
+	</head>
+	<body>
+		<a href="#skip" class="visually-hidden">Skip to main content</a>
+
+		<header>
+			<a href="/dark_tales_sleuth/" class="home-link">Dark Tales Sleuth</a>
+			<nav>
+				<h2 class="visually-hidden">Top level navigation menu</h2>
+				<ul class="nav">
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/about/">About</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/my-investigations/">My Cases</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/blog/">All Posts</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/comments/">Comments</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/about-me/">About Me</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="skip">
+			
+
+
+<h1>Death&#39;s Horse: An unfinished tale</h1>
+
+
+
+
+
+
+<ul class="posttalk-metadata">
+  <li>By Richard Thomson</li>
+  <li>From Volume 2 of  <em>Tales of an Antiquary</em>, 1828</li>
+</ul>
+
+<article>
+<p><em>Transcriber's note: This tale is told by the bandit Speelman to the British Captain Carlton, at a Dutch inn called the Hunter's Rest -- in reality a bandit lair. I've removed all the framing story and the corresponding extra quotation marks. I've also reparagraphed the text for legibility.</em></p>
+<p><em>And fair warning: this story really doesn't have an ending! But it's interesting enough to be worth including here.</em></p>
+<hr>
+<pre><code>Upon this Horse, black and hideous, Death am I, who 
+   fiercely doth sitte!
+There is no fairness, but sight tedious, all gay colours, 
+   I do hitte:
+My Horse runneth by dales and hilles,
+And many he smiteth dede and killes!
+            	--Wynkyn de Worde's Shepherd's Kalendar
+</code></pre>
+<p>When the Catholic faith was being opposed by Martin Luther in Germany, early in the sixteenth century, there lived in the small Forest Village of Wolfsfeld, which stands about two Dutch, or ten English, miles North from the Burgrave of Nürburg, an old and valiant Knight, named Lodowyck, or Ludwig Langenspeers.</p>
+<p>He was so called, because in the splendid Court of the famous German Emperor Maximilian I., when tilting was in fashion, he used a spear of ten cubits in length, with which he bore down all before him; and which, having been made of the Harz pine, and cut on the First of May, or the Walpurgis Night, never shivered nor brake. Langenspeers was a tall, gaunt, and hard-featured man, possessed of the most undoubted bravery, and withal very pious, although he had a considerable turn for dry humour; but, upon the separation
+of Luther from the Church of Rome, he was one of the stoutest of his defenders, and the most zealous for the Protestant cause. It is said, that long before the year 1517, when the German Reformer translated the Scriptures into the common tongue, that Ludwig, who had been brought up in good learning in Maximilian's Court, had put the Evangelists into High Dutch for his own reading; and that he would frequently call together the peasantry of Wolfsfeld, and give them much better instruction than they could ever derive from all the Preaching-Friars of St. Francis Convent, which
+stood near their Village.</p>
+<p>Now ye may guess, my Masters, that these same Friars gave the brave and pious Ludwig but small thanks for his labours; but he, little recking the worst they could do to him, kept on in his own road, gradually enlightening his fellows, and bringing them out of the errors of Popery, into a faith more conformable to the book out of which he taught them.</p>
+<p>When the Brethren of St. Francis found that their loudest denunciations were not sufficient to shake the belief, nor awaken the fears of Ludwig, they resolved to attack him by another plan; not openly, for they well knew that his courage was redoubtable, but in a manner which would have excited the terror, or have corrupted the hearts of many men, had they been even braver or better than Ludwig Langenspeers.</p>
+<p>Almost all the Forests in Germany, are said to be more or less inhabited by evil spirits, who appear in various forms, according to the circumstances under which they find travellers passing through their haunts:—thus, sometimes they look like living trees moulded into quaint and terrible shapes; crawling along the ground like monstrous lizards, or hideous reptiles without a name. Sometimes they appear like animated rocks, whose rugged faces, touched by the rays of an uncertain and showery moonlight, present wild and uncouth features to the affrighted traveller; and sometimes they do not assume any spectral appearance,— and yet do not less terrify the victim of their fiendish sports,—but, invisible to sight, make such a shouting, singing, laughing, groaning, howling, and mocking, as no one, who has not heard the voice of a German Forest at midnight, can either believe or imagine.</p>
+<p>It was some time after the commencement and success of Ludwig's lectures against his countrymen's superstition and the Friars of St. Francis, that a report arose that the skirts of the Forest in which Wolfsfeld is situate, were haunted by some foul demons, in various shapes; who proposed to all that passed through the wood, several tempting offers to barter their souls for some of the benefits of this world. It is certain that there were strange noises in abundance; although they were at first only a few of the more zealous Romanists, who had been favoured with a sight of the spirits themselves. However, the story gained strength; and, notwithstanding all the exertions of Langenspeers, it was readily believed by many of his followers; and that to such a degree, that most of them would, previously to passing through the Wood, go to the Convent of St. Francis, and pay handsomely for a charge under the Prior's seal, that the Fiends should let them go on in freedom. A few, who were not so wise as to take this precaution, never reached the outside of the Forest, but were found miserably bruised and beaten, in the very thickest of it; whilst the tales which they related were at once so dreadful and unaccountable, as most infallibly to prevent any others from following their example.</p>
+<p>At length, when Langenspeers found that the terror and superstition of the villagers had arisen to such an height, he determined to go through the Forest himself; and all the precautions he took, were to select a fair moon-light night; to mount him upon his white horse, which, in memory of his imperial donor, was called Maximilian; to case him in a complete suit of rich plate and chain mail, which he had won by dismounting all comers in a tilt at the Emperor's Court; and to take upon his shoulder that enormous spear, which procured him both his surname, and his numerous victories in Maximilian's tournaments. He had also a very large two-handed sword hung at his back, and his volume of the Evangelists well secured at his saddle-bow. It was in this manner, without calling at the Convent of St. Francis to get him a pass, that the old Knight set off upon his expedition; the purport of which he did not attempt to conceal, but when he departed, promised to publish to all Wolfsfeld, a true account of the adventures which he might meet with between that Town and the City of Nürnberg.</p>
+<p>And now, my Masters, to tell ye the tale as it was told to me, ye must bear with a hoarse voice and a grating instrument, for as the brave Knight rode slowly into the Wood, at the close of the day, he sang thus:—</p>
+<pre><code>&quot;In the night and the forest I'll lift up my song,
+My heart shall be valiant, my voice shall be strong;
+And the foe must be brave who awakens the fears,
+Or calls forth the anger of stout Langenspeers.
+
+The charger I cross hath been famous of yore,
+Maximilian the Great to his triumphs he bore;
+And the Knight who would meet him in mortal careers,
+Must sit firm on his barb [steed], quoth the stout Langenspeers.
+
+I have mail for my breast, and a lance for my hand,
+On my head sits an helm, by my side is a brand [sword];
+Here's an arm that is ready when danger appears,
+And a heart void of terror hath stout Langenspeers!&quot;
+</code></pre>
+<p>He was carolling on in this manner, when the wood began to resound with all sorts of noises; there were laughing, shouting, and many voices were heard mocking him.</p>
+<p>&quot;Hark to the fool-hardy braggart!&quot; cried one:</p>
+<p>&quot;He little thinks we're to roast him to-night on molten gold,&quot; said another.</p>
+<p>&quot;Yes,&quot; howled a third, &quot;for the impious fool came out without a blessing from the Brethren of St. Francis' Convent.&quot;</p>
+<p>&quot;Let him go on, let him go on; he cannot escape Death's Horse.&quot;</p>
+<p>In this manner was Ludwig accosted by his invisible foes on his entry to the Forest, but though he was not daunted, yet he gathered up his strength for his future trials;  &quot;for,&quot; thought he, '&quot;although what I have heard may be as gross falsehoods as ever were uttered by the Fiend himself, yet I shall not cast away my blows upon an invisible enemy, but reserve them until I can see something to fight withal.&quot;</p>
+<p>He rode on for a while unmolested, though the Forest grew thicker, and the night grew darker every moment; when, as he passed the entrance to a narrow and deep defile, he saw a figure very richly habited in the ancient dress of Germany, come riding up it on a bay horse; upon his head was a crown of gold, and in his face, where his eyes should have been, were two large balls, which shone like the regal metal when glowing in the furnace.</p>
+<p>&quot;Ho, friend!&quot; cried Langenspeers, when he saw the figure, &quot;who are you with your fiery eyes, and what do you seek in this Forest?&quot;</p>
+<p>&quot;My name,&quot; said the stranger, &quot;is King Guldneaugen: I am Lord of all the gold in Germany.&quot;</p>
+<p>&quot;And I,&quot; returned the Knight, &quot;am Lodowyck Langenspeers, of Wolfsfeld, as poor as an howlet, but in arms against all roving spirits.&quot;</p>
+<p>&quot;What say you, Ludwig, to becoming my subject? You shall have coined gold
+by the handful, and wedges enough to build you a palace with.&quot;</p>
+<p>&quot;Well said, King Golden-eyes,&quot; answered Langenspeers, &quot;but what must
+I do for all this?&quot;</p>
+<p>&quot;Only give me that little book which is at your left saddle-bow, and swear upon it, to be mine for ever and ever.&quot;</p>
+<p>&quot;A likely tale, King Guldneaugen,&quot; replied the Knight, &quot;but if you can carry my lance without stooping, I'll serve you.&quot;</p>
+<p>&quot;Come, then,&quot; said the King,  &quot;let me try.&quot;</p>
+<p>&quot;Take it then,&quot; said Ludwig, letting his ponderous spear fall with all his force upon the shoulder of the unfortunate Monarch, and bearing both horse and man to the earth with the weight of it.</p>
+<p>&quot;How now!&quot; cried the Knight, &quot;what are you down, King Guldneaugen? You are well fitted, truly, to play a Forest Fiend, not to stand a touch like that. Believe me, my faith is much heavier. Hark ye, friend, I shall give you a little wound, that I may know you when we meet again: there&quot; continued he, running his spear through the fictitious spirit's arm, &quot;Good night!&quot;</p>
+<p>&quot;Go on, thou sacrilegious man!&quot; said the fallen King, &quot;Death's Horse is abroad in the Forest! thou wilt meet him anon.&quot;</p>
+<p>&quot;And then,&quot; returned Langenspeers, &quot;I shall serve it as I have served your's,&quot; and so he rode on his journey.</p>
+<p>He again continued unmolested for some time; but whether he had missed the road, or whether any fiendish sleights were cast over him, he could not tell, though certain it was that he rather seemed to get deeper into the Forest, than to issue from it on the high road to Nürnberg. In spite of himself too, the night air made him weary and drowsy, and he even nodded in a broken slumber over his horse's head. It is, however, in these brief spaces of forgetfulness, when we are neither sleeping nor waking, that the power of dreams is most perplexingly active; for the things which are actually passing before us, are mixed up with the wild incoherencies of vision, and we are unable to distinguish the true from the false. Such was the situation of Langenspeers; he thought that he was still riding through the wood, greatly wearied, and that a beautiful female, fantastically habited in oak and ivy, like a Forest-sprite, was approaching him, singing: —</p>
+<pre><code>&quot;Turn and rest thee, Soldier, here,
+Let thy wearied barb go free;
+Lay aside thy massive spear,
+Turn and pass the night with me.
+
+Here securely feast and sleep,
+Beauty here shall bless thine arms;
+Rest thee, Knight, nor longer keep,
+Vigil to the Forest charms.&quot;
+</code></pre>
+<p>A sudden start of his horse awakened Ludwig from his trance, and he beheld the figure which he had dreamed of, standing before him.</p>
+<p>&quot;And pray, fair one,&quot; began the Knight, &quot;was your's the voice I heard inviting
+me to stop, and rest, and banquet?&quot;</p>
+<p>&quot;Yes, gallant stranger,&quot; she replied, &quot;I am the Princess Brinhilda, the daughter of Achenmann, the Erl King;<label for="erlking" class="margin-toggle">⊕</label>
+<input type="checkbox" id="erlking" class="margin-toggle">
+<span class="marginnote">Johann Gottfried Herder's poem <a href="https://www.poemist.com/johann-gottfried-herder/the-erl-kings-daughter">&quot;The Erl-King's Daughter&quot;</a> (1778) might be an appropriate reference here.</span> I came forth from my bower, to find a brave Knight to take him to my Castle and make him my Lord. Say then, wilt thou be he? I can bestow on thee more riches than the Emperor of this land ever saw; all Germany shall be under thy control; and I will be thy lady-love, possessing a youth and beauty which are continually renewed by time.&quot;</p>
+<p>&quot;But what,&quot; returned Ludwig, &quot;must I give in exchange for all this?&quot;</p>
+<p>&quot;Only,' said the Lady, &quot;one kiss from your lips, one drop of your blood, that little book which hangs at your saddle-bow, and swear upon it to be mine for
+ever and ever.&quot;</p>
+<p>&quot;A goodly guerdon <code>[prize]</code>, truly, fair Brinhilda; and now let me tell you, that I am the stout Ludwig Langenspeers, who am in arms against all roving spirits; but if you can carry my sword, I am content to be your's, and it's the office of a gentle damosell to unarm her Knight.&quot;</p>
+<p>&quot;Unbrace it,&quot; said Brinhilda,  &quot;and let me try.&quot;</p>
+<p>&quot;There, fair gentlewoman,&quot; returned Langenspeers, casting the sword with a violent clank to the earth, but retaining in his hand the chain to which it was suspended. Brinhilda tried to raise it, but it was enough for any three ordinary men, and therefore all her attempts were in vain: but while she was stooping over it, the Knight silently took from her head the oaken and ivy crown, and shred off with his dagger a large tress of her golden hair. At length, seeing her labours were to no purpose, he drew up the sword again, and, after bracing it on, put his steed into a gallop, and said,</p>
+<p>&quot;Fare you well, Lady! You are no Erl King's daughter, not to be able to lift my sword. I shall never yield to you, for my faith is heavier than that brand; but I shall carry off these trophies, that I may know you when we meet again.&quot;</p>
+<p>&quot;Go on, uncourteous Knight,&quot; said the Lady, &quot;Death's Horse is abroad and he will revenge me.&quot;</p>
+<p>And Ludwig rode onwards through the Forest. As the moon began to sink down the sky, he drew near to a sort of plain in the wood, but ere he could gain it, he heard the hollow voice of some one, apparently riding very near to him, and singing :—</p>
+<pre><code>&quot;I ride the forest, I ride the wood,
+   I ride on the broad highway;
+The track of my charger is mark'd with blood,
+   Like a field on the battle-day!
+Whate'er he pursues, in vain is flight,
+   There never was barb so fleet;
+Whate'er he attacks, in vain is might,
+   Whole armies fall at his feet!
+No mortal dare upon him to look,
+   Although he be stout and brave;
+Each step of his tread is a knell for the dead,
+   And each bound is the span for a grave!&quot;
+</code></pre>
+<p>&quot;Ah!&quot; said Ludwig to himself, &quot;this is a terrible homily, truly: it comes, doubtless, from that same Death's Horse, of which I have heard so much; but he must not go unanswered neither :—&quot;</p>
+<pre><code>&quot;Oh Death! Oh Death! there is one by thy side,
+Who fears not thy steed nor thee,
+In arms against Demons to-night I ride,
+Then come forth if thou can'st to me!&quot;
+</code></pre>
+<p>As he gained the plain, a troop of figures, like skeletons and fiends, of the most horrible grotesque shapes, came running in wild rabble rout from another path of the wood, and in the midst of them there was a fleshless form seated upon a little black horse, having harness of cord, and a bell hung about his neck, which, continually swung with a melancholy sound.<label for="deaths-horse" class="margin-toggle">⊕</label>
+<input type="checkbox" id="deaths-horse" class="margin-toggle">
+<span class="marginnote">The description in this passage matches the image of Death and his horse in Albrecht Durer's engraving <a href="https://commons.wikimedia.org/wiki/File:Albrecht_D%C3%BCrer,_Knight,_Death_and_Devil,_1513,_NGA_6637.jpg"><em>Knight, Death, and the Devil</em></a> (1513).</span> The figure on his back was habited in a kind of white shroud; but though his visage was the face of a skull, he had a long black beard, and his streaming hair was surmounted by an Eastern crown twined about with serpents. He held in his left hand an hour-glass and dial, and in his right a spear, with which he made towards Ludwig; but the brave Knight, breathing a short prayer, couching his own resistless lance, and putting Maximilian to his full speed, rushed valiantly on the band, overthrowing and trampling down—</p>
+<center>*   *   *</center>
+<p><em>At this point, the bandits notice that Captain Carlton has fallen asleep, and are about to kill him, when a contingent of Dutch soldiers bursts in. They rescue the Captain, but unhappily for us, we never get the rest of the story.</em></p>
+<hr>
+<p>List of <a href="/dark_tales_sleuth/pages/tales-of-an-antiquary/#volume-2">Selected Stories from <em>Tales of An Antiquary</em>, Volume 2</a></p>
+<p>Annotations by Nina Zumel</p>
+
+</article>
+		</main>
+
+		<!-- footer -->
+		<hr>
+
+<div class="footer-container">
+	<p>&copy; 2024 Nina B. Zumel</p>
+	<div class="social_icons">
+	    <a href="mailto:nzumel@mzlabs.com?subject=Comment%20from%20Dark%20Tales%20Sleuth" aria-label="Email" target="_blank" rel="noopener noreferrer">
+			<i class="fas fa-fw fa-envelope"></i>
+		</a>
+		<a href="https://micro.blog/MultoGhost" aria-label="Micro.blog" target="_blank" rel="noopener noreferrer">
+			<i class="fab fa-fw fa-microblog"></i>
+		</a>
+		<a href="https://multoghost.wordpress.com/" aria-label="Multo (Ghost)" target="_blank" rel="noopener noreferrer">
+			<i class="fab fa-fw fa-wordpress"></i>
+		</a>
+		<a href="/dark_tales_sleuth/feed.xml" aria-label="RSS" target="_blank" rel="noopener noreferrer">
+			<i class="fa fa-fw fa-rss-square"></i>
+		</a>
+
+	</div>
+</div>
+		<!-- /footer-- >
+
+		<!-- Current page: /dark_tales_sleuth/tales-of-an-antiquary/deaths-horse/ -->
+	</body>
+</html>
