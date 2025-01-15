@@ -22,6 +22,11 @@ Case Complete! _Evening Tales for the Winter_ is an 1856 anthology of gothic and
 
 Current active case. I'm collecting as many of the Post Office detective and Post Office supernatural short stories of Austin Philips as I can find online. Possibly some non-post office ghost stories, too.
 
+#### [Selected Stories from *Tales of an Antiquary* (1828)](/pages/tales-of-an-antiquary/)
+
+Current active case. This rather unreadable 1828 fictional "memoir" by antiquarian Richard Thomson has some interesting stories buried within it. 
+I'm reviving some of these highlights and featuring them here.
+
 #### [Quote Attributions](/pages/quote-attributions/)
 
 In progress. My attempts to correctly attribute incorrectly or incompletely attributed quotes.

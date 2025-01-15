@@ -29,6 +29,12 @@ Sometimes I investigate quotes, and other literary mysteries, too.
 <div class="message-box">
 <h3>My Current Cases</h3>
 
+#### [Selected Stories from *Tales of an Antiquary* (1828)](/pages/tales-of-an-antiquary/)
+
+This rather unreadable 1828 fictional "memoir" by antiquarian Richard Thomson has some interesting stories buried within it. 
+I'm reviving some of these highlights and featuring them here.
+
+
 #### [Selected Stories of Austin Philips](/pages/austin-philips/)
 
 I'm collecting as many of the Post Office detective and Post Office supernatural short stories of Austin Philips as I can find online. Possibly some non-post office crime stories, too.
