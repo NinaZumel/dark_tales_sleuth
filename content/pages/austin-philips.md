@@ -39,6 +39,8 @@ This selection will focus on Philips' Post Office detective stories, ghost stori
 
 [**The Murder at Silchester Post Office**](/austin-philips/murder-at-silchester-post-office/): Philips' fictional reconstruction of---and solution to---the still-unsolved real-life murder of George Fell at the Birkenhead Post Office in 1900.
 
+[**The Watching Gallery**](/austin-philips/the-watching-gallery/): An ambitious young postal employee spends Christmas Eve on the lookout for a pesky serial postal thief.
+
 </div>
 
 <p class="credit">
