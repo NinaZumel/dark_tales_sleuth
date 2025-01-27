@@ -43,7 +43,18 @@ Volume 1 covers the period from 1100-1560. Many of the stories are pastiches of 
 
 ## Volume 2
 
-In progress.
+Volume 2 contains extended adventure tales set in and around the English Civil War and Commonwealth Period. 
+
+[**The Saving of Cobus Kaatskill**](/tales-of-an-antiquary/saving-of-cobus-kaatskill/): A brief deal-with-the-devil tale, as told
+by "Kill-sin Buffet-the-Beast," a "pious Trooper," during the course of a 2+ hour sermon to the congregation of St. Dunstan-in-the-West in 1651. 
+Note that the devil is dressed as a Quaker.
+
+[**The Weird of the Witch Riddle**](/tales-of-an-antiquary/weird-of-the-witch-riddle/): Another pious Puritan has an eerie encounter with a coven 
+of witches in Scotland. Partially related in Scottish, which I have attempted to also render into more standard English.
+
+[**Death's Horse**](/tales-of-an-antiquary/deaths-horse/): An excellent--but unfinished!--account of a pious Puritan knight riding out to confront alleged 
+demons in a German forest. It's apparently inspired by Albrecht Durer's *Knight, Death, and the Devil*. Prepare for a feeling of frustration at the cliffhanger ending.
+
 </div>
 <br>
 
