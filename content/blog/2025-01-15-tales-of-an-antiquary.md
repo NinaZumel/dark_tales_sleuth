@@ -17,7 +17,7 @@ While many of the stories are quite interesting, the work as a whole is tedious 
 
 So, I've unearthed a few of the stories from the overall work that I really like, and I'll be presenting them here.
 I'll start with [three stories from Volume One](/pages/tales-of-an-antiquary/#volume-1). One of them is possibly the first Gothic
-werewolf story ever published, and it's been reposted over at *Roy Glanshan's Library*. The other two are reposted here
+werewolf story ever published, and it's been reposted over at *Roy Glashan's Library*. The other two are reposted here
 at *Dark Tales Sleuth*, and I've added some light annotations.
 
 I'll be presenting stories from the other volumes soon as well. I hope you enjoy them!
