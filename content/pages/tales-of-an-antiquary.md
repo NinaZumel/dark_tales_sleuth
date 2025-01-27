@@ -31,7 +31,7 @@ I've skimmed through the volumes, so you don't have to, and found some of the hi
 
 Volume 1 covers the period from 1100-1560. Many of the stories are pastiches of German Gothic, which was fashionable at the time.
 
-[**The Severed Arm; or The Wehr-wolf of Limousin**](https://freeread.com.au/@RGLibrary/Unknown/Anon/TheSeveredArm.html) (Link to *Roy Glashan's Library*): According to Roy Glashan, this may be the first Gothic werewolf story ever published. It was reprinted several times in the nineteenth century, and once in abridged form by Peter Haining. Glanshan's version is the complete version, I believe from *Tales of an Antiquary*.
+[**The Severed Arm; or The Wehr-wolf of Limousin**](https://freeread.de/@RGLibrary/Unknown/Anon/TheSeveredArm.html) (Link to *Roy Glashan's Library*): According to Roy Glashan, this may be the first Gothic werewolf story ever published. It was reprinted several times in the nineteenth century, and once in abridged form by Peter Haining. Glanshan's version is the complete version, I believe from *Tales of an Antiquary*.
 
 [**The Legend of the Broken Turret**](/tales-of-an-antiquary/legend-of-the-broken-turret/): Brave soldiers, dealings with the devil, and tragic romance form the history of a ruined church in Nuremberg.
 
