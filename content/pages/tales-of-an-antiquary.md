@@ -52,7 +52,7 @@ Note that the devil is dressed as a Quaker.
 [**The Weird of the Witch Riddle**](/tales-of-an-antiquary/weird-of-the-witch-riddle/): Another pious Puritan has an eerie encounter with a coven 
 of witches in Scotland. Partially related in Scottish, which I have attempted to also render into more standard English.
 
-[**Death's Horse**](/tales-of-an-antiquary/deaths-horse/): An excellent--but unfinished!--account of a pious Puritan knight riding out to confront alleged 
+[**Death's Horse**](/tales-of-an-antiquary/deaths-horse/): An excellent--but unfinished!--account of a pious Protestant knight riding out to confront alleged 
 demons in a German forest. It's apparently inspired by Albrecht Durer's *Knight, Death, and the Devil*. Prepare for a feeling of frustration at the cliffhanger ending.
 
 </div>
