@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Selected Tales of An Antiquary</title>
+		<title>Tales of an Antiquary, Volume 3</title>
 		<meta name="description" content="Filling in the Literary Blanks">
 		<link rel="alternate" href="/dark_tales_sleuth/feed/feed.xml" type="application/atom+xml" title="Dark Tales Sleuth">
 		<link rel="alternate" href="/dark_tales_sleuth/feed/feed.json" type="application/json" title="Dark Tales Sleuth">
@@ -15,67 +15,149 @@
 		<link href="https://github.com/ninazumel" rel="me">
 		<script src="https://kit.fontawesome.com/9bbe6f85f9.js" crossorigin="anonymous"></script>
 		
-		<style>/* For displaying image and description*/
+		<style>/* minimal implementation; just plain text in the margin, no blockquotes, code, etc */
+/* only (unnumbered) margin notes, no sidenotes */
+/* stripped down from https://github.com/edwardtufte/tufte-css */
 
-.top_container {
-	text-align: center;
-	vertical-align: middle;
+/* need this for correct sidenote numbering; but I'm not using sidenotes */
+/*
+body {
+    counter-reset: sidenote-counter; 
+} 
+*/
+
+
+/* since I imagine these will change with different templates */
+:root {
+    --content-width: 65%;
+    --image-padding: 5%;
+    --image-max: 60%;  /* total image+padding <= content-width */
+    --notewidth: 30%; 
+    /* content-width + notewidth <  100%. I think you should leave some wiggle room. */
+    --note-right-margin: -45%;
+    /* if this margin is -(notewidth), the note will start just on the right border of the text */
+    /* so push it a little to the right (more negative) */
 }
 
-.top_container img {
-	  max-width: 400px;
-	  display: block;
-	  margin-left: auto;
-	  margin-right: auto;
+article {
+	padding-top: 1rem; 
 }
 
-.top_description {
-	margin-left: auto;
-    margin-right: auto;
-	line-height: 1;
-
+/* make room for the notes in the article container */
+article > p,
+article > pre,
+article > ul {
+    width: var(--content-width);
 }
 
-.top_description p {
+/* 
+  blockquotes should be a little shorter 
+  This assumes that left indentation is 2em, which is what it looks like.
+  */
+article > blockquote {
+    width: calc(var(--content-width) - 2em); 
+}
+
+
+article > hr {
+    max-width: var(--content-width);
+    margin: 0
+}
+
+article > h1, 
+article > h2,
+article > h3,
+article > h4 {
+    max-width: var(--content-width);
+}
+
+article > center {
+    max-width: var(--content-width);
+}
+
+/* keep images/captions in the text column, rather than centered in the article container */
+article > img {
+    margin-left: 0;
+    padding-left: var(--image-padding);
+    max-width: var(--image-max); 
+}
+
+article > p.caption {
+	text-align: left;
+    padding-left: var(--image-padding);
 	font-style: italic;
-	font-size: 1em;
+	font-size: 0.9em;
 	color: #9B9C9D;
-}
-/* Message Box */
-.message-box {
-	--color-message-box:  var(--background-color); 
-    --border-color:  #f5f5dc; /*; beige, according to my R color chart */
+ }
 
-	display: block;
-	background-color: var(--color-message-box);
-	color: var(--color-gray-90);
-	padding: 1em 0.625em;  /* 16px 10px /16 */
-	padding-left: 2em;  /* bit more on the left */
-	padding-right: 2em;  /* to balance it */
-	border: 2px solid var(--border-color);
-}
-.message-box ol {
-	margin-top: 0;
+.footnote-item {
+    max-width: var(--content-width); 
 }
 
-.message-box h1 {
-	text-align: center;
-}
-
-.message-box h2 {
-	text-align: center;
-}
-
-.message-box h3 {
-	text-align: center;
+ /* finally, the margin note */
+.marginnote {    
+    float: right;
+    clear: right;
+    width: var(--notewidth);         
+    margin-right: var(--note-right-margin);
+    margin-top: 0.3rem;
+    margin-bottom: 0;
+    font-size: 0.8rem;
+    line-height: 1.3;
+    vertical-align: baseline;
+    position: relative;
+    /* border: 2px solid blue; */
 }
 
 
+input.margin-toggle {
+    display: none;
+}
 
-@media (prefers-color-scheme: dark) {
-	.message-box {
-		--color-message-box: var(--background-color);
-	}
+
+label.margin-toggle {    
+    display: none;
+
+}
+
+/* The mobile fallback: */
+/* making max-width bigger makes the note fall inline sooner */
+@media (max-width: 768px) {  
+    body {
+        width: 84%;
+        padding-left: 8%;
+        padding-right: 8%;
+    }
+
+    hr,
+    article > p,
+    article > blockquote,
+    article > pre {
+        width: 100%;
+    }
+
+    label.margin-toggle {
+        display: inline;
+    }
+       
+    .marginnote {           
+         display: none;        
+        }    
+
+      
+    .margin-toggle:checked + .marginnote {            
+        display: block;            
+        float: left;            
+        left: 1rem;            
+        clear: both;            
+        width: 95%;            
+        margin: 1rem 2.5%;            
+        vertical-align: baseline;            
+        position: relative;        
+    }
+    label {
+        cursor: pointer;
+    }
 }
 * { box-sizing: border-box; }
 /* Defaults */
@@ -535,56 +617,26 @@ hr {
 		<main id="skip">
 			
 
+<h1>Tales of an Antiquary, Volume 3</h1>
 
-<div class="top_container">
-    <img alt="St. Dunstan's &amp;c. Fleet Street" loading="lazy" decoding="async" src="/dark_tales_sleuth/img/st-dunstans-gaiUbh67bo-400.png" width="500" height="671" srcset="/dark_tales_sleuth/img/st-dunstans-gaiUbh67bo-400.png 400w, /dark_tales_sleuth/img/st-dunstans-gaiUbh67bo-500.png 500w" sizes="100vw">
-<p></p><div class="top_description">
-<p>Fleet Street and St. Dunstan-in-the-West</p>
-</div><p></p>
+<div class="posttalk-metadata">
+  <time datetime="2025-02-02 4:00 PM">02 February 2025</time>
 </div>
-<div class="message-box">
-<h2>Selected Stories from <em>Tales of An Antiquary</em> (1828)</h2>
-<p><em>Tales of an Antiquary: chiefly illustrative of the manners, traditions, and remarkable localities of ancient London</em> is a three-volume collection of stories, with a frame, by antiquarian <a href="https://en.wikipedia.org/wiki/Richard_Thomson_(antiquarian)">Richard Thomson</a>.
-Thomson took several pieces that he'd originally published in a defunct periodical, revised and extended them, and wove them into the rambling memoirs of the fictional antiquarian, Sylvanus Beauclerk.</p>
-<p>While many of the stories are quite interesting, the work as a whole is tedious and verbose---an opinion shared by contemporary reviewers:</p>
-<blockquote>
-<p>We think the author has been led away by a false idea of conforming to the taste of the times, of writing a popular work, yet so full of his antiquarian lore that the mere story-teller sinks under the weight.<br>--- Review in <em>The Literary Gazette, and Journal of the Belles Lettres</em> January 26, 1828</p>
-</blockquote>
-<p>I've skimmed through the volumes, so you don't have to, and found some of the highlights. If you are curious, however, you can find scans of all three volumes at <a href="https://catalog.hathitrust.org/Record/000122613">HathiTrust</a>.</p>
-</div>
-<br>
-<div class="message-box">
-<h2 id="volume-1" tabindex="-1">Volume 1 <a class="header-anchor" href="#volume-1">#</a></h2>
-<p>Volume 1 covers the period from 1100-1560. Many of the stories are pastiches of German Gothic, which was fashionable at the time.</p>
-<p><a href="https://freeread.de/@RGLibrary/Unknown/Anon/TheSeveredArm.html"><strong>The Severed Arm; or The Wehr-wolf of Limousin</strong></a> (Link to <em>Roy Glashan's Library</em>): According to Roy Glashan, this may be the first Gothic werewolf story ever published. It was reprinted several times in the nineteenth century, and once in abridged form by Peter Haining. Glashan's version is the complete version, I believe from <em>Tales of an Antiquary</em>.</p>
-<p><a href="/dark_tales_sleuth/tales-of-an-antiquary/legend-of-the-broken-turret/"><strong>The Legend of the Broken Turret</strong></a>: Brave soldiers, dealings with the devil, and tragic romance form the history of a ruined church in Nuremberg.</p>
-<p><a href="/dark_tales_sleuth/tales-of-an-antiquary/paradise-of-bears/"><strong>The Paradise of Bears</strong></a>: A sweet little fairy tale about a gentle orphan who learns the secret of where bears really go when they &quot;hibernate.&quot;</p>
-</div>
-<br>
-<div class="message-box">
-<h2 id="volume-2" tabindex="-1">Volume 2 <a class="header-anchor" href="#volume-2">#</a></h2>
-<p>Volume 2 contains extended adventure tales set in and around the English Civil War and Commonwealth Period.</p>
-<p><a href="/dark_tales_sleuth/tales-of-an-antiquary/saving-of-cobus-kaatskill/"><strong>The Saving of Cobus Kaatskill</strong></a>: A brief deal-with-the-devil tale, as told
-by &quot;Kill-sin Buffet-the-Beast,&quot; a &quot;pious Trooper,&quot; during the course of a 2+ hour sermon to the congregation of St. Dunstan-in-the-West in 1651.
-Note that the devil is dressed as a Quaker.</p>
-<p><a href="/dark_tales_sleuth/tales-of-an-antiquary/weird-of-the-witch-riddle/"><strong>The Weird of the Witch Riddle</strong></a>: Another pious Puritan has an eerie encounter with a coven
-of witches in Scotland. Partially related in Scottish, which I have attempted to also render into more standard English.</p>
-<p><a href="/dark_tales_sleuth/tales-of-an-antiquary/deaths-horse/"><strong>Death's Horse</strong></a>: An excellent--but unfinished!--account of a pious Protestant knight riding out to confront alleged
-demons in a German forest. It's apparently inspired by Albrecht Durer's <em>Knight, Death, and the Devil</em>. Prepare for a feeling of frustration at the cliffhanger ending.</p>
-</div>
-<br>
-<div class="message-box">
-<h2 id="volume-3" tabindex="-1">Volume 3 <a class="header-anchor" href="#volume-3">#</a></h2>
-<p>Volume 3 covers the period from 1716-1769. The tales in this volume are purported to be from an old book of astrology, notes from the practice of the astrologer Ptolemy Horoscope. Mr. Horoscope is a character in two of the stories below.</p>
-<p>In my opinion, these are the best stories in the anthology.</p>
-<p><a href="/dark_tales_sleuth/tales-of-an-antiquary/killcrop-the-changeling/"><strong>Killcrop the Changeling</strong></a>: Noah Fluke, an old retired sailor, has become the guardian of his former captain's orphaned son, Basil. Hard-up for money, Fluke agrees to be the live-in caretaker of a spooky old house that's rumored to be haunted. Basil loves the house---especially the pretty green-clad ladies who come visit him in the Green Room.</p>
-<p><a href="/dark_tales_sleuth/tales-of-an-antiquary/coffin-makers-of-eisenach/"><strong>The Coffin-Makers of Eisenach</strong></a>: A rather charming moral fairy tale, about a ne'er-do-well raconteur named Adeliche Stark. Stark is whisked away to Nibelungen-Land, where he encounters a mountain-full of dwarves, busy making the coffins for humans. His own coffin is a mere seven nails from completion!</p>
-<p><a href="/dark_tales_sleuth/tales-of-an-antiquary/cock-lane-ghost/"><strong>The Cock Lane Ghost</strong></a>: Not so much the actual historical 1762 <a href="https://en.wikipedia.org/wiki/Cock_Lane_ghost">Cock Lane Ghost case</a>, but a fictional case on nearby Snow-hill Lane. Dignified old Seneca Stiff and his ward Clara are being haunted by the spirit of Clara's late father. At least, that's who Mr. Stiff's housekeeper claims the ghost is.</p>
-</div>
-<p class="credit">
- Image: Thomas Shotter Boys. Plate 23 from <em>Original views of London as it is</em> (1842).  Source: <a href="https://www.oldbookillustrations.com/illustrations/st-dunstans/">Old Book Illustrations</a>
-</p>
+<ul class="post-metadata">
+	<li><a href="/dark_tales_sleuth/tags/tales-of-an-antiquary/" class="post-tag">Tales of an Antiquary</a>, </li>
+	<li><a href="/dark_tales_sleuth/tags/with-html-transcription/" class="post-tag">with html transcription</a></li>
+</ul>
 
+
+<article>
+	<p>I've collected three stories from <a href="/dark_tales_sleuth/pages/tales-of-an-antiquary/#volume-3">Volume 3</a> of Richard Thomson's <em>Tales of an Antiquary</em> for you to enjoy!</p>
+<p>Volume Three covers the period from 1716-1769. The conceit in this volume is that the narrator of <em>Tales</em>, Sylvanus Beauclerk, has discovered the notes and memoirs of an astrologer of the period, named Ptolemy Horoscope. The tales told in Volume Three come from Horoscope's notes, and Horoscope himself is a character in two of the stories I'm sharing today.</p>
+<p>These are the best stories from the entire anthology, in my opinion. I hope you enjoy them as much as I did.</p>
+<p>And with this, the case is complete!</p>
+
+</article>
+<ul class="links-nextprev"><li><a href="/dark_tales_sleuth/blog/2025-01-27-tales-of-an-antiquary-vol-2/">&#8592;</a> <span style="color: #9B9C9D">Previous</span></li>
+</ul>
 
 		</main>
 
@@ -611,6 +663,6 @@ demons in a German forest. It's apparently inspired by Albrecht Durer's <em>Knig
 </div>
 		<!-- /footer-- >
 
-		<!-- Current page: /dark_tales_sleuth/pages/tales-of-an-antiquary/ -->
+		<!-- Current page: /dark_tales_sleuth/blog/2025-02-03-tales-of-an-antiquary-vol-3/ -->
 	</body>
 </html>
