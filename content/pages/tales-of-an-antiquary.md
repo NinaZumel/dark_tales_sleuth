@@ -62,7 +62,16 @@ demons in a German forest. It's apparently inspired by Albrecht Durer's *Knight,
 
 ## Volume 3
 
-In progress.
+Volume 3 covers the period from 1716-1769. The tales in this volume are purported to be from an old book of astrology, notes from the practice of the astrologer Ptolemy Horoscope. Mr. Horoscope is a character in two of the stories below.
+
+In my opinion, these are the best stories in the anthology.
+
+[**Killcrop the Changeling**](/tales-of-an-antiquary/killcrop-the-changeling/): Noah Fluke, an old retired sailor, has become the guardian of his former captain's orphaned son, Basil. Hard-up for money, Fluke agrees to be the live-in caretaker of a spooky old house that's rumored to be haunted. Basil loves the house---especially the pretty green-clad ladies who come visit him in the Green Room.
+
+[**The Coffin-Makers of Eisenach**](/tales-of-an-antiquary/coffin-makers-of-eisenach/): A rather charming moral fairy tale, about a ne'er-do-well raconteur named Adeliche Stark. Stark is whisked away to Nibelungen-Land, where he encounters a mountain-full of dwarves, busy making the coffins for humans. His own coffin is a mere seven nails from completion!
+
+[**The Cock Lane Ghost**](/tales-of-an-antiquary/cock-lane-ghost/): Not so much the actual historical 1762 [Cock Lane Ghost case](https://en.wikipedia.org/wiki/Cock_Lane_ghost), but a fictional case on nearby Snow-hill Lane. Dignified old Seneca Stiff and his ward Clara are being haunted by the spirit of Clara's late father. At least, that's who Mr. Stiff's housekeeper claims the ghost is.
+
 </div>
 
 

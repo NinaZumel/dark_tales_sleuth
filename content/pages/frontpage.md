@@ -31,8 +31,8 @@ Sometimes I investigate quotes, and other literary mysteries, too.
 
 #### [Selected Stories from *Tales of an Antiquary* (1828)](/pages/tales-of-an-antiquary/)
 
-This rather unreadable 1828 fictional "memoir" by antiquarian Richard Thomson has some interesting stories buried within it. 
-I'm reviving some of these highlights and featuring them here.
+Case Complete! This rather unreadable 1828 fictional "memoir" by antiquarian Richard Thomson has some interesting stories buried within it. 
+I've revived some of these highlights and featured them here.
 
 
 #### [Selected Stories of Austin Philips](/pages/austin-philips/)
