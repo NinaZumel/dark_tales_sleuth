@@ -75,11 +75,7 @@ Brodsky, have discovered spiritual laws of the utmost consequence to humanity. Y
 
 "On the contrary, professor," said I. "I know that what you say is correct."
 
-"Good!" cried Professor Adams. "Well, I was about to add that, much as we know about ancient Egypt, what we do not know is infinitely greater. How often have I walked throug my mummy gallery—fine fellows they are, lying in their handsome cases—and said to them, 'You, Nebo{% marginnote "nebo", "*Nebo* could be a name associated with the [Babylonian god of literacy](https://en.wikipedia.org/wiki/Nabu), but in this context I think he might be [Pharoah Necho II](https://en.wikipedia.org/wiki/Necho_II), who is mentioned in the Old Testament, though not, apparently, in the same books as [Joseph](https://en.wikipedia.org/wiki/Joseph_(Genesis))." %} there! You must have been contemporary with Joseph. Come back to life and tell me about his corner in grain.' 'You, my friend Sesostris, who wear your hair after the style of the Ptolemies, did you ever see Cleopatra, and was there really anything between her and Mark Anthony, or did some writer spread that lie among the Romans?" And that is about as far as I got until I made the astonishing discovery that neither friend Nebo nor friend Sesostris{% marginnote "sesostris", "*Sesostris*: Egyptian king mentioned by Herodotus, in his *Histories*. Stories about him are likely based on the lives of multiple historical pharoahs. ([Wikipedia](https://en.wikipedia.org/wiki/Sesostris))" %} had ever been enbalmed!"
-
-[^1]: *Nebo* could be a name associated with the [Babylonian god of literacy](https://en.wikipedia.org/wiki/Nabu), but in this context I think he might be [Pharoah Necho II](https://en.wikipedia.org/wiki/Necho_II), who is mentioned in the Old Testament, though not, apparently, in the same books as [Joseph](https://en.wikipedia.org/wiki/Joseph_(Genesis)).
-
-[^2]: Egyptian king mentioned by Herodotus, in his *Histories*. Stories about him are likely based on the lives of multiple historical pharoahs. ([Wikipedia](https://en.wikipedia.org/wiki/Sesostris))
+"Good!" cried Professor Adams. "Well, I was about to add that, much as we know about ancient Egypt, what we do not know is infinitely greater. How often have I walked throug my mummy gallery—fine fellows they are, lying in their handsome cases—and said to them, 'You, Nebo{% marginnote "nebo", "*Nebo* could be a name associated with the [Babylonian god of literacy](https://en.wikipedia.org/wiki/Nabu), but in this context I think he might be [Pharoah Necho II](https://en.wikipedia.org/wiki/Necho_II), who is mentioned in the Old Testament, though not, apparently, in the same books as [Joseph](https://en.wikipedia.org/wiki/Joseph_(Genesis))." %} there! You must have been contemporary with Joseph. Come back to life and tell me about his corner in grain.' 'You, my friend Sesostris, who wear your hair after the style of the Ptolemies, did you ever see Cleopatra, and was there really anything between her and Mark Anthony, or did some writer spread that lie among the Romans?" And that is about as far as I got until I made the astonishing discovery that neither friend Nebo nor friend Sesostris{% marginnote "sesostris", "*Sesostris*: Egyptian king mentioned by Herodotus, in his *Histories*. Stories about him are likely based on the lives of multiple historical pharoahs. ([Wikipedia](https://en.wikipedia.org/wiki/Sesostris))" %} had ever been embalmed!"
 
 I was so fascinated by the professor's breezy speech that I hardly grasped the significance of this fact at first.
 
@@ -204,7 +200,8 @@ We saw the light of intelligence come into its eyes as it turned them on us and 
 
 "Take care!" I screamed.
 
-![[homo-homunculus-doctors-throat.png]]
+{% image "./images/homo-homunculus-doctors-throat.png", "Long-haired, bearded man attacks another, spectacled, frock-coat wearing man. Another man in background watches." %} 
+<p class="caption">Leaped for the doctor's throat</p>
 
 I was too late. With the cunning of a cat it had crouched down, it averted its gaze one moment; then, straight as an arrow, it leaped for the doctor's throat, seeking, with the wild beast's instinct, for the great vulnerable arteries. Brodsky staggered under the impetus of the attack; I glanced hastily round me and perceived an instrument of iron with a long handle of wood, such as is used for opening packing cases. I flung myself upon the thing and belabored it with all my strength. It left the doctor and turned upon me, snarling. I hit it with all my force upon the bridge of the nose, and with a whine it fell at my feet, fawning upon me. It had discovered the meaning of its second lesson, the strength of others. Brodsky rose slowly. His shoulder had been bruised, but he was not otherwise injured.
 
@@ -216,9 +213,10 @@ It is not necessary," I answered. "Look!"
 
 They glanced back at the creature. It was still seated upon the floor, but had dropped the tool and now sat, crouched in a heap, staring before it idly, while a low whimpering sound came from between its lips. And its aspect had changed. With the arrival of adolescence the features had insensibly altered; already I had noticed how the soul within, working upon the plastic clay, moulding it in its own image, had thrown back the fine forehead of the mummy, enlarged the jaws, lengthened the arms and bowed the lower limbs, until it began to show the semi-human appearance of primeval man. But not the muscles had wasted upon the limbs, the face was lined, the thick growth of beard that had sprung out upon the lower half of the face was turning white. The creature was aging visibly before our eyes. Its span of normal life was almost over. 
 
-![[homo-homunculus-body-collapsed.png]]
-
 And then occurred the most pathetic of all the incidents that I remember. Perhaps primitive man feeling his strength go from him, might have wondered in his dimly developed mind at the slow approach of death, pondered upon the unknown gulf before him, toward whose edge he was approaching with irresistible movements and longed that his little, helpless life should not go out alone, without some human companionship. The creature half rose, and, very bent and faltering, stumbled toward us and cowered at out feet, laying its head down upon the ground before the doctor, much as an old dog might seek its master in the hour of death. In spite of my repugnance, tears sprung into my eyes. This was our first ancestor, the father of the race. Brodsky stopped over the thing and laid his hand upon its head. The head was raised one instant; I saw an agony of question in the eyes. Then the body collapsed, it moved faintly once or twice, and a long sigh shook the frame. A moment afterward it began to grow cold. I turned it upon its back. The face was that of an old savage in the last extremity of old age.
+
+{% image "./images/homo-homunculus-body-collapsed.png", "An old man with long white beard crouches on the floor. He appears weak." %} 
+<p class="caption">Then the body collapsed</p>
 
 We placed the body back in the case and left it with Professor Adams. Then we departed. We did not know whether hours or days had passed, whether it were night or morning. But the streets were still dark; and when the doctor pulled out his watch we saw that it lacked an hour of midnight. Only two hours had passed since we first entered Adam's house; but they were the longest I had ever passed. Neither of us spoke that night as the express train whirled us back to our home. But in the morning, when we were back in the doctor's study, he voluntarily brought up the subject.
 
@@ -240,10 +238,10 @@ our own?"
 "Exactly," the doctor answered. "Instead of time passing by us, we travel through time, much as, although we in the carriage think the fields are passing us, it is, in reality, we who are passing them. The matter is a little dificult to explain, but, let me offer you an analogy. Picture human life as a snake that wriggles past a certain point of vision. It appears out of the unknown, crawls along the ground, and disappears, no one knows whither, leaving nothing to mark its course except its trail in the dust But, because we see it no longer, that does not prove that it has ceased to exist, or that it is not contemporaneous with other snakes that crawled past yesterday, or may crawl past in future. So with our savage. He came from the unknown and disappeared; he changed from youth to age, as the snake changes from head to tail, tapering away into nothingness. Yet let us take comfort in the thought that even as with Sesostris, with you and with me, no human life is purposeless and if we cannot understand the final ccause of things we know that all will be well with us."
 
 ---
-Part of the series *Ivan Brodsky, Surgeon of Souls*
+Part of the series [*Ivan Brodsky, Surgeon of Souls*](/pages/victor-rousseau/#dr-ivan-brodsky-surgeon-of-souls)<br>
 Original copyright 1909, W.G. Chapman, Great Britain.
-This version transcribed from *Stevens Point Journal* Feb. 3, 1911
 
-All illustrations from *Stevens Point Journal* Feb. 3, 1911.
+All illustrations from *Stevens Point Journal* Feb. 3, 1911. Source: [Internet Archive](https://archive.org/details/stevens-point-journal-fri-feb-3-1911)<br>
 Artist's name appears to be Don Weigon, illustrations apparently dated 1909.
-Source: [Internet Archive](https://archive.org/details/stevens-point-journal-fri-feb-3-1911)
+
+Annotations by Nina Zumel
