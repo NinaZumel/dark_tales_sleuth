@@ -14,17 +14,22 @@ eleventyNavigation:
 <div class="message-box">
 <h3>My Cases</h3>
 
-#### [Evening Tales for the Winter](/pages/evening-tales-for-the-winter-1856/)
+#### [The Occult Detectives of Victor Rousseau](/pages/victor-rousseau/)
 
-Case Complete! _Evening Tales for the Winter_ is an 1856 anthology of gothic and supernatural tales, compiled by Henry St. Clair. Many of these  "Wonderful & Supernatural Stories," were translated from German sources. Neither the translators nor original authors/stories are credited, so I’ve tracked down author and translator attributions for the stories included.
+Currently active case. Victor Rousseau produced three occult detective series in the early decades of the twentieth century, and wrote a few standalone tales, too.
+I'm collecting links and/or making transcriptions of all the stories from these series that I can find.
 
 #### [Selected Stories of Austin Philips](/pages/austin-philips/)
 
-Current active case. I'm collecting as many of the Post Office detective and Post Office supernatural short stories of Austin Philips as I can find online. Possibly some non-post office ghost stories, too.
+Currently active case. I'm collecting as many of the Post Office detective and Post Office supernatural short stories of Austin Philips as I can find online. Possibly some non-post office ghost stories, too.
+
+#### [Evening Tales for the Winter](/pages/evening-tales-for-the-winter-1856/)
+
+**Case Complete!** _Evening Tales for the Winter_ is an 1856 anthology of gothic and supernatural tales, compiled by Henry St. Clair. Many of these  "Wonderful & Supernatural Stories," were translated from German sources. Neither the translators nor original authors/stories are credited, so I’ve tracked down author and translator attributions for the stories included.
 
 #### [Selected Stories from *Tales of an Antiquary* (1828)](/pages/tales-of-an-antiquary/)
 
-Case Complete! This rather unreadable 1828 fictional "memoir" by antiquarian Richard Thomson has some interesting stories buried within it. 
+**Case Complete!** This rather unreadable 1828 fictional "memoir" by antiquarian Richard Thomson has some interesting stories buried within it. 
 I've revived some of these highlights and featured them here.
 
 #### [Quote Attributions](/pages/quote-attributions/)

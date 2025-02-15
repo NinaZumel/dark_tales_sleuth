@@ -9,40 +9,49 @@ title: The Occult Detectives of Victor Rousseau
 </style>
 
 <div class="top_container">
-    {% image "./images/crime-in-post-office-illo.png", "A postal investigator confronts a criminal boarding a stagecoach." %}
+    {% image "./images/ivan-brodsky.png", "A man puts a woman sitting in a chair into hypnotic sleep." %}
 
     <div class="top_description">
-      <p>TODO: proper image here</p>
+      <p>Ivan Brodsky hypnotizes a patient.</p>
     </div>
 </div>
 
 <div class="message-box">
-<h2>The Occult Detectives of Victor Rousseau (1879 - 1960)</h2>
+<h2>The Occult Detectives of Victor Rousseau</h2>
 
-Born Victor Rousseau Emanuel
+Victor Rousseau Emanuel (1879-1960) was a British-born journalist, novelist and pulp fiction writer who lived at various times in Britain, South Africa, Canada, and the United States. 
+He wrote fiction in a variety of genres, under several pen names (primarily, "Victor Rousseau"). 
+Here, I'm collecting his stories of occult detection, in particular from his three series:
 
-While print collections of the Ivan Brodsky and Phileas Immanuel series exist, they are out of print, and fairly hard to find legitimately. So I've collected as many of the stories as I could find at online archives, and either linked to the archival sources or transcribed them here. The Dr. Martinus series has never been collected. I have transcribed the stories that I could find, and listed publication information for the remaining tales.
+* Ivan Brodsky, Surgeon of Souls
+* Phineas Immanuel, Tracer of Egos
+* Dr. Martinus, Occultist.
 
+While collections of the Ivan Brodsky and Phileas Immanuel series exist, they are out of print, and fairly hard to find legitimately. 
+So I'm collecting as many of the stories as I can find at online archives, and either linking to the archival sources or transcribing them here. 
+The Dr. Martinus series has never been collected. I will transcribe the stories that I can find, and list publication information for the remaining tales.
 
-<p class="credit">
-[Ashley, 2018]  Ashley, Mike (editor). <em>Glimpses of the Unknown: Lost Ghost Stories</em>, British Public Library <em>Tales of the Weird</em> series (2018), p.40.
-</p>
-
+[Read my introductory comments about Rousseau's occult detective fiction here.](/blog/2025-02-14-occult-detectives-of-victor-rousseau/)
 </div>
+
 <br>
 <div class="message-box">
 
 ## Dr. Ivan Brodsky, Surgeon of Souls
 
-This is one of the earliest "occult detective," or "psychic detective" series. Dr. Ivan Brodsky is a Polish immigrant to the U.S., and a Professor of Nervous Diseases. He treats his patients using Spiritualistic principles. His cases are chronicled by an unnamed medical colleague who acts as Brodsky's personal secretary. 
+Dr. Ivan Brodsky is a Polish immigrant living in the United States, and a Professor of Nervous Diseases. 
+He treats his patients using Spiritualistic principles. His cases are chronicled by an unnamed medical colleague who acts as Brodsky's personal secretary. 
 
-The earliest known appearance of this series was in *Stevens Point Journal*, a Wisconsin newspaper, from 1910-1911, as by H.M. Egbert. The stories are copyright 1909, Great Britain. Ten of the original stories, plus an additional introductory story, ran in *Weird Tales* from 1926-1927.
+This is one of the earliest "occult detective," or "psychic detective" series. 
+Its first known appearance was in the *Stevens Point Journal*, a Wisconsin newspaper, from 1910-1911, bylined H.M. Egbert. 
+Ten of the original stories, plus an additional introductory story, ran in *Weird Tales* from 1926-1927.
 
-All twelve stories were collected by Spectre Library in 2006, with an introduction by Mike Ashley. This collection is now sold out, but there is [an audiobook](https://archive.org/details/ivanbrodsky_2405_librivox) of the stories available at the Internet Archive. There appears to be a [2009 ebook](https://pulpfictionbook.store/downloads/dr-ivan-brodsky-surgeon-of-souls-by-victor-rousseau/) with the eleven stories that ran in *Weird Tales*. In 2011, Spectre Library released [another book](http://www.darkfantasy.org/spectre/HisSecondSelf.html) with a previously unknown thirteenth Ivan Brodsky story, "The Cats That Looked at Cohen." I do not know when or where that tale originally appeared.
+[Read my discussion of the *Surgeon of Souls* series here.](/blog/2025-02-14-occult-detectives-of-victor-rousseau/#the-surgeon-of-souls)
 
-Here are links to the twelve known stories. The order here is as published in *Weird Tales*. "Homo Homunculus" is interpolated in, based on the order of the [Spectre Library collection](https://www.isfdb.org/cgi-bin/pl.cgi?314459), which is different from the *Weird Tales* order.
+### The Stories
 
-<center>= = =</center>
+Here are links to the twelve known stories. The order here is as published in *Weird Tales*. 
+"Homo Homunculus" is interpolated in, based on the order of the [Spectre Library collection](https://www.isfdb.org/cgi-bin/pl.cgi?314459), which is different from the *Weird Tales* order.
 
 [**The Case of the Jailer's Daughter**](https://archive.org/details/WeirdTalesV08N03192609/page/n49/mode/2up) as published in *Weird Tales*, 8(3) (September 1926) 
 
@@ -68,4 +77,41 @@ Here are links to the twelve known stories. The order here is as published in *W
 
 [**The Ultimate Problem**](https://archive.org/details/Weird_Tales_v10n01_1927-07_sas/page/n77/mode/2up) in *Weird Tales*, 10(1) (July 1927).<br><span class="inline-note">Note the similarity in title to the Sherlock Holmes story, "The Final Problem."</span>
 
+### Collections
+
+*Surgeon of Souls*, Spectre Library (2006) - Introduction by Mike Ashley. Contains all twelve stories known at the time. (OUT OF PRINT)
+
+[Audiobook](https://archive.org/details/ivanbrodsky_2405_librivox) of all twelve stories, available at the Internet Archive. 
+
+[*Dr Ivan Brodsky, Surgeon of Souls*](https://pulpfictionbook.store/downloads/dr-ivan-brodsky-surgeon-of-souls-by-victor-rousseau/) (2009) - ebook collecting the eleven stories that ran in *Weird Tales*.
+ 
+[*His Second Self: The Bio-Bibliography of Victor Rousseau Emanuel*](http://www.darkfantasy.org/spectre/HisSecondSelf.html) (2011) - contains a previously unknown thirteenth Brodsky story.
 </div>
+<br>
+
+<div class="message-box">
+
+## Dr. Phileas Immanuel, Tracer of Egos
+
+In progress.
+</div>
+<br>
+
+<div class="message-box">
+
+## Dr. Martinus, Occultist
+
+In progress.
+</div>
+<br>
+
+<div class="message-box">
+
+## Other Occultists
+
+In progress.
+</div>
+
+<p class="credit">
+ Image: Illustration From "The Dream That Came True," <em>Weird Tales</em> September 1927. Source: <a href="https://archive.org/details/WeirdTalesV09N06192706/page/n106/mode/1up">Internet Archive</a>
+</p>
