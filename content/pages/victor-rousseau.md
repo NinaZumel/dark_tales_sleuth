@@ -19,12 +19,11 @@ title: The Occult Detectives of Victor Rousseau
 <div class="message-box">
 <h2>The Occult Detectives of Victor Rousseau</h2>
 
-Victor Rousseau Emanuel (1879-1960) was a British-born journalist, novelist and pulp fiction writer who lived at various times in Britain, South Africa, Canada, and the United States. 
-He wrote fiction in a variety of genres, under several pen names (primarily, "Victor Rousseau"). 
+Victor Rousseau Emanuel (1879-1960) was a British-born journalist, novelist and pulp fiction writer who lived at various times in Britain, South Africa, Canada, and the United States. He wrote fiction in a variety of genres, under several pen names, primarily, "Victor Rousseau". 
 Here, I'm collecting his stories of occult detection, in particular from his three series:
 
 * Ivan Brodsky, Surgeon of Souls
-* Phineas Immanuel, Tracer of Egos
+* Phileas Immanuel, Tracer of Egos
 * Dr. Martinus, Occultist.
 
 While collections of the Ivan Brodsky and Phileas Immanuel series exist, they are out of print, and fairly hard to find legitimately. 
@@ -46,12 +45,11 @@ This is one of the earliest "occult detective," or "psychic detective" series.
 Its first known appearance was in the *Stevens Point Journal*, a Wisconsin newspaper, from 1910-1911, bylined H.M. Egbert. 
 Ten of the original stories, plus an additional introductory story, ran in *Weird Tales* from 1926-1927.
 
-[Read my discussion of the *Surgeon of Souls* series here.](/blog/2025-02-14-occult-detectives-of-victor-rousseau/#the-surgeon-of-souls)
+[Read my discussion of the *Surgeon of Souls* series here.](/blog/2025-02-14-occult-detectives-of-victor-rousseau/#dr-ivan-brodsky-the-surgeon-of-souls)
 
 ### The Stories
 
-Here are links to the twelve known stories. The order here is as published in *Weird Tales*. 
-"Homo Homunculus" is interpolated in, based on the order of the [Spectre Library collection](https://www.isfdb.org/cgi-bin/pl.cgi?314459), which is different from the *Weird Tales* order.
+Here are links to the twelve known stories. The order here is as published in *Weird Tales*. With the exception of "Homo Homunculus," all links are to the Internet Archive. My transcription of "Homo Homunculus" is interpolated in, based on the order of the [Spectre Library collection](https://www.isfdb.org/cgi-bin/pl.cgi?314459), which is different from the *Weird Tales* order.
 
 [**The Case of the Jailer's Daughter**](https://archive.org/details/WeirdTalesV08N03192609/page/n49/mode/2up) as published in *Weird Tales*, 8(3) (September 1926) 
 
