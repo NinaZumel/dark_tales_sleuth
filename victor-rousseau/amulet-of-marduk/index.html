@@ -1,0 +1,763 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>The Amulet of Marduk</title>
+		<meta name="description" content="Filling in the Literary Blanks">
+		<link rel="alternate" href="/dark_tales_sleuth/feed/feed.xml" type="application/atom+xml" title="Dark Tales Sleuth">
+		<link rel="alternate" href="/dark_tales_sleuth/feed/feed.json" type="application/json" title="Dark Tales Sleuth">
+
+        
+		<link rel="me" href="https://micro.blog/MultoGhost">
+		<link rel="authorization_endpoint" href="https://indieauth.com/auth">
+		<link rel="token_endpoint" href="https://tokens.indieauth.com/token">
+		<link href="https://github.com/ninazumel" rel="me">
+		<script src="https://kit.fontawesome.com/9bbe6f85f9.js" crossorigin="anonymous"></script>
+		
+		<style>/* minimal implementation; just plain text in the margin, no blockquotes, code, etc */
+/* only (unnumbered) margin notes, no sidenotes */
+/* stripped down from https://github.com/edwardtufte/tufte-css */
+
+/* need this for correct sidenote numbering; but I'm not using sidenotes */
+/*
+body {
+    counter-reset: sidenote-counter; 
+} 
+*/
+
+
+/* since I imagine these will change with different templates */
+:root {
+    --content-width: 65%;
+    --image-padding: 5%;
+    --image-max: 60%;  /* total image+padding <= content-width */
+    --notewidth: 30%; 
+    /* content-width + notewidth <  100%. I think you should leave some wiggle room. */
+    --note-right-margin: -45%;
+    /* if this margin is -(notewidth), the note will start just on the right border of the text */
+    /* so push it a little to the right (more negative) */
+}
+
+article {
+	padding-top: 1rem; 
+}
+
+/* make room for the notes in the article container */
+article > p,
+article > pre,
+article > ul {
+    width: var(--content-width);
+}
+
+/* 
+  blockquotes should be a little shorter 
+  This assumes that left indentation is 2em, which is what it looks like.
+  */
+article > blockquote {
+    width: calc(var(--content-width) - 2em); 
+}
+
+
+article > hr {
+    max-width: var(--content-width);
+    margin: 0
+}
+
+article > h1, 
+article > h2,
+article > h3,
+article > h4 {
+    max-width: var(--content-width);
+}
+
+article > center {
+    max-width: var(--content-width);
+}
+
+/* keep images/captions in the text column, rather than centered in the article container */
+article > img {
+    margin-left: 0;
+    padding-left: var(--image-padding);
+    max-width: var(--image-max); 
+}
+
+article > p.caption {
+	text-align: left;
+    padding-left: var(--image-padding);
+	font-style: italic;
+	font-size: 0.9em;
+	color: #9B9C9D;
+ }
+
+.footnote-item {
+    max-width: var(--content-width); 
+}
+
+ /* finally, the margin note */
+.marginnote {    
+    float: right;
+    clear: right;
+    width: var(--notewidth);         
+    margin-right: var(--note-right-margin);
+    margin-top: 0.3rem;
+    margin-bottom: 0;
+    font-size: 0.8rem;
+    line-height: 1.3;
+    vertical-align: baseline;
+    position: relative;
+    /* border: 2px solid blue; */
+}
+
+
+input.margin-toggle {
+    display: none;
+}
+
+
+label.margin-toggle {    
+    display: none;
+
+}
+
+/* The mobile fallback: */
+/* making max-width bigger makes the note fall inline sooner */
+@media (max-width: 768px) {  
+    body {
+        width: 84%;
+        padding-left: 8%;
+        padding-right: 8%;
+    }
+
+    hr,
+    article > p,
+    article > blockquote,
+    article > pre {
+        width: 100%;
+    }
+
+    label.margin-toggle {
+        display: inline;
+    }
+       
+    .marginnote {           
+         display: none;        
+        }    
+
+      
+    .margin-toggle:checked + .marginnote {            
+        display: block;            
+        float: left;            
+        left: 1rem;            
+        clear: both;            
+        width: 95%;            
+        margin: 1rem 2.5%;            
+        vertical-align: baseline;            
+        position: relative;        
+    }
+    label {
+        cursor: pointer;
+    }
+}
+* { box-sizing: border-box; }
+/* Defaults */
+:root {
+	--font-family: Georgia, Times, -serif; /* Tahoma, -apple-system, system-ui, sans-serif; */
+	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+}
+
+/* Theme colors */
+:root {
+	--color-gray-20: #e0e0e0;
+	--color-gray-50: #C0C0C0;
+	--color-gray-70: #4D4D4D;
+	--color-gray-90: #333;
+
+	--description-color: #9B9C9D;
+	--background-color: #fff;
+
+	--text-color: var(--color-gray-70);
+	--text-color-link:  #2d2fb5;
+	--text-color-link-active: #5f2b48;
+	--text-color-link-visited: var(--color-gray-50); /* #17050F; */
+
+	--syntax-tab-size: 2;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-gray-20: #e0e0e0;
+		--color-gray-50: #C0C0C0;
+		--color-gray-70: #dad8d8;
+		--color-gray-90: #dad8d8;
+
+		/* --text-color is assigned to --color-gray-_ above.*/
+		--text-color: var(--color-gray-20);
+		--text-color-link: #1493fb;
+		--text-color-link-active: #6969f7;
+		--text-color-link-visited: #a6a6f8;
+
+		--background-color: #15202b;
+	}
+}
+
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	font-size: 18px;  /* a little bigger to accomodate a serif font */
+	color: var(--text-color);
+	background-color: var(--background-color);
+}
+html {
+	overflow-y: scroll;
+}
+body {
+	max-width: 70em; /* 50em; */
+}
+
+/* different horizontal rules  https://www.w3schools.com/howto/howto_css_dividers.asp */
+ /* Dashed border */
+ hr.dashed {
+	border-top: 1px dashed #bbb;
+  }
+  
+  /* Dotted border */
+  hr.dotted {
+	border-top: 1px dotted #bbb;
+  }
+  
+  /* Solid border */
+  hr.solid {
+	border-top: 1px solid #bbb;
+  }
+  
+
+/* 
+https://css-tricks.com/barebones-css-for-fluid-images/ 
+Without this, images generated by eleventy-img will always use the largest available size
+-- ie, not be responsive.
+*/
+img {
+	max-width: 100%; 
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+  }
+  img[width] {
+	width: auto; /* Defer to max-width */
+  }
+  img[width][height] {
+	height: auto; /* Preserve aspect ratio */
+  }
+  
+  /* Let SVG scale without boundaries */
+  img[src$=".svg"] {
+	width: 100%;
+	height: auto;
+	max-width: none;
+  }
+  
+
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+p {
+	line-height: 1.5;
+	/* font-size: 1.2em; */
+}
+
+p.caption {
+	text-align: center;
+	font-style: italic;
+	font-size: 0.9em;
+	color: #9B9C9D;
+ }
+
+ /* for the credits at the bottom of a page */
+p.credit {
+	max-width: 50em;
+	font-size: 0.9em;
+	margin-left: auto;
+	margin-right: auto;
+ }
+
+
+/* for inline annotations, like translations */
+span.inline-note {
+	font-size: 0.9em;
+	font-style: italic;
+}
+
+li {
+	line-height: 1.5;
+	/* font-size: 1.2em; */
+}
+
+a[href] {
+	color: var(--text-color-link);
+	text-decoration: none; 
+}
+a[href]:visited {
+	color: var(--text-color-link-visited);
+}
+a[href]:hover,
+a[href]:active {
+	color: var(--text-color-link-active);
+}
+
+main {
+	padding: 1rem;
+}
+main :first-child {
+	margin-top: 0;
+}
+
+header {
+	border-bottom: 1px dashed var(--color-gray-20);
+}
+header:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.links-nextprev {
+	text-align: center;
+	list-style: none;
+	border-top: 1px dashed var(--color-gray-20);
+	padding: 1em 0;
+}
+
+
+table {
+	margin: 1em 0;
+}
+table td,
+table th {
+	padding-right: 1em;
+}
+
+pre,
+code {
+	font-family: var(--font-family);
+	font-size: 0.95em;
+}
+pre:not([class*="language-"]) {
+	margin: .5em 0;
+	line-height: 1.375; /* 22px /16 */
+	-moz-tab-size: var(--syntax-tab-size);
+	-o-tab-size: var(--syntax-tab-size);
+	tab-size: var(--syntax-tab-size);
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+}
+code {
+	word-break: break-all;
+}
+
+/*
+  Custom containters
+*/
+div.message-box {
+	max-width: 50em; 
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div.magazine-box {
+	max-width: 50em; 
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+/* Header */
+header {
+	display: flex;
+	gap: 1em .5em;
+	flex-wrap: wrap;
+	align-items: center;
+	padding: 1em;
+}
+.home-link {
+	font-size: 1.5em; /* 24px /16 (I think)*/
+	font-weight: 700;
+	margin-right: 2em;
+}
+.home-link:link:not(:hover) {
+	text-decoration: none;
+}
+
+/* Nav */
+.nav {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.nav-item {
+	display: inline-block;
+	margin-right: 1em;
+}
+.nav-item a[href]:not(:hover) {
+	text-decoration: none;
+}
+.nav a[href][aria-current="page"] {
+	text-decoration: underline;
+}
+
+/* Posts list */
+.postlist {
+	list-style: none;
+	padding: 0;
+	padding-left: 0; /* 1.5rem; */
+	max-width: 50em;
+}
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	counter-increment: start-from -1;
+	margin-bottom: 1em;
+	padding-bottom: 50px;
+	/* padding: 8px 16px; */
+	border-bottom: 1px dashed var(--color-gray-20);
+}
+
+/* 
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	content: "" counter(start-from, decimal-leading-zero) ". ";
+	line-height: 100%;
+	text-align: right;
+	margin-left: -1.5rem;
+}
+*/
+
+.postlist-date,
+.postlist-item:before {
+	font-size: 0.8125em; /* 13px /16 */
+	color: var(--color-gray-90);
+}
+.postlist-date {
+	word-spacing: -0.5px;
+	padding-left: .25em;
+}
+.postlist-link {
+	font-size: 1em; /* 1.1875em;  19px /16 */
+	font-weight: 700; 
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration: none; 
+	/* text-decoration-thickness: 1px; */
+}
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+/* Tags */
+.post-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+	font-style: italic;
+}
+.postlist-item > .post-tag {
+	align-self: center;
+}
+
+/* Tags list */
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: .5em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.post-metadata time {
+	margin-right: 1em;
+}
+
+.post-metadata li {
+	font-size: 0.875em;
+}
+
+/* metadata for posts and talks */
+
+.posttalk-metadata {
+	list-style: none;
+	padding-left: 0;
+	color: var(--description-color);
+}
+
+.posttalk-metadata ul {
+	list-style-type: none; /* no bullets */
+	padding: 0;  /* no indentation, either */
+	margin: 0;
+}
+
+/* Direct Links / Markdown Headers */
+.header-anchor {
+	text-decoration: none;
+	font-style: normal;
+	font-size: 1em;
+	margin-left: .1em;
+}
+a[href].header-anchor,
+a[href].header-anchor:visited {
+	color: transparent;
+}
+a[href].header-anchor:focus,
+a[href].header-anchor:hover {
+	text-decoration: underline;
+}
+a[href].header-anchor:focus,
+:hover > a[href].header-anchor {
+	color: #aaa;
+}
+
+h2 + .header-anchor {
+	font-size: 1.5em;
+}
+
+/* Footer */
+hr {
+    border: none;
+    background-color: #DADADB;
+    height: 1px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+    hr {
+        width: 100%;
+    }
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2rem 0;
+    background-color: var(--background-color0);
+	;
+}
+
+.footer-container p {
+    font-size: 1rem;
+    color: #9B9C9D;
+}
+
+.footer-container .social_icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0 1rem;
+}
+
+.footer-container .social_icons a {
+    color: #9B9C9D;
+    font-size: 1.5rem;
+    transition: all 0.5s ease-in-out;
+}
+
+.footer-container .social_icons a:hover {
+    color: #DADADB;
+}</style>
+	</head>
+	<body>
+		<a href="#skip" class="visually-hidden">Skip to main content</a>
+
+		<header>
+			<a href="/dark_tales_sleuth/" class="home-link">Dark Tales Sleuth</a>
+			<nav>
+				<h2 class="visually-hidden">Top level navigation menu</h2>
+				<ul class="nav">
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/about/">About</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/my-investigations/">My Cases</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/blog/">All Posts</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/comments/">Comments</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/about-me/">About Me</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="skip">
+			
+
+
+<h1>The Amulet of Marduk</h1>
+
+
+
+
+
+
+<ul class="posttalk-metadata">
+  <li>By Victor Rousseau</li>
+  <li>As published in  <em>The Evening Republican</em>, January 31, 1917</li>
+</ul>
+
+<article>
+<p>I remember vividly the conversation in Doctor Immanuel's library, because that evening was the beginning of my association with him, and the conversation was, so to say, the starting point of my own investigations.</p>
+<p>There were five of us there, Dr. Phileas Immanuel, Doctor Maine, Paul Tarrant, the millionaire whose priceless art collections passed to the nation recently under the terms of his will, and another man whose name I have forgotten. We had been discussing the case of Helen Blythe, Mr. Tarrant's governess, who had been dismissed for stealing, after the court had passed a suspended sentence upon her by grace of a defense of kleptomania.</p>
+<img alt="Stocky, angry man grabs the hand of a young woman, trying to force them open. Two other men observe in the background." loading="lazy" decoding="async" src="/dark_tales_sleuth/img/amulet-of-marduk-qa0_XkUxzy-394.png" width="394" height="562">
+<p class="caption">"Open your hands!" yelled Tarrant. "What have you got there? Open them, I say!"</p>
+<p>&quot;You say,&quot; said Doctor Maine, the eminent neurologist, &quot;that you believe in reincarnation upon the analogy of the plant—the lilac plant, you used for an example. The lilac, as I understand you to say, flowers during some two weeks in the year and, having faded, reviews its earthly experiences in some paradise of dreamy somnolence until, in due season, the soul of the flower incarnates itself in another cluster of petals. So, you say, man comes to birth again after he has passed through the gates of death. That's not a bad simile, Immanuel, but that's not biology. How do you justify your belief biologically—or, let us say, by any laws of inductive reasoning?&quot;</p>
+<p>&quot;You are, of course, acquainted with the researches of Freud?&quot; asked the Greek doctor of Maine.</p>
+<p>&quot;Well, I should say so,&quot; the other responded. &quot;A big man—one of the biggest in his line of today.&quot;</p>
+<p>&quot;How would you sum up his discoveries?&quot; asked Doctor Immanuel.</p>
+<p>Doctor Maine did not hesitate for an instant. &quot;Freud's great work,&quot; he said, &quot;has been the proof that our subconscious or dream life is continuous, that every dream accurately corresponds to some ungratified physical or mental need and is, one may say, its fulfilment. For instance, take the man who has always wanted, but never owned, a motor car. His dreams will show a more or less continuous experience—not of motoring, for they will be veiled under some symbol, but of flying, or aeroplaning, or holding the throttle of an engine. He may even be a fly on a wheel, or a swimmer clinging to an upturned boat in a whirlpool; but in some manner the dream life will reflect the waking wish.&quot;</p>
+<p>&quot;Precisely,&quot; answered Doctor Immanuel. &quot;Well, now, let us carry the simile further. The condition after death represents to the full this dream life, magnified to the nth power. There, in that paradise of bliss, every ungratified wish that was ever experienced in life comes true—generally. But suppose that the impulse to rebirth cuts short the experiences of heaven prematurely. What then?&quot;</p>
+<p>He paused and, looking round at us, raised, his hand impressively. &quot;Then, gentlemen, you have a soul reborn on earth which, instead of holding these past memories securely tucked away in the innermost recesses of its being, flowering as gifts of character and natural ability, is built upon shifting sands. The submerged consciousness of these unsatisfied needs of its past life haunts it and drives it to unlawful deeds. All our criminals, for example, are merely persons who failed to fulfill their destinies; and, in proof of my contention, are not all criminals—criminals by instinct, of course I mean, not the starving beggar who snatches a loaf—are they not all physically unstable, mentally unbalanced, and easy subjects for the hypnotist? Yes, my dear Maine, and I believe that when hypnotized they can be made to yield up these past memories.&quot;</p>
+<p>The subject was changed soon afterward by Doctor Maine. Like many medicos of the old school, he held opinions rooted in the barren sands of materialism. Such theories as Immanuel's savored to him of the charlatan. But for the eminence of the Greek physician he would, I am sure, have broken forth in angry protest. He took his leave soon after, and the fifth man also departed, leaving Paul Tarrant, the doctor and myself alone.</p>
+<p>&quot;Now take the case of Helen Blythe,&quot; said Mr. Tarrant, when we had settled ourselves in our chairs again. &quot;Do you suppose that you could prove your contention in her case?&quot;</p>
+<p>&quot;I didn't read the account,&quot; answered Doctor Immanuel. &quot;All reports of crime distress me exceedingly. When I think how futile it is to put these unhappy creatures in prison, instead of treating them medically, I become enraged at the world and disgusted with my own inability to convince penologists of their mistake. But tell me about her.&quot;</p>
+<p>&quot;Helen Blythe,&quot; said Mr. Tarrant, &quot;is a well-bred, good-looking, modest young woman of, I should say, seven or eight and twenty. She came to me with excellent recommendations, to be a nursery governess for our children. Mrs. Tarrant took a great fancy to her and trusted her fully. Needless to say, neither of us was aware that Miss Blythe had been dismissed from a former situation for theft. As we discovered afterwards, she had stolen four valuable rings, which, in spite of the threat of prosecution, were never recovered. The girl claimed that she had forgotten where she had hidden them, but fully acknowledged her offense and repaid the value of them out of her savings. In spite of careful investigation of all the pawnshops in the city, however, the rings were never found.</p>
+<p>&quot;A few weeks after we had engaged Miss Blythe my wife began to miss valuables of hers. Rings seemed to be the young woman's penchant. An opal, a diamond and sapphire, and a magnificent emerald in a fifteenth century setting disappeared successively. We changed our servants without result. At last, by force of a constantly dwindling number of hypotheses, the suspicion came to rest upon Miss Blythe's shoulders.</p>
+<p>&quot;However, as Mrs. Tarrant locked away her valuables, nothing more was taken, and we should probably have kept the young woman in our employment but for what happened. The governess was a great student of antiquities; in fact, she had a knowledge of Hittite and Babylonian archaeology which astonished me and was the primary factor in the securing of her position. She had a half day's leave every week, and invariably spent it at the museum. She became a well-known figure there, for she always haunted the Assyrian room, in which, as you may know, are a number of engraved gems, of immeasurable value, brought from Babylonia by the expedition which I sent there for the purpose of excavating the mounds of Nineveh.</p>
+<p>&quot;Some ten days ago the watchman, who had somehow become suspicious of the young woman, discovered her with the half of a sacred amulet in her hand—a ring supposed to have been worn by the high priest of Marduk. As you may know, that half amulet is one of the most cherished possessions of the Assyrian department. The watchman arrested her and summoned the curator. When he came it was discovered that the half amulet still reposed in its place inside the case. The half which Helen Blythe held in her hand was mine—the other half, and willed by me to the museum. The young woman made no resistance, but suffered herself to be led away, as if in a comatose state. She was brought to my house. I identified the half of the charm, and the girl was placed under arrest, to be released under a suspended sentence yesterday.&quot;</p>
+<p>&quot;Where is the girl?&quot; asked Doctor Immanuel.</p>
+<p>&quot;Why, doctor,&quot; said Mr. Tarrant, flushing, &quot;I am ashamed to say that I have taken her back.&quot;</p>
+<p>&quot;Good!&quot; ejaculated the doctor, puffing vigorously at his cigar. &quot;But she will steal again.&quot;</p>
+<p>&quot;Indeed, no,&quot; answered the millionaire with conviction. &quot;We had a very serious talk with her, Mrs. Tarrant and I. We told her that we felt, under the circumstances, which we had not fully understood, that we ought not to turn her adrift into the world. We thought that by the force of example, perhaps, we might cure her of her unfortunate propensity. And so she was re-engaged—not, of course, as governess, but as a sort of aid to my wife.&quot;</p>
+<p>&quot;And she was penitent?&quot;</p>
+<p>&quot;Entirely so. She protested that she would conquer her weakness; she vowed never to touch jewelry again, or to look at it. She pleaded earnestly for our confidence, said it was only rings which she felt an irrestible temptation to take, and—&quot;</p>
+<p>&quot;And she will steal again,&quot; said Doctor Immanuel.</p>
+<p>&quot;Well, doctor, you have a poor faith in human nature, considering your humanitarian profession,&quot; said the millionaire.</p>
+<p>&quot;I tell you, Mr. Tarrant, she will steal again,&quot; persisted the doctor. &quot;You cannot eradicate the instincts derived from a former incarnation with kindness only. Doubtless she was a wealthy gem collector in Rome or Athens—or Alexandria, more likely—about the year 100 A. D.&quot;</p>
+<p>Paul Tarrant smiled skeptically. &quot;Will you tell me how you arrive at your date so exactly, doctor?&quot; he asked.</p>
+<p>&quot;By the analogy of the lilac tree,&quot; replied Doctor Immanuel. &quot;The lilac blooms for two weeks in every fifty-two—is that not so? Then we may say its sleeping life is twenty-six times as long as its life in physical form. Now, if we take the normal human life to be seventy years, each human item will reappear after an interval of about 1,820 years—shorter or longer according to the individual idiosyncrasy, but more or less upon time. Hannibal, for instance, whose discarnate life must have been peculiarly rich in memories, and therefore prolonged, was reborn as Napoleon after a little more than 2,000 years. Cicero reappeared as Gladstone after some 1,850 years; the fabulous Queen Semiramis after 2,000 years as Cleopatra, and after some 1,750 more as Catherine II of Russia. These mighty figures appear and reappear through history with the regularity of comets, and, like them, are recurrent phenomena which flash through a wondering world. Well, then, some 1,830 years ago your Helen Blythe was a gem collector or lapidary or something similar in the classic world, and it is the ungratifled desire for jewels which has made her a kleptomaniac today.&quot;</p>
+<p>&quot;Perhaps you would like to see her, doctor?&quot; the millionaire suggested tolerantly. &quot;I confess I am not convinced as to the truth of your theories, but I should immeasurably like to know just how the ancient Romans set their rings.&quot;</p>
+<p>Doctor Immanuel accepted this seriously, and before we parted it was arranged that we two should visit Mr. Tarrant at his house after dinner on the following evening. So we separated, upon terms of the utmost goodwill, and both Mr. Tarrant and myself, I am sure, politely skeptical as to Doctor Immanuel's claims.</p>
+<p>Doctor Immanuel was staying at my house at this time. He had been sent to America, where he had been educated, by the Greek government, as her most distinguished medical representative and publicist, to attend the International Congress of Penologists at Boston. But the first few days' sittings had so disheartened the doctor, convincing him that his own theories would never gain him a hearing, and would, in fact, seriously prejudice his country, that he had withdrawn from the congress and was making my home his headquarters during the period, occupied by some special researches, about whose nature he had not enlightened me.</p>
+<p>On the following morning we received two letters from Mr. Tarrant, in which he apologized for his inability to ask us to dinner on account of the death of a near relative of Mrs. Tarrant, and reiterated his desire that we visit him that evening. Accordingly, about eight o'clock we found ourselves in his library and received a cordial greeting.</p>
+<p>&quot;Before we see Miss Blythe,&quot; said Mr. Tarrant, &quot;perhaps you gentlemen would care to inspect my antiquities?&quot;</p>
+<p>We knew that such an invitation could not be refused without the possibility of seriously affronting the millionaire; furthermore we were both interested, in a limited way, in such matters. We did anticipate a lengthy and somewhat tedious round of the museum, but such proved not to be the case. Mr. Tarrant's collection consisted mainly of works of art of the middle ages; the Assyrian room was quite a small chamber at the back of the house, enclosed by concrete walls and approachable only by the door leading out of Mr. Tarrant's library. We entered. he switched on the electric lights, and we found ourselves looking up into the faces of bull-headed kings with wings, broken-faced goddesses, and colossi of black marble and granite. At one end of the room were a number of packing cases, forming a barrier across one-third of its length; down the center were the customary glass cases filled with gems, stones of all sorts, fragments of clay inscriptions, etc. We made the round slowly, Mr. Tarrant expatiating upon his trophies.</p>
+<p>&quot;And now,&quot; he said, &quot;I must show you the gem of my collection in its literal sense—l mean the half amulet whose other part is in the museum. I don't keep it here,&quot; he added, smiling. &quot;It is far too valuable, and my one experience of losing it has made me resolved to run no more risks. It is—&quot; he paused and continued in a stage whisper which certainly carried as far as his natural voice—&quot;under the Persian rug behind my desk, in a tiny piece of false parquet work in the floor. Simple, isn't it? Yet I am sure it is safer there than in any of these cases—or, for the matter of that, in a steel safe.</p>
+<p>&quot;First, let me tell you something about this treasure,&quot; he continued, waxing enthusiastic. &quot;The amulet is supposed to have been made for the high priest of Marduk, at Babylon, According to the cuneiform inscription, it was kept by the priestess of Ishtar pending the completion of Marduk's colossal temple, and it is believed, since it was discovered in the ruins of the temple of Ishtar, that for some cause the priestess never delivered it. Perhaps it was hidden, perhaps the city was destroyed before the transfer could be made. At any rate, it was a most sacred object and, from the fact that it was made in two halves, it is certain that the highest value was placed upon it. But I am wearying you, gentlemen. Come into the library, and I will show it to you.&quot;</p>
+<p>We passed into the library. Mr. Tarrant switched off the lights in the museum and, carefully closing and locking the door, switched on the library lights. As the room became illuminated we heard the door at the other end close softly. There was the swishing of skirts.</p>
+<p>I was not prepared for what followed. With a yell the millionaire leaped across the room, burst open the door and reappeared, dragging with him the figure of a woman. Of course it was Miss Blythe. She stood staring at him, looking like a sleepwalker. Her hands were tightly closed.</p>
+<p>&quot;Open your hands!&quot; yelled Mr. Tarrant &quot;What have you got there? Open them, I say!&quot;</p>
+<p>But the frail woman seemed to have the strength of an athlete, for Mr. Warrant, powerful man though he was, could not open her hands. All the while she stood and stared at him, and she seemed to be utterly unconscious of our presence.</p>
+<p>Doctor Immanuel walked over to her; he placed one hand on either shoulder and looked into her unwinking eyes.</p>
+<p>&quot;Helen,&quot; he said quietly, &quot;open your hands!&quot;</p>
+<p>There was a moment of uncertainty, then the hard eyes closed and the hands opened obediently. With a cry of exultation, Mr. Tarrant pounced upon an object held in one of them—a massive ring containing an enormous engraved stone which looked like a sardonyx.</p>
+<p>&quot;Here it is! &quot; he shouted. &quot;Now, then, will one of you gentlemen go for an officer?&quot;</p>
+<p>Doctor Immanuel turned round and held up a finger in warning. &quot;She doesn't hear you,&quot; he said quietly. &quot;She is hypnotized.&quot;</p>
+<p>&quot;Nonsense!&quot; exclaimed Mr. Tarrant, angrily. &quot;How could you hypnotize her in that minute?&quot;</p>
+<p>&quot;She has hypnotized herself,&quot; answered Doctor Immanuel. &quot;She came to you in a hypnotic condition, and in her normal condition would be totally ignorant of what she has done. Helen,&quot; he added, softly, &quot;you are in the hands of your friends. Go over and sit down on that sofa and sleep until I waken you.&quot;</p>
+<p>The girl crossed the room obediently, walking just as a normal person would have done. She found the sofa and sat down; but all the while her eyes were closed. Mr. Tarrant stood by, still fuming.</p>
+<p>&quot;Have I your permission to proceed?&quot; asked Doctor Immanuel. &quot;I believe you invited us here for this very purpose. Mr. Tarrant.&quot;</p>
+<p>&quot;Oh, yes, by all means,&quot; Tarrant answered. &quot;But you'll have to convince me before I allow her to leave this house except under police supervision.&quot;</p>
+<p>&quot;I hope to,&quot; answered the doctor. &quot;But first let me assure you that this young woman could never be convicted of theft in any court. Ignorant as our police magistrates are, the understanding that there is such a thing as alternating personality has finally filtered into the public mind. If you will remember, you yourself told me that when Miss Blythe was arrested in the museum she suffered herself to be led away as though she were in a comatose condition.&quot;</p>
+<p>&quot;Yes—yes.&quot;</p>
+<p>&quot;The fact is, Mr. Tarrant, that Miss Blythe the governess is not in the least the same personality as Miss Blythe the kleptomaniac, and has no knowledge of her. She doubtless realizes that, when these periods of forgetfulness come on, she commits actions of which she has no waking knowledge, and it is the impossibility of explaining this to an incredulous world that has led her to suffer in silence rather than attempt to vindicate her reputation. Now, with your permission, I shall proceed.&quot;</p>
+<p>Tarrant and I sat down. All this while Miss Blythe had not moved a muscle.</p>
+<p>&quot;Give me the amulet, please,&quot; said Doctor Immanuel, and Mr. Tarrant handed it to him with obvious reluctance. Had the situation been less dramatic it would have been amusing to see the intense gaze which the millionaire kept upon the gem.</p>
+<p>&quot;Helen,&quot; said Doctor Immanuel, holding up the gem before her, &quot;can you read the inscription on this?&quot;</p>
+<p>&quot;No,&quot; she answered in a voice which seemed disappointingly natural, &quot;it is in Assyrian cuneiform, is it not?&quot;</p>
+<p>&quot;Oh, yes, you can read it,&quot; said the doctor coaxingly. &quot;You are not half asleep yet. Go to sleep completely, now.&quot;</p>
+<p>He stroked her forehead caressingly, and when he held up the amulet and asked the question again, it was a totally different voice that answered him—a woman's voice, but harsh and nasal and strident.</p>
+<p>&quot;Why should I read it?&quot; it asked protestingly.</p>
+<p>&quot;Read it!&quot; said Doctor Immanuel. &quot;No, read it in English&quot;—for the voice had begun to talk in a sort of gibberish totally unlike any language that I had ever heard spoken, and bearing a distant resemblance to what I imagine Chinese must be.</p>
+<p>&quot;To the high priest of Marduk in Babylon,&quot; whined the voice. &quot;Made for and donated by Asshur—Tiglath—Pileser, king in Nineveh—&quot;</p>
+<p>Paul Tarrant leaped out of his chair.</p>
+<p>&quot;That solves it,&quot; he shouted, and sank down again and stared round him like a man thoroughly bewildered.</p>
+<p>&quot;Solves what?&quot; asked Doctor Immanuel quietly.</p>
+<p>&quot;That word Nineveh, doctor. The translations read 'King of Bel's slave,' and were utterly meaningless. If that is correct—it must be, but the stone was so rubbed none of us could decipher it—why, it places the date back to the thirty-fifth century, B. C., instead of the twenty-seventh. And that explains why the old cuneiform was used by the engraver.&quot;</p>
+<p>&quot;Who has this stone?&quot; asked Doctor Immanuel, and we all gripped our seats more tightly at the snarling monosyllable &quot;I!&quot;</p>
+<p>&quot;Why did you not deliver it to the high priest of Marduk?&quot; the doctor asked.</p>
+<p>&quot;I did. He would not receive it,&quot; shrilled the woman on the sofa. &quot;Instead, he sent soldiers to arrest me. It is his. He does not know. He —&quot;</p>
+<p>Her voice ceased, her eyes were open, and she was clinging desperately round Doctor Immanuel's neck and deathly pale. She shuddered and quailed as though in intolerable fear; and she would have screamed but that she could not find her voice again. Then she collapsed, a dead weight, in the doctor's arms, and he placed her in a supine posture upon the sofa.</p>
+<p>&quot;Call your housekeeper and we will help carry her to her room,&quot; said Doctor Immanuel. &quot;No,&quot;—for Mr. Tarrant was protesting—&quot;it will be all right now. The strain was too intense for her; the awakening too sudden, but she will sleep peacefully and, but for a little nausea tomorrow, she will be quite herself again. And she will have no recollection of what has occurred.&quot;</p>
+<p>&quot;I don't want to let the housekeeper know,&quot; Mr. Tarrant answered. &quot;Help me, doctor, and we will take her upstairs. I'm glad my wife is not at home tonight,&quot; he added, grimly. &quot;She mightn't approve of this.&quot;</p>
+<p>But Mr. Tarrant took good care to secure and pocket the amulet before he took Miss Blythe's head and shoulders into his arms and led the way out of the library. I sat there for three or four minutes, wondering. I could not quite understand just what had occurred.</p>
+<p>The two men came back arguing violently. Doctor Immanuel's voice rose high. and shrill above that of his friend.</p>
+<p>&quot;She told you the inscription on the stone and set you right some six centuries,&quot; he cried. &quot;What other proof do you want, Tarrant?&quot;</p>
+<p>&quot;Oh, well, it's all rubbish, you know,&quot; answered the millionaire. &quot;Of course, now that I have the amulet, I don't want to have the girl sent to jail. But I can't keep a thief in my house—now can I, doctor?&quot;</p>
+<p>&quot;She need not be a thief,&quot; Doctor Immanuel answered. &quot;It all depends upon you.&quot;</p>
+<p>&quot;How so? Didn't you yourself tell me that she would steal again?&quot;</p>
+<p>&quot;Yes. As long as she was looking for the opportunity to restore the lost amulet to the high priest.&quot;</p>
+<p>&quot;Well, I guess she'll have to go on looking for him,'' said Mr. Tarrant. &quot;What do you want me to do—take her to Babylon and look for the incarnation of the old fellow among the desert Bedouin?&quot;</p>
+<p>&quot;Why, my dear Tarrant, you don't suppose you'll find him there, do you?&quot; the doctor asked quizzically. &quot;More probably in this city. Do you suppose a man of that intelligence is condemned to be reborn as a camel herder? The civilization of Babylon passed on to Rome and thence to England and America, just as the Hindus became the Egyptians and the Greek republics, the republics of Florence, Genoa and Pisa and Venice in the middle ages.&quot;</p>
+<p>&quot;Now look here, Tarrant,&quot; he continued, as they sat down, &quot;here is the situation as I size it up. Believe me or I not, as you please—it doesn't matter.  Your Helen Blythe was once the priestess of Ishtar. It wasn't a position that called for any high intellect; it was a semi-servile position, in fact, and the priestess was chosen mainly for her appearance and birth. We may suppose that in her former birth she had merited her good fortune, by generous deeds, but, once the reward had been enjoyed, she sank down to the grade of governess again—or its equivalent in the ancient world. She had the care of this amulet. She was bound under the most sacrosanct of oaths to deliver it to the priest of Marduk. For some cause she failed to fulfill her task, and the omission so profoundly affected her that it lay like an incubus on her soul during her next incarnation. She stole rings, obsessed solely by the desire to discover the lost amulet again. At last she found it. She took it to the museum—still in her entranced condition—and was on the point of placing it with the other half when she was arrested, or, as she rather confusedly interpreted the occurrence when on the borderline between sleep and waking, 'the king sent, soldiers to arrest her'—probably the police and watchmen at the museum. Now, Tarrant, send the half amulet to the museum and you will find it perfectly safe to keep Miss Blythe in your house henceforward.&quot;</p>
+<p>&quot;Well, said Mr. Tarrant, &quot;to be frank, I have intended to present it to the museum shortly, and after my experiences of the past few days I'll follow your advice. But as for keeping her in my employment—&quot;</p>
+<p>&quot;Try it, Tarrant,&quot; pleaded Doctor Immanuel.</p>
+<p>&quot;Suppose she steals—&quot;</p>
+<p>&quot;She won't steal any more, when once the amulet is in safekeeping.&quot;</p>
+<p>Mr. Tarrant drummed his hands on his knees.</p>
+<p>&quot;Oh, all right, have your way,&quot; he said shortly. &quot;But, by the way, Immanuel, do you mean to insinuate that Doctor Faust, our curator, is a reincarnatlon of the high priest of Marduk? He would be horrified to hear you say that. Why, he is a director of two Sunday schools and contributes liberally to foreign missions in—&quot; He paused.</p>
+<p>&quot;Yes, where?&quot; asked Doctor Immanuel.</p>
+<p>&quot;In Assyria and Mesopotamia,&quot; answered Mr. Tarrant sheepishly.</p>
+<p>And Doctor Immanuel forebore to press his advantage home.</p>
+<p>&quot;But look here,&quot; said Mr. Tarrant, presently, &quot;how does your 1820 year period work out, doctor? The amulet, according to our revised estimate, was made in the thirty-fifth century before Christ.&quot;</p>
+<p>Doctor Immanuel began to estimate. &quot;Our period takes us back to the year 100, does it not?&quot; he asked. &quot;The birth before that, then, would have been about 1750 B.C., probably in Egypt. Add 1820 years and we have the year 3570. Yes, there you are, Tarrant. And if you can discover the precise age of the amulet you will be able to estimate the exact age of your governess.&quot;</p>
+<p>&quot;It must have been a mighty strong influence to last over three incarnations, Doctor,&quot; said the millionaire irreverently. &quot;Where do you suppose she spent the last two—and how?&quot;</p>
+<p>&quot;Expiating her crime,&quot; Doctor Immanuel answered. &quot;Doubtless as a thief and outcast—<em>faugh</em>, don't let us pursue that matter, Tarrant. She's won through all of that, poor girl. You're going to keep and help her, Tarrant, aren't you?&quot;</p>
+<p>And Tarrant promised.</p>
+<hr>
+<p>Part of the series <a href="/dark_tales_sleuth/pages/victor-rousseau/#dr-phileas-immanuel-tracer-of-egos"><em>Phileas Immanuel, Tracer of Egos</em></a></p>
+<p>Illustration from <em>The Evening Republican</em> Jan. 31, 1917. Source: <a href="https://newspapers.library.in.gov/?a=d&amp;d=EVRP19170131.2.23&amp;e=-------en-20--1--txt-txIN-------">Hoosier State Chronicles</a></p>
+
+</article>
+		</main>
+
+		<!-- footer -->
+		<hr>
+
+<div class="footer-container">
+	<p>&copy; 2025 Nina B. Zumel</p>
+	<div class="social_icons">
+	    <a href="mailto:nzumel@mzlabs.com?subject=Comment%20from%20Dark%20Tales%20Sleuth" aria-label="Email" target="_blank" rel="noopener noreferrer">
+			<i class="fas fa-fw fa-envelope"></i>
+		</a>
+		<a href="https://micro.blog/MultoGhost" aria-label="Micro.blog" target="_blank" rel="noopener noreferrer">
+			<i class="fab fa-fw fa-microblog"></i>
+		</a>
+		<a href="https://multoghost.wordpress.com/" aria-label="Multo (Ghost)" target="_blank" rel="noopener noreferrer">
+			<i class="fab fa-fw fa-wordpress"></i>
+		</a>
+		<a href="/dark_tales_sleuth/feed.xml" aria-label="RSS" target="_blank" rel="noopener noreferrer">
+			<i class="fa fa-fw fa-rss-square"></i>
+		</a>
+
+	</div>
+</div>
+		<!-- /footer-- >
+
+		<!-- Current page: /dark_tales_sleuth/victor-rousseau/amulet-of-marduk/ -->
+	</body>
+</html>
