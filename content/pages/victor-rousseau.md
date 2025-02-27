@@ -91,7 +91,30 @@ Here are links to the twelve known stories. The order here is as published in *W
 
 ## Dr. Phileas Immanuel, Tracer of Egos
 
-In progress.
+Dr. Phileas Immanuel is a Greek physician who treats patients according to his theories of reincarnation.
+His cases are chronicled by an unnamed American doctor. He is also frequently accompanied by millionaire financier and art collector Paul Tarrant. 
+
+Nine of the stories originally appeared in *Holland's Magazine* from 1913-1914. Three additional stories appeared when the series went into syndication.
+
+[Read my discussion of the *Tracer of Egos* here.](/blog/2025-02-26-phileas-immanuel-tracer-of-egos/)
+
+### The Stories (In Progress)
+
+
+Below are the original nine stories, in the order published by the *Evening Republican*, Rensselaer (Indiana). Missing stories are interpolated in according to the order in the [Spectre Library collection](https://www.isfdb.org/cgi-bin/pl.cgi?314460), which does contain the complete series.
+
+Stories marked with an asterisk (`*`) are ones that I've transcribed here. The other story links go back to the *Hoosier State Chronicles* newspaper archive. (Read why, [here](/blog/2025-02-26-phileas-immanuel-tracer-of-egos/#nothing-is-perfect-my-reservations-about-some-individual-stories).)
+
+(`*`) [**The Amulet of Marduk**](/victor-rousseau/amulet-of-marduk/) as published in *Evening Republican*, January 31, 1917
+
+**Mary Rothway's Memory**
+
+[**The Two Charioteers**](https://newspapers.library.in.gov/?a=d&d=EVRP19170215.2.24&srpos=32&e=------191-en-20--21--txt-txIN-victor+rousseau------) as published in *Evening Republican*, February 15, 1917
+
+### Collections
+
+*Tracer of Egos*, Spectre Library (2007) - Introduction by Morgan A. Wallace. Contains all twelve stories. (OUT OF PRINT)
+
 </div>
 <br>
 

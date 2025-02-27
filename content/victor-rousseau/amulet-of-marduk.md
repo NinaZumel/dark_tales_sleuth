@@ -12,7 +12,7 @@ I remember vividly the conversation in Doctor Immanuel's library, because that e
 There were five of us there, Dr. Phileas Immanuel, Doctor Maine, Paul Tarrant, the millionaire whose priceless art collections passed to the nation recently under the terms of his will, and another man whose name I have forgotten. We had been discussing the case of Helen Blythe, Mr. Tarrant's governess, who had been dismissed for stealing, after the court had passed a suspended sentence upon her by grace of a defense of kleptomania. 
 
 {% image "./images/amulet-of-marduk.png", "Stocky, angry man grabs the hand of a young woman, trying to force them open. Two other men observe in the background." %}
-<p class="caption">"Open your hands!" yelled Tarrant. "What have you got there? Open them, I say!" <br><a href="https://newspapers.library.in.gov/?a=d&d=EVRP19170131.2.23&e=-------en-20--1--txt-txIN-------">Image source.</a></p>
+<p class="caption">"Open your hands!" yelled Tarrant. "What have you got there? Open them, I say!"</p>
 
 "You say," said Doctor Maine, the eminent neurologist, "that you believe in reincarnation upon the analogy of the plant—the lilac plant, you used for an example. The lilac, as I understand you to say, flowers during some two weeks in the year and, having faded, reviews its earthly experiences in some paradise of dreamy somnolence until, in due season, the soul of the flower incarnates itself in another cluster of petals. So, you say, man comes to birth again after he has passed through the gates of death. That's not a bad simile, Immanuel, but that's not biology. How do you justify your belief biologically—or, let us say, by any laws of inductive reasoning?"
 
@@ -199,3 +199,8 @@ Doctor Immanuel began to estimate. "Our period takes us back to the year 100, do
 "Expiating her crime," Doctor Immanuel answered. "Doubtless as a thief and outcast—*faugh*, don't let us pursue that matter, Tarrant. She's won through all of that, poor girl. You're going to keep and help her, Tarrant, aren't you?" 
 
 And Tarrant promised.
+
+---
+Part of the series [*Phileas Immanuel, Tracer of Egos*](/pages/victor-rousseau/#dr-phileas-immanuel-tracer-of-egos)
+
+Illustration from *The Evening Republican* Jan. 31, 1917. Source: [Hoosier State Chronicles](https://newspapers.library.in.gov/?a=d&d=EVRP19170131.2.23&e=-------en-20--1--txt-txIN-------)
