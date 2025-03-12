@@ -41,6 +41,7 @@ This selection will focus on Philips' Post Office detective stories, ghost stori
 
 [**The Watching Gallery**](/austin-philips/the-watching-gallery/): An ambitious young postal employee spends Christmas Eve on the lookout for a pesky serial postal thief.
 
+[**Not in the Newspapers**](/austin-philips/not-in-the-newspapers/): Miss Gale, a plucky provincial postal clerk, becomes embroiled in a situation of international significance. From *The Strand*, February 1912.
 </div>
 
 <p class="credit">
