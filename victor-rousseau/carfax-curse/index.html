@@ -1,0 +1,787 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>The Carfax Curse</title>
+		<meta name="description" content="Filling in the Literary Blanks">
+		<link rel="alternate" href="/dark_tales_sleuth/feed/feed.xml" type="application/atom+xml" title="Dark Tales Sleuth">
+		<link rel="alternate" href="/dark_tales_sleuth/feed/feed.json" type="application/json" title="Dark Tales Sleuth">
+
+        
+		<link rel="me" href="https://micro.blog/MultoGhost">
+		<link rel="authorization_endpoint" href="https://indieauth.com/auth">
+		<link rel="token_endpoint" href="https://tokens.indieauth.com/token">
+		<link href="https://github.com/ninazumel" rel="me">
+		<script src="https://kit.fontawesome.com/9bbe6f85f9.js" crossorigin="anonymous"></script>
+		
+		<style>/* minimal implementation; just plain text in the margin, no blockquotes, code, etc */
+/* only (unnumbered) margin notes, no sidenotes */
+/* stripped down from https://github.com/edwardtufte/tufte-css */
+
+/* need this for correct sidenote numbering; but I'm not using sidenotes */
+/*
+body {
+    counter-reset: sidenote-counter; 
+} 
+*/
+
+
+/* since I imagine these will change with different templates */
+:root {
+    --content-width: 65%;
+    --image-padding: 5%;
+    --image-max: 60%;  /* total image+padding <= content-width */
+    --notewidth: 30%; 
+    /* content-width + notewidth <  100%. I think you should leave some wiggle room. */
+    --note-right-margin: -45%;
+    /* if this margin is -(notewidth), the note will start just on the right border of the text */
+    /* so push it a little to the right (more negative) */
+}
+
+article {
+	padding-top: 1rem; 
+}
+
+/* make room for the notes in the article container */
+article > p,
+article > pre,
+article > ul {
+    width: var(--content-width);
+}
+
+/* 
+  blockquotes should be a little shorter 
+  This assumes that left indentation is 2em, which is what it looks like.
+  */
+article > blockquote {
+    width: calc(var(--content-width) - 2em); 
+}
+
+
+article > hr {
+    max-width: var(--content-width);
+    margin: 0
+}
+
+article > h1, 
+article > h2,
+article > h3,
+article > h4 {
+    max-width: var(--content-width);
+}
+
+article > center {
+    max-width: var(--content-width);
+}
+
+/* keep images/captions in the text column, rather than centered in the article container */
+article > img {
+    margin-left: 0;
+    padding-left: var(--image-padding);
+    max-width: var(--image-max); 
+}
+
+article > p.caption {
+	text-align: left;
+    padding-left: var(--image-padding);
+	font-style: italic;
+	font-size: 0.9em;
+	color: #9B9C9D;
+ }
+
+.footnote-item {
+    max-width: var(--content-width); 
+}
+
+ /* finally, the margin note */
+.marginnote {    
+    float: right;
+    clear: right;
+    width: var(--notewidth);         
+    margin-right: var(--note-right-margin);
+    margin-top: 0.3rem;
+    margin-bottom: 0;
+    font-size: 0.8rem;
+    line-height: 1.3;
+    vertical-align: baseline;
+    position: relative;
+    /* border: 2px solid blue; */
+}
+
+
+input.margin-toggle {
+    display: none;
+}
+
+
+label.margin-toggle {    
+    display: none;
+
+}
+
+/* The mobile fallback: */
+/* making max-width bigger makes the note fall inline sooner */
+@media (max-width: 768px) {  
+    body {
+        width: 84%;
+        padding-left: 8%;
+        padding-right: 8%;
+    }
+
+    hr,
+    article > p,
+    article > blockquote,
+    article > pre {
+        width: 100%;
+    }
+
+    label.margin-toggle {
+        display: inline;
+    }
+       
+    .marginnote {           
+         display: none;        
+        }    
+
+      
+    .margin-toggle:checked + .marginnote {            
+        display: block;            
+        float: left;            
+        left: 1rem;            
+        clear: both;            
+        width: 95%;            
+        margin: 1rem 2.5%;            
+        vertical-align: baseline;            
+        position: relative;        
+    }
+    label {
+        cursor: pointer;
+    }
+}
+* { box-sizing: border-box; }
+/* Defaults */
+:root {
+	--font-family: Georgia, Times, -serif; /* Tahoma, -apple-system, system-ui, sans-serif; */
+	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+}
+
+/* Theme colors */
+:root {
+	--color-gray-20: #e0e0e0;
+	--color-gray-50: #C0C0C0;
+	--color-gray-70: #4D4D4D;
+	--color-gray-90: #333;
+
+	--description-color: #9B9C9D;
+	--background-color: #fff;
+
+	--text-color: var(--color-gray-70);
+	--text-color-link:  #2d2fb5;
+	--text-color-link-active: #5f2b48;
+	--text-color-link-visited: var(--color-gray-50); /* #17050F; */
+
+	--syntax-tab-size: 2;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-gray-20: #e0e0e0;
+		--color-gray-50: #C0C0C0;
+		--color-gray-70: #dad8d8;
+		--color-gray-90: #dad8d8;
+
+		/* --text-color is assigned to --color-gray-_ above.*/
+		--text-color: var(--color-gray-20);
+		--text-color-link: #1493fb;
+		--text-color-link-active: #6969f7;
+		--text-color-link-visited: #a6a6f8;
+
+		--background-color: #15202b;
+	}
+}
+
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	font-size: 18px;  /* a little bigger to accomodate a serif font */
+	color: var(--text-color);
+	background-color: var(--background-color);
+}
+html {
+	overflow-y: scroll;
+}
+body {
+	max-width: 70em; /* 50em; */
+}
+
+/* different horizontal rules  https://www.w3schools.com/howto/howto_css_dividers.asp */
+ /* Dashed border */
+ hr.dashed {
+	border-top: 1px dashed #bbb;
+  }
+  
+  /* Dotted border */
+  hr.dotted {
+	border-top: 1px dotted #bbb;
+  }
+  
+  /* Solid border */
+  hr.solid {
+	border-top: 1px solid #bbb;
+  }
+  
+
+/* 
+https://css-tricks.com/barebones-css-for-fluid-images/ 
+Without this, images generated by eleventy-img will always use the largest available size
+-- ie, not be responsive.
+*/
+img {
+	max-width: 100%; 
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+  }
+  img[width] {
+	width: auto; /* Defer to max-width */
+  }
+  img[width][height] {
+	height: auto; /* Preserve aspect ratio */
+  }
+  
+  /* Let SVG scale without boundaries */
+  img[src$=".svg"] {
+	width: 100%;
+	height: auto;
+	max-width: none;
+  }
+  
+
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+p {
+	line-height: 1.5;
+	/* font-size: 1.2em; */
+}
+
+p.caption {
+	text-align: center;
+	font-style: italic;
+	font-size: 0.9em;
+	color: #9B9C9D;
+ }
+
+ /* for the credits at the bottom of a page */
+p.credit {
+	max-width: 50em;
+	font-size: 0.9em;
+	margin-left: auto;
+	margin-right: auto;
+ }
+
+
+/* for inline annotations, like translations */
+span.inline-note {
+	font-size: 0.9em;
+	font-style: italic;
+}
+
+li {
+	line-height: 1.5;
+	/* font-size: 1.2em; */
+}
+
+a[href] {
+	color: var(--text-color-link);
+	text-decoration: none; 
+}
+a[href]:visited {
+	color: var(--text-color-link-visited);
+}
+a[href]:hover,
+a[href]:active {
+	color: var(--text-color-link-active);
+}
+
+main {
+	padding: 1rem;
+}
+main :first-child {
+	margin-top: 0;
+}
+
+header {
+	border-bottom: 1px dashed var(--color-gray-20);
+}
+header:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.links-nextprev {
+	text-align: center;
+	list-style: none;
+	border-top: 1px dashed var(--color-gray-20);
+	padding: 1em 0;
+}
+
+
+table {
+	margin: 1em 0;
+}
+table td,
+table th {
+	padding-right: 1em;
+}
+
+pre,
+code {
+	font-family: var(--font-family);
+	font-size: 0.95em;
+}
+pre:not([class*="language-"]) {
+	margin: .5em 0;
+	line-height: 1.375; /* 22px /16 */
+	-moz-tab-size: var(--syntax-tab-size);
+	-o-tab-size: var(--syntax-tab-size);
+	tab-size: var(--syntax-tab-size);
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+}
+code {
+	word-break: break-all;
+}
+
+/*
+  Custom containters
+*/
+div.message-box {
+	max-width: 50em; 
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div.magazine-box {
+	max-width: 50em; 
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+/* Header */
+header {
+	display: flex;
+	gap: 1em .5em;
+	flex-wrap: wrap;
+	align-items: center;
+	padding: 1em;
+}
+.home-link {
+	font-size: 1.5em; /* 24px /16 (I think)*/
+	font-weight: 700;
+	margin-right: 2em;
+}
+.home-link:link:not(:hover) {
+	text-decoration: none;
+}
+
+/* Nav */
+.nav {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.nav-item {
+	display: inline-block;
+	margin-right: 1em;
+}
+.nav-item a[href]:not(:hover) {
+	text-decoration: none;
+}
+.nav a[href][aria-current="page"] {
+	text-decoration: underline;
+}
+
+/* Posts list */
+.postlist {
+	list-style: none;
+	padding: 0;
+	padding-left: 0; /* 1.5rem; */
+	max-width: 50em;
+}
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	counter-increment: start-from -1;
+	margin-bottom: 1em;
+	padding-bottom: 50px;
+	/* padding: 8px 16px; */
+	border-bottom: 1px dashed var(--color-gray-20);
+}
+
+/* 
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	content: "" counter(start-from, decimal-leading-zero) ". ";
+	line-height: 100%;
+	text-align: right;
+	margin-left: -1.5rem;
+}
+*/
+
+.postlist-date,
+.postlist-item:before {
+	font-size: 0.8125em; /* 13px /16 */
+	color: var(--color-gray-90);
+}
+.postlist-date {
+	word-spacing: -0.5px;
+	padding-left: .25em;
+}
+.postlist-link {
+	font-size: 1em; /* 1.1875em;  19px /16 */
+	font-weight: 700; 
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration: none; 
+	/* text-decoration-thickness: 1px; */
+}
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+/* Tags */
+.post-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+	font-style: italic;
+}
+.postlist-item > .post-tag {
+	align-self: center;
+}
+
+/* Tags list */
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: .5em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.post-metadata time {
+	margin-right: 1em;
+}
+
+.post-metadata li {
+	font-size: 0.875em;
+}
+
+/* metadata for posts and talks */
+
+.posttalk-metadata {
+	list-style: none;
+	padding-left: 0;
+	color: var(--description-color);
+}
+
+.posttalk-metadata ul {
+	list-style-type: none; /* no bullets */
+	padding: 0;  /* no indentation, either */
+	margin: 0;
+}
+
+/* Direct Links / Markdown Headers */
+.header-anchor {
+	text-decoration: none;
+	font-style: normal;
+	font-size: 1em;
+	margin-left: .1em;
+}
+a[href].header-anchor,
+a[href].header-anchor:visited {
+	color: transparent;
+}
+a[href].header-anchor:focus,
+a[href].header-anchor:hover {
+	text-decoration: underline;
+}
+a[href].header-anchor:focus,
+:hover > a[href].header-anchor {
+	color: #aaa;
+}
+
+h2 + .header-anchor {
+	font-size: 1.5em;
+}
+
+/* Footer */
+hr {
+    border: none;
+    background-color: #DADADB;
+    height: 1px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+    hr {
+        width: 100%;
+    }
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2rem 0;
+    background-color: var(--background-color0);
+	;
+}
+
+.footer-container p {
+    font-size: 1rem;
+    color: #9B9C9D;
+}
+
+.footer-container .social_icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0 1rem;
+}
+
+.footer-container .social_icons a {
+    color: #9B9C9D;
+    font-size: 1.5rem;
+    transition: all 0.5s ease-in-out;
+}
+
+.footer-container .social_icons a:hover {
+    color: #DADADB;
+}</style>
+	</head>
+	<body>
+		<a href="#skip" class="visually-hidden">Skip to main content</a>
+
+		<header>
+			<a href="/dark_tales_sleuth/" class="home-link">Dark Tales Sleuth</a>
+			<nav>
+				<h2 class="visually-hidden">Top level navigation menu</h2>
+				<ul class="nav">
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/about/">About</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/my-investigations/">My Cases</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/blog/">All Posts</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/comments/">Comments</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/about-me/">About Me</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="skip">
+			
+
+
+<h1>The Carfax Curse</h1>
+
+
+
+
+
+
+<ul class="posttalk-metadata">
+  <li>By Victor Rousseau</li>
+  <li>As published in  <em>The Evening Republican</em>, February 21, 1917</li>
+</ul>
+
+<article>
+<p>My acquaintance with Dr. Phileas Immanuel had begun prosaically enough. The little Greek was in America as his government's representative to some international congress, I think of penologists, at Boston, and after he had withdrawn from it in disgust he made my house his headquarters while he engaged in some special research work. The acquaintance ripened so rapidly into friendship, and then into intimacy, that when the doctor invited me to accompany him to Europe, where he had some engagements to fulfill, I could not resist the opportunity. My practice was almost entirely hospital work, and fortunately I found no difficulty in obtaining a representative to fill my post during my absence.</p>
+<p>So much to explain how we happened to be in England during the glorious summer of 1911. Immanuel found England to his liking, chiefly, I think, because medical men there extended a more kindly attention to his theories, although I fear he made few converts. Immanuel's claim that reincarnation would be found to solve most of the problems of abnormal psychic states could not be expected to find recruits in a century still dominated by Huxley and Haeckel and the great materialists. Nowhere, I fancy, can one find more stubborn, out and out doctrinaires than among medical men. But the doctor did not mind. He went blandly about his way, winning friends, disarming enemies, and, incidentally, making cures.</p>
+<img alt="A bearded man approaches a distressed-looking boy, who stands with his eyes closed. Two other men watch in the background." loading="lazy" decoding="async" src="/dark_tales_sleuth/img/carfax-curse-sLMUuzLcHQ-400.png" width="403" height="553" srcset="/dark_tales_sleuth/img/carfax-curse-sLMUuzLcHQ-400.png 400w, /dark_tales_sleuth/img/carfax-curse-sLMUuzLcHQ-403.png 403w" sizes="100vw">
+<p class="caption">The boy trembled and seemed to be struggling with some overwhelming interior enemy.</p>
+<p>When Sir John Carfax invited us to spend a week at his fine old mansion in Buckinghamshire we both accepted with considerable satisfaction. Sir John's place was one of the historic county seats of England. Originally a priory, it had been confiscated from the order by Henry VIII, and given to Francis Carfax, a shrewd lawyer of that age, for services rendered in connection with that monarch's marriage to Anne Boleyn. From him it had passed down to Sir John, in the direct line, but never through the immediate heir. This Sir John explained to us as he conveyed us from Great Marlow station in his automobile.</p>
+<p>&quot;I mentioned to you, Doctor Immanuel, that my son, my only child, is dangerously ill,&quot; he said. &quot;Yes, he's dying, and I know it, doctor, and there is no power on earth can save him unless you—&quot; He broke off. &quot;I know you have accomplished wonderful cures,&quot; he continued. &quot;I can't pretend to believe in what you believe, but—&quot; Here he ended, for his tongue was running away with him, and the blunt country gentleman was no metaphysician or flatterer, either.</p>
+<p>&quot;But you are willing to stake your faith against your unbelief,&quot; said Doctor Immanuel cheerfully. &quot;Good! I am no faith healer, Sir John; I believe even the most orthodox of my opponents have never accused me of any but orthodox methods of practice. My theories, you understand, are the base on which I stand to take action. But to believe—why, abuse me as much as you please, whether I succeed or fail.&quot;</p>
+<p>I was sure no one could ever abuse the kindly little man as I saw him arguing excitedly with Sir John. As I have said, he disarmed all his enemies. But it was hard to ask a twentieth century English gentleman to accept reincarnation.</p>
+<p>&quot;If you can save him, doctor,&quot; continued our host, &quot;I can only say that you will have my deepest gratitude. But I fear it is hopeless. He will be the last of the line, and his mother is dead. I shall never marry again.&quot;</p>
+<p>&quot;Why are you so despondent as to the possibility of a cure?&quot; asked Immanuel.</p>
+<p>Sir John looked at our faces searchingly. &quot;You have never heard of the Carfax curse?&quot; he asked. &quot;Well—perhaps it is regarded as an amusing superstition even in England, among those who have heard of it. But among those who know it is anything but a jest. Doctor Immanuel, for nearly four hundred years the first-born son of the Carfaxes has died in childhood. Arthur is seventeen; he has outlived them all. But he, too, must go. I know it. It was prophesied by the last prior, Ignatius, as he strode out of the chapel after his last mass there.&quot;</p>
+<p>&quot;Those curses are potent things,&quot; said Immanuel. &quot;So much I know. They do come true, by reason of the strong subconscious impression which they leave behind, to be transmitted from generation to generation. Of course the curse is nothing. But if a man begets a son, believing that he will never grow to manhood, and if he bases his life upon that theory—why, it generally comes true. But I interrupted you.&quot;</p>
+<p>&quot;The last prior, Ignatius, made this prophecy to Francis Carfax, my ancestor, somewhere about the year 1545,&quot; said Sir John Carfax. &quot;That the priory should never descend from father to son through the first-born until the priors should come to Carfax, again and replace the altar cloth upon the altar.&quot;</p>
+<p>&quot;The altar cloth?&quot;</p>
+<p>&quot;Yes, a famous relic, said to have been brought into England by Edward the Confessor, and reputedly of great sanctity. The priors are supposed to have taken it away with them. It was never found. But now, you see, if the prophecy has been fulfilled since 1545, what hope has Arthur?&quot;</p>
+<p>&quot;What do the doctors say is the matter with him?&quot;</p>
+<p>Sir John threw up his hands with a gesture of helplessness. &quot;The doctors!&quot; he repeated. &quot;Why—they know. They know that the hereditary curse has descended upon the boy. Six months ago he was taken sick with a wasting disease. There is nothing organically wrong with him; he is just wasting away. Day by day he grows weaker, and his death seems now to be a matter of a few weeks only. And the tragic thing is that he knows; he knows that he must die; and his only pleasure is in sitting before the dismantled altar in the old ruined chapel and dozing there. He has been afflicted with somnambulism since childhood, and whenever his attendant misses him from his bed, he knows where he will be found; before the altar, fast asleep, and talking to himself.&quot;</p>
+<p>The automobile swung off the high road and into the grounds of a stately park, through whose vistas of leafy trees could be seen herds of fallow deer, peacefully browsing. The road swung to the right between two rows of ancient elms, and now we could see the square stone towers of Carfax, with the dismantled, ruined stone chapel upon a knoll a little to the right of it. The chauffeur and butler were waiting at the door; the former took the machine to the garage, while the latter respectfully received our baggage.</p>
+<p>&quot;How is Mr. Arthur?&quot; asked Sir John.</p>
+<p>&quot;He seems to be better today, sir,&quot; the butler answered. &quot;He was reading in the chapel a while ago. Here he comes now, sir.&quot;</p>
+<p>A tall, slim, gracefully built young fellow was coming slowly across the lawn and, seeing us, he stopped shyly. His father called him.</p>
+<p>&quot;Come here, Arthur,&quot; he said. &quot;Doctor Immanuel, this is my son about whom we were speaking.&quot; He introduced the boy to me also. &quot;How do you feel today?' he asked, anxiously.</p>
+<p>&quot;Better, father,&quot; said the boy in an odd, emotionless tone. As he walked slowly into the house his father looked after him and then turned wistfully to us.</p>
+<p>&quot;He knows,&quot; he said. &quot;And he doesn't seem to care. That is the tragedy of it. They all go like that. I remember my poor brother Walter—he died in the same way. And yet the doctors can find nothing wrong with him.&quot;</p>
+<p>&quot;Suppose I examine him at once and let you know the exact condition,&quot; said Immanuel cheerfully. &quot;If we can't beat the curse together, with all the resources of modern science, I shall be greatly surprised. What treatment is he receiving?&quot;</p>
+<p>&quot;The usual thing. Tonics, beef extracts, iron; the physicians have taken his blood count and call it pernicious anemia. But they don't say how it arose. And there is nothing organically wrong.&quot; The poor fellow seemed to cling to that one hope.</p>
+<p>&quot;There is a new solution of arsenic which is used very successfully for that,&quot; said Immanuel. &quot;Then again there is hypnotism. I don't know which is better. Perhaps we will try both.&quot;</p>
+<p>&quot;Hypnotism!&quot; exclaimed Sir John. &quot;Is that the secret of your cures?&quot;</p>
+<p>&quot;It is not exactly a secret,&quot; answered the doctor. &quot;It is in very common use among physicians today and based upon known laws and not empirical.&quot;</p>
+<p>&quot;You mean that you can hypnotise him into thinking that he is well?&quot;</p>
+<p>&quot;Yes. But any other fool could do that—only it wouldn't make him well. No, sir, the principle is simply this: The greater portion of the body functions automatically; that is to say without the consciousness of the brain. The stomach digests whether we ask it to or not, the heart beats, the liver secretes, and so on. Now take the spleen, which seems to be behaving badly in your son's case. We can't make our spleens come to order—no. But under hypnotism we can get deeper; we can get down to the consciousness of these half independent organs and tell them to be good. And then, sometimes under hypnotism we find ourselves on very interesting trails which I cannot persuade other physicians to follow up. We find other personalities at work, lost memories flourishing like fungus growth under smooth mosses and grasses—it is all very interesting, and some day the world will come to recognize it. But suppose we go in and I will examine the lad before dinner.&quot;</p>
+<p>We were led to our apartments in a wing of the old place; two rooms side by side under low, sloping eaves from which rain drops were falling dismally upon the slate roof of the garage below. Our host waited outside while we washed off the grime of the journey.</p>
+<p>&quot;Ah, my dear Sir John, I know you will not rest until I have looked at the boy,&quot; said Immanuel cheerfully, intercepting him as he restlessly paced the long corridor. &quot;Come, then. Where shall it be?&quot; He was dangling his stethoscope from his finger and thumb.</p>
+<p>&quot;We'd better go into the library,&quot; answered our host, and led us to a comfortable room, furnished in red morocco, on the main floor. The furniture was of old oak, blackened with age and worm-eaten. Outside the sloping lawn ran up to the ivy-covered base of the chapel.</p>
+<p>The boy came in presently and Sir John rose to go. I had hoped that I should be asked to remain and assist at the examination, but Immanuel did not offer to detain me. He was alone with him for half an hour and came out looking quite cheerful, one hand resting upon Arthur's shoulder.</p>
+<p>&quot;A very intelligent lad,&quot; he said, patting him upon the arm affectionately. &quot;We've talked over lots of matters. But first let me tell you that he is as sound as a bell. Nothing wrong at all, and his blood has as many red corpuscles as yours or mine. Now, Arthur, you've heard my diagnosis. Do you think you can get well?&quot;</p>
+<p>&quot;I think I could if I could stop dreaming,&quot; the lad answered, I saw his father shoot a swift glance at him.</p>
+<p>&quot;You haven't told anybody else about your dreams?&quot; asked Immanuel.</p>
+<p>&quot;No, doctor. They wouldn't take any notice.&quot;</p>
+<p>&quot;What do you dream?&quot;</p>
+<p>&quot;I don't remember, except that they leave me dreadfully unhappy and depressed and weak, and I always seem to be worse when I have dreamed.&quot;</p>
+<p>&quot;And then you wake and find yourself In the chapel?&quot; said Immanuel suddenly.</p>
+<p>The boy was taken by surprise; he looked at the other quickly. &quot;Yes, sir,&quot; he murmured.</p>
+<p>&quot;You see, gentlemen, the dreams are the immediate cause of his illness,&quot; said the Greek. &quot;Two hundred years ago we should have said that he was possessed. A hundred years ago we should have tried to beat the devil out of him. Fifty years ago we should have sent him to sea. But today for the first time in human history we can treat such cases intelligently. We can recall these unknown dreams to him.&quot;</p>
+<p>&quot;Under hypnotism?&quot;</p>
+<p>&quot;Yes, and can cure the cause. Freud has shown the intimate connention between dream life and waking life. I have shown that there is often another connection; that in dreams we live again in dead, past lives, otherwise totally forgotten. That is the only difference, and it is one of theory, not of procedure. You can safely intrust your son's cure to me.&quot;</p>
+<p>&quot;I do so with all my heart, Immanuel,&quot; exclaimed Sir John, who had been completely captivated by the little doctor's graciousness of personality and manner.</p>
+<p>&quot;Then, my son, we'll hypnotise you this evening and find out what you have been dreaming about,&quot; said the doctor to the boy. &quot;Now you had better go out into the fresh air for a while. What do you say to taking us over to the chapel?&quot;</p>
+<p>&quot;An excellent suggestion!&quot; said Sir John. &quot;Get your hat, Arthur; it is cool today.&quot; When the boy had gone he turned to the doctor. &quot;Do you tell your patients what you are going to do?&quot; he asked.</p>
+<p>&quot;Generally—yes. Confidence begets confidence. Besides, it is difficult to hypnotise anyone against his will, except in certain abnormal conditions. And your son is as normal and healthy as you could wish. It is his dreams that are killing him,&quot; he continued. &quot;There is the key that shall unlock the secret. He has been a sleepwalker since childhood?&quot;</p>
+<p>&quot;Since he was a baby. But never so badly as during the last year.&quot;</p>
+<p>&quot;And you trace his illness from the time this trouble began to develop?&quot;</p>
+<p>&quot;Yes.&quot;</p>
+<p>&quot;He always goes to the chapel?&quot;</p>
+<p>&quot;Invariably.&quot;</p>
+<p>&quot;Then—&quot; began the doctor, but checked himself. He fell into a brown study; he seemed to have made an important deduction. He was still pondering when Arthur returned with his hat and the chapel key, and we left the house together.</p>
+<p>The old ruin rose like some dismantled hulk out of the long, daisy-studded grass. Sir John Carfax turned the huge iron key in the old rusted lock of the oaken door and admitted us into a chilly stone chamber, bare of seats—though the grooves worn by their iron feet in the stone floor during centuries still remained. One part of the roof had fallen, letting in the light and affording a pleasing canopy of sky. Moisture dripped from the moss-grown walls upon the flags, between which clusters of weak grass sprouted. The ground before the wooden altar, the only part of the original furnishings which remained, was hollowed by the feet of bygone priors. Behind it was the remnant of a stone recess in which the sacred vessels and garments had been kept; but the doors had long since gone and only the blackened bronze hinges remained, a tribute to the death-defying skill of the old artist who had fashioned them.</p>
+<p>&quot;Here is Arthur's favorite seat—when he comes to it in his sleep,&quot; whispered Sir John, pointing to a stone seat in the rear of the chapel, immediately beneath the vacant window frame. &quot;There he sits, or else paces the floor, following the tracks of the priors along this groove. I have watched him and seen him kneel,&quot; he continued. &quot;One might almost think he was one of the old priors reborn on earth.&quot;</p>
+<p>&quot;Ah! You believe in rebirth, then?&quot; asked Doctor Immanuel.</p>
+<p>The other looked confused. &quot;It was just a simile,&quot; he said.</p>
+<p>&quot;Say rather an instinctive recognition of what your memory tells you,&quot; Immanuel answered. &quot;Well, we have seen it. Let us return.&quot;</p>
+<p>&quot;I thought,&quot; suggested Sir John, &quot;that you might want to hypnotise him here.&quot;</p>
+<p>&quot;That,&quot; answered Immanuel, &quot;would be fatal, for it would begin the procedure by placing a suggestion in his mind and so inhibit the developments which, if they are to occur, must occur of their own volition. No; in the library this evening.&quot;</p>
+<p>Tumble-down though the priory was, the part in use was admirably furnished and adequately maintained. We four sat down to a semi-feudal dinner in state, while the butler poured the wine and the footmen carried in the heavy dishes with their silver covers and set them before Sir John for the carving. And a more excellent meal I never ate. When it was over we adjourned to the library and smoked some of our host's choice cigars.</p>
+<p>&quot;Now, Arthur,&quot; said Immanuel, throwing away the fragrant stump of his perfecto, &quot;if you are ready we will begin. You have never been hypnotised before?&quot;</p>
+<p>&quot;No, sir; but I have read about it and I believe in it.&quot;</p>
+<p>&quot;It is not necessary to believe in it, my boy,&quot; answered the doctor. &quot;There is nothing empirical about the process; it is in daily use in all the large hospitals of the world. It simply consists in putting the upper strata of the personality to sleep by some mechanical method. I use a little instrument of my own devising, which answers every purpose. Now compose yourself comfortably in your chair and make your mind a blank, so far as possible.&quot;</p>
+<p>He drew from his pocket a little instrument of silver—a sort of egg-timer with a revolving center, and attached it to a tiny pocket battery. Immediately the middle part began to gyrate at a rapid pace. It was dazzling to look at.</p>
+<p>&quot;Watch this&quot; said Immanuel. &quot;Now, see it revolve. There are between four and five hundred revolutions a minute. Yes, blink your eyes as much as you like, but don't turn them away. Sir John, will you lower the lamp a trifle?&quot;</p>
+<p>&quot;Watch closely,&quot; continued the physician in a low and very soothing tone. &quot;Now—you perceive that your eyes are becoming tired, and yet the strain is pleasant. You could not turn your eyes away now if you tried. Your consciousness is growing clearer, but is concentrated on this. You cannot think of anything but this. See how brightly it spins. Now you may close your eyes. You cannot open them.&quot;</p>
+<p>The boy's eyes closed.</p>
+<p>&quot;You are not asleep,&quot; continued the doctor, &quot;but you are in a sleepy condition. You must not go to sleep, but you will go down to where sleep is. What did you dream about last night?&quot;</p>
+<p>He shut off the battery and disconnected the instrument, replacing both in his pockets, and moved over to the boy and placed his hand gently upon his forehead.</p>
+<p>&quot;You dreamed about the chapel,&quot; he continued, &quot;but you must try to remember. Why did you go to the chapel?&quot;</p>
+<p>&quot;I went to find—&quot;</p>
+<p>&quot;To find something that you have always wanted to find?&quot; asked Doctor Immanuel.</p>
+<p>&quot;Yes.&quot;</p>
+<p>&quot;You have always been greatly distressed because you could not find it. If you could find it your troubles would be ended?&quot;</p>
+<p>&quot;Yes.&quot;</p>
+<p>&quot;Describe it.&quot;</p>
+<p>&quot;It is a dish rag.&quot;</p>
+<p>&quot;No, it is not a dish rag. Try harder. You think it is a dish rag because it is white and coarsely woven. What is it?&quot;</p>
+<p>&quot;It is a table-cloth.&quot;</p>
+<p>&quot;No, it is not a table-cloth. That is a better guess, but although it looks like a table-cloth it is not quite the same. Do you know where it is?&quot;</p>
+<p>&quot;It is in the chapel.&quot;</p>
+<p>&quot;Tell me where.&quot;</p>
+<p>&quot;I don't know.&quot;</p>
+<p>&quot;O, yes, you know, but you have forgotten. You must remember; come, take us to the chapel and find it. You can open your eyes. But you will still be asleep, remember. You must not wake up.&quot;</p>
+<p>The boy's eyes opened, but stared vacantly into the air. Apart from this he might have been in his normal condition. Sir John hurried toward him, but the doctor interposed.</p>
+<p>&quot;No, do not touch him,&quot; he said. &quot;He sees nothing, but neither does one in sleep. Yet he will not hurt himself.&quot;</p>
+<p>Arthur led us out of the library and along the passage, moving as surely as we ourselves. Doctor Immanuel unbarred the great doors and we all emerged into the star-lit night and passed over the lawn toward the chapel. The door had been left unlocked. Inside the darkness was not profound, but still none of us moved as surely as Arthur Carfax.</p>
+<p>He walked more slowly, now, and a little uncertainly, passed the altar and stopped before his seat beneath the window frame. There he sat down and his hands fell to his sides. Doctor Immanuel took his seat upon the bench beside him, and we stood by.</p>
+<p>&quot;Now you must sleep more deeply.&quot; said the doctor, stroking the boy's forehead. &quot;Sleep, sleep—and remember.&quot;</p>
+<p>Arthur Carfax sprang to his feet and began pacing the grooves worn in the flags by the feet of the old priors. He paced slowly at first, then faster, then feverishly. As our eyes grew accustomed to the light we could see that his features were. slowly assuming an extraordinary change. The boyish look had disappeared and was succeeded by the look of a man—a man, too, in a condition of almost uncontrollable excitement or anger. We were appalled by this transformation.</p>
+<p>&quot;Find it!&quot; hissed the doctor in the boy's ear, as he paused and turned, as if irresolutely, toward the altar. &quot;You know where it is,&quot; he added, &quot;for you hid it yourself.&quot;</p>
+<p>The boy trembled and seemed to be struggling with some overwhelming interior enemy. Every muscle in his body was apparently convulsed.</p>
+<p>&quot;You won't wake up,&quot; cried the doctor in agitation. &quot;You can't wake up. If you do you will have to begin all over again. You have sought it for seventeen years. Sleep! Sleep! Sleep! Find it!&quot;</p>
+<p>Suddenly Arthur Carfax darted toward the recess in the wall where the priests' vessels had been stored. He went down upon his knees and, without hesitation, began scraping away the dirt that had accumulated between the flags. We drew near and watched him. The boy scraped as though he held a trowel, and he ignored entirely the drops of blood that began to ooze from his finger tips.</p>
+<p>&quot;No, leave him,&quot; said Immanuel, to his father. &quot;You must not interfere. Look! He has found it!&quot;</p>
+<p>Under the earth a paving stone had been disclosed, smaller than the rest and set slightly awry. Arthur began hammering with his fists upon one end. The stone suddenly swung back, disclosing a little chamber about as large as a cedar chest. And there was cedar there, for we could smell its fragrance. Even after three centuries the odor lasted.</p>
+<p>Arthur pushed in his arm and pulled up a tarred package, apparently of some coarse linen fabric. The fibers came apart in his hands. He tore them and thrust them from him. Then underneath was disclosed a yellowed piece of fine linen, a square finely embroidered. The boy held it up, shook it out, and ran back to the altar, on which he deposited it</p>
+<p>&quot;The lost altar cloth!&quot; shouted Sir John.</p>
+<p>&quot;Hush!&quot; pleaded Immanuel.</p>
+<p>The boy stood there quite calmly now. All trace of anger was gone from his features, which had assumed a nobility, a benignance which thrilled us. We drew nearer. He raised his arms in silence, as though pronouncing a blessing on us and on the old chapel. For a full half minute he stood thus, immovable; then his arms fell to his side and he tumbled into the doctor's arms.</p>
+<p>&quot;He's dead!&quot; cried Sir John in anguish, as he sprang forward.</p>
+<p>&quot;Dead tired,&quot; answered Immanuel. &quot;He will sleep like a top for the next twelve hours and after that he will remember nothing. But there will be no more dreams. Come, help me carry him in.&quot;</p>
+<p>Sir John Carfax was a sorely puzzled man that night as we three sat talking in his library well into the small hours. Politeness struggled with skepticism, and yet skepticism itself was fighting hard with conviction.</p>
+<p>&quot;You say my son Arthur was once on earth as the Prior Ignatius?&quot; he asked dubiously.</p>
+<p>&quot;Last on earth,&quot; corrected Immanuel. &quot;He has been here a good many times before. But unless Ignatius managed to get a message through by him —which is a spiritualistic supposition—your son was actually Ignatius.&quot;</p>
+<p>&quot;And Ignatius lived in the sixteenth century,&quot; I interposed. &quot;Did you not tell me once, doctor, that rebirth seldom or never occurred before the lapse of something like eighteen hundred years?&quot;</p>
+<p>&quot;Yes. But we are now dealing with abnormal cases. I conceive that there is nothing to hinder a personality from returning earlier if it chooses, just as there is nothing to prevent a healthy man from cutting short his life by suicide. Indeed there are recorded cases of Burmese children who remember their prior existence as English army officers fifty years before.&quot; <label for="undefined" class="margin-toggle">⊕</label>
+<input type="checkbox" id="undefined" class="margin-toggle">
+<span class="marginnote">Somewhat related: Dr. <a href="https://en.wikipedia.org/wiki/Ian_Stevenson">Ian Stevenson</a> was a researcher who studied evidence of reincarnation and children's past life memories. In 1977, he published the case of a Burmese girl who claimed to be the reincarnation of a World War II Japanese soldier, presumably a member of the Japanese occupying forces. You can find the paper <a href="https://med.virginia.edu/perceptual-studies/wp-content/uploads/sites/360/2017/03/STE9_Journal-of-Nervous-and-Mental-Disease.pdf">here</a>.</span></p>
+<p>&quot;Then the Prior Ignatius committed spiritual suicide?&quot; I asked.</p>
+<p>&quot;Something like that. He voluntarily cut short his bliss in Paradise in order to atone for his crime.&quot;</p>
+<p>&quot;The curse?&quot; asked Sir John.</p>
+<p>&quot;Yes. And the only way in which to stop it was to fulfill it per se by discovering the altar cloth.&quot;</p>
+<p>&quot;It's very odd,&quot; said our host thoughtfully. &quot;But if you saved my son's life—&quot;</p>
+<p>&quot;I haven't a doubt that he will live to a ripe old age with such a constitution as I discovered this morning.&quot;</p>
+<p>&quot;I have much to thank you for,&quot; said Sir John, and there were tears in his eyes. &quot;I thank you with all my heart. And I will try to believe.&quot;</p>
+<p>&quot;Don't strain your conscience, Sir John,&quot; answered the little doctor cheerily. ‘‘lt doesn't matter, because—some day you'll know.&quot;</p>
+<hr>
+<p>Part of the series <a href="/dark_tales_sleuth/pages/victor-rousseau/#dr-phileas-immanuel-tracer-of-egos"><em>Phileas Immanuel, Tracer of Egos</em></a></p>
+<p>Illustration from <em>The Evening Republican</em> Feb. 21, 1917. Source: <a href="https://newspapers.library.in.gov/?a=d&amp;d=EVRP19170221.2.20&amp;srpos=31&amp;e=------191-en-20--21--txt-txIN-victor+rousseau------">Hoosier State Chronicles</a></p>
+
+</article>
+		</main>
+
+		<!-- footer -->
+		<hr>
+
+<div class="footer-container">
+	<p>&copy; 2025 Nina B. Zumel</p>
+	<div class="social_icons">
+	    <a href="mailto:nzumel@mzlabs.com?subject=Comment%20from%20Dark%20Tales%20Sleuth" aria-label="Email" target="_blank" rel="noopener noreferrer">
+			<i class="fas fa-fw fa-envelope"></i>
+		</a>
+		<a href="https://micro.blog/MultoGhost" aria-label="Micro.blog" target="_blank" rel="noopener noreferrer">
+			<i class="fab fa-fw fa-microblog"></i>
+		</a>
+		<a href="https://multoghost.wordpress.com/" aria-label="Multo (Ghost)" target="_blank" rel="noopener noreferrer">
+			<i class="fab fa-fw fa-wordpress"></i>
+		</a>
+		<a href="/dark_tales_sleuth/feed.xml" aria-label="RSS" target="_blank" rel="noopener noreferrer">
+			<i class="fa fa-fw fa-rss-square"></i>
+		</a>
+
+	</div>
+</div>
+		<!-- /footer-- >
+
+		<!-- Current page: /dark_tales_sleuth/victor-rousseau/carfax-curse/ -->
+	</body>
+</html>
