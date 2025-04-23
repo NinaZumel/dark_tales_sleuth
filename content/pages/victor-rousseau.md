@@ -111,6 +111,8 @@ Stories marked with an asterisk (`*`) are ones that I've transcribed here. The o
 
 [**The Two Charioteers**](https://newspapers.library.in.gov/?a=d&d=EVRP19170215.2.24&srpos=32&e=------191-en-20--21--txt-txIN-victor+rousseau------) as published in *Evening Republican*, February 15, 1917
 
+(`*`) [**The Carfax Curse**](/victor-rousseau/carfax-curse/) as published in *Evening Republican*, February 21, 1917
+
 ### Collections
 
 *Tracer of Egos*, Spectre Library (2007) - Introduction by Morgan A. Wallace. Contains all twelve stories. (OUT OF PRINT)
