@@ -1,0 +1,754 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>The Professor&#39;s Peach Trees</title>
+		<meta name="description" content="Filling in the Literary Blanks">
+		<link rel="alternate" href="/dark_tales_sleuth/feed/feed.xml" type="application/atom+xml" title="Dark Tales Sleuth">
+		<link rel="alternate" href="/dark_tales_sleuth/feed/feed.json" type="application/json" title="Dark Tales Sleuth">
+
+        
+		<link rel="me" href="https://micro.blog/MultoGhost">
+		<link rel="authorization_endpoint" href="https://indieauth.com/auth">
+		<link rel="token_endpoint" href="https://tokens.indieauth.com/token">
+		<link href="https://github.com/ninazumel" rel="me">
+		<script src="https://kit.fontawesome.com/9bbe6f85f9.js" crossorigin="anonymous"></script>
+		
+		<style>/* minimal implementation; just plain text in the margin, no blockquotes, code, etc */
+/* only (unnumbered) margin notes, no sidenotes */
+/* stripped down from https://github.com/edwardtufte/tufte-css */
+
+/* need this for correct sidenote numbering; but I'm not using sidenotes */
+/*
+body {
+    counter-reset: sidenote-counter; 
+} 
+*/
+
+
+/* since I imagine these will change with different templates */
+:root {
+    --content-width: 65%;
+    --image-padding: 5%;
+    --image-max: 60%;  /* total image+padding <= content-width */
+    --notewidth: 30%; 
+    /* content-width + notewidth <  100%. I think you should leave some wiggle room. */
+    --note-right-margin: -45%;
+    /* if this margin is -(notewidth), the note will start just on the right border of the text */
+    /* so push it a little to the right (more negative) */
+}
+
+article {
+	padding-top: 1rem; 
+}
+
+/* make room for the notes in the article container */
+article > p,
+article > pre,
+article > ul {
+    width: var(--content-width);
+}
+
+/* 
+  blockquotes should be a little shorter 
+  This assumes that left indentation is 2em, which is what it looks like.
+  */
+article > blockquote {
+    width: calc(var(--content-width) - 2em); 
+}
+
+
+article > hr {
+    max-width: var(--content-width);
+    margin: 0
+}
+
+article > h1, 
+article > h2,
+article > h3,
+article > h4 {
+    max-width: var(--content-width);
+}
+
+article > center {
+    max-width: var(--content-width);
+}
+
+/* keep images/captions in the text column, rather than centered in the article container */
+article > img {
+    margin-left: 0;
+    padding-left: var(--image-padding);
+    max-width: var(--image-max); 
+}
+
+article > p.caption {
+	text-align: left;
+    padding-left: var(--image-padding);
+	font-style: italic;
+	font-size: 0.9em;
+	color: #9B9C9D;
+ }
+
+.footnote-item {
+    max-width: var(--content-width); 
+}
+
+ /* finally, the margin note */
+.marginnote {    
+    float: right;
+    clear: right;
+    width: var(--notewidth);         
+    margin-right: var(--note-right-margin);
+    margin-top: 0.3rem;
+    margin-bottom: 0;
+    font-size: 0.8rem;
+    line-height: 1.3;
+    vertical-align: baseline;
+    position: relative;
+    /* border: 2px solid blue; */
+}
+
+
+input.margin-toggle {
+    display: none;
+}
+
+
+label.margin-toggle {    
+    display: none;
+
+}
+
+/* The mobile fallback: */
+/* making max-width bigger makes the note fall inline sooner */
+@media (max-width: 768px) {  
+    body {
+        width: 84%;
+        padding-left: 8%;
+        padding-right: 8%;
+    }
+
+    hr,
+    article > p,
+    article > blockquote,
+    article > pre {
+        width: 100%;
+    }
+
+    label.margin-toggle {
+        display: inline;
+    }
+       
+    .marginnote {           
+         display: none;        
+        }    
+
+      
+    .margin-toggle:checked + .marginnote {            
+        display: block;            
+        float: left;            
+        left: 1rem;            
+        clear: both;            
+        width: 95%;            
+        margin: 1rem 2.5%;            
+        vertical-align: baseline;            
+        position: relative;        
+    }
+    label {
+        cursor: pointer;
+    }
+}
+* { box-sizing: border-box; }
+/* Defaults */
+:root {
+	--font-family: Georgia, Times, -serif; /* Tahoma, -apple-system, system-ui, sans-serif; */
+	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+}
+
+/* Theme colors */
+:root {
+	--color-gray-20: #e0e0e0;
+	--color-gray-50: #C0C0C0;
+	--color-gray-70: #4D4D4D;
+	--color-gray-90: #333;
+
+	--description-color: #9B9C9D;
+	--background-color: #fff;
+
+	--text-color: var(--color-gray-70);
+	--text-color-link:  #2d2fb5;
+	--text-color-link-active: #5f2b48;
+	--text-color-link-visited: var(--color-gray-50); /* #17050F; */
+
+	--syntax-tab-size: 2;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-gray-20: #e0e0e0;
+		--color-gray-50: #C0C0C0;
+		--color-gray-70: #dad8d8;
+		--color-gray-90: #dad8d8;
+
+		/* --text-color is assigned to --color-gray-_ above.*/
+		--text-color: var(--color-gray-20);
+		--text-color-link: #1493fb;
+		--text-color-link-active: #6969f7;
+		--text-color-link-visited: #a6a6f8;
+
+		--background-color: #15202b;
+	}
+}
+
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	font-size: 18px;  /* a little bigger to accomodate a serif font */
+	color: var(--text-color);
+	background-color: var(--background-color);
+}
+html {
+	overflow-y: scroll;
+}
+body {
+	max-width: 70em; /* 50em; */
+}
+
+/* different horizontal rules  https://www.w3schools.com/howto/howto_css_dividers.asp */
+ /* Dashed border */
+ hr.dashed {
+	border-top: 1px dashed #bbb;
+  }
+  
+  /* Dotted border */
+  hr.dotted {
+	border-top: 1px dotted #bbb;
+  }
+  
+  /* Solid border */
+  hr.solid {
+	border-top: 1px solid #bbb;
+  }
+  
+
+/* 
+https://css-tricks.com/barebones-css-for-fluid-images/ 
+Without this, images generated by eleventy-img will always use the largest available size
+-- ie, not be responsive.
+*/
+img {
+	max-width: 100%; 
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+  }
+  img[width] {
+	width: auto; /* Defer to max-width */
+  }
+  img[width][height] {
+	height: auto; /* Preserve aspect ratio */
+  }
+  
+  /* Let SVG scale without boundaries */
+  img[src$=".svg"] {
+	width: 100%;
+	height: auto;
+	max-width: none;
+  }
+  
+
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+p {
+	line-height: 1.5;
+	/* font-size: 1.2em; */
+}
+
+p.caption {
+	text-align: center;
+	font-style: italic;
+	font-size: 0.9em;
+	color: #9B9C9D;
+ }
+
+ /* for the credits at the bottom of a page */
+p.credit {
+	max-width: 50em;
+	font-size: 0.9em;
+	margin-left: auto;
+	margin-right: auto;
+ }
+
+
+/* for inline annotations, like translations */
+span.inline-note {
+	font-size: 0.9em;
+	font-style: italic;
+}
+
+li {
+	line-height: 1.5;
+	/* font-size: 1.2em; */
+}
+
+a[href] {
+	color: var(--text-color-link);
+	text-decoration: none; 
+}
+a[href]:visited {
+	color: var(--text-color-link-visited);
+}
+a[href]:hover,
+a[href]:active {
+	color: var(--text-color-link-active);
+}
+
+main {
+	padding: 1rem;
+}
+main :first-child {
+	margin-top: 0;
+}
+
+header {
+	border-bottom: 1px dashed var(--color-gray-20);
+}
+header:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.links-nextprev {
+	text-align: center;
+	list-style: none;
+	border-top: 1px dashed var(--color-gray-20);
+	padding: 1em 0;
+}
+
+
+table {
+	margin: 1em 0;
+}
+table td,
+table th {
+	padding-right: 1em;
+}
+
+pre,
+code {
+	font-family: var(--font-family);
+	font-size: 0.95em;
+}
+pre:not([class*="language-"]) {
+	margin: .5em 0;
+	line-height: 1.375; /* 22px /16 */
+	-moz-tab-size: var(--syntax-tab-size);
+	-o-tab-size: var(--syntax-tab-size);
+	tab-size: var(--syntax-tab-size);
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+}
+code {
+	word-break: break-all;
+}
+
+/*
+  Custom containters
+*/
+div.message-box {
+	max-width: 50em; 
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div.magazine-box {
+	max-width: 50em; 
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+/* Header */
+header {
+	display: flex;
+	gap: 1em .5em;
+	flex-wrap: wrap;
+	align-items: center;
+	padding: 1em;
+}
+.home-link {
+	font-size: 1.5em; /* 24px /16 (I think)*/
+	font-weight: 700;
+	margin-right: 2em;
+}
+.home-link:link:not(:hover) {
+	text-decoration: none;
+}
+
+/* Nav */
+.nav {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.nav-item {
+	display: inline-block;
+	margin-right: 1em;
+}
+.nav-item a[href]:not(:hover) {
+	text-decoration: none;
+}
+.nav a[href][aria-current="page"] {
+	text-decoration: underline;
+}
+
+/* Posts list */
+.postlist {
+	list-style: none;
+	padding: 0;
+	padding-left: 0; /* 1.5rem; */
+	max-width: 50em;
+}
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	counter-increment: start-from -1;
+	margin-bottom: 1em;
+	padding-bottom: 50px;
+	/* padding: 8px 16px; */
+	border-bottom: 1px dashed var(--color-gray-20);
+}
+
+/* 
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	content: "" counter(start-from, decimal-leading-zero) ". ";
+	line-height: 100%;
+	text-align: right;
+	margin-left: -1.5rem;
+}
+*/
+
+.postlist-date,
+.postlist-item:before {
+	font-size: 0.8125em; /* 13px /16 */
+	color: var(--color-gray-90);
+}
+.postlist-date {
+	word-spacing: -0.5px;
+	padding-left: .25em;
+}
+.postlist-link {
+	font-size: 1em; /* 1.1875em;  19px /16 */
+	font-weight: 700; 
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration: none; 
+	/* text-decoration-thickness: 1px; */
+}
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+/* Tags */
+.post-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+	font-style: italic;
+}
+.postlist-item > .post-tag {
+	align-self: center;
+}
+
+/* Tags list */
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: .5em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.post-metadata time {
+	margin-right: 1em;
+}
+
+.post-metadata li {
+	font-size: 0.875em;
+}
+
+/* metadata for posts and talks */
+
+.posttalk-metadata {
+	list-style: none;
+	padding-left: 0;
+	color: var(--description-color);
+}
+
+.posttalk-metadata ul {
+	list-style-type: none; /* no bullets */
+	padding: 0;  /* no indentation, either */
+	margin: 0;
+}
+
+/* Direct Links / Markdown Headers */
+.header-anchor {
+	text-decoration: none;
+	font-style: normal;
+	font-size: 1em;
+	margin-left: .1em;
+}
+a[href].header-anchor,
+a[href].header-anchor:visited {
+	color: transparent;
+}
+a[href].header-anchor:focus,
+a[href].header-anchor:hover {
+	text-decoration: underline;
+}
+a[href].header-anchor:focus,
+:hover > a[href].header-anchor {
+	color: #aaa;
+}
+
+h2 + .header-anchor {
+	font-size: 1.5em;
+}
+
+/* Footer */
+hr {
+    border: none;
+    background-color: #DADADB;
+    height: 1px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+    hr {
+        width: 100%;
+    }
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2rem 0;
+    background-color: var(--background-color0);
+	;
+}
+
+.footer-container p {
+    font-size: 1rem;
+    color: #9B9C9D;
+}
+
+.footer-container .social_icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0 1rem;
+}
+
+.footer-container .social_icons a {
+    color: #9B9C9D;
+    font-size: 1.5rem;
+    transition: all 0.5s ease-in-out;
+}
+
+.footer-container .social_icons a:hover {
+    color: #DADADB;
+}</style>
+	</head>
+	<body>
+		<a href="#skip" class="visually-hidden">Skip to main content</a>
+
+		<header>
+			<a href="/dark_tales_sleuth/" class="home-link">Dark Tales Sleuth</a>
+			<nav>
+				<h2 class="visually-hidden">Top level navigation menu</h2>
+				<ul class="nav">
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/about/">About</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/my-investigations/">My Cases</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/blog/">All Posts</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/comments/">Comments</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/about-me/">About Me</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="skip">
+			
+
+
+<h1>The Professor&#39;s Peach Trees</h1>
+
+
+
+
+
+
+<ul class="posttalk-metadata">
+  <li>By Victor Rousseau</li>
+  <li>As published in  <em>The Evening Republican</em>, February 26, 1917</li>
+</ul>
+
+<article>
+<p>Professor Garretson was a man of about fifty-five. His face was intellectual and stamped with a certain austere power; yet it also impressed me as that of an imaginative man, a dreamer who has missed making his mark in life because he held his judgment in abeyance while pondering the emotional values. And this diagnosis was entirely correct. For thirty years he had held the chair of classical languages at Maryland University, and was now retired upon a comfortable pension. He was visiting a New York friend on the eve of sending his ward, Margaret Lassalle, off to Europe.</p>
+<img alt="The bearded, spectacled Dr. Immanuel expounds his views to two listening men, one seated, one standing." loading="lazy" decoding="async" src="/dark_tales_sleuth/img/professors-peach-trees-trio-tOBxrEpQ_f-400.png" width="402" height="599" srcset="/dark_tales_sleuth/img/professors-peach-trees-trio-tOBxrEpQ_f-400.png 400w, /dark_tales_sleuth/img/professors-peach-trees-trio-tOBxrEpQ_f-402.png 402w" sizes="30vw">
+<p class="caption">"They are not intellectual processes but matters of spiritual recognition."</p>
+<p>Miss Lassalle was twenty—a quiet, thoughtful girl, strikingly like her guardian in temperament. If he had been younger and she older theirs would have been, I thought, an ideal union. The professor had adopted her on the death of her mother when she was a baby, and the affection between them was a very close one.</p>
+<p>I met them at Doctor Immanuel's apartments in New York. Miss Lassalle was to sail for England two days later, and they had come to pay a visit to the Greek physician, who was an intimate friend by correspondence—that is to say, Phileas Immanuel and Arthur Garretson, though this was only their second meeting, had both been prominent members of the Archaeological society at Athens, which is, as most people know, largely an American enterprise.</p>
+<p>The strange couple did not stay long after my arrival. When they had gone and we three were left alone—Immanuel, I, and Paul Tarrant, the rich man whose monograph upon Assyrian coins will, I fancy, last longer than his banking house—the doctor spoke of them.</p>
+<p>&quot;Garretson is one of my oldest friends,&quot; he said. &quot;We have corresponded for years, although we never met until last week. Did you notice the curious attachment between him and his ward?&quot;</p>
+<p>We had both noticed it.</p>
+<p>&quot;You would think a well-to-do bachelor like that would try to marry her,&quot; suggested Tarrant.</p>
+<p>&quot;On the contrary,&quot; answered the doctor, &quot;Garretson is sending her to Europe precisely to avoid that eventuality. You know he has made a sort of father confessor of me during our long epistolary acquaintance. I suppose he thought that we should never meet and that he could better unburden himself to a stranger. He is quite desperately in love with her, and I fancy she cares a good deal for him. But he realizes the difference in their ages—and there is a young man in England to whom, he fancies, Miss Margaret is not indifferent. So he is going to send her there for a couple of years, ostensibly to study music, but really, I think, in the hope of her happy marriage. And the poor fellow is broken-hearted.&quot;</p>
+<p>He paused, and suddenly I knew that there was more—a great deal more—to the story.</p>
+<p>&quot;And yet,&quot; he added, &quot;if both only knew that each is destined for the other, that unless they recognize each other they will suffer through many lives to come—&quot;</p>
+<p>Tarrant always came to the point bluntly. &quot;I see,&quot; he began, &quot;that this is another reincarnation story. When did they love last? In Greece, Assyria, Rome, Siberia, or in uttermost Tartary?&quot;</p>
+<p>&quot;Thirty-five years ago,&quot; answered the doctor.</p>
+<p>&quot;Fifteen years before the girl was born?&quot; cried Tarrant.</p>
+<p>&quot;Exactly. This story does not deal with their incarnation either in Greece or Rome, although I do not doubt that they were lovers then. I know his history from friends and have pieced it together. Shall I tell you, gentlemen?&quot;</p>
+<p>&quot;Why didn't you tell him?&quot; asked the millionaire.</p>
+<p>&quot;Because,&quot; answered Immanuel, &quot;these things cannot be forced; they are not intellectual processes but matters of spiritual recognition. You don't care to hear, though?&quot; he added. a little huffily.</p>
+<p>&quot;Yes, indeed,&quot; cried Tarrant apologetically. &quot;Pray go on, doctor. But I may ask questions?&quot;</p>
+<p>&quot;A hundred,&quot; answered Immanuel, smiling. &quot;Did you ever hear of Pelorus Jack?&quot;<label for="pelorusjack" class="margin-toggle">⊕</label>
+<input type="checkbox" id="pelorusjack" class="margin-toggle">
+<span class="marginnote">Pelorus Jack was a Risso's dolphin famous for meeting and escorting ships through the narrow and dangerous channel known as French Pass, in New Zealand. He guided ships for 24 years, from 1888 until he disappeared in 1912. He was the first individual sea creature to be protected by law in any country. (<a href="https://en.wikipedia.org/wiki/Pelorus_Jack">Wikipedia</a> )</span> he said abruptly.</p>
+<p>&quot;You mean Jack Pelorus?&quot;</p>
+<p>&quot;No, Paul; and now I am dealing with a matter of record, for you will find a reference to him in the laws of the Austrian commonwealth. Pelorus Jack is a dolphin, and the only dolphin who is strictly protected by statute during all seasons of the year.&quot;</p>
+<img alt="Top view of a dolphin jumping in the water." loading="lazy" decoding="async" src="/dark_tales_sleuth/img/pelorus-jack-horizontal-CpRbQcfNdq-400.png" width="700" height="451" srcset="/dark_tales_sleuth/img/pelorus-jack-horizontal-CpRbQcfNdq-400.png 400w, /dark_tales_sleuth/img/pelorus-jack-horizontal-CpRbQcfNdq-700.png 700w" sizes="100vw">
+<p class="caption">The famous dolphin, Pelorus Jack</p>
+<p>&quot;He must be a remarkable fish,&quot; said Tarrant.</p>
+<p>&quot;He is,&quot; snapped Immanuel. &quot;He is supposed by the sailors to be the reincarnation of a French fisherman who died not long ago in an Australian coast city.&quot; <label for="legends" class="margin-toggle">⊕</label>
+<input type="checkbox" id="legends" class="margin-toggle">
+<span class="marginnote">For an alternate theory, see <a href="https://exiw.wordpress.com/2025/02/20/legends-of-pelorus-jack/">Legends of Pelorus Jack</a>.</span></p>
+<p>&quot;Question Number One,&quot; said Tarrant. &quot;Do you mean to say that men are reborn as fishes, or animals?&quot;</p>
+<p>&quot;You have anticipated my argument, Paul,&quot; the doctor answered. &quot;Under almost all circumstances—no. Yet, though almost universally, when once we become human, the smaller doors are shut behind us, sometimes we do become 'entangled,' as the Indian scriptures phrase it. That is to say, if the desire for reincarnation is so intense that it transcends the mechanical possibilities, the discarnate soul may return to birth, using the limited medium at its possession, either as a beast or as a plant. You will find it distinctly stated in the Brahminical books that the departed soul descends first into plants.&quot;</p>
+<p>&quot;Plants!&quot; shouted Tarrant. &quot;You mean that I shall come back as a geranium?&quot;</p>
+<p>&quot;No, my dear fellow,&quot; answered Immanuel, smiling. &quot;I mean that the body-making potentialities may first be concentrated and focussed, so to speak, in some plant medium—for a while. Have you never heard of the dryads, the Greek spirits of the trees?&quot;</p>
+<p>&quot;It strikes me,&quot; I suggested, &quot;that we are getting off the track. Suppose we return, first to Pelorus Jack, and then to the professor.&quot;</p>
+<p>&quot;Pelorus Jack—yes. Well, he was simply a dolphin who formed the agreeable habit of meeting all incoming ocean steamships and piloting them into the harbor of Melbourne—was it Sydney? Anyway, he became so famous and popular that the commonwealth government made it a crime to kill him. And, until within the last year or so he was a constant feature of interest to the passengers. But I instanced him as an example of a soul becoming entangled in animal form. Now I will hark back to Professor Garretson.</p>
+<p>&quot;Thirty-five years ago Andrew Garretson, then a young man of twenty, came to this country from Scotland and settled in Prince George County, Maryland. He was a well-to-do youth, his father having recently died and left him, the only child, a modest annual competence. I believe his purpose in leaving Scotland was to escape the memories of some boyish love affair. Whatever it was, it was nothing lasting, although at the time he probably thought that it was. You see, even in those days he was susceptible—just a shy, bright, affectionate lad who picked out Maryland of all places in the world, as he thought by a whim, but really because he was controlled by far-reaching purposes.</p>
+<p>&quot;Mary Lassalle was the only daughter of one of the professors at the university. Lassalle, meeting Garretson, took a fancy to him, and after some thought the young Scotchman, who was of a studious disposition, determined to enroll at the university, and endeavor to become one of the faculty after his graduation. That was the sort of quiet life that appealed to him—and he has never had reason to regret his decision.</p>
+<p>&quot;The two young people fell madly in love with each other. It was one of those romantic attachments rare in that day and time, though not so rare as now. There was a sort of spiritual bond between them which made each almost a portion of the other; it was almost as though the same soul animated both bodies. So unworldly was their love that the thought of marriage was looked upon by both only as something ultimate and remote. Professor Lassalle and his wife looked favorably upon the engagement; it was arranged that the young people should be married as soon as Garretson completed his course and obtained the position which would obviously lie open to one of his talent. As you may know, he is one of the few classicists in America of world-wide reputation.</p>
+<p>&quot;The year 1880 was one remarkable for many things. Among these was the spiritualist craze, which was running through America like a fire. True, it was long before this that the Fox sisters had laid the foundations of the modern Spiritualist cult at Rochester; but in the late seventies there was a remarkable recrudescence of this superstition. Impudent 'mediums' imposed upon the gullible all through the large and small cities of the country—they do yet, I am told, but then the imposture was comparatively new. It did not pass over even the quiet little home of the Lassalles, where Garretson boarded. The two elders and the young people often sat round the table and 'laid on hands' with the usual obtaining of amusing and impossible communications. We know now that these forces are nothing but thought impressions, either of the sitters or of others, cast off and congealing round this magnetic nucleus—mere rubbish from the world's psychic waste-baskets, so to say. But to the young people all this was very real. They lived in a world peopled with invisible intelligence, and to them death was nothing more than a simple transition from one condition to another, hardly different.</p>
+<p>&quot; 'If I should die before you, Andrew,' said Mary Lassalle, 'I shall come back to you. I shall never go far from you, beloved, not for a moment, till, you rejoin me.'</p>
+<p>&quot;Andrew Garretson always remembered that evening, for on the next day Mary was taken ill with congestion of the lungs. She never recovered. The chill settled deep into her system; tuberculosis, the dread disease of that period, supervened. In vain they closed the windows and condemned her to a single, unventilated room. She grew rapidly worse and died less than three months after the onset of the disease—died with her hands in Garretson's, and her head on his breast, and her eyes turned up to his in confidence of the continuance of their love through all mortal changes.</p>
+<p>&quot;For weeks after the funeral Andrew Garretson was out of his mind. When at last the loving nursing of Mrs. Lassalle brought him hack to health, he took up his life with the profound conviction that Mary was ever with him, watching over him. Sometimes those three would sit at the table and try to obtain messages from her. But though the usual phenomena occurred, even to their minds it became obvious that Mary was not there, that some lying or evil intelligences controlled the tilts. At last by tacit consent these sittings were abandoned.</p>
+<p>&quot;There never were such flowers as grew in the Lassalles' garden that first summer after Mary's death. And their peach orchard, which had never done well, now blossomed out into a marvel of beauty. Deep, wine-red blossoms covered the young shoots, and after a while it seemed as though the strength of the flowers was all concentrated in these peach trees. People came from far and near to look at them. And the next year it was the same. Andrew Garretson, now one of the faculty, obtained the reputation of one who could make anything grow for him.&quot;</p>
+<p><img alt="Painting of a peach tree in full bloom, with pink blossoms. The tree stands in a fenced garden. In the background, a blue sky with clouds." loading="lazy" decoding="async" src="/dark_tales_sleuth/img/Van_Gogh_Pink_peach_trees_Souvenir_de_Mauve-6_HRT2N22m-400.png" width="974" height="1198" srcset="/dark_tales_sleuth/img/Van_Gogh_Pink_peach_trees_Souvenir_de_Mauve-6_HRT2N22m-400.png 400w, /dark_tales_sleuth/img/Van_Gogh_Pink_peach_trees_Souvenir_de_Mauve-6_HRT2N22m-800.png 800w, /dark_tales_sleuth/img/Van_Gogh_Pink_peach_trees_Souvenir_de_Mauve-6_HRT2N22m-974.png 974w" sizes="40vw"> </p><p class="caption">Vincent Van Gough, <em>Pink Peach Trees (Souvenir de Mauve)</em> (1888).</p><p></p>
+<p>&quot;It's quite common,&quot; I interposed. &quot;I've often heard people say that flowers will not grow for them, while others can charm them and have wonderful gardens.&quot;</p>
+<p>Doctor Immanuel shot a quick glance at me. &quot;Yes,&quot; he answered. &quot;Flowers are quite conscious of the personality of those who tend them. But perhaps the most astonishing thing, and one which puzzled experts from various botanical stations, was that, in his presence, the plants actually lost the heliotropic faculty.&quot;</p>
+<p>&quot;What on earth's that, doctor?&quot; asked Tarrant.</p>
+<p>&quot;The faculty of turning toward the sun. Plants in window boxes, you may have noticed, invariably turn their backs disdainfully upon their possessors, and point outward toward the light. Yet it was affirmed that Garretson's window plants pointed inward. However, whether this were the case or not, I spoke of the peach orchard, in which all the power that he evoked seemed to be centered.</p>
+<p>&quot;So the years rolled on. Garretson was now thirty-five. His fiancee, had she lived, would have been over thirty. Mrs. Lasalle had died two years previously, and the old professor, who mourned her loss desperately and could not be comforted, suddenly endeavored to find happiness in life by marrying again. Until this time Garretson had lived with the Lassalles—that is to say till the lady's death, and afterward with Lassalle alone. The advent of the new mistress changed all that. Naturally a woman does not want her husband's friend, and a prosy fellow at that, as a perpetual boarder. Added to which, the new Mrs. Lassalle conceived a distinct aversion to Garretson. So he moved out of the house, and about this time Lassalle, being superannuated, retired with his wife to a little country home some twenty miles away. So the long friendship was broken up. Garretson boarded a few blocks distant from the old house and lived almost a recluse, his only memories those of Mary Lassalle, his only hopes of meeting her again. The new owner of the Lassalle home, pitying the forlorn man, suggested that he should continue to take care of the garden, and to this proposition Garretson gladly assented.</p>
+<p>&quot;Then, very suddenly, a strange, event occurred. In the June of 1892, just when the wonderful peach trees were putting forth little green balls of fruit, they died. Not in a month, or a week; they died in three days. Every leaf fell from the shrivelling twigs, the young fruit fell, the dead trees stood out desolate against the landscape in early summer. And the flowers, that had been so brilliant, became very ordinary flowers, indeed, and never afterward did Garretson possess that power which had been the subject of so much comment</p>
+<p>&quot;Four days after this strange occurrence a telegram was handed to Garretson while he sat in his lonely room in the boarding house. It was from Professor Lassalle and read: 'Come at once. Ruth is dying and calls for you.'</p>
+<p>&quot;Garretson arrived ten minutes before she died. She had given birth to a little girl three days before—about the time when the peach trees died. When she saw Andrew enter her room she turned to him with all her remaining strength.</p>
+<p><img alt="A woman sitting up in bed, clasping the hands of a man seated next to the bed. In the background, a window. Beneath the window is a bottle of medicine. A grieving man stands near the window, one hand covering his face." loading="lazy" decoding="async" src="/dark_tales_sleuth/img/professors-peach-trees-deathbed-F7g1zIqtBO-400.png" width="402" height="545" srcset="/dark_tales_sleuth/img/professors-peach-trees-deathbed-F7g1zIqtBO-400.png 400w, /dark_tales_sleuth/img/professors-peach-trees-deathbed-F7g1zIqtBO-402.png 402w" sizes="30vw"> </p><p class="caption">&quot;Take her—care for her,&quot; she whispered. &quot;And forgive.&quot; </p><p></p>
+<p>&quot; 'Take her—care for her,' she whispered. 'And forgive.' That was all she could say. Afterward Lassalle told Garretson that with the birth of the child she had seemed to experience a sudden revulsion in her feelings toward Andrew. She could never have lived, not with the most skilful surgeons in the world attending her. But she seemed to think of nothing but her unkindness to her husband's old friend, and she had expressed the wish that Garretson should be her child's guardian, if he survived her husband.</p>
+<p>&quot;Well,&quot; said Doctor Immanuel, rising from his chair and pacing the room quickly, &quot;that is all there is to tell. Lassalle died two years afterward and Garretson became the guardian of Miss Margaret. She has been like a daughter to him, but, as I said, Garretson is afraid that a deeper sentiment may develop on her part, as it has on his, and to avoid that he is sending her to England, at the cost of a great deal of suffering. It is odd,&quot; he added, &quot;how men like Garretson, who are by nature affectionate and dependent for their happiness on a happy home life, should be continually crucified in their loves.&quot;</p>
+<p>Paul Tarrant stood up.</p>
+<p>&quot;Now let us analyze this story of yours, Immanuel,&quot; he said. &quot;It seems to me you are making a mountain out of a molehill. The theory you are putting forward is, of course, that Miss Margaret Lassalle is the reincarnation of her half-sister, Miss Mary, and that the mother, realizing this with the approach of death, made Garretson her guardian.&quot;</p>
+<p>That is my theory,&quot; answered the doctor, smiling. &quot;Well, have you a better one, Tarrant?&quot;</p>
+<p>&quot;And that Miss Margaret passed a prior, or rather between-stages existence, as an orchard of peach trees. Now, my dear doctor, are you not aware that the life of the peach tree is only twelve or fifteen years? Suppose the orchard did die suddenly? Perhaps it was nipped by a late frost. Good heavens, Immanuel, as I said before, are you going to bring me back to earth as a bushel of sweet peas or a couple of hundred beds of geraniums?&quot;</p>
+<p>&quot;This is my interpretation,&quot; answered the doctor, ignoring the other's outburst. &quot;I can imagine Mary Lassalle, discarnate, her whole desire centered upon one person—Andrew Garretson. I can picture to myself the frantic efforts of this discarnate personality to clothe itself in flesh again—impossible, for the simple reason that the mechanism was not at hand, that the psychic framework for the new organism had not been built up slowly, during the centuries, out of the satisfaction, in heaven, of the soul life. In other words, she could no more come back to birth immediately than the peach tree could grow fruit before it had blossomed. Yet these ineffectual efforts did project her will into physical manifestation. A part of her personality, the part that loved, became entangled in the body of our remote ancestors, the trees—which, as you know, are biologically constructed from protoplasm, as we are, and different from animals only in the lack of a nervous system (very significant, that, if you will reflect). And so the loving part of Mary Lassalle, the part, that loved but could not suffer, grew, Dryad-like, into the trees and flowers, blindly, instinctively, but not of volition, Tarrant. It was not till ten years had passed that the soul could, by its superhuman efforts, find the bodily vehicle for itself again. And the rest you know.&quot;</p>
+<p>&quot;<em>Bah!</em>&quot; said the millionaire, flinging the end of his cigar into the fire. &quot;Your theories are—excuse me—sometimes ludicrous.&quot;</p>
+<p>&quot;Then all mythology is ludicrous,&quot; replied Immanuel. &quot;The goddess Daphne was not changed into a Laurel, there never were tree spirits, the ancient Britons were lunatics to worship the mistletoe, and the story of Proserpine is not even founded upon truth.&quot;</p>
+<p>&quot;Why, who in the world supposed it was, Immanuel?&quot; asked the millionaire.</p>
+<p>&quot;Do you imagine,&quot; asked the Greek, buttonholing the other and smiling up imperturbably into his face, &quot;that religious symbols and mythologies which lasted for uncountable centuries were really founded on nothing at all?&quot;</p>
+<p>&quot;On nothing at all,&quot; said Tarrant, smiling.</p>
+<p>&quot;You don't believe in Santa Claus, for example?&quot;</p>
+<p>&quot;Believe in Santa Claus!&quot; exclaimed Tarrant. &quot;Well—hardly.&quot;</p>
+<p>&quot;And yet I saw you last Christmas wearing a white beard and a long red dressing gown and creeping into your little boy's room—&quot;</p>
+<p>&quot;O, well,&quot; said Tarrant, a little disconcerted, &quot;that was just pretense, you know.&quot;</p>
+<p>&quot;But you found it necessary to invent or rather sustain the Santa Claus myth in order to embody certain deeply felt spiritual needs—the love of children, the Christmas spirit—for instance.&quot;</p>
+<p>&quot;If you like, Immanuel.&quot;</p>
+<p>&quot;Then,&quot; said the doctor triumphantly, &quot;so long as you keep your Santa Claus I'll keep my peach trees.&quot;</p>
+<p>And so we went out, Tarrant and I, leaving the little doctor standing before his fire like a benevolent gnome, a child at heart, an incurable romanticist.</p>
+<p>&quot;He'll never grow up—God bless him,&quot; said Tarrant to me.</p>
+<p>It was not late. We walked up the avenue in the moonlight, enjoying the balmy air of the spring. The trees in the square were almost in full leaf; it was not so very long since the band had ceased playing, for the park was still tenanted by a few couples who occupied isolated seats, absorbed in each other, forgetful of the world.</p>
+<p>&quot;Let's sit down awhile,&quot; suggested Tarrant, and so we took our seats at the back of a huge tree, where, hidden from the sight of the streets, we seemed to be in fairyland. Tarrant prodded the ground with his cane.</p>
+<p>&quot;It's very odd,&quot; he said, &quot;very odd, the way that little doctor gets hold of one and grips one. Don't you find it so? That yarn of his about the peach orchard, for instance—absurd, the very height of pathos, and yet so appealing. Poor devil—l wonder if Garretson hasn't a chance with the girl. I don't think fifty-five is so very old, in the case of two people so singularly well assorted. Do you? Why, hang it, I'm fifty-five myself next fall.&quot;</p>
+<p>We were speaking low, almost whispering, and now we became aware of a couple upon the bench adjoining ours, but so hidden by the leafy frondage of a lower branch of the tree that we had not at first observed their presence. As for them, they seemed to be entirely oblivious of anyone or anything.</p>
+<p>&quot;And you have really always loved me?'' whispered the girl.</p>
+<p>Tarrant nudged me. &quot;Don't go,&quot; he said. &quot;We're too near—it would disconcert the poor things horribly. As I was saying—&quot; But neither of us could avoid overhearing.</p>
+<p>&quot;I have always loved you,&quot; said the man, &quot;ever since I first knew you. I have only loved once in my life before, as you know, and I love you as much as I loved her.&quot;</p>
+<p>&quot;Then,&quot; said the girl triumphantly, &quot;if you have always loved me as much as Mary, why did you wait until I told you, and why did you want to pack me off to England, to that old music college, Andrew?&quot;</p>
+<p>Tarrant turned a scared face toward me.</p>
+<p>'l guess we'd better go now,&quot; be said, &quot;Softly! Softly!&quot;</p>
+<hr>
+<p>Part of the series <a href="/dark_tales_sleuth/pages/victor-rousseau/#dr-phileas-immanuel-tracer-of-egos"><em>Phileas Immanuel, Tracer of Egos</em></a></p>
+<h3 id="image-credits" tabindex="-1">Image Credits <a class="header-anchor" href="#image-credits">#</a></h3>
+<p>Story illustrations from <a href="https://newspapers.library.in.gov/?a=d&amp;d=EVRP19170226.2.24&amp;srpos=20&amp;e=------191-en-20--1--txt-txIN-victor+rousseau------"><em>The Evening Republican</em>, February 26, 1917</a>. The artist appears to be Irwin Myers.</p>
+<p>Pelorus Jack photo: from <a href="https://en.wikipedia.org/wiki/George_Thomson_(naturalist)">Thomson, G.M.</a> <em>Wild Life in New Zealand Part I.--Mammalia</em> (1921) (<a href="https://www.gutenberg.org/ebooks/56762">Project Gutenberg</a>)</p>
+<p>Van Gogh painting: <a href="https://commons.wikimedia.org/wiki/File:Van_Gogh_-_Pink_peach_trees_-_Souvenir_de_Mauve.JPG">Wikimedia</a></p>
+
+</article>
+		</main>
+
+		<!-- footer -->
+		<hr>
+
+<div class="footer-container">
+	<p>&copy; 2025 Nina B. Zumel</p>
+	<div class="social_icons">
+	    <a href="mailto:nzumel@mzlabs.com?subject=Comment%20from%20Dark%20Tales%20Sleuth" aria-label="Email" target="_blank" rel="noopener noreferrer">
+			<i class="fas fa-fw fa-envelope"></i>
+		</a>
+		<a href="https://micro.blog/MultoGhost" aria-label="Micro.blog" target="_blank" rel="noopener noreferrer">
+			<i class="fab fa-fw fa-microblog"></i>
+		</a>
+		<a href="https://multoghost.wordpress.com/" aria-label="Multo (Ghost)" target="_blank" rel="noopener noreferrer">
+			<i class="fab fa-fw fa-wordpress"></i>
+		</a>
+		<a href="/dark_tales_sleuth/feed.xml" aria-label="RSS" target="_blank" rel="noopener noreferrer">
+			<i class="fa fa-fw fa-rss-square"></i>
+		</a>
+
+	</div>
+</div>
+		<!-- /footer-- >
+
+		<!-- Current page: /dark_tales_sleuth/victor-rousseau/professors-peach-trees/ -->
+	</body>
+</html>
