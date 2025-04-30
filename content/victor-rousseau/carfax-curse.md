@@ -6,6 +6,7 @@ pub_info: "As published in "
 first_published: The Evening Republican
 publication_date: February 21, 1917
 ---
+
 My acquaintance with Dr. Phileas Immanuel had begun prosaically enough. The little Greek was in America as his government's representative to some international congress, I think of penologists, at Boston, and after he had withdrawn from it in disgust he made my house his headquarters while he engaged in some special research work. The acquaintance ripened so rapidly into friendship, and then into intimacy, that when the doctor invited me to accompany him to Europe, where he had some engagements to fulfill, I could not resist the opportunity. My practice was almost entirely hospital work, and fortunately I found no difficulty in obtaining a representative to fill my post during my absence. 
 
 So much to explain how we happened to be in England during the glorious summer of 1911. Immanuel found England to his liking, chiefly, I think, because medical men there extended a more kindly attention to his theories, although I fear he made few converts. Immanuel's claim that reincarnation would be found to solve most of the problems of abnormal psychic states could not be expected to find recruits in a century still dominated by Huxley and Haeckel and the great materialists. Nowhere, I fancy, can one find more stubborn, out and out doctrinaires than among medical men. But the doctor did not mind. He went blandly about his way, winning friends, disarming enemies, and, incidentally, making cures. 
