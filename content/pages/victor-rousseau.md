@@ -100,7 +100,6 @@ Nine of the stories originally appeared in *Holland's Magazine* from 1913-1914. 
 
 ### The Stories (In Progress)
 
-
 Below are links to the original nine stories, in the order published by the *Evening Republican*, Rensselaer (Indiana). Missing stories are interpolated in according to the order in the [Spectre Library collection](https://www.isfdb.org/cgi-bin/pl.cgi?314460), which does contain the complete series.
 
 Stories marked with an asterisk (`*`) are ones that I've transcribed here. The other story links go back to the *Hoosier State Chronicles* newspaper archive. (Read why, [here](/blog/2025-02-26-phileas-immanuel-tracer-of-egos/#nothing-is-perfect-my-reservations-about-some-individual-stories).)
@@ -118,7 +117,10 @@ Stories marked with an asterisk (`*`) are ones that I've transcribed here. The o
 **Alf Barton's Princess** 
 
 [**Mr. Axel's Shady Past**](https://newspapers.library.in.gov/?a=d&d=EVRP19170320.2.29&e=-------en-20--1--txt-txIN-------) as published in the *Evening Republican*, March 20, 1917<br><span class="inline-note">Warning: there are expressions of extreme misogyny in this story.</span>
- 
+
+(`*`) [**The Woman of Atlantis**](/victor-rousseau/woman-of-atlantis/) as published in the *Evening Republican*, March 27, 1917.
+
+[**A Fisher for Souls**](https://newspapers.library.in.gov/?a=d&d=EVRP19170403.2.24&srpos=21&e=------191-en-20--21--txt-txIN-victor+rousseau------) as published in the *Evening Republican*, April 3, 1917. 
 
 
 ### Collections
