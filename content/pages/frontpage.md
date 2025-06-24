@@ -38,14 +38,7 @@ I'm collecting links and/or making transcriptions of all the stories from these 
 
 I'm collecting as many of the Post Office detective and Post Office supernatural short stories of Austin Philips as I can find online. Possibly some non-post office crime stories, too.
 
-#### [Selected Stories from *Tales of an Antiquary* (1828)](/pages/tales-of-an-antiquary/)
-
-**Case Complete!** This rather unreadable 1828 fictional "memoir" by antiquarian Richard Thomson has some interesting stories buried within it. 
-I've revived some of these highlights and featured them here.
-
-#### [Miscellany and Digressions](/pages/miscellany-and-digressions/)
-
-These are literary investigations that pop up while I’m in the middle of another project (often, another investigation). I get curious about things, and I can’t help but dig. Since the results don’t always fit neatly into the other “active case” categories on the site, I keep them here.
+<hr/>
 
 For previous sleuthing projects, see the [My Cases](/pages/my-investigations/) page.
 

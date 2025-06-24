@@ -1,43 +1,19 @@
 /* Defaults */
 :root {
 	--font-family: Georgia, Times, -serif; /* Tahoma, -apple-system, system-ui, sans-serif; */
+	--font-family-sanserif: Tahoma, -apple-system, system-ui, sans-serif;
 	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+
+	/* from another template - experiment with these */
+	--font--serif: 'Bitstream Charter', Charter, Palatino, 'Palatino Linotype', 'Palatino LT STD', 'Book Antiqua', Georgia, serif;
+  	--font--sans: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
 }
 
 /* Theme colors */
 :root {
-	--color-gray-20: #e0e0e0;
-	--color-gray-50: #C0C0C0;
-	--color-gray-70: #4D4D4D;
-	--color-gray-90: #333;
-
-	--description-color: #9B9C9D;
-	--background-color: #fff;
-
-	--text-color: var(--color-gray-70);
-	--text-color-link:  #2d2fb5;
-	--text-color-link-active: #5f2b48;
-	--text-color-link-visited: var(--color-gray-50); /* #17050F; */
-
 	--syntax-tab-size: 2;
 }
 
-@media (prefers-color-scheme: dark) {
-	:root {
-		--color-gray-20: #e0e0e0;
-		--color-gray-50: #C0C0C0;
-		--color-gray-70: #dad8d8;
-		--color-gray-90: #dad8d8;
-
-		/* --text-color is assigned to --color-gray-_ above.*/
-		--text-color: var(--color-gray-20);
-		--text-color-link: #1493fb;
-		--text-color-link-active: #6969f7;
-		--text-color-link-visited: #a6a6f8;
-
-		--background-color: #15202b;
-	}
-}
 
 
 /* Global stylesheet */
@@ -61,20 +37,26 @@ body {
 	max-width: 70em; /* 50em; */
 }
 
+/* Basic heading typography */
+h1,h2,h3,h4,h5 {
+  font-family: var(--font--sans);
+  font-weight: 600;
+}
+
 /* different horizontal rules  https://www.w3schools.com/howto/howto_css_dividers.asp */
  /* Dashed border */
  hr.dashed {
-	border-top: 1px dashed #bbb;
+	border-top: 1px dashed var(--hrule-color);
   }
   
   /* Dotted border */
   hr.dotted {
-	border-top: 1px dotted #bbb;
+	border-top: 1px dotted var(--hrule-color);
   }
   
   /* Solid border */
   hr.solid {
-	border-top: 1px solid #bbb;
+	border-top: 1px solid var(--hrule-color);
   }
   
 
@@ -127,7 +109,7 @@ p.caption {
 	text-align: center;
 	font-style: italic;
 	font-size: 0.9em;
-	color: #9B9C9D;
+	color: var(--caption-color);
  }
 
  /* for the credits at the bottom of a page */
@@ -170,7 +152,7 @@ main :first-child {
 }
 
 header {
-	border-bottom: 1px dashed var(--color-gray-20);
+	border-bottom: 1px dashed var(--hrule-color);
 }
 header:after {
 	content: "";
@@ -181,7 +163,7 @@ header:after {
 .links-nextprev {
 	text-align: center;
 	list-style: none;
-	border-top: 1px dashed var(--color-gray-20);
+	border-top: 1px dashed var(--hrule-color);
 	padding: 1em 0;
 }
 
@@ -236,6 +218,7 @@ div.magazine-box {
 
 /* Header */
 header {
+	font-family: var(--font--sans); 
 	display: flex;
 	gap: 1em .5em;
 	flex-wrap: wrap;
@@ -284,7 +267,7 @@ header {
 	margin-bottom: 1em;
 	padding-bottom: 50px;
 	/* padding: 8px 16px; */
-	border-bottom: 1px dashed var(--color-gray-20);
+	border-bottom: 1px dashed var(--hrule-color);
 }
 
 /* 
@@ -301,7 +284,7 @@ header {
 .postlist-date,
 .postlist-item:before {
 	font-size: 0.8125em; /* 13px /16 */
-	color: var(--color-gray-90);
+	color: var(--description-color);
 }
 .postlist-date {
 	word-spacing: -0.5px;
@@ -347,6 +330,17 @@ header {
 	margin-right: 1em;
 }
 
+/* I don't want tag links to stand out too much */
+.post-metadata a[href] {
+	color: var(--tag-color);
+}
+
+.post-metadata a[href]:hover,
+               a[href]:active {
+	color: var(--tag-hover-color);
+}
+
+
 .post-metadata li {
 	font-size: 0.875em;
 }
@@ -382,7 +376,7 @@ a[href].header-anchor:hover {
 }
 a[href].header-anchor:focus,
 :hover > a[href].header-anchor {
-	color: #aaa;
+	color: var(--header-anchor-color);
 }
 
 h2 + .header-anchor {
@@ -392,7 +386,7 @@ h2 + .header-anchor {
 /* Footer */
 hr {
     border: none;
-    background-color: #DADADB;
+    background-color: var(--hrule-color);
     height: 1px;
     width: 100%;
     margin: 0 auto;
@@ -409,13 +403,13 @@ hr {
     justify-content: space-around;
     align-items: center;
     padding: 2rem 0;
-    background-color: var(--background-color0);
+    background-color: var(--background-color);
 	;
 }
 
 .footer-container p {
     font-size: 1rem;
-    color: #9B9C9D;
+    color: var(--description-color);
 }
 
 .footer-container .social_icons {
@@ -426,12 +420,12 @@ hr {
 }
 
 .footer-container .social_icons a {
-    color: #9B9C9D;
+    color: var(--icon-color);
     font-size: 1.5rem;
     transition: all 0.5s ease-in-out;
 }
 
 .footer-container .social_icons a:hover {
-    color: #DADADB;
+    color: var(--icon-hover-color);
 }
 
