@@ -122,6 +122,8 @@ Stories marked with an asterisk (`*`) are ones that I've transcribed here. The o
 
 [**A Fisher for Souls**](https://newspapers.library.in.gov/?a=d&d=EVRP19170403.2.24&srpos=21&e=------191-en-20--21--txt-txIN-victor+rousseau------) as published in the *Evening Republican*, April 3, 1917. 
 
+(`*`) [**The Wife of Ira Hopkins**](/victor-rousseau/wife-of-ira-hopkins/) as published in the *Evening Republican*, April 14, 1917.
+
 
 ### Collections
 
