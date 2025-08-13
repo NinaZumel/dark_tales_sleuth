@@ -1,0 +1,872 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>The Wife of Ira Hopkins</title>
+		<meta name="description" content="Filling in the Literary Blanks">
+		<link rel="alternate" href="/dark_tales_sleuth/feed/feed.xml" type="application/atom+xml" title="Dark Tales Sleuth">
+		<link rel="alternate" href="/dark_tales_sleuth/feed/feed.json" type="application/json" title="Dark Tales Sleuth">
+
+        
+		<link rel="me" href="https://micro.blog/MultoGhost">
+		<link rel="authorization_endpoint" href="https://indieauth.com/auth">
+		<link rel="token_endpoint" href="https://tokens.indieauth.com/token">
+		<link href="https://github.com/ninazumel" rel="me">
+		<script src="https://kit.fontawesome.com/9bbe6f85f9.js" crossorigin="anonymous"></script>
+		
+		<style>/* minimal implementation; just plain text in the margin, no blockquotes, code, etc */
+/* only (unnumbered) margin notes, no sidenotes */
+/* stripped down from https://github.com/edwardtufte/tufte-css */
+
+/* need this for correct sidenote numbering; but I'm not using sidenotes */
+/*
+body {
+    counter-reset: sidenote-counter; 
+} 
+*/
+
+
+/* since I imagine these will change with different templates */
+:root {
+    --content-width: 65%;
+    --image-padding: 5%;
+    --image-max: 60%;  /* total image+padding <= content-width */
+    --notewidth: 30%; 
+    /* content-width + notewidth <  100%. I think you should leave some wiggle room. */
+    --note-right-margin: -45%;
+    /* if this margin is -(notewidth), the note will start just on the right border of the text */
+    /* so push it a little to the right (more negative) */
+}
+
+article {
+	padding-top: 1rem; 
+}
+
+/* make room for the notes in the article container */
+article > p,
+article > pre,
+article > ul {
+    width: var(--content-width);
+}
+
+/* 
+  blockquotes should be a little shorter 
+  This assumes that left indentation is 2em, which is what it looks like.
+  */
+article > blockquote {
+    width: calc(var(--content-width) - 2em); 
+}
+
+
+article > hr {
+    max-width: var(--content-width);
+    margin: 0
+}
+
+article > h1, 
+article > h2,
+article > h3,
+article > h4 {
+    max-width: var(--content-width);
+}
+
+article > center {
+    max-width: var(--content-width);
+}
+
+/* keep images/captions in the text column, rather than centered in the article container */
+article > img {
+    margin-left: 0;
+    padding-left: var(--image-padding);
+    max-width: var(--image-max); 
+}
+
+article > p.caption {
+	text-align: left;
+    padding-left: var(--image-padding);
+	font-style: italic;
+	font-size: 0.9em;
+	color: var(--caption-color);
+ }
+
+article > p.caption a:hover,
+article > p.caption a:active {
+    color: var(--text-color-link-active);
+}
+
+.footnote-item {
+    max-width: var(--content-width); 
+}
+
+ /* finally, the margin note */
+.marginnote {    
+    float: right;
+    clear: right;
+    width: var(--notewidth);         
+    margin-right: var(--note-right-margin);
+    margin-top: 0.3rem;
+    margin-bottom: 0;
+    font-size: 0.8rem;
+    line-height: 1.3;
+    vertical-align: baseline;
+    position: relative;
+    /* border: 2px solid blue; */
+}
+
+
+input.margin-toggle {
+    display: none;
+}
+
+
+label.margin-toggle {    
+    display: none;
+
+}
+
+/* The mobile fallback: */
+/* making max-width bigger makes the note fall inline sooner */
+@media (max-width: 768px) {  
+    body {
+        width: 84%;
+        padding-left: 8%;
+        padding-right: 8%;
+    }
+
+    hr,
+    article > p,
+    article > blockquote,
+    article > pre {
+        width: 100%;
+    }
+
+    label.margin-toggle {
+        display: inline;
+    }
+       
+    .marginnote {           
+         display: none;        
+        }    
+
+      
+    .margin-toggle:checked + .marginnote {            
+        display: block;            
+        float: left;            
+        left: 1rem;            
+        clear: both;            
+        width: 95%;            
+        margin: 1rem 2.5%;            
+        vertical-align: baseline;            
+        position: relative;        
+    }
+    label {
+        cursor: pointer;
+    }
+}
+* { box-sizing: border-box; }
+/* colors from flexoki - https://stephango.com/flexoki */
+
+:root {
+	--paper: #FFFCF0;
+	--tx-normal: #100F0F;
+	--tx-muted: #6F6E69;
+	--tx-faint: #B7B5AC;
+	--blue300: #66A0C8;
+	--blue400: #4385BE;
+	--blue600: #205EA6;
+	--blue700: #1A4F8C;
+	--blue800: #163B66; 
+	--blue850: #133051;
+	--red800: #6C201C;
+	--purple600: #5E409D;
+	--purple300: #A699D0;
+	--base50: #F2F0E5;
+	--base100: #E6E4D9;
+	--base300: #B7B5AC;
+
+	--description-color: var(--tx-muted); 
+    --caption-color: var(--tx-muted);
+	--background-color:  var(--paper); 
+    --hrule-color: var(--base100);
+    --hrule-faint-color: var(--base50);
+	--box-border-color: var(--base50);
+
+	--header-anchor-color: var(--base300); /* for the # links on headers */
+	--icon-color: var(--blue600);
+	--icon-hover-color: var(--blue300);
+	--tag-color: var(--purple600);
+	--tag-hover-color: var(--purple300);
+
+	--text-color: var(--tx-normal); 
+	--text-color-link: var(--blue700); 
+	--text-color-link-active: var(--blue400); 
+	--text-color-link-visited: var(--blue700); 
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--black: #100F0F;
+		--base200: #CECDC3; 
+		--base300: #B7B5AC;
+		--base500: #878580;
+		--base600: #6F6E69;
+		--base700: #575653;
+		--base900: #282726;
+		--base950: #1C1B1A;
+		--blue700: #1A4F8C;
+		--red400: #D14D41;
+		--purple400: #8B7EC8;
+		--purple500: #735EB5;
+		--purple600: #5E409D;
+	
+		--description-color: var(--base300); 
+		--caption-color: var(--base500);
+		--background-color:  var(--black); 
+		--hrule-color: var(--base900);
+		--hrule-faint-color: var(--base950);
+		--box-border-color: var(--base900);
+
+		--header-anchor-color: var(--base500); /* for the # links on headers */
+		--icon-color: var(--blue400);
+		--icon-hover-color: var(--blue600);
+		--tag-color: var(--purple400);
+		--tag-hover-color: var(--purple500);
+
+		--text-color: var(--base200); 
+		--text-color-link: var(--blue400); 
+		--text-color-link-active: var(--blue600); 
+		--text-color-link-visited: var(--blue400); 
+	}
+}
+/* Defaults */
+:root {
+	--font-family: Georgia, Times, -serif; /* Tahoma, -apple-system, system-ui, sans-serif; */
+	--font-family-sanserif: Tahoma, -apple-system, system-ui, sans-serif;
+	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+
+	/* from another template - experiment with these */
+	--font--serif: 'Bitstream Charter', Charter, Palatino, 'Palatino Linotype', 'Palatino LT STD', 'Book Antiqua', Georgia, serif;
+  	--font--sans: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+}
+
+/* Theme colors */
+:root {
+	--syntax-tab-size: 2;
+}
+
+
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	font-size: 18px;  /* a little bigger to accomodate a serif font */
+	color: var(--text-color);
+	background-color: var(--background-color);
+}
+html {
+	overflow-y: scroll;
+}
+body {
+	max-width: 70em; /* 50em; */
+}
+
+/* Basic heading typography */
+h1,h2,h3,h4,h5 {
+  font-family: var(--font--sans);
+  font-weight: 600;
+}
+
+/* different horizontal rules  https://www.w3schools.com/howto/howto_css_dividers.asp */
+ /* Dashed border */
+ hr.dashed {
+	border-top: 1px dashed var(--hrule-color);
+  }
+  
+  /* Dotted border */
+  hr.dotted {
+	border-top: 1px dotted var(--hrule-color);
+  }
+  
+  /* Solid border */
+  hr.solid {
+	border-top: 1px solid var(--hrule-color);
+  }
+  
+
+/* 
+https://css-tricks.com/barebones-css-for-fluid-images/ 
+Without this, images generated by eleventy-img will always use the largest available size
+-- ie, not be responsive.
+*/
+img {
+	max-width: 100%; 
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+  }
+  img[width] {
+	width: auto; /* Defer to max-width */
+  }
+  img[width][height] {
+	height: auto; /* Preserve aspect ratio */
+  }
+  
+  /* Let SVG scale without boundaries */
+  img[src$=".svg"] {
+	width: 100%;
+	height: auto;
+	max-width: none;
+  }
+  
+
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+p {
+	line-height: 1.5;
+	/* font-size: 1.2em; */
+}
+
+p.caption {
+	text-align: center;
+	font-style: italic;
+	font-size: 0.9em;
+	color: var(--caption-color);
+ }
+
+ /* for the credits at the bottom of a page */
+p.credit {
+	max-width: 50em;
+	font-size: 0.9em;
+	margin-left: auto;
+	margin-right: auto;
+ }
+
+
+/* for inline annotations, like translations */
+span.inline-note {
+	font-size: 0.9em;
+	font-style: italic;
+}
+
+li {
+	line-height: 1.5;
+	/* font-size: 1.2em; */
+}
+
+a[href] {
+	color: var(--text-color-link);
+	text-decoration: none; 
+}
+a[href]:visited {
+	color: var(--text-color-link-visited);
+}
+a[href]:hover,
+a[href]:active {
+	color: var(--text-color-link-active);
+}
+
+main {
+	padding: 1rem;
+}
+main :first-child {
+	margin-top: 0;
+}
+
+header {
+	border-bottom: 1px dashed var(--hrule-color);
+}
+header:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.links-nextprev {
+	text-align: center;
+	list-style: none;
+	border-top: 1px dashed var(--hrule-color);
+	padding: 1em 0;
+}
+
+
+table {
+	margin: 1em 0;
+}
+table td,
+table th {
+	padding-right: 1em;
+}
+
+pre,
+code {
+	font-family: var(--font-family);
+	font-size: 0.95em;
+}
+pre:not([class*="language-"]) {
+	margin: .5em 0;
+	line-height: 1.375; /* 22px /16 */
+	-moz-tab-size: var(--syntax-tab-size);
+	-o-tab-size: var(--syntax-tab-size);
+	tab-size: var(--syntax-tab-size);
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+}
+code {
+	word-break: break-all;
+}
+
+/*
+  Custom containters
+*/
+div.message-box {
+	max-width: 50em; 
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div.magazine-box {
+	max-width: 50em; 
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+/* Header */
+header {
+	font-family: var(--font--sans); 
+	display: flex;
+	gap: 1em .5em;
+	flex-wrap: wrap;
+	align-items: center;
+	padding: 1em;
+}
+.home-link {
+	font-size: 1.5em; /* 24px /16 (I think)*/
+	font-weight: 700;
+	margin-right: 2em;
+}
+.home-link:link:not(:hover) {
+	text-decoration: none;
+}
+
+/* Nav */
+.nav {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.nav-item {
+	display: inline-block;
+	margin-right: 1em;
+}
+.nav-item a[href]:not(:hover) {
+	text-decoration: none;
+}
+.nav a[href][aria-current="page"] {
+	text-decoration: underline;
+}
+
+/* Posts list */
+.postlist {
+	list-style: none;
+	padding: 0;
+	padding-left: 0; /* 1.5rem; */
+	max-width: 50em;
+}
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	counter-increment: start-from -1;
+	margin-bottom: 1em;
+	padding-bottom: 50px;
+	/* padding: 8px 16px; */
+	border-bottom: 1px dashed var(--hrule-color);
+}
+
+/* 
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	content: "" counter(start-from, decimal-leading-zero) ". ";
+	line-height: 100%;
+	text-align: right;
+	margin-left: -1.5rem;
+}
+*/
+
+.postlist-date,
+.postlist-item:before {
+	font-size: 0.8125em; /* 13px /16 */
+	color: var(--description-color);
+}
+.postlist-date {
+	word-spacing: -0.5px;
+	padding-left: .25em;
+}
+.postlist-link {
+	font-size: 1em; /* 1.1875em;  19px /16 */
+	font-weight: 700; 
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration: none; 
+	/* text-decoration-thickness: 1px; */
+}
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+/* Tags */
+.post-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+	font-style: italic;
+}
+.postlist-item > .post-tag {
+	align-self: center;
+}
+
+/* Tags list */
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: .5em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.post-metadata time {
+	margin-right: 1em;
+}
+
+/* I don't want tag links to stand out too much */
+.post-metadata a[href] {
+	color: var(--tag-color);
+}
+
+.post-metadata a[href]:hover,
+               a[href]:active {
+	color: var(--tag-hover-color);
+}
+
+
+.post-metadata li {
+	font-size: 0.875em;
+}
+
+/* metadata for posts and talks */
+
+.posttalk-metadata {
+	list-style: none;
+	padding-left: 0;
+	color: var(--description-color);
+}
+
+.posttalk-metadata ul {
+	list-style-type: none; /* no bullets */
+	padding: 0;  /* no indentation, either */
+	margin: 0;
+}
+
+/* Direct Links / Markdown Headers */
+.header-anchor {
+	text-decoration: none;
+	font-style: normal;
+	font-size: 1em;
+	margin-left: .1em;
+}
+a[href].header-anchor,
+a[href].header-anchor:visited {
+	color: transparent;
+}
+a[href].header-anchor:focus,
+a[href].header-anchor:hover {
+	text-decoration: underline;
+}
+a[href].header-anchor:focus,
+:hover > a[href].header-anchor {
+	color: var(--header-anchor-color);
+}
+
+h2 + .header-anchor {
+	font-size: 1.5em;
+}
+
+/* Footer */
+hr {
+    border: none;
+    background-color: var(--hrule-color);
+    height: 1px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+    hr {
+        width: 100%;
+    }
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2rem 0;
+    background-color: var(--background-color);
+	;
+}
+
+.footer-container p {
+    font-size: 1rem;
+    color: var(--description-color);
+}
+
+.footer-container .social_icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0 1rem;
+}
+
+.footer-container .social_icons a {
+    color: var(--icon-color);
+    font-size: 1.5rem;
+    transition: all 0.5s ease-in-out;
+}
+
+.footer-container .social_icons a:hover {
+    color: var(--icon-hover-color);
+}</style>
+	</head>
+	<body>
+		<a href="#skip" class="visually-hidden">Skip to main content</a>
+
+		<header>
+			<a href="/dark_tales_sleuth/" class="home-link">Dark Tales Sleuth</a>
+			<nav>
+				<h2 class="visually-hidden">Top level navigation menu</h2>
+				<ul class="nav">
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/about/">About</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/my-investigations/">My Cases</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/blog/">All Posts</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/comments/">Comments</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/about-me/">About Me</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="skip">
+			
+
+
+<h1>The Wife of Ira Hopkins</h1>
+
+
+
+
+
+
+<ul class="posttalk-metadata">
+  <li>By Victor Rousseau</li>
+  <li>As published in  <em>The Evening Republican</em>, April 14, 1917</li>
+</ul>
+
+<article>
+<p>I remember this conversation almost verbatim, because it was so appropriate to the incident which followed it. First, I will recount the conversation, which the visitor interrupted.</p>
+<p>Although he was not admitted to practice medicine in America—for money, at least —Dr. Phileas Immanuel, the famous neurologist who had come from Greece to attend some conference or other, was frequently called upon to give his services gratis to those who knew of his special skill in cases of obscure nervous diseases. It had come to be understood that he could be consulted most evenings during the remainder of his stay, and on this evening he was expecting a visit from a gentleman who had sent him a rather urgent letter, making an appointment. Consequently Paul Tarrant and I ought not to have lingered. But the Doctor's conversation was always fascinating, and neither of us could tear himself away. Dr. Immanuel, posted before the fire in his consulting room, his hands beneath his coat tails, was haranguing us, and we were listening.</p>
+<img alt="Melton holds onto the young woman's shoulders and hypnotizes her, while Dr. Immanuel and and angry Paul Tarrant look on." loading="lazy" decoding="async" src="/dark_tales_sleuth/img/wife-of-ira-hopkins-66x8lPF8CX-400.png" width="784" height="1164" srcset="/dark_tales_sleuth/img/wife-of-ira-hopkins-66x8lPF8CX-400.png 400w, /dark_tales_sleuth/img/wife-of-ira-hopkins-66x8lPF8CX-784.png 784w" sizes="30vw">
+<p class="caption">Suddenly, Melton went up to her, planted himself before her, and putting one hand on either of her shoulders, said in a loud voice: "Sit down and go to sleep."</p>
+<p>&quot;You mean,&quot; interrupted Tarrant, &quot;that if only the theory of reincarnation were admitted into the pharmacopeia, physicians would have a complete method of treating these cases of aphasia, amnesia, and secondary personality that you have been illustrating?&quot;</p>
+<p>&quot;Not secondary personality, Tarrant,&quot; returned the Doctor irritably. &quot;There is no such thing. Say rather 'incomplete personality' or 'lumber room personality,' but not 'secondary personality.'</p>
+<p>&quot;Put it this way,&quot; he resumed. &quot;It is a favorite illustration of mine, but it is the best I know. Suppose that Mr. Lewis Waller,<label for="waller" class="margin-toggle">⊕</label>
+<input type="checkbox" id="waller" class="margin-toggle">
+<span class="marginnote">William Waller Lewis (1860-1915), stage name Lewis Waller, was an English actor and theater manager, known for his Shakespearean and romantic lead roles. (<a href="https://en.wikipedia.org/wiki/Lewis_Waller">Wikipedia</a>)</span> whose impersonation of Henry V has made him a universal favorite, should be cast in the role of Hamlet. Well, now, perhaps he has eaten too much or too little, perhaps be has a bad cold or some mental trouble which temporarily upsets the co-ordinative faculties of his mind. Well, instead of beginning his famous soliloquy he begins the speech before the battle of Agincourt, in a moment of absentmindedness. Is that 'secondary personality,' Tarrant? Not at all. He has simply pulled Henry V out of the lumber room of his memory in place of Hamlet.</p>
+<p>&quot;So it is in these cases that I have mentioned. These people who forget who they are, or imagine they are others—they are really one and the same individuality, but instead of playing the parts assigned to them in this incarnation, they pull out some old part which they played fifteen hundred or three thousand years ago. We live&quot;—I remember these words of the Doctor's vividly in the light of what followed them —&quot;we live, my dear Tarrant, a very much deeper and bigger life than you or I have any idea of. It's the deeper life that counts, not this surface life with its conglomeration of chances and accidents. We live at once the whole life and the part life. The trouble with us is that we center our personalities in the superficial top layer.&quot;</p>
+<p>There followed an agitated ring at the bell, and a minute later the attendant was showing the patient in. Dr. Immanuel, like most big men, did not keep his patients waiting in order to magnify his own importance.</p>
+<p>The man who entered was a well-dressed, handsome, aristocratic looking young fellow of about eight and twenty. I started to make my adieux, but Tarrant, instead of accompanying me, went up to the visitor and greeted him cordially.</p>
+<p>&quot;Why, Morton, I haven't seen you for ages,&quot; he said. &quot;Nothing serious, I hope, with you or Miss Digby, that brings you to our friend Immanuel?&quot;</p>
+<p>&quot;You know each other?&quot; asked the Doctor in surprise.</p>
+<p>Tarrant smiled. &quot;Jim Morton and I have lived on the same block for years,&quot; he answered. &quot;I own most of it now, but there will always be space for Jim's house.&quot;</p>
+<p>Then I was introduced and we started to go. But Morton detained us.</p>
+<p>&quot;You'd better stay, Tarrant—and your friend, too,&quot; he said. &quot;The news will be all over town tomorrow or the next day, and upon my soul I'd rather it leaked out piecemeal than have the revelation strike everybody at once. Please sit down—both of you.&quot;</p>
+<p>We obeyed, and a couple of minutes later Morton was pouring out his troubles to Dr. Immanuel.</p>
+<p>&quot;I don't think you know my fiancee, Miss Katherine Digby,&quot; he said. &quot;Of course you don't, seeing that you have never met me before. I suppose I forgot for the moment, meeting Tarrant here, that you aren't one of our set. You see,&quot; he said apologetically, &quot;everyone in the neighborhood has known us for a good many years.&quot;</p>
+<p>Immanuel checked him gently. &quot;I am to understand from your letter that Miss Digby suffers from some nervous trouble?&quot; he asked.</p>
+<p>&quot;I don't know,&quot; exclaimed the other, starting out of his chair and sitting down again. &quot;I hope so. Indeed I do. But if it is true, what she told me—that she was married seven years ago—&quot;</p>
+<p>Tarrant gasped and checked himself upon the verge of an exclamation. I saw his lips form the word &quot;impossible,&quot; and he began shaking his head.</p>
+<p>&quot;If it is true,&quot; cried Morton, &quot;I don't know whether to be more sorry for myself or her.&quot;</p>
+<p>&quot;Now, my dear fellow, let us get at the story systematically,&quot; said the Doctor. &quot;When did she tell you this?&quot;</p>
+<p>&quot;Yesterday afternoon, when I was calling on her. We have been engaged three months and expected to be married in about six weeks' time. Miss Digby has never shown any signs of abnormality except that she is given to what is called 'day-dreaming.' Frequently she falls into a brown study which lasts a couple of minutes, and during that period she is entirely oblivious to what is taking place around her. But that is of no significance.&quot;</p>
+<p>&quot;Pardon me; it is of the greatest significance,&quot; replied the Doctor. &quot;It is a true trance condition, of a limited kind. It is a process of auto-hypnosis—self-hypnotism, that is to say—which may reveal a great deal to the specialist. But proceed!&quot;</p>
+<p>&quot;I had grown accustomed to these states, which do not occur with great frequency,&quot; continued Morton, &quot;but yesterday I was a little piqued that one should occur at a time when she had given me reason to believe that—well, that she thought a good deal of me. And so I shook her gently, to bring her out of it.&quot;</p>
+<p>&quot;My dear Mr. Morton! You might have done serious harm. And then she made that astonishing statement to you?&quot;</p>
+<p>&quot;She turned around and, without the slightest expression of shame or guilt, informed me that she was married, seven years ago, in the Harmony Hall, a low sort of dance hall across the Avenue, to a man called Ira Hopkins.&quot;</p>
+<p>&quot;What, Hopkins, the corner grocer?&quot; shouted Tarrant, leaping out of his seat</p>
+<p>&quot;Yes,&quot; answered Morton, overcome with emotion. &quot;Of course, it was fantastic. An instant later she came out of her reflections and gravely told me that she loved me with her whole heart. I made some excuse, hurried out of the room, went home, and wrote that letter to you.&quot;</p>
+<p>&quot;And you have not seen her since?&quot;</p>
+<p>&quot;No. I have written saying that I was called out of town on urgent business. What can I do, Doctor? I feel that I shall go mad.&quot;</p>
+<p>&quot;Have you spoken to this man Hopkins?&quot; asked Tarrant.</p>
+<p>&quot;Of course not, you idiot!&quot; Morton angrily. &quot;Why, confound you, he has a wife and three children.&quot;</p>
+<p>&quot;Have you examined the marriage records?&quot; asked Immanuel.</p>
+<p>James Morton scratched his head in perplexity. &quot;I never thought of that,&quot; he muttered shamefacedly.</p>
+<p>&quot;It is common, among hysterical persons, for them to accuse themselves of all kinds of things,&quot; continued the Doctor kindly. &quot;Now don't you rush off to the marriage bureau. Go out of town at once, as you have said, and stay away for a week. At the end of that time come back and you shall know the truth.&quot;</p>
+<p>&quot;A week!&quot; cried Morton. &quot;I can't wait a day. Why, you can find out in an hour.&quot;</p>
+<p>&quot;Hardly that,&quot; answered Immanuel quietly. &quot;The old records are at Albany, you know.&quot;</p>
+<p>&quot;Three days, then.&quot;</p>
+<p>&quot;I said a week,&quot; replied the doctor inflexibly. &quot;If you cannot accept my proposal—&quot;</p>
+<p>&quot;You promise to have the whole problem settled when I come back, then?&quot;</p>
+<p>&quot;One week from tonight,&quot; replied the Doctor. And after a rather painful scene Tarrant and I got the poor fellow out of the room and took him to his home.</p>
+<p>I heard nothing more for I think five days, except that Tarrant called me on the telephone the following morning and told me that he had stayed the night at Morton's house and had seen him off to the country early the next morning. On the evening of the fifth day, however, I received a telephone message from Immanuel, saying that Tarrant had been dining with him and asking if I could join them that evening. I found them talking earnestly together in the consulting room. But when I spoke of the case Immanuel seemed slightly embarrassed.</p>
+<p>&quot;The fact is,&quot; he admitted, &quot;all depends upon the result of this evening's work; that is why I asked you to come in as a witness. I have had the marriage records examined and there is certainly none of such a preposterous union as is supposed to have occurred. But, as you may know, some of the records were destroyed in the Capitol fire, and it is possible that this was among them. I have made the acquaintance of Hopkins. He is a nervous little man with a placid wife and three lively children, and betrayed no embarrassment at the casual mention of Miss Digby's name. Then, too, I took the liberty of visiting Miss Digby, representing that I was her fiance's physician, and I think I have discovered the secret. The story of the marriage was totally false—but it is, in a sense, true. Literally, it is false. Morally, it is true. Legally, she is not Hopkins' wife. Actually, she is. Her personality, as it appears in its present incarnation, repudiates all knowledge of the little grocer. But the wider personality, the real Miss Digby, is married to him.&quot;</p>
+<p>&quot;You mean that she was his wife in her last incarnation?&quot; I asked, startled.</p>
+<p>&quot;Heaven forbid!&quot; answered the Doctor fervently, and Tarrant replied &quot;Amen!&quot;</p>
+<p>&quot;No, this is the solution,&quot; explained Immanuel. &quot;Seven years ago, when she was a girl of sixteen. Miss Digby went, with a girl friend of hers, to Harmony Hall, to hear an itinerant hypnotist—a veritable charlatan, one of those men who travel round the country, exhibiting the very ordinary phenomena of hypnotism to a gaping, ignorant public. The man invited Miss Digby to become one of his subjects, and, like a silly child, she was persuaded. He easily placed her under hypnosis, and then, having made her perform foolish antics, for the amusement of the spectators, and having possession of the name of Ira Hopkins—to obtain local data is part of these people's business—he assured her that she was his wife. That is all. Hopkins, if he was ever told, speedily forgot the circumstance, as did Miss Katherine. But you know what Scripture says about marriage. Miss Katherine, in her deeper personality, is the wife of Hopkins. Those fits of abstraction, common to many persons of temperament, represent a momentary lifting of the veil, an usurping of the wider personality into the shallower one which we know. And it was in one of those that Morton surprised her into betraying the secret. Once her normal self again, Miss Katherine knew nothing of the confession. But in her heart, her soul, though she has no feeling whatever toward the little man, she is Mrs. Ira Hopkins.&quot;</p>
+<p>&quot;How horrible!&quot; I exclaimed. &quot;What are you going to do this evening, then?&quot;</p>
+<p>&quot;By a streak of rare good fortune I have discovered the man Melton, who hypnotised the young lady,&quot; answered Immanuel. &quot;I explained the circumstances, and by dint of a mixture of threats and a promise of a couple of hundred dollars, he has been induced to meet her here this evening, hypnotize her again, and solemnly declare her to be divorced.&quot;</p>
+<p>&quot;It sounds fantastic,&quot; said Tarrant, &quot;but—good Lord, Morton is one of my oldest friends—and Miss Katherine, too.&quot;</p>
+<p>A double peal at the door bell was followed by the appearance, almost simultaneously, of the two visitors. The servant, who had been instructed to admit anyone that called, ushered them both into the room together. It was an embarrassing moment. I could see that Melton knew who the girl was at once, but Miss Katherine had not the slightest recollection of the fellow, who, with his sharp, roving black eyes and long, greasy ringlets, looked like the typical quack he was.</p>
+<p>We were all standing there together and the situation grew more ridiculous each moment, for Miss Digby, wholly ignorant of the purpose of her visit and finding three men present besides the Doctor, was looking uneasy and coloring under the quack's scrutiny. She was a handsome, lively girl, without the slightest appearance of neurasthenia, and I expected her to turn round and go-home.</p>
+<p>Suddenly Melton went up to her, planted himself before her, and, putting one hand on either of her shoulders, said in a loud voice:</p>
+<p>&quot;Sit down and go to sleep!&quot;</p>
+<p>A box on the ear ought to have rewarded this speech. Tarrant started forward indignantly; but before he could reach the spot, to my unutterable astonishment I saw Miss Digby sink into an arm-chair and close her eyes. Melton turned to the Doctor with a grin.</p>
+<p>&quot;They never forget,&quot; he said impudently. &quot;Once you hypnotise them it's as easy as pie next time. I guess that helped you out some, eh, Doc?&quot;</p>
+<p>''Suppose, now that you have assumed charge of this case, that you do what you are paid to do,&quot; said the little Greek, curtly.</p>
+<p>&quot;I haven't been paid yet,&quot; answered Melton, grinning. &quot;Now, Miss, sleep easy. Nobody's going to hurt you. You sit still and keep them eyes closed.&quot;</p>
+<p>Immanuel counted out two hundred dollars and Melton counted the money again, then pocketed it &quot;You can't make it two hundred and fifty?&quot; he asked regretfully.</p>
+<p>&quot;Two hundred,&quot; replied Immanuel. &quot;I stand by my bargains, sir.&quot;</p>
+<p>&quot;Well,&quot; answered Melton, &quot;that's right. But remember, I only engaged to tell her she was divorced. I don't guarantee that it'll work.&quot;</p>
+<p>&quot;Why not?&quot; asked the other, and I could see that he was worried by a sudden thought that occurred to him.</p>
+<p>&quot;I'll tell you afterwards,&quot; answered the quack. &quot;Are you ready for me to begin?&quot;</p>
+<p>Immanuel nodded, and Melton stepped up to the girl and sat down on another chair which he drew up in front of her. He took her hand in his.</p>
+<p>&quot;Who is your husband?&quot; he demanded, leering at us as he spoke.</p>
+<p>&quot;Ira Hopkins,&quot; replied Miss Digby mechanically.</p>
+<p>&quot;What is his business?&quot;</p>
+<p>&quot;He has a corner grocery.&quot;</p>
+<p>&quot;Do you love him?&quot; asked Melton, putting his tongue into his cheek.</p>
+<p>&quot;O, yes, I love him, of course,&quot; she answered.</p>
+<p>&quot;And how long have you been married?&quot;</p>
+<p>&quot;Seven years, two months, and nine days,&quot; she said, without any apparent effort of calculation.</p>
+<p>&quot;Well, you ain't married any longer. You are divorced now. Do you understand?&quot;</p>
+<p>&quot;Yes,&quot; she responded in the same listless manner.</p>
+<p>&quot;Then what is your name now?&quot;</p>
+<p>&quot;Katherine Hopkins.&quot;</p>
+<p>&quot;Are you married?&quot;</p>
+<p>&quot;Yes, to Ira Hopkins.&quot;</p>
+<p>We looked on in amazement Tarrant I think, was contemplating attacking the impudent fellow, and he, sensing it, looked up at him in some sort of fear. &quot;I'm doing the best I can,&quot; he said. &quot;I can't make her believe me, can I?&quot;</p>
+<p>&quot;Try again,&quot; said Immanuel grimly, and the fellow turned to the girl once more.</p>
+<p>&quot;What is your name?&quot; he asked again.</p>
+<p>&quot;Katherine Hopkins.&quot;</p>
+<p>&quot;Your husband is Ira Hopkins, owner of a corner grocery, is he not?&quot;</p>
+<p>&quot;Yes.&quot;</p>
+<p>&quot;How long have you been married?&quot; he continued, and the same answer was returned as previously.</p>
+<p>&quot;Well, listen to me,&quot; shouted Melton in the girl's ear. &quot;You ain't married any longer. Ira Hopkins has got a divorce and married again. Do you understand that?&quot;</p>
+<p>&quot;Yes, I understand,&quot; said Miss Katherine.</p>
+<p>&quot;And what is your name how?&quot;</p>
+<p>&quot;Katherine Hopkins.&quot;</p>
+<p>Melton looked round hopelessly. Terrant looked as though he were going to spring at him. But Immanuel went up to the man and said simply: &quot;You have done what you contracted to do.&quot;</p>
+<p>There was a long silence. Then the Doctor turned to us. &quot;You see, gentlemen,&quot; he said, &quot;marrying is easier than divorcing. In fact, it is almost impossible— &quot;</p>
+<p>&quot;Quite impossible,&quot; interposed Melton brusquely. &quot;Divorce don't go in the place she's in now. That's Gospel, ain't it? I warned you, and I know, for I've been on my job for the past ten years and more, and if you'd seen as much of human nature as I have, instead of follering your book theories, you'd never have been fool enough to hand over that two hundred.&quot;</p>
+<p>&quot;Well, gentlemen,&quot; said the Greek, &quot;that is all. I was afraid of it. The mischief is done and there seems no remedy&quot;</p>
+<p>&quot;Unless,&quot; said Tarrant, &quot;Morton is taken into your confidence and told just what the circumstances are. Surely, Doctor, no normal man would mind marrying a woman who believed she was another man's wife when she was hypnotized.&quot;</p>
+<p>&quot;That,&quot; answered Immanuel slowly, &quot;is none of my business. If Morton chooses to marry Miss Digby under these circumstances, he must do so. But in my opinion the marriage would be no marriage at all—nothing but a legal agreement to live together.&quot;</p>
+<p>&quot;Good Lord, Immanuel, what ought to be done, then?&quot;</p>
+<p>&quot;There seems to be no remedy,&quot; the Doctor answered. &quot;If Hopkins were not married the only thing to do —if one wanted to be ethically correct —would be for her to go through the form of marriage with him and then separate from him. Now don't get excited, my dear Paul. I am giving you my opinion, and as a physician I cannot tamper with the truth. Personally, as a man, I think I should advise the couple to marry. Only—&quot;</p>
+<p>&quot;Yes?&quot; cried Tarrant eagerly.</p>
+<p>&quot;There is this to be said,&quot; continued Immanuel. &quot;Marriage is much more than a mere legal agreement. You, as a member of  your particular faith, do not consider it as a sacrament. I, as a Greek Catholic, do. But whatever our creeds may teach, the fact remains that marriage is something extending deep down under the surface layer of consciousness. It is something that intimately binds the larger, deeper, hidden self of the contracting parties. It is not only that this young lady is married to Ira Hopkins, Hopkins is also married to her. And though to the physical personality of Hopkins Miss Katherine is merely one of his customers, the deeper Hopkins knows.&quot;</p>
+<p>&quot;But how can she be morally married by the mere saying so of this—this gentleman?&quot; protested Tarrant.</p>
+<p>&quot;Because,&quot; answered the Doctor, &quot;the soul receives its impressions from the external personality, as the plant root through its leaves. It knows nothing of falsehood. Every suggestion made to it is accepted as true and must be transmitted into truth. You see now the consequences of tampering with truth, and the profound spiritual significance of our earthly actions.&quot;</p>
+<p>&quot;Good evening, gentlemen,&quot; said Melton, briskly. He had heard this dialogue, with manifest uneasiness, and now, picking up his hat he moved toward the door. Then Paul Tarrant started forward.</p>
+<p>&quot;Will you wait twenty minutes by that clock and then try again, for a hundred dollars?&quot; he asked.</p>
+<p>&quot;I will,&quot; replied the quack. &quot;But I warn you it won't go. You can't go against the Gospels, and there ain't no divorce recognized there—leastways, not for the mere saying it's so.&quot;</p>
+<p>&quot;Where are you going, Paul?&quot; inquired Immanuel, as Tarrant started for the door.</p>
+<p>&quot;I'll tell you when I come back,&quot; he answered. He paused, his hand on the door knob. &quot;This fellow Hopkins lives over his store, doesn't he?&quot; he asked.</p>
+<p>&quot;Yes. Apartment 8 in the block of which the store forms a part. But why are you going? You won't be rash. Paul? Remember, he knows nothing.&quot;</p>
+<p>&quot;Keep cool, Immanuel. I'm not going to harm him,&quot; replied Tarrant, and with that he was gone, and we three sat there together in silence, looking now at each other and now at the hypnotized girl.</p>
+<p>&quot;It ain't no good,&quot; vouchsafed the quack, &quot;but I'm willing to earn a hundred. Who wouldn't? By Jiminy, if I'd known what was going to happen that night seven years ago in Harmony Hall! But I was newer at the game then, gentlemen, and I hadn't had the experience.&quot;</p>
+<p>&quot;You fellows ought to be prohibited by law,&quot; said the Doctor sternly. &quot;You play with forces whose very meaning you are ignorant of.&quot;</p>
+<p>&quot;Hold on there, friend,&quot; said Melton. &quot;I go to the facts, you go to the books. What's the odds? They write the books from the facts, don't they? Now I say, if a poor feller's got a bad toothache and I can tell him he's well, and his pain stops, I consider I'm a public benefactor.&quot;</p>
+<p>&quot;Exactly,&quot; answered Immanuel. &quot;And what do you do? You destroy his consciousness of pain, which would have warned him of an ulcerated tooth, and instead of going to a doctor he lets the ulcer eat down into the bone. That's your way; you cure the effects and ignore the causes. I wonder what Tarrant's doing?'' he continued, looking at me uneasily.</p>
+<p>It was now fifteen minutes since he had gone. Only five remained, but I knew that Melton would not stir because he had not received his money. Just as I was wondering whether I ought not to go after Tarrant the door bell rang, and a minute later he came hurrying in. His face was radiant</p>
+<p>&quot;May I speak to Mr. Melton privately?&quot; he asked. &quot;I don't want to keep anything from you, gentlemen, but this is—well, it's the limit. And you'll see whether it's going to work or not when he speaks to the girl.&quot;</p>
+<p>We excused him willingly, and be drew Melton into a corner. I saw him count out a hundred dollars and saw the quack count them again and pocket them, as before. Then Tarrant began whispering, and Melton started back and stared at him, and suddenly broke into a broad grin. All the while Miss Katherine sat perfectly immobile upon the chair.</p>
+<p>Melton came back. &quot;Well, gentlemen,&quot; he said, &quot;what Mr. Terrant tells me puts another light on the subject altogether. It he hadn't thought of it and found out—good Lord! I'm sailing for Australia next month and you might never have found me again. And remember, Doctor, although you say you are the hypnotist at the hospital in Athena, neither you nor nobody could ever get that out of her mind —nobody but me, once I put it in. There's where I've got the whip hand over you, Doctor Immanuel. Think of all the wisest hypnotisers in the world trying and trying to rub out that stain, and only the one that put it there can take it out again. Am I right or wrong?&quot;</p>
+<p>&quot;Unfortunately you are right, sir,&quot; Immanuel answered.</p>
+<p>&quot;And I ain't holding you up for another penny. Now, Doctor, confess that we professionals ain't all as bad as you paint us.&quot;</p>
+<p>He seemed really concerned about the reputation of his trade, this quack. I have known others just as sensitive.</p>
+<p>By this time we were all in a fever of expectancy. Melton kept us waiting no longer. He drew up his chair again and, sitting down before the girl, took her hand in his.</p>
+<p>&quot;What is your name?&quot; he asked.</p>
+<p>&quot;Katherine Hopkins,&quot; she replied quietly,</p>
+<p>&quot;When were you married?&quot;</p>
+<p>&quot;Seven years, two months, and ten days ago,&quot; she answered, and Melton looked round at us.</p>
+<p>&quot;You see, gentlemen, another day has just come to an end,&quot; he said. &quot;It was about this time I hypnotized her in Harmony Hall.&quot; He turned to the girl again. *</p>
+<p>&quot;Your marriage wasn't any marriage at all,&quot; he said. &quot;The man Hopkins, who you think is your husband, had already been married nearly two years at the time I married you to him. So it wasn't any marriage. Do you understand?&quot;</p>
+<p>&quot;Yes.&quot;</p>
+<p>&quot;What is your name?&quot;</p>
+<p>&quot;Katherine Digby.&quot;</p>
+<p>&quot;You will wake up in three minutes.&quot;</p>
+<p>&quot;Good evening, gentlemen,&quot; said Melton, and he went out.</p>
+<hr>
+<p>Part of the series <a href="/dark_tales_sleuth/pages/victor-rousseau/#dr-phileas-immanuel-tracer-of-egos"><em>Phileas Immanuel, Tracer of Egos</em></a></p>
+<p>Story illustration by G. Irwin Myers, for <em>The Evening Republican</em>, April 14 1917. Source: <a href="https://newspapers.library.in.gov/?a=d&amp;d=EVRP19170414.2.32&amp;e=-------en-20--1--txt-txIN-------">Hoosier State Chronicles</a>.</p>
+
+</article>
+		</main>
+
+		<!-- footer -->
+		<hr>
+
+<div class="footer-container">
+	<p>&copy; 2025 Nina B. Zumel</p>
+	<div class="social_icons">
+	    <a href="mailto:nzumel@mzlabs.com?subject=Comment%20from%20Dark%20Tales%20Sleuth" aria-label="Email" target="_blank" rel="noopener noreferrer">
+			<i class="fas fa-fw fa-envelope"></i>
+		</a>
+		<a href="https://micro.blog/MultoGhost" aria-label="Micro.blog" target="_blank" rel="noopener noreferrer">
+			<i class="fab fa-fw fa-microblog"></i>
+		</a>
+		<a href="https://multoghost.wordpress.com/" aria-label="Multo (Ghost)" target="_blank" rel="noopener noreferrer">
+			<i class="fab fa-fw fa-wordpress"></i>
+		</a>
+		<a href="/dark_tales_sleuth/feed.xml" aria-label="RSS" target="_blank" rel="noopener noreferrer">
+			<i class="fa fa-fw fa-rss-square"></i>
+		</a>
+
+	</div>
+</div>
+		<!-- /footer-- >
+
+		<!-- Current page: /dark_tales_sleuth/victor-rousseau/wife-of-ira-hopkins/ -->
+	</body>
+</html>
