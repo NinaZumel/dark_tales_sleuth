@@ -15,7 +15,7 @@
 		<link href="https://github.com/ninazumel" rel="me">
 		<script src="https://kit.fontawesome.com/9bbe6f85f9.js" crossorigin="anonymous"></script>
 		
-		<style>.postlist { counter-reset: start-from 46 }
+		<style>.postlist { counter-reset: start-from 47 }
 /* For displaying image and description*/
 
 .author_container {
@@ -644,6 +644,15 @@ hr {
 <ol reversed class="postlist">
 
 	<li class="postlist-item">
+		<a href="/blog/2025-08-15-the-return-of-claudia/" class="postlist-link">The Return of Claudia</a>
+		
+		   <time class="postlist-date" datetime="2025-08-14 5:00 PM">14 August 2025</time>
+		   <p>Finishing up with Dr. Immanuel...
+The last Tracer of Egos story to appear in The Evening Republican was &amp;quot;The Return of Claudia,&amp;quot; on April 18, 1917. In this tale, Dr. Immanuel must deal with a case of dissociative identity disorder:...</p>
+        
+	</li>
+
+	<li class="postlist-item">
 		<a href="/blog/2025-08-12-the-wife-of-ira-hopkins/" class="postlist-link">The Wife of Ira Hopkins</a>
 		
 		   <time class="postlist-date" datetime="2025-08-11 5:00 PM">11 August 2025</time>
@@ -658,15 +667,6 @@ In &amp;quot;The Wife of Ira Hopkins,&amp;quot; Dr. Immanuel attempts to treat a
 		   <time class="postlist-date" datetime="2025-05-18 5:00 PM">18 May 2025</time>
 		   <p>Another tale of reincarnation, by Victor Rousseau.
 In &amp;quot;The Woman of Atlantis,&amp;quot; Dr. Immanuel&#39;s latest patient is a successful writer named Field, whose new novel is a tragic love story, set in Atlantis. Field falls in love with Lota, the heroine...</p>
-        
-	</li>
-
-	<li class="postlist-item">
-		<a href="/blog/2025-04-23-the-professors-peach-trees/" class="postlist-link">The Professor&#39;s Peach Trees</a>
-		
-		   <time class="postlist-date" datetime="2025-04-29 5:00 PM">29 April 2025</time>
-		   <p>Another Victor Rousseau story: in &amp;quot;The Professor&#39;s Peach Trees,&amp;quot; Dr. Immanuel tells his friends the story of a woman who was reincarnated—as a plant! Several plants, to be exact: peach trees, and flowers.
-The story also mentions the remarkable...</p>
         
 	</li>
 

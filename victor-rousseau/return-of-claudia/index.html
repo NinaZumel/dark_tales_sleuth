@@ -1,0 +1,870 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>The Return of Claudia</title>
+		<meta name="description" content="Filling in the Literary Blanks">
+		<link rel="alternate" href="/dark_tales_sleuth/feed/feed.xml" type="application/atom+xml" title="Dark Tales Sleuth">
+		<link rel="alternate" href="/dark_tales_sleuth/feed/feed.json" type="application/json" title="Dark Tales Sleuth">
+
+        
+		<link rel="me" href="https://micro.blog/MultoGhost">
+		<link rel="authorization_endpoint" href="https://indieauth.com/auth">
+		<link rel="token_endpoint" href="https://tokens.indieauth.com/token">
+		<link href="https://github.com/ninazumel" rel="me">
+		<script src="https://kit.fontawesome.com/9bbe6f85f9.js" crossorigin="anonymous"></script>
+		
+		<style>/* minimal implementation; just plain text in the margin, no blockquotes, code, etc */
+/* only (unnumbered) margin notes, no sidenotes */
+/* stripped down from https://github.com/edwardtufte/tufte-css */
+
+/* need this for correct sidenote numbering; but I'm not using sidenotes */
+/*
+body {
+    counter-reset: sidenote-counter; 
+} 
+*/
+
+
+/* since I imagine these will change with different templates */
+:root {
+    --content-width: 65%;
+    --image-padding: 5%;
+    --image-max: 60%;  /* total image+padding <= content-width */
+    --notewidth: 30%; 
+    /* content-width + notewidth <  100%. I think you should leave some wiggle room. */
+    --note-right-margin: -45%;
+    /* if this margin is -(notewidth), the note will start just on the right border of the text */
+    /* so push it a little to the right (more negative) */
+}
+
+article {
+	padding-top: 1rem; 
+}
+
+/* make room for the notes in the article container */
+article > p,
+article > pre,
+article > ul {
+    width: var(--content-width);
+}
+
+/* 
+  blockquotes should be a little shorter 
+  This assumes that left indentation is 2em, which is what it looks like.
+  */
+article > blockquote {
+    width: calc(var(--content-width) - 2em); 
+}
+
+
+article > hr {
+    max-width: var(--content-width);
+    margin: 0
+}
+
+article > h1, 
+article > h2,
+article > h3,
+article > h4 {
+    max-width: var(--content-width);
+}
+
+article > center {
+    max-width: var(--content-width);
+}
+
+/* keep images/captions in the text column, rather than centered in the article container */
+article > img {
+    margin-left: 0;
+    padding-left: var(--image-padding);
+    max-width: var(--image-max); 
+}
+
+article > p.caption {
+	text-align: left;
+    padding-left: var(--image-padding);
+	font-style: italic;
+	font-size: 0.9em;
+	color: var(--caption-color);
+ }
+
+article > p.caption a:hover,
+article > p.caption a:active {
+    color: var(--text-color-link-active);
+}
+
+.footnote-item {
+    max-width: var(--content-width); 
+}
+
+ /* finally, the margin note */
+.marginnote {    
+    float: right;
+    clear: right;
+    width: var(--notewidth);         
+    margin-right: var(--note-right-margin);
+    margin-top: 0.3rem;
+    margin-bottom: 0;
+    font-size: 0.8rem;
+    line-height: 1.3;
+    vertical-align: baseline;
+    position: relative;
+    /* border: 2px solid blue; */
+}
+
+
+input.margin-toggle {
+    display: none;
+}
+
+
+label.margin-toggle {    
+    display: none;
+
+}
+
+/* The mobile fallback: */
+/* making max-width bigger makes the note fall inline sooner */
+@media (max-width: 768px) {  
+    body {
+        width: 84%;
+        padding-left: 8%;
+        padding-right: 8%;
+    }
+
+    hr,
+    article > p,
+    article > blockquote,
+    article > pre {
+        width: 100%;
+    }
+
+    label.margin-toggle {
+        display: inline;
+    }
+       
+    .marginnote {           
+         display: none;        
+        }    
+
+      
+    .margin-toggle:checked + .marginnote {            
+        display: block;            
+        float: left;            
+        left: 1rem;            
+        clear: both;            
+        width: 95%;            
+        margin: 1rem 2.5%;            
+        vertical-align: baseline;            
+        position: relative;        
+    }
+    label {
+        cursor: pointer;
+    }
+}
+* { box-sizing: border-box; }
+/* colors from flexoki - https://stephango.com/flexoki */
+
+:root {
+	--paper: #FFFCF0;
+	--tx-normal: #100F0F;
+	--tx-muted: #6F6E69;
+	--tx-faint: #B7B5AC;
+	--blue300: #66A0C8;
+	--blue400: #4385BE;
+	--blue600: #205EA6;
+	--blue700: #1A4F8C;
+	--blue800: #163B66; 
+	--blue850: #133051;
+	--red800: #6C201C;
+	--purple600: #5E409D;
+	--purple300: #A699D0;
+	--base50: #F2F0E5;
+	--base100: #E6E4D9;
+	--base300: #B7B5AC;
+
+	--description-color: var(--tx-muted); 
+    --caption-color: var(--tx-muted);
+	--background-color:  var(--paper); 
+    --hrule-color: var(--base100);
+    --hrule-faint-color: var(--base50);
+	--box-border-color: var(--base50);
+
+	--header-anchor-color: var(--base300); /* for the # links on headers */
+	--icon-color: var(--blue600);
+	--icon-hover-color: var(--blue300);
+	--tag-color: var(--purple600);
+	--tag-hover-color: var(--purple300);
+
+	--text-color: var(--tx-normal); 
+	--text-color-link: var(--blue700); 
+	--text-color-link-active: var(--blue400); 
+	--text-color-link-visited: var(--blue700); 
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--black: #100F0F;
+		--base200: #CECDC3; 
+		--base300: #B7B5AC;
+		--base500: #878580;
+		--base600: #6F6E69;
+		--base700: #575653;
+		--base900: #282726;
+		--base950: #1C1B1A;
+		--blue700: #1A4F8C;
+		--red400: #D14D41;
+		--purple400: #8B7EC8;
+		--purple500: #735EB5;
+		--purple600: #5E409D;
+	
+		--description-color: var(--base300); 
+		--caption-color: var(--base500);
+		--background-color:  var(--black); 
+		--hrule-color: var(--base900);
+		--hrule-faint-color: var(--base950);
+		--box-border-color: var(--base900);
+
+		--header-anchor-color: var(--base500); /* for the # links on headers */
+		--icon-color: var(--blue400);
+		--icon-hover-color: var(--blue600);
+		--tag-color: var(--purple400);
+		--tag-hover-color: var(--purple500);
+
+		--text-color: var(--base200); 
+		--text-color-link: var(--blue400); 
+		--text-color-link-active: var(--blue600); 
+		--text-color-link-visited: var(--blue400); 
+	}
+}
+/* Defaults */
+:root {
+	--font-family: Georgia, Times, -serif; /* Tahoma, -apple-system, system-ui, sans-serif; */
+	--font-family-sanserif: Tahoma, -apple-system, system-ui, sans-serif;
+	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+
+	/* from another template - experiment with these */
+	--font--serif: 'Bitstream Charter', Charter, Palatino, 'Palatino Linotype', 'Palatino LT STD', 'Book Antiqua', Georgia, serif;
+  	--font--sans: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+}
+
+/* Theme colors */
+:root {
+	--syntax-tab-size: 2;
+}
+
+
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	font-size: 18px;  /* a little bigger to accomodate a serif font */
+	color: var(--text-color);
+	background-color: var(--background-color);
+}
+html {
+	overflow-y: scroll;
+}
+body {
+	max-width: 70em; /* 50em; */
+}
+
+/* Basic heading typography */
+h1,h2,h3,h4,h5 {
+  font-family: var(--font--sans);
+  font-weight: 600;
+}
+
+/* different horizontal rules  https://www.w3schools.com/howto/howto_css_dividers.asp */
+ /* Dashed border */
+ hr.dashed {
+	border-top: 1px dashed var(--hrule-color);
+  }
+  
+  /* Dotted border */
+  hr.dotted {
+	border-top: 1px dotted var(--hrule-color);
+  }
+  
+  /* Solid border */
+  hr.solid {
+	border-top: 1px solid var(--hrule-color);
+  }
+  
+
+/* 
+https://css-tricks.com/barebones-css-for-fluid-images/ 
+Without this, images generated by eleventy-img will always use the largest available size
+-- ie, not be responsive.
+*/
+img {
+	max-width: 100%; 
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+  }
+  img[width] {
+	width: auto; /* Defer to max-width */
+  }
+  img[width][height] {
+	height: auto; /* Preserve aspect ratio */
+  }
+  
+  /* Let SVG scale without boundaries */
+  img[src$=".svg"] {
+	width: 100%;
+	height: auto;
+	max-width: none;
+  }
+  
+
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+p {
+	line-height: 1.5;
+	/* font-size: 1.2em; */
+}
+
+p.caption {
+	text-align: center;
+	font-style: italic;
+	font-size: 0.9em;
+	color: var(--caption-color);
+ }
+
+ /* for the credits at the bottom of a page */
+p.credit {
+	max-width: 50em;
+	font-size: 0.9em;
+	margin-left: auto;
+	margin-right: auto;
+ }
+
+
+/* for inline annotations, like translations */
+span.inline-note {
+	font-size: 0.9em;
+	font-style: italic;
+}
+
+li {
+	line-height: 1.5;
+	/* font-size: 1.2em; */
+}
+
+a[href] {
+	color: var(--text-color-link);
+	text-decoration: none; 
+}
+a[href]:visited {
+	color: var(--text-color-link-visited);
+}
+a[href]:hover,
+a[href]:active {
+	color: var(--text-color-link-active);
+}
+
+main {
+	padding: 1rem;
+}
+main :first-child {
+	margin-top: 0;
+}
+
+header {
+	border-bottom: 1px dashed var(--hrule-color);
+}
+header:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.links-nextprev {
+	text-align: center;
+	list-style: none;
+	border-top: 1px dashed var(--hrule-color);
+	padding: 1em 0;
+}
+
+
+table {
+	margin: 1em 0;
+}
+table td,
+table th {
+	padding-right: 1em;
+}
+
+pre,
+code {
+	font-family: var(--font-family);
+	font-size: 0.95em;
+}
+pre:not([class*="language-"]) {
+	margin: .5em 0;
+	line-height: 1.375; /* 22px /16 */
+	-moz-tab-size: var(--syntax-tab-size);
+	-o-tab-size: var(--syntax-tab-size);
+	tab-size: var(--syntax-tab-size);
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+}
+code {
+	word-break: break-all;
+}
+
+/*
+  Custom containters
+*/
+div.message-box {
+	max-width: 50em; 
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div.magazine-box {
+	max-width: 50em; 
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+/* Header */
+header {
+	font-family: var(--font--sans); 
+	display: flex;
+	gap: 1em .5em;
+	flex-wrap: wrap;
+	align-items: center;
+	padding: 1em;
+}
+.home-link {
+	font-size: 1.5em; /* 24px /16 (I think)*/
+	font-weight: 700;
+	margin-right: 2em;
+}
+.home-link:link:not(:hover) {
+	text-decoration: none;
+}
+
+/* Nav */
+.nav {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.nav-item {
+	display: inline-block;
+	margin-right: 1em;
+}
+.nav-item a[href]:not(:hover) {
+	text-decoration: none;
+}
+.nav a[href][aria-current="page"] {
+	text-decoration: underline;
+}
+
+/* Posts list */
+.postlist {
+	list-style: none;
+	padding: 0;
+	padding-left: 0; /* 1.5rem; */
+	max-width: 50em;
+}
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	counter-increment: start-from -1;
+	margin-bottom: 1em;
+	padding-bottom: 50px;
+	/* padding: 8px 16px; */
+	border-bottom: 1px dashed var(--hrule-color);
+}
+
+/* 
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	content: "" counter(start-from, decimal-leading-zero) ". ";
+	line-height: 100%;
+	text-align: right;
+	margin-left: -1.5rem;
+}
+*/
+
+.postlist-date,
+.postlist-item:before {
+	font-size: 0.8125em; /* 13px /16 */
+	color: var(--description-color);
+}
+.postlist-date {
+	word-spacing: -0.5px;
+	padding-left: .25em;
+}
+.postlist-link {
+	font-size: 1em; /* 1.1875em;  19px /16 */
+	font-weight: 700; 
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration: none; 
+	/* text-decoration-thickness: 1px; */
+}
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+/* Tags */
+.post-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+	font-style: italic;
+}
+.postlist-item > .post-tag {
+	align-self: center;
+}
+
+/* Tags list */
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: .5em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.post-metadata time {
+	margin-right: 1em;
+}
+
+/* I don't want tag links to stand out too much */
+.post-metadata a[href] {
+	color: var(--tag-color);
+}
+
+.post-metadata a[href]:hover,
+               a[href]:active {
+	color: var(--tag-hover-color);
+}
+
+
+.post-metadata li {
+	font-size: 0.875em;
+}
+
+/* metadata for posts and talks */
+
+.posttalk-metadata {
+	list-style: none;
+	padding-left: 0;
+	color: var(--description-color);
+}
+
+.posttalk-metadata ul {
+	list-style-type: none; /* no bullets */
+	padding: 0;  /* no indentation, either */
+	margin: 0;
+}
+
+/* Direct Links / Markdown Headers */
+.header-anchor {
+	text-decoration: none;
+	font-style: normal;
+	font-size: 1em;
+	margin-left: .1em;
+}
+a[href].header-anchor,
+a[href].header-anchor:visited {
+	color: transparent;
+}
+a[href].header-anchor:focus,
+a[href].header-anchor:hover {
+	text-decoration: underline;
+}
+a[href].header-anchor:focus,
+:hover > a[href].header-anchor {
+	color: var(--header-anchor-color);
+}
+
+h2 + .header-anchor {
+	font-size: 1.5em;
+}
+
+/* Footer */
+hr {
+    border: none;
+    background-color: var(--hrule-color);
+    height: 1px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+    hr {
+        width: 100%;
+    }
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2rem 0;
+    background-color: var(--background-color);
+	;
+}
+
+.footer-container p {
+    font-size: 1rem;
+    color: var(--description-color);
+}
+
+.footer-container .social_icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0 1rem;
+}
+
+.footer-container .social_icons a {
+    color: var(--icon-color);
+    font-size: 1.5rem;
+    transition: all 0.5s ease-in-out;
+}
+
+.footer-container .social_icons a:hover {
+    color: var(--icon-hover-color);
+}</style>
+	</head>
+	<body>
+		<a href="#skip" class="visually-hidden">Skip to main content</a>
+
+		<header>
+			<a href="/dark_tales_sleuth/" class="home-link">Dark Tales Sleuth</a>
+			<nav>
+				<h2 class="visually-hidden">Top level navigation menu</h2>
+				<ul class="nav">
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/about/">About</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/my-investigations/">My Cases</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/blog/">All Posts</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/comments/">Comments</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/about-me/">About Me</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="skip">
+			
+
+
+<h1>The Return of Claudia</h1>
+
+
+
+
+
+
+<ul class="posttalk-metadata">
+  <li>By Victor Rousseau</li>
+  <li>As published in  <em>The Evening Republican</em>, April 18, 1917</li>
+</ul>
+
+<article>
+<p>Paul Tarrant, the millionaire, and I had received invitations from Dr. Phileas Immanuel to a little dinner which he intended to give in his apartments at the &quot;Monticello.&quot; We were to meet a patient of his, and the Doctor had intimated that the case possessed unusual and interesting features. We arrived almost together and were shown up to the Doctor's quarters, where we were introduced to a Mr. Robinson and Miss Gladys Aldyne, his fiancee. Miss Aldyne was a charming girl, of the sweetest and liveliest nature, and we all got on capitally together.</p>
+<img alt="Gladys Aldyne rushes to assist Dr. Immanuel, who stands clutching his jaw. Paul Tarrant and the narrator look on in the background." loading="lazy" decoding="async" src="/dark_tales_sleuth/img/return-of-claudia-yvHCY5xqnY-390.png" width="390" height="570">
+<p class="caption">"O, dear Doctor, did you hurt yourself?" She said solicitously. "You must have tripped over the fringe of the rug."</p>
+<p>&quot;Mr. Robinson is one of my oldest friends,&quot; explained the Doctor. &quot;In fact, I facilitated at his present incarnation, when his father was Consul-General at Athens, twenty-six years ago.&quot;</p>
+<p>&quot;I trust you will facilitate at many incarnations more,&quot; said Seth Robinson, quizzing the little Greek. &quot;If you hadn't that reincarnation craze, Doctor, I should call you a really great man. And if you can cure my trouble,&quot; he added in a low voice, with an involuntary glance at Miss Aldyne, &quot;I shall consider you the most wonderful man alive.&quot;</p>
+<p>Dinner was served and proved excellent. The Doctor had some huge ripe Peloponnesus olives, I remember, and the taste of them and of his wine lingers in my mouth yet. I noticed, however, that he would not let Miss Aldyne have any wine.</p>
+<p>&quot;Fill my glass, please,&quot; said she to the servant; and when the man drew near the Doctor held up his finger. &quot;No!&quot; he said curtly.</p>
+<p>The change in Miss Aldyne's expression was astounding. I was totally unprepared for such a glance as she shot at Immanuel, or for the explosion that followed.</p>
+<p>&quot;You are forgetting yourself!&quot; she exclaimed, starting up in her chair, and pointing her finger at him with a gesture of the utmost approbrium. &quot;How dare you say that I am not to have wine! Are you out of your senses?&quot;</p>
+<p>&quot;No wine,&quot; replied the Doctor blandly, and the servant withdrew. Miss Aldyne stood glaring at him for a full half minute, the Doctor returning her gaze with an expression of polite determination. Then Miss Aldyne sat down with a bewildered air, and a moment later was chatting as naturally as ever. I was convinced that she had totally forgotten her outburst.</p>
+<p>It must have been so, for when we rose from the table, waiving the privilege of our smoke, Miss Aldyne took the Doctor by the arm and hugged it. &quot;Dear Dr. Immanuel, you are so good to us all,&quot; she said. &quot;Do you know, Mr. Tarrant, he insists that I am a patient of his and suffer from neurasthenia. Seth brought me to him, and I think I allow the relationship of doctor and patient to continue because I can't bear the thought of ever losing him.&quot;</p>
+<p>&quot;You'll never lose me, my dear, patient or no patient,&quot; answered Immanuel, patting her hand. &quot;Well, let's go in.&quot;</p>
+<p>A pleasant chat followed, perhaps of an hour's duration. Then occurred another singular outburst on Miss Aldyne's part which positively horrified me.</p>
+<p>She had been turning over the pages of a photograph album, containing snapshots taken by the Doctor in India, and had been chatting with us in the most natural way in the world. Suddenly something happened. I realized that the atmosphere had become tense. Dr. Immanuel was the first to notice the change. He crossed the room hurriedly and took the album from the girl's hands. As he did so I saw that she had been looking at a photograph showing a temple filled with images of gods.</p>
+<p>&quot;Let me show you something else,&quot; said Dr. Immanuel.</p>
+<p>The girl did not answer him. She was standing up stiffly, and looking at Mr. Robinson with the utmost hatred. She did not notice Immanuel at all.</p>
+<p>Her hate seemed too intense for words, and the poor fellow hung his head shamefacedly. Evidently it was an accustomed scene; in her hysterical moods, I imagined she became abnormal in this manner. Miss Aldyne crossed the room toward Seth Robinson, her arm aloft, as though she wielded a whip and he were her slave. Then Immanuel interposed.</p>
+<p>&quot;Sit down in that chair!&quot; he commanded curtly.</p>
+<p>Miss Aldyne turned on him; she seemed about to obey; when all in an instant she had driven her fist into the Doctor's face and knocked him down. It was a splendid manifestation of strength, and delivered with a singular deliberation, as though Miss Aldyne were accustomed to knock down all who offended her.</p>
+<p>We all stood rooted to our places. Dr. Immanuel rose up slowly. There was a fleck of blood upon his lip, where the blow had fallen. As he got on his feet, however, Miss Aldyne sprang toward him with an expression of the utmost concern; again she was the happy, vivacious girl of two minutes before</p>
+<p>&quot;O, dear Doctor, did you hurt yourself?&quot; she asked solicitously. &quot;You must have tripped over, the fringe of the rug. I hope you are not hurt. No—yes, there is a mark on your lip; it is bleeding.&quot;</p>
+<p>&quot;It is nothing,&quot; answered the Doctor calmly. &quot;Won't you all sit down, please?&quot; he continued. &quot;It was all my fault; I shouldn't have left those gruesome Indian photographs lying about,&quot; he whispered to Robinson, and the poor fellow nodded miserably.</p>
+<p>Half an hour later the couple departed, she clinging to his arm and looking up into his face with manifest adoration, he obviously enthralled by her, and trying to conceal the unhappiness about which she rallied him.</p>
+<p>When he had seen them to the door, Dr. Immanuel came back. We sat round his fireplace and clipped off the ends of our perfectos.</p>
+<p>&quot;Well, gentlemen,&quot; said Immanuel, leaning against the mantel, which was too high for him, and made him look like a beneficient gnome, &quot;I told you that this case possessed interesting features.&quot;</p>
+<p>&quot;Yes,&quot; answered Tarrant, &quot;you did. What is it? Demoniacal possession?&quot;</p>
+<p>&quot;Pooh!&quot; answered the Doctor lightly. &quot;I don't believe in that.&quot;</p>
+<p>&quot;The New Testament is full of it.&quot;</p>
+<p>&quot;Yes, but the demon of those times did not correspond to what we call the evil spirit,&quot; answered the Doctor. &quot;The demon, or <em>daemon</em>, as it was spelled, was simply an inner monitor, a friend who watched over one. Socrates had his demon<sup>1</sup><label for="socrates1" class="margin-toggle">⊕</label>
+<input type="checkbox" id="socrates1" class="margin-toggle">
+<span class="marginnote">(1) &quot;You have often heard me speak of something related to the gods and to the <em>daimones</em>, a voice... This thing I have had ever since I was a child: it is a voice which comes to me and always forbids me to do something which I am going to do, but never commands me to do anything, ... &quot; <br>--- Plato, <a href="https://chs.harvard.edu/primary-source/plato-the-apology-of-socrates-sb/"><em>The Apology of Socrates</em></a>, 31c-d (Benjamin Jowett, translator)</span> who always advised him when he was in doubt. Don't you remember, in that splendid speech of his before the judges who sentenced him to death, he refused to purchase his life by ceasing to preach, and told them that he believed death must be a good thing, because his demon had not dissuaded him<sup>2</sup> from the course he was taking? <label for="socrates2" class="margin-toggle">⊕</label>
+<input type="checkbox" id="socrates2" class="margin-toggle">
+<span class="marginnote">(2) &quot;In the past, the oracular art of the superhuman thing [<em>to daimonion</em>] within me was in the habit of opposing me, ...if I was going to do anything not correctly. But now that these things [impending death]...have happened to me—things that anyone would consider, by general consensus, to be the worst possible things to happen to someone—the signal of the god has not opposed me...&quot; <br>--- Plato, <em>Apology</em>, 40a-b (Jowett, translator)</span> No, Tarrant—there may be devils that take possession of human beings, but I am very, very sceptical. What the evangelists called demons were simply the previous personalities in the subjects, trying to live again in the present incarnation.&quot;</p>
+<p>&quot;You mean,&quot; I said, &quot;that Miss Aldyne's personality in her previous existence is trying to oust the present one?&quot;</p>
+<p>&quot;Yes—precisely,&quot; the Doctor answered. &quot;It's succeeding, too. When my friend Robinson brought her to me she was simply moody and neurotic. Now she is fast losing her mind. The old personality is conquering the present one. I am afraid I shall have to kill it,&quot; he continued. &quot;But it's a hard thing to kill.&quot;</p>
+<p>As we made no reply, he continued:</p>
+<p>&quot;It's a curious case, and yet many of these cases of double personality are reported from time to time. Usually, however, they represent mere fissures in the stream of the present personality. There is the famous case of Miss Beauchamp, <label for="beauchamp" class="margin-toggle">⊕</label>
+<input type="checkbox" id="beauchamp" class="margin-toggle">
+<span class="marginnote"><a href="https://en.wikipedia.org/wiki/Christine_Beauchamp_(pseudonym)">Christine Beauchamp</a> was the pseudonym of Clara Norton Fowler, one of the earliest diagnosed cases of dissociative identity disorder. Her case was investigated by neurologist Morton Prince, who published <a href="https://archive.org/details/dissociationofpe00priniala/page/n7/mode/2up">a book </a>about the case in 1906. Most modern discussions characterize Ms. Beauchamp as having three distinct personalities (B-I, B-IV, and &quot;Sally&quot;), but Dr. Prince did make some finer distinctions. I'm sure whether they add up to nine.</span> for instance, to be found in all medical books upon this subject, in which a single personality divided into nine parts, many of them hating and plaguing each other. One of these personalities would take possession of the subject and stuff beetles down her back, afterward awakening the dominant self, which had a horror of beetles.</p>
+<p>&quot;However, in this case we have to deal with two antagonistic personalities, one of which has lived its life and has no business meddling here. In the Miss Beauchamp case the problem was to unite the nine several strands into one. Here it is to kill the usurper. And I shall kill her—that woman who knocked me down—just as easily as I would kill a rat.&quot;</p>
+<p>He looked like a fierce little fighter as he stood there, clenching his fists at the memory of the blow. And yet, I don't think Immanuel would have killed a rat. Stay, though, I remember now a certain story of a vivisection; but that has no place here.</p>
+<p>&quot;Did you ever read Hans Andersen's <em>Fairy Tales</em>?&quot; continued the Doctor. &quot;If so, you are acquainted with the Danish legend <label for="hca" class="margin-toggle">⊕</label>
+<input type="checkbox" id="hca" class="margin-toggle">
+<span class="marginnote">The general motif that Dr. Immanuel refers to is what folklorist Gordon Hall Gerould called <a href="https://en.wikisource.org/wiki/The_Grateful_Dead;_the_history_of_a_folk_story/The_Grateful_Dead_and_The_Poison_Maiden"><em>The Grateful Dead and the Poison Maiden</em></a>. While these are two separate motifs, the combination falls into what the Aarne-Thompson-Uther index labels ATU 507 (&quot;The Monster's Bride&quot;).  Hans Christian Andersen's version is <a href="https://andersen.sdu.dk/vaerk/hersholt/TheTravelingCompanion_e.html">&quot;The Traveling Companion (Reisekammeraten)&quot;</a>.</span> which appears and reappears all through those stories of the beautiful princess who was changed at night into a malignant devil, and this had to be killed or exorcised before the hero could marry his princess. Well, here is the case.</p>
+<p>&quot;Seth Robinson is a perfectly normal American gentleman of irreproachable character and unimaginative mind. Who was he, eighteen hundred odd years ago? Probably a simple Roman gentleman of the old, fast vanishing school which had made his country the ruler of the world. Or, since he was born in Athens, perhaps the last personality of Mr. Robinson was an Athenian gentleman. Whatever he was, his life was so normal and natural that his personality disintegrated in the proper manner. It can never be recalled.&quot;</p>
+<p>&quot;You mean that his last personality has utterly vanished?&quot; asked Tarrant. &quot;That is a hideous thought—it means annihilation.&quot;</p>
+<p>&quot;No more so than that the actor is annihilated when he strips off Othello's mask or Hamlet's doublet,&quot; answered Immanuel. &quot;Remember, Tarrant, all these succeeding personalities are nothing but phantoms assumed by the larger self, the soul. You, for example, as Paul Tarrant, the millionaire, will, I hope, utterly disappear; but the underlying self, which will enter into its own heritage at death, will never die, though it may subsequently assume a beggar's robes or a priest's tonsure or a soldier's uniform. And it is right and proper that the personality should disintegrate. Suppose the actor would not lay aside his crown and robes when the curtain went down; would we not strip them from him with scant ceremony? Well, then, Miss Gladys Aldyne, that dear little patient of mine who is so happy with Seth, shall not be made the victim of her last personality. I am going to kill it. And I shall do so without compunction, for Claudia is nothing but a phantom which will not lay its trappings aside.&quot;</p>
+<p>&quot;Claudia?&quot;</p>
+<p>&quot;Yes. That imperious, strong-fisted Roman harridan, who knocked me down because I would not give her wine for dinner and so enable her to assume the advantage over poor Gladys Aldyne. I mastered her then—but the unfortunate sight of that Indian temple reminded her of her own temples in sunny Greece and enabled her to take me at a disadvantage.&quot;</p>
+<p>&quot;So Gladys Aldyne was that—Claudia?&quot;</p>
+<p>&quot;Unquestionably. And I think Seth Robinson, whom she hates so bitterly, was a lover that once rejected her. She seems to love and hate him with equal strength. Not much alike, the pair, you say? Well, Hamlet is not much like a clown, and yet we can conceive of an actor essaying both parts. Perhaps Claudia was the victim of circumstances; perhaps Gladys Aldyne has in her the seeds of an equally imperious nature. Anyway, there you have the two women and the man; and Claudia must be killed, stripped of every vestige of personality, and relegated to the phantasmal shadow-world to which she belongs. Soon, gentlemen, I shall let you know what my plans are.&quot;</p>
+<p>We separated, soon afterward. My work kept me busy for the next couple of weeks, and I did not see Immanuel at all until one evening I received a telephone call from Paul Tarrant.</p>
+<p>&quot;Can you come down to Rutger's tomorrow and stay over Sunday?&quot; he asked. &quot;I have had a letter from our friend Immanuel; he says that he wants us to be his guests at a sanitarium there in which he seems to have a controlling interest. I think,&quot; he added, &quot;that he'll have something to tell us about that strange case we saw at his rooms.&quot;</p>
+<p>Fortunately my work enabled me to take the three days' vacation. I postponed my few engagements and met Tarrant at the station on the following morning. We ran down to Rutger's in about an hour and a quarter. In the station was Immanuel; outside was his dog-cart. Immanuel had a horror of motor-cars.</p>
+<p>&quot;I'm glad you managed to come,&quot; he said, when we were seated and he had touched up the pony. &quot;You remember Miss Aldyne, poor girl?&quot;</p>
+<p>&quot;Very well,&quot; said Tarrant &quot;Have you killed her double yet?&quot;</p>
+<p>The doctor did not smile at the pleasantry. &quot;I'm sorry to say events have taken a very bad turn,&quot; he said. &quot;Claudia has become too strong for Gladys. She tried to kill Robinson last week.&quot;</p>
+<p>&quot;To murder her fiance?&quot; exclaimed Tarrant.</p>
+<p>&quot;Yes, and in the most diabolical fashion—with a pair of shears. He called on her when she was cutting out patterns, and she was unusually affectionate, he said, and he was thrown entirely off his guard. He happened to turn suddenly and—well, he was wearlng an unusually broad belt, but he has a nasty flesh wound in the back. Claudia has mastered the art of appearing now without any premonitory symptoms indicative of the change, and she means to kill Seth. Fortunately she exhausted her capabilities for harm, temporarily, with this act, and Gladys, finding her lover bleeding upon the ground was thrown into a condition resembling catalepsy—really a neutral condition in which neither of the personalities could gain the advantage.</p>
+<p>&quot;Well, Seth is very fond of Gladys, but of course he took a serious view of the matter. He consulted me about the advisability of breaking off the engagement, and the upshot is that I persuaded Miss Gladys to come down here and rest for a month. Now we have her we are going to keep her till she is cured. Seth has gone off to the Adirondacks, very miserable, and that is the situation.&quot;</p>
+<p>&quot;And you intend—&quot;</p>
+<p>&quot;To kill Claudia tomorrow, or as soon as she gives me the opportunity. Confound that woman!&quot; he added, in a manner which would have been amusing under other circumstances, &quot;what does she mean by trying to murder Seth—the best fellow alive? Why, she ought to have been in her grave for eighteen hundred years.&quot;</p>
+<p>&quot;Perhaps she doesn't know that she is dead,&quot; I suggested, and a moment afterward repented what seemed to me a very foolish speech. But Immanuel looked at me in surprise.</p>
+<p>Why, my dear fellow, positively that never occurred to me,&quot; he said.</p>
+<p>The sanitarium was a finely-located new building, containing single rooms and suites for the patients, set in the midst of several acres of grounds, and fronting on a small lake. There was a small resident staff of physicians and nurses, over whom Dr. Immanuel wielded unquestioned authority. I learned afterward that these doctors were drawn from all parts of the world, and consisted of advanced thinkers, like himself; thus any friction which might have been caused by Dr. Immanuel's unusual theories was obviated. We were accorded rooms in the physicians' part of the house, and met Miss Aldyne at dinner an hour or two later. She knew us immediately, and was very merry over her situation.</p>
+<p>&quot;You didn't think, when last we met—or first, rather—that our next meeting would be in a lunatic asylum, did you?&quot; she said to me.</p>
+<p>&quot;O, come. Miss Gladys—not a lunatic asylum!'' protested ImmanueL</p>
+<p>&quot;Well, Doctor, if some of these people aren't off their heads I don't know what is the matter with them,&quot; she answered, and I saw a momentary expression of fear come into her eyes.</p>
+<p>&quot;My dear Miss Gladys,&quot; said Immanuel gently, leaning toward her, &quot;you trust me don't you?&quot;</p>
+<p>&quot;Yes,&quot; she answered seriously, &quot;but why doesn't Seth come to see me?&quot;</p>
+<p>&quot;You don't trust me, then?&quot; asked Dr. Immanuel.</p>
+<p>&quot;Of course I do,'' she answered. &quot;But if you weren't here—well, I should be terribly frightened. And you'll tell me about Seth soon?&quot;</p>
+<p>&quot;My dear, in a couple of days I think you shall see Seth for yourself and have your fears allayed. Now—will you be cheerful till Monday?&quot;</p>
+<p>She nodded. Suddenly I felt—I saw no change but felt —that sense of oppression again, as though something malignant were near, something dangerous and terrible. I think Tarrant felt it, too. Miss Gladys had taken up her knife to cut her portion of meat; it slipped out of her hand, and the fragment, with a little spray of gravy, went into the face of the Doctor, who wak still leaning toward her. He drew back hastily, wiping his eyes, and Miss Aldyne was instantly all apologies. But I knew and he knew that it had been done on purpose—and besides, this was not Miss Aldyne.</p>
+<p>No, and she did not come back all during that evening.  We sat with
+her in her private apartment, watching her and each other like cats. She chatted and gossiped—and all the while her eyes were filled with fires of slumbering hate. And presently I began to notice that our conversation was of a peculiarly restricted kind. It never dealt with current events. For instance, when Tarrant made some passing allusion to the war in China <label for="china" class="margin-toggle">⊕</label>
+<input type="checkbox" id="china" class="margin-toggle">
+<span class="marginnote"><em>...war in China</em>: Probably the <a href="https://en.wikipedia.org/wiki/1911_Revolution">1911 Xinhai Revolution</a>, which ended the Qing dynasty and established the Republic of China.</span> she looked at him without comprehension, and yet as though she were on her guard and dimly aware that something was wrong. And when addressed as Miss Aldyne she answered as though she had assumed that name —that is the best way in which I can explain the strange manner of her speech.</p>
+<p>&quot;Well, Madam,&quot; said Dr. Immanuel presently, &quot;you are so much better that I think we can let you go home tomorrow. You seem to have realized now that your beliefs are only illusions, have you not?&quot;</p>
+<p>&quot;My beliefs?&quot; she answered, as though with an effort of thought. &quot;Yes—I think so.&quot;</p>
+<p>&quot;For example, that absurd delusion of yours that you have some outlandish name like Gladys, and that you are engaged to your worst enemy— ''</p>
+<p>&quot;Crassides!&quot; she exclaimed, as though the name had suddenly come into her mind after she had long forgotten it</p>
+<p>&quot;The man who insulted you and spurned your love,&quot; went on Immanuel remorselessly.</p>
+<p>She clenched her fists and closed her eyes and lay back in her chair, apparently overcome with the most intense accession of hatred,</p>
+<p>&quot;But he is dead!&quot; she cried, starting up suddenly, like a fury. &quot;I poisoned him.&quot;</p>
+<p>&quot;At the banquet?&quot;</p>
+<p>&quot;What else should I have done?&quot; she cried, &quot;Yes. I bade him to the banquet and lavished caresses and loving words on him. Then when the wine was to be drunk I had set before him a goblet into which I had poured Parisian poisons, so swift that one dies instantly and without knowledge of it. It had been my purpose to give him that German drug which brings a sure and lingering death. I had wanted to gloat over him, dying—but my heart misgave me. I could not torture the body that I had loved. So I chose Parisian poison, subtle and very swift. And then I pledged him, and we drank; I from my goblet of pure wine and be from his poisoned cup. And so he died.&quot;</p>
+<p>&quot;Ah! You are sure he died?&quot; asked Immanuel keenly.</p>
+<p>A convulsion seemed to seize her. Her lips parted, she glared at him, seemed about to answer—and then Gladys Aldyne was looking out of her eyes at us. She looked, round blankly.</p>
+<p>&quot;Why, my dear Doctor, how in the world did I get up here?&quot; she asked. &quot;I thought we were at the dinner table.&quot;</p>
+<p>&quot;Ah! You forget,&quot; answered the Doctor lightly. &quot;But your memory is growing stronger, my dear. We'll have you out of here and back with Seth next week. And now I am going to send you to bed. You want all the rest you can get. Good night&quot;</p>
+<p>&quot;Good night, Doctor,&quot; she answered, taking his hand in hers affectionately. She bade us good night also, with less spontaneity but much good will, and so we left her.</p>
+<p>&quot;Well, gentlemen,&quot; said the Doctor, as we lingered at his door, &quot;tomorrow I hope to exorcise Mademoiselle Claudia for ever. I have learned quite a good deal about her. She was the daughter of a Greek senator, an only child, and mistress of a household of slaves, whom she abused in quite the conventional fashion. Her memory is pretty clear, but when she spoke of Parisian and German drugs there was a little confusion—she meant Egyptian and Scythian, probably. What part young Crassides played in her affairs you learned this evening. I have a certain theory which I think will enable me to put her back in the limbo to which she belongs—but I have had a devil of a time waking her up sufficiently to learn her history. You won't forget that exquisite confession she made about the poisoned cup? All right: one word more. Tomorrow night we four dine alone in a private dining room which has something of the character of a property room. There I reconstruct my scenes for just such occasions as this present one. And, gentlemen, you will not see Miss Gladys tomorrow before dinner—nor Mademoiselle Claudia, either.&quot;</p>
+<p>Nor did we see the Doctor. We spent the day strolling round the fine grounds of the institution, and in looking over the interior. The arrangements were perfect, and the patients all sufferers from those forms of mental maladies in which Dr. Immanuel was a specialist. He did not, I was told, take any incurable cases.</p>
+<p>At six o'clock there came a tap at my door. I opened it—to find the Doctor standing outside, wearing a long cloak which completely concealed his figure. When he came in he threw it off and disclosed himself in an ancient Greek costume. And it suited him far better than modern clothes, in which he always had the look of a masquerader.</p>
+<p>&quot;I have brought you a tunic and toga,&quot; he said, depositing a bundle upon the bed. &quot;You don't mind?&quot;</p>
+<p>&quot;Not at all,&quot; I answered. &quot;And Tarrant—&quot;</p>
+<p>&quot;I expect he has put his on already,&quot; answered our host, laughing. &quot;By the way, you can preserve the illusion? I have had the room fitted with banqueting couches and all the apparatus. All right; take the private stairway down and it is the third room—the locked one.&quot;</p>
+<p>Half an hour later we were awaiting Immanuel and his patient in a room which might have been the interior of a Greek house, so well was the illusion maintained. I looked at Tarrant, reclining on his divan in flowing robes of white, and he looked at me.</p>
+<p>&quot;'One man in his time plays many parts,'&quot;<label for="stage" class="margin-toggle">⊕</label>
+<input type="checkbox" id="stage" class="margin-toggle">
+<span class="marginnote">&quot;All the world's a stage, / And all the men and women merely players; / They have their exits and their entrances; / And one man in his time plays many parts.&quot; <br> -- Shakespeare, <em>As You Like It</em>, Act II, Scene VII</span> he quoted. &quot;But, seriously, I shouldn't like my business friends to see me now.&quot;</p>
+<p>Steps, as of clogs, were heard outside, and Immanuel entered, in company with Miss Gladys, who was wearing a gown with lace at the sleeves, and a little pearl necklace, the gift of Robinson. She looked at us in astonishment; and when Immanuel threw off bis cloak and stood revealed in toga and with sandaled feet her amazement was about equal to our sense of playing the fool.</p>
+<p>&quot;Why, my dear Doctor— '' she began.</p>
+<p>&quot;Never mind, never mind,&quot; answered Immanuel briskly. &quot;This is part of a play.&quot;</p>
+<p>&quot;But, Doctor, I don't understand. I never heard of such a sanitarium as you seem to run. Is this part of the cure?&quot;</p>
+<p>The little doctor was staring at her in disgust. Evidently the venomous Claudia was wary and, warned by some instinct of approaching danger, absolutely refused to make her appearance. But Miss Gladys was always gentle.</p>
+<p>&quot;Well, Doctor,&quot; she said, sitting down on a carved chair which looked like the section of a boat, &quot;what is my part? What am I to do?&quot;</p>
+<p>&quot;Why, we will just have a little visit,&quot; answered Immanuel. He was parrying to gain time. But even he looked overwhelmed with confusion.</p>
+<p>&quot;What setting is this?&quot; Miss Gladys asked. &quot;Ancient Roman?&quot;</p>
+<p>&quot;Greek, my dear,&quot; said the Doctor. &quot;Purely Greek. No doubt you yourself once knew this setting very well.&quot;</p>
+<p>Miss Gladys laughed. &quot;I see you will never get rid of that craze of yours,&quot; she said. &quot;Do you know, Doctor, sometimes I think you ought to be a patient here, instead of chief physician.&quot;</p>
+<p>We twirled our thumbs. I tried to hide my bare feet under my flowing robe. The minutes passed in desultory conversation. The Doctor rose and taking an amphora of wine from an ancient stand, filled two chalices of purple glass. &quot;Will you drink with me, Claudia?&quot; he asked.</p>
+<p>&quot;Claudia!&quot; said Miss Gladys, rising up and looking at him with an expression of distinct terror.</p>
+<p>Suddenly the tramp of heavy footsteps rang out on the flags. The door opened. Seth Robinson burst in.</p>
+<p>&quot;I couldn't stay away any longer,&quot; he burst out. &quot;I'm going to take Gladys away. I must, Doctor; I want her and I've behaved like a cur when she was in trouble, poor girl. I—&quot;</p>
+<p>Suddenly he perceived us in our Greek attire, the couches, the amphora with the two cups of wine. He looked round in amazement, which rapidly became anger. Dr. Immanuel slipped behind him and I heard the key click in the door.</p>
+<p>&quot;What is all this?&quot; inquired Seth Robinson angrily.</p>
+<p>&quot;Look behind you!&quot; I yelled.</p>
+<p>He leaped aside, and fortunately in the right direction. There at his side stood Claudia, livid with fury, her fists clenched, her eyes blazing. A surgeon's scalpel was quivering in the wall opposite, in a direct line with Robinson's shoulder. She must have hidden it before she entered.</p>
+<p>Immanuel sprang to the table and seized the cups of wine. He handed one to Robinson. &quot;Drink when I give the signal,&quot; he hissed in his ear. &quot;Don't speak, don't question; drink, for all you want in the world depends on it.&quot;</p>
+<p>Robinson, trembling, took the cup, and the wine lapped over its edge as he tried to steady it. To Claudia the Doctor gave the other.</p>
+<p>&quot;Will you not drink with Crassides?&quot; he asked, assuming the attitude of a toastmaster. He raised his hand. &quot;Face her, Seth,&quot; he said in a lower voice. The man and woman were almost side by side. Claudia, holding her cup extended in one hand, with never a tremor of the glass, placed the free arm round Robinson's neck. She looked lovingly and inquiringly at him. They raised their glasses together and drained them. Then Claudia dashed hers down on the mosaic floor.</p>
+<p>&quot;You fool!&quot; she hissed, &quot;Now die, you who scorned me!&quot;</p>
+<p>&quot;O, come, Gladys, I never scorned you,&quot; said Seth Robinson in a sorrowful voice. &quot;Is that why you flung the knife at me?&quot;</p>
+<p>The situation was on the verge of pathos. But the denouement came so swiftly that its instant purpose escaped me. I saw Immanuel spring to Claudia's side and whisper something and point to Robinson, saw a look of intense terror come into her eyes; and then she went down, a crumpling heap upon the floor.</p>
+<p>&quot;You've killed her,&quot; shouted Robertson, leaping at Immanuel's throat.</p>
+<p>&quot;No, my dear boy. I have saved her,&quot; he answered, tenderly raising the prostrate form, &quot;Now carry her out. Gentlemen, disappear before she recovers and sees you in that costume.&quot; He locked the door and I saw him helping Robinson to place Miss Aldyne on a couch in the halL Then as we ascended the private stairway Immanuel came pattering after us.</p>
+<p>&quot;Victory!&quot; he cried, seizing our hands. &quot;Already she is reviving, and there isn't any mistake about who she is now, or who she is going to be. Claudia is dead!&quot;</p>
+<p>&quot;She may come back,&quot; hazarded Tarrant.</p>
+<p>&quot;No, my dear boy,&quot; Immanuel answered. &quot;She's dead now for ever. You see,&quot; he added, &quot;one of her slaves, who hated her, had changed the cups, so that Crassides escaped alive, and Claudia died so quickly that she never knew she was dead. I've just convinced her.&quot;</p>
+<hr>
+<p>Part of the series <a href="/dark_tales_sleuth/pages/victor-rousseau/#dr-phileas-immanuel-tracer-of-egos"><em>Phileas Immanuel, Tracer of Egos</em></a></p>
+<p>Story illustration by G. Irwin Myers, for <em>The Evening Republican</em>, April 18 1917. Source: <a href="https://newspapers.library.in.gov/?a=d&amp;d=EVRP19170418.2.25&amp;srpos=35&amp;e=------191-en-20--21--txt-txIN-victor+rousseau------">Hoosier State Chronicles</a>.</p>
+
+</article>
+		</main>
+
+		<!-- footer -->
+		<hr>
+
+<div class="footer-container">
+	<p>&copy; 2025 Nina B. Zumel</p>
+	<div class="social_icons">
+	    <a href="mailto:nzumel@mzlabs.com?subject=Comment%20from%20Dark%20Tales%20Sleuth" aria-label="Email" target="_blank" rel="noopener noreferrer">
+			<i class="fas fa-fw fa-envelope"></i>
+		</a>
+		<a href="https://micro.blog/MultoGhost" aria-label="Micro.blog" target="_blank" rel="noopener noreferrer">
+			<i class="fab fa-fw fa-microblog"></i>
+		</a>
+		<a href="https://multoghost.wordpress.com/" aria-label="Multo (Ghost)" target="_blank" rel="noopener noreferrer">
+			<i class="fab fa-fw fa-wordpress"></i>
+		</a>
+		<a href="/dark_tales_sleuth/feed.xml" aria-label="RSS" target="_blank" rel="noopener noreferrer">
+			<i class="fa fa-fw fa-rss-square"></i>
+		</a>
+
+	</div>
+</div>
+		<!-- /footer-- >
+
+		<!-- Current page: /dark_tales_sleuth/victor-rousseau/return-of-claudia/ -->
+	</body>
+</html>
