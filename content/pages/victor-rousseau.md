@@ -98,7 +98,7 @@ Nine of the stories originally appeared in *Holland's Magazine* from 1913-1914. 
 
 [Read my discussion of the *Tracer of Egos* here.](/blog/2025-02-26-phileas-immanuel-tracer-of-egos/)
 
-### The Stories (In Progress)
+### The Stories 
 
 Below are links to the original nine stories, in the order published by the *Evening Republican*, Rensselaer (Indiana). Missing stories are interpolated in according to the order in the [Spectre Library collection](https://www.isfdb.org/cgi-bin/pl.cgi?314460), which does contain the complete series.
 
@@ -123,6 +123,10 @@ Stories marked with an asterisk (`*`) are ones that I've transcribed here. The o
 [**A Fisher for Souls**](https://newspapers.library.in.gov/?a=d&d=EVRP19170403.2.24&srpos=21&e=------191-en-20--21--txt-txIN-victor+rousseau------) as published in the *Evening Republican*, April 3, 1917. 
 
 (`*`) [**The Wife of Ira Hopkins**](/victor-rousseau/wife-of-ira-hopkins/) as published in the *Evening Republican*, April 14, 1917.
+
+(`*`) [**The Return of Claudia**](/victor-rousseau/return-of-claudia/) as published in the *Evening Republican*, April 18, 1917.
+
+**Noureddin Bey's Sacrifice**
 
 
 ### Collections
