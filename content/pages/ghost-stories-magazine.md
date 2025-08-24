@@ -11,7 +11,7 @@ I will need filler text here.
 
 The tales in *Ghost Stories* were all presented as true, first-person narratives, often one told by the narrator to a ghostwriter (so to speak) who wrote the story down. Hence, the author credits often read something like "by *protagonist*, as related to *author*." In the listings below, I only list the actual author, with references to more information about them, when that is available. 
 
-Many of the author names are pseudonyms; when applicable, I've also mentioned the author's possible real name, as listed in James R. Seiger's 1972 [index of the magazine](http://strippersguide.blogspot.com/2011/09/ink-slinger-profiles-ed-goewey.html).
+Many of the author names are pseudonyms; when applicable, I've also mentioned the author's possible real name, as listed in James R. Seiger's 1973 [index of the magazine](https://archive.org/details/Ghost_Stories_Stories_of_Ghosts_1973_OPAR_pamphlet_on_Ghost_Stories_pulp/page/n3/mode/2up).
 </div>
 
 <br>

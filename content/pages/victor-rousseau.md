@@ -140,7 +140,31 @@ Stories marked with an asterisk (`*`) are ones that I've transcribed here. The o
 
 ## Dr. Martinus, Occultist
 
-In progress.
+Dr. Martinus is a Dutch-born investigator of psychic phenomena, and apparently also a physician. He conducts much of his research empirically, via seances. Hypnosis is one of his tools. Martinus' cases are chronicled by his research assistant, a former newspaper reporter named Branscombe (either Eugene or Arthur).
+
+Five Dr. Martinus stories and a six-part novella appeared in *Ghost Stories Magazine* between October 1826 and May 1928. 
+The tales in *Ghost Stories* were all presented as true, first-person narratives, with the narrator credited as the author, "as told to" the actual writer., 
+
+[Read my discussion of *Dr Martinus* here.] **TODO**
+
+### The Stories 
+
+Below I've listed all the Dr. Martinus stories, with publication information as listed in James R. Seiger's 1973 [index of the magazine](https://archive.org/details/Ghost_Stories_Stories_of_Ghosts_1973_OPAR_pamphlet_on_Ghost_Stories_pulp/page/n3/mode/2up).
+I will link to those (few) stories that I can find.
+
+In keeping with the conceit of the magazine, I'll give each story as "by Arthur/Eugene Branscombe, as told to Victor Rousseau."
+
+[**Child or Demon—Which?**](/victor-rousseau/child-or-demon-which/) - *Ghost Stories*, October 1926
+
+**The Doll That Came to Life** - *Ghost Stories*, January 1927 
+
+**Ghost of the Red Cavalier** - *Ghost Stories*, March 1927
+
+**Fire Water—and What** - *Ghost Stories*, June 1927
+
+**The Soul that Lost its Way** - *Ghost Stories*, August 1927
+
+**The House of the Living Dead**  (six-part serial) - *Ghost Stories*, December 1927 - May 1928. 
 </div>
 <br>
 
