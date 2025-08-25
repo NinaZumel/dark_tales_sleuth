@@ -5,6 +5,7 @@ tags:
   - Victor Rousseau
   - occult detectives
   - Phileas Immanuel
+  - with html transcription
 ---
 
 <center><em>Continuing my series on <a href="/pages/victor-rousseau/">The Occult Detectives of Victor Rousseau</a>.</em></center>

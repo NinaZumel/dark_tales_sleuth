@@ -654,4 +654,5 @@ will have long since been mouldering in the dust.
 
 Part of the series [*Dr. Martinus, Occultist*](/pages/victor-rousseau/#dr-martinus-occultist)
 
+Illustrations from *Ghost Stories Magazine*, October 1926
 
