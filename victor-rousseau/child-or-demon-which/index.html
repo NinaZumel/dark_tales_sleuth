@@ -1,0 +1,1225 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Child or Demon—WHICH?</title>
+		<meta name="description" content="Filling in the Literary Blanks">
+		<link rel="alternate" href="/dark_tales_sleuth/feed/feed.xml" type="application/atom+xml" title="Dark Tales Sleuth">
+		<link rel="alternate" href="/dark_tales_sleuth/feed/feed.json" type="application/json" title="Dark Tales Sleuth">
+
+        
+		<link rel="me" href="https://micro.blog/MultoGhost">
+		<link rel="authorization_endpoint" href="https://indieauth.com/auth">
+		<link rel="token_endpoint" href="https://tokens.indieauth.com/token">
+		<link href="https://github.com/ninazumel" rel="me">
+		<script src="https://kit.fontawesome.com/9bbe6f85f9.js" crossorigin="anonymous"></script>
+		
+		<style>/* minimal implementation; just plain text in the margin, no blockquotes, code, etc */
+/* only (unnumbered) margin notes, no sidenotes */
+/* stripped down from https://github.com/edwardtufte/tufte-css */
+
+/* need this for correct sidenote numbering; but I'm not using sidenotes */
+/*
+body {
+    counter-reset: sidenote-counter; 
+} 
+*/
+
+
+/* since I imagine these will change with different templates */
+:root {
+    --content-width: 65%;
+    --image-padding: 5%;
+    --image-max: 60%;  /* total image+padding <= content-width */
+    --notewidth: 30%; 
+    /* content-width + notewidth <  100%. I think you should leave some wiggle room. */
+    --note-right-margin: -45%;
+    /* if this margin is -(notewidth), the note will start just on the right border of the text */
+    /* so push it a little to the right (more negative) */
+}
+
+article {
+	padding-top: 1rem; 
+}
+
+/* make room for the notes in the article container */
+article > p,
+article > pre,
+article > ul {
+    width: var(--content-width);
+}
+
+/* 
+  blockquotes should be a little shorter 
+  This assumes that left indentation is 2em, which is what it looks like.
+  */
+article > blockquote {
+    width: calc(var(--content-width) - 2em); 
+}
+
+
+article > hr {
+    max-width: var(--content-width);
+    margin: 0
+}
+
+article > h1, 
+article > h2,
+article > h3,
+article > h4 {
+    max-width: var(--content-width);
+}
+
+article > center {
+    max-width: var(--content-width);
+}
+
+/* keep images/captions in the text column, rather than centered in the article container */
+article > img {
+    margin-left: 0;
+    padding-left: var(--image-padding);
+    max-width: var(--image-max); 
+}
+
+article > p.caption {
+	text-align: left;
+    padding-left: var(--image-padding);
+	font-style: italic;
+	font-size: 0.9em;
+	color: var(--caption-color);
+ }
+
+article > p.caption a:hover,
+article > p.caption a:active {
+    color: var(--text-color-link-active);
+}
+
+.footnote-item {
+    max-width: var(--content-width); 
+}
+
+ /* finally, the margin note */
+.marginnote {    
+    float: right;
+    clear: right;
+    width: var(--notewidth);         
+    margin-right: var(--note-right-margin);
+    margin-top: 0.3rem;
+    margin-bottom: 0;
+    font-size: 0.8rem;
+    line-height: 1.3;
+    vertical-align: baseline;
+    position: relative;
+    /* border: 2px solid blue; */
+}
+
+
+input.margin-toggle {
+    display: none;
+}
+
+
+label.margin-toggle {    
+    display: none;
+
+}
+
+/* The mobile fallback: */
+/* making max-width bigger makes the note fall inline sooner */
+@media (max-width: 768px) {  
+    body {
+        width: 84%;
+        padding-left: 8%;
+        padding-right: 8%;
+    }
+
+    hr,
+    article > p,
+    article > blockquote,
+    article > pre {
+        width: 100%;
+    }
+
+    label.margin-toggle {
+        display: inline;
+    }
+       
+    .marginnote {           
+         display: none;        
+        }    
+
+      
+    .margin-toggle:checked + .marginnote {            
+        display: block;            
+        float: left;            
+        left: 1rem;            
+        clear: both;            
+        width: 95%;            
+        margin: 1rem 2.5%;            
+        vertical-align: baseline;            
+        position: relative;        
+    }
+    label {
+        cursor: pointer;
+    }
+}
+* { box-sizing: border-box; }
+/* colors from flexoki - https://stephango.com/flexoki */
+
+:root {
+	--paper: #FFFCF0;
+	--tx-normal: #100F0F;
+	--tx-muted: #6F6E69;
+	--tx-faint: #B7B5AC;
+	--blue300: #66A0C8;
+	--blue400: #4385BE;
+	--blue600: #205EA6;
+	--blue700: #1A4F8C;
+	--blue800: #163B66; 
+	--blue850: #133051;
+	--red800: #6C201C;
+	--purple600: #5E409D;
+	--purple300: #A699D0;
+	--base50: #F2F0E5;
+	--base100: #E6E4D9;
+	--base300: #B7B5AC;
+
+	--description-color: var(--tx-muted); 
+    --caption-color: var(--tx-muted);
+	--background-color:  var(--paper); 
+    --hrule-color: var(--base100);
+    --hrule-faint-color: var(--base50);
+	--box-border-color: var(--base50);
+
+	--header-anchor-color: var(--base300); /* for the # links on headers */
+	--icon-color: var(--blue600);
+	--icon-hover-color: var(--blue300);
+	--tag-color: var(--purple600);
+	--tag-hover-color: var(--purple300);
+
+	--text-color: var(--tx-normal); 
+	--text-color-link: var(--blue700); 
+	--text-color-link-active: var(--blue400); 
+	--text-color-link-visited: var(--blue700); 
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--black: #100F0F;
+		--base200: #CECDC3; 
+		--base300: #B7B5AC;
+		--base500: #878580;
+		--base600: #6F6E69;
+		--base700: #575653;
+		--base900: #282726;
+		--base950: #1C1B1A;
+		--blue700: #1A4F8C;
+		--red400: #D14D41;
+		--purple400: #8B7EC8;
+		--purple500: #735EB5;
+		--purple600: #5E409D;
+	
+		--description-color: var(--base300); 
+		--caption-color: var(--base500);
+		--background-color:  var(--black); 
+		--hrule-color: var(--base900);
+		--hrule-faint-color: var(--base950);
+		--box-border-color: var(--base900);
+
+		--header-anchor-color: var(--base500); /* for the # links on headers */
+		--icon-color: var(--blue400);
+		--icon-hover-color: var(--blue600);
+		--tag-color: var(--purple400);
+		--tag-hover-color: var(--purple500);
+
+		--text-color: var(--base200); 
+		--text-color-link: var(--blue400); 
+		--text-color-link-active: var(--blue600); 
+		--text-color-link-visited: var(--blue400); 
+	}
+}
+/* Defaults */
+:root {
+	--font-family: Georgia, Times, -serif; /* Tahoma, -apple-system, system-ui, sans-serif; */
+	--font-family-sanserif: Tahoma, -apple-system, system-ui, sans-serif;
+	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+
+	/* from another template - experiment with these */
+	--font--serif: 'Bitstream Charter', Charter, Palatino, 'Palatino Linotype', 'Palatino LT STD', 'Book Antiqua', Georgia, serif;
+  	--font--sans: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+}
+
+/* Theme colors */
+:root {
+	--syntax-tab-size: 2;
+}
+
+
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	font-size: 18px;  /* a little bigger to accomodate a serif font */
+	color: var(--text-color);
+	background-color: var(--background-color);
+}
+html {
+	overflow-y: scroll;
+}
+body {
+	max-width: 70em; /* 50em; */
+}
+
+/* Basic heading typography */
+h1,h2,h3,h4,h5 {
+  font-family: var(--font--sans);
+  font-weight: 600;
+}
+
+/* different horizontal rules  https://www.w3schools.com/howto/howto_css_dividers.asp */
+ /* Dashed border */
+ hr.dashed {
+	border-top: 1px dashed var(--hrule-color);
+  }
+  
+  /* Dotted border */
+  hr.dotted {
+	border-top: 1px dotted var(--hrule-color);
+  }
+  
+  /* Solid border */
+  hr.solid {
+	border-top: 1px solid var(--hrule-color);
+  }
+  
+
+/* 
+https://css-tricks.com/barebones-css-for-fluid-images/ 
+Without this, images generated by eleventy-img will always use the largest available size
+-- ie, not be responsive.
+*/
+img {
+	max-width: 100%; 
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+  }
+  img[width] {
+	width: auto; /* Defer to max-width */
+  }
+  img[width][height] {
+	height: auto; /* Preserve aspect ratio */
+  }
+  
+  /* Let SVG scale without boundaries */
+  img[src$=".svg"] {
+	width: 100%;
+	height: auto;
+	max-width: none;
+  }
+  
+
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+p {
+	line-height: 1.5;
+	/* font-size: 1.2em; */
+}
+
+p.caption {
+	text-align: center;
+	font-style: italic;
+	font-size: 0.9em;
+	color: var(--caption-color);
+ }
+
+ /* for the credits at the bottom of a page */
+p.credit {
+	max-width: 50em;
+	font-size: 0.9em;
+	margin-left: auto;
+	margin-right: auto;
+ }
+
+
+/* for inline annotations, like translations */
+span.inline-note {
+	font-size: 0.9em;
+	font-style: italic;
+}
+
+li {
+	line-height: 1.5;
+	/* font-size: 1.2em; */
+}
+
+a[href] {
+	color: var(--text-color-link);
+	text-decoration: none; 
+}
+a[href]:visited {
+	color: var(--text-color-link-visited);
+}
+a[href]:hover,
+a[href]:active {
+	color: var(--text-color-link-active);
+}
+
+main {
+	padding: 1rem;
+}
+main :first-child {
+	margin-top: 0;
+}
+
+header {
+	border-bottom: 1px dashed var(--hrule-color);
+}
+header:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.links-nextprev {
+	text-align: center;
+	list-style: none;
+	border-top: 1px dashed var(--hrule-color);
+	padding: 1em 0;
+}
+
+
+table {
+	margin: 1em 0;
+}
+table td,
+table th {
+	padding-right: 1em;
+}
+
+pre,
+code {
+	font-family: var(--font-family);
+	font-size: 0.95em;
+}
+pre:not([class*="language-"]) {
+	margin: .5em 0;
+	line-height: 1.375; /* 22px /16 */
+	-moz-tab-size: var(--syntax-tab-size);
+	-o-tab-size: var(--syntax-tab-size);
+	tab-size: var(--syntax-tab-size);
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+}
+code {
+	word-break: break-all;
+}
+
+/*
+  Custom containters
+*/
+div.message-box {
+	max-width: 50em; 
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div.magazine-box {
+	max-width: 50em; 
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+/* Header */
+header {
+	font-family: var(--font--sans); 
+	display: flex;
+	gap: 1em .5em;
+	flex-wrap: wrap;
+	align-items: center;
+	padding: 1em;
+}
+.home-link {
+	font-size: 1.5em; /* 24px /16 (I think)*/
+	font-weight: 700;
+	margin-right: 2em;
+}
+.home-link:link:not(:hover) {
+	text-decoration: none;
+}
+
+/* Nav */
+.nav {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.nav-item {
+	display: inline-block;
+	margin-right: 1em;
+}
+.nav-item a[href]:not(:hover) {
+	text-decoration: none;
+}
+.nav a[href][aria-current="page"] {
+	text-decoration: underline;
+}
+
+/* Posts list */
+.postlist {
+	list-style: none;
+	padding: 0;
+	padding-left: 0; /* 1.5rem; */
+	max-width: 50em;
+}
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	counter-increment: start-from -1;
+	margin-bottom: 1em;
+	padding-bottom: 50px;
+	/* padding: 8px 16px; */
+	border-bottom: 1px dashed var(--hrule-color);
+}
+
+/* 
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	content: "" counter(start-from, decimal-leading-zero) ". ";
+	line-height: 100%;
+	text-align: right;
+	margin-left: -1.5rem;
+}
+*/
+
+.postlist-date,
+.postlist-item:before {
+	font-size: 0.8125em; /* 13px /16 */
+	color: var(--description-color);
+}
+.postlist-date {
+	word-spacing: -0.5px;
+	padding-left: .25em;
+}
+.postlist-link {
+	font-size: 1em; /* 1.1875em;  19px /16 */
+	font-weight: 700; 
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration: none; 
+	/* text-decoration-thickness: 1px; */
+}
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+/* Tags */
+.post-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+	font-style: italic;
+}
+.postlist-item > .post-tag {
+	align-self: center;
+}
+
+/* Tags list */
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: .5em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.post-metadata time {
+	margin-right: 1em;
+}
+
+/* I don't want tag links to stand out too much */
+.post-metadata a[href] {
+	color: var(--tag-color);
+}
+
+.post-metadata a[href]:hover,
+               a[href]:active {
+	color: var(--tag-hover-color);
+}
+
+
+.post-metadata li {
+	font-size: 0.875em;
+}
+
+/* metadata for posts and talks */
+
+.posttalk-metadata {
+	list-style: none;
+	padding-left: 0;
+	color: var(--description-color);
+}
+
+.posttalk-metadata ul {
+	list-style-type: none; /* no bullets */
+	padding: 0;  /* no indentation, either */
+	margin: 0;
+}
+
+/* Direct Links / Markdown Headers */
+.header-anchor {
+	text-decoration: none;
+	font-style: normal;
+	font-size: 1em;
+	margin-left: .1em;
+}
+a[href].header-anchor,
+a[href].header-anchor:visited {
+	color: transparent;
+}
+a[href].header-anchor:focus,
+a[href].header-anchor:hover {
+	text-decoration: underline;
+}
+a[href].header-anchor:focus,
+:hover > a[href].header-anchor {
+	color: var(--header-anchor-color);
+}
+
+h2 + .header-anchor {
+	font-size: 1.5em;
+}
+
+/* Footer */
+hr {
+    border: none;
+    background-color: var(--hrule-color);
+    height: 1px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+    hr {
+        width: 100%;
+    }
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2rem 0;
+    background-color: var(--background-color);
+	;
+}
+
+.footer-container p {
+    font-size: 1rem;
+    color: var(--description-color);
+}
+
+.footer-container .social_icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0 1rem;
+}
+
+.footer-container .social_icons a {
+    color: var(--icon-color);
+    font-size: 1.5rem;
+    transition: all 0.5s ease-in-out;
+}
+
+.footer-container .social_icons a:hover {
+    color: var(--icon-hover-color);
+}</style>
+	</head>
+	<body>
+		<a href="#skip" class="visually-hidden">Skip to main content</a>
+
+		<header>
+			<a href="/dark_tales_sleuth/" class="home-link">Dark Tales Sleuth</a>
+			<nav>
+				<h2 class="visually-hidden">Top level navigation menu</h2>
+				<ul class="nav">
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/about/">About</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/my-investigations/">My Cases</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/blog/">All Posts</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/comments/">Comments</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/about-me/">About Me</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="skip">
+			
+
+
+<h1>Child or Demon—WHICH?</h1>
+
+
+
+
+
+
+<ul class="posttalk-metadata">
+  <li>By Eugene Branscombe, as told to Victor Rousseau</li>
+  <li>Published in  <em>Ghost Stories Magazine</em>, October 1926</li>
+</ul>
+
+<article>
+<p><em>What terrible influence could cause the spirit of a demon to lodge in the heart of an innocent child?</em></p>
+<p>&quot;THE soul that builds itself a habitation and then refuses to dwell in it generally has some good reasons of its own. It is those reasons that we are seeking.&quot;</p>
+<p>Doctor Martinus spoke these words in the little back study of his
+dingy brownstone house in the Seventies, New York City.  His head
+was held high, the thin brown beard projecting aggressively, the
+pale blue eyes fixed half anxiously, half-quizzically, upon mine.</p>
+<img alt="Dr. Martinus and Branscome stand over a crib, where a baby sits. The baby's mother leans back against a table in fear." loading="lazy" decoding="async" src="/dark_tales_sleuth/img/child-or-demon-0ppzWF4dLU-400.png" width="624" height="485" srcset="/dark_tales_sleuth/img/child-or-demon-0ppzWF4dLU-400.png 400w, /dark_tales_sleuth/img/child-or-demon-0ppzWF4dLU-624.png 624w" sizes="100vw">
+<p class="caption">She cowered there, shrinking back, terror-stricken——</p>
+<p>I had first come into contact with him when, as a newspaper reporter,
+I was sent to report—and incidentally to ridicule—certain phenomena
+alleged to be produced by a woman medium whom he was then
+sponsoring.  These phenomena were inexplicable to me, and to the other
+newspaper men present; but, unlike them, I refused to pre-judge the
+case in accordance with what was expected of me. The result was a
+quarrel with the Editor, and my resignation from the paper.
+Subsequently, after a visit of curiosity that I paid Doctor Martinus, he offered me the post of secretary.</p>
+<p>A Dutchman by birth, with small private means, he was engaged at the
+time in investigating a certain branch of psychic phenomena which required the services of a literary assistant.  As a result of the reputation he had acquired, he was occasionally called upon to solve certain of those phenomena which persist in cropping up, even in these days, to disconcert materialistic theories.</p>
+<p>&quot;Branscombe,&quot; he would say to me, &quot;sooner than strain my imagination
+by postulating a universal conspiracy among mediums of every nation to
+deceive the inquirer into believing in a post-mortem state, I would
+swallow the ten thousand witches that danced upon the point of Albertus Magnus' needle.&quot;</p>
+<p>This remark was called forth by my suggestion that there was nothing
+mysterious about the case we were considering.</p>
+<p>&quot;After all,&quot; I asked, &quot;what have we except an imbecile child, and
+anxious parents who have perhaps imagined more than the facts warrant?
+As for the dead woman's curse well, may that not have worked upon the
+mother's mind and so have affected the child's mentality?&quot;<br>
+<br><br>
+&quot;BRANSCOMBE, if you knew—if you only could know the thirst for
+experiences of a soul rushing to incarnation, you would see the
+fallacy of your suggestion.  Life—the one great desire of all souls
+whose cycle has brought them back to earth! Life—which fills every void
+on land or sea, or in the air! And you suggest that the soul which built the body of that imbecile child is kept from occupying it because a vicious woman cursed the mother!</p>
+<p>&quot;No, Branscombe! Given the normal, healthy brain that the Adrian
+child possesses, it would require something more potent than the
+mother's imagination for that brain to be left soulless. You are acquainted with the facts?&quot;  He continued, turning upon me full-face, and looking me straight in the eye—a habit he followed frequently, and at unexpected moments.</p>
+<p>&quot;Not altogether,&quot; I said.  &quot;The mother seemed incoherent, and—&quot;</p>
+<p>&quot;I should have taken you to Yonkers with me on that first visit of
+mine, but I was anxious to have you work out those data on prevoyance. Well, here it is on the card. The father, Richard Adrian, is branch manager of a life insurance office, a prosaic enough occupation. Presumably he receives a fair salary, and owns his own home at Number 100 Clinton Avenue, Yonkers. From there he commutes to the city daily. The wife is a charming and intelligent woman. They have been married for ten years. In spite of their intense longing for a child, they never had been blessed with one until eighteen months
+ago, when a healthy boy was born.</p>
+<p>&quot;Both parents adored little Robert,&quot; Doctor Martinus went on. &quot;It was
+not until he was nearly a year old that they began to suspect there
+was anything wrong with his mentality. And the mother insists that the
+child was normal until a certain date. She can fix that date very
+clearly in her mind. And by the way, little Robert is not an imbecile,
+as you suppose, Branscombe.&quot;</p>
+<p>&quot;What, then?&quot; I asked.</p>
+<p>He went on more earnestly: &quot;Branscombe, there is no doubt that this Adrian child has brought into this world a great deal more than the normal outfit with which the new-born human being is usually equipped. You know I base my theory of rebirth principally upon the fact that every human being comes into the world equipped with a set of tendencies and instincts that they have acquired in some former phase of existence. How otherwise can we explain the fact that a Bach, a Shelley, appears in a commonplace family, a Rachel is born
+into the home of a small trader, a Shakespeare in the family of a small town haberdasher?</p>
+<p>&quot;But, under normal circumstances,&quot; the Doctor continued, &quot;all these
+tendencies are so wrought into the physical structure of the child
+that they appear only as unconscious instincts, and for the most part,
+after maturity—in other words, after the soul has finished building
+its house and is ready to resume its activities. In the case of this
+child there is evidence of a rather horrible purpose, as if incarnation had been devoted to one special end and plan.</p>
+<p>&quot;I shall not go into these details. You shall see and form your own
+opinion tomorrow night when we go to Yonkers to make our first
+attempt to unravel this psychic mystery. But the date from which Mrs.
+Adrian reckons the first appearance of these traits in the child is
+the anniversary of her sister's death.&quot;</p>
+<p>&quot;I did not quite gather the details of the curse that the sister
+placed upon the mother,&quot; I said to Martinus.</p>
+<p>&quot;The sister was several years older than Mrs. Adrian.  She was a
+morbid, imaginative, and embittered old maid.  Years ago she conceived
+the idea that Adrian would have married her, and that her sister had
+stolen him from her.  She cursed Mrs. Adrian on her death-bed, a time
+when all the powers of the soul are capable of peculiar concentration.
+She predicted that if Mrs. Adrian ever had a child, it would be an
+imbecile, and would be the greatest misery to both its parents that
+they would ever experience throughout their lives.&quot;</p>
+<p>I had seen enough of Doctor Martinus' work and methods to be prepared
+for some extraordinary experiences at Yonkers, but the habit of
+scepticism was so ingrained in me that I persisted in attempting to
+apply the current methods of psycho-physical diagnosis to this
+case. Certainly the surroundings were not of the kind commonly
+associated with the super-normal. The Adrians had a pretty, commonplace, little house, surrounded with a low privet hedge; it had two rooms and a kitchen below, four bedrooms above. The furniture was of the usual instalment-house type—a hire-purchase piano, with &quot;The Rosary&quot; and &quot;Danny Boy&quot; on top, a radio set, and a potted fern upon a mahogany-finished stand in the front window.<br></p>
+<p>WE arrived just after dark. Mrs. Adrian came to the door, a dish-towel
+in her hand, unfastening her apron with the other. She looked at us
+nervously, and I observed how worn and haggard she appeared—far more
+so than on the day when she came to Martinus' house.</p>
+<p>&quot;Please come in, Doctor Martinus,&quot; she began, not very cordially.</p>
+<p>&quot;Allow me to present Mr. Branscombe, my secretary,&quot; said the Doctor,
+for Mrs. Adrian was looking at me in a questioning mannter.</p>
+<p>She bowed rather frigidly and, with what appeared to me to be
+hesitation, conducted us into the living- room. Here Adrian, a man
+of about thirty-seven or eight, was standing beside a chair, on
+which lay the evening newspaper. If Mrs. Adrian appeared haggard,
+Adrian himself seemed nervous almost to the point of insanity. His
+eyes were never still, and he started violently as Martinus tripped
+over the frayed edge of the Wilton rug.</p>
+<p>&quot;This is my busband,&quot; said Mrs. Adrian. &quot;Richard, let me make you
+acquainted with Doctor Martinus. And Mister—Mister——&quot;</p>
+<p>&quot;Branscombe,&quot; I interpolated. She had forgotten my name already.<br>
+<br><br>
+&quot;DOCTOR MARTINUS, I--I didn't know my wife went to consult you,&quot; began
+Adrian hurriedly. &quot;This is all—well, it wasn't with my approval. I'm a practical man, and I don't believe in such things. They're all imagination.  There's
+nothing the matter with Bobby, except that he's—well, he's——&quot;</p>
+<p>Martinus remained silent, his pale blue eyes fixed upon Adrian's. He
+had all the aspect of the practitioner listening to a refractory patient and at the same time observing him closely.</p>
+<p>&quot;How long have you suffered from this insomnia, Mr.  Adrian?&quot; he asked, ignoring our host's remarks.</p>
+<p>&quot;I—why—did you tell him we suffered from insomnia?&quot;  Adrian queried,
+scowling at his wife.</p>
+<p>&quot;Please don't resent the question,&quot; and Martinus smiled blandly. &quot;To
+the professional man the symptoms are unmistakable. If it were only
+insomnia—well, there's an easy remedy for that.&quot;</p>
+<p>&quot;What do you mean?&quot; Adrian asked.</p>
+<p>&quot;It looks as if they've set a trap for you—and caught you, Mr. Adrian. Both of you,&quot; the Doctor added, turning slightly toward the woman.</p>
+<p>&quot;They? A trap? Who? What trap?&quot; Adrian almost shouted.</p>
+<p>Martinus laid a hand upon his arm. &quot;My dear fellow, how do they trap bears and other animals? By setting a trap along their runways, don't they? Similarly, when you pass into sleep, you leave your waking consciousness along a certain well-mapped route that you've always followed, thinking it is the only road. Well, they've put their trap there, and they catch you in it every night, and—&quot;</p>
+<p>He broke off. &quot;You must learn that there are other roads, my dear fellow. Don't be like the frog that bit eight times in succession at the same piece of red flannel with a hook in it, before it learned it was not a fly. Come, let me see that boy of yours.&quot;</p>
+<p>I expected an outburst of fury on Adrian's part. Instead, after a moment's hesitation, he subsided with a shrug of his shoulders. &quot;Take these gentlemen up, Thyra,&quot; he said.  &quot;I guess it won't do any harm. Things couldn't be worse.&quot;</p>
+<p>I had no idea what little Bobby Adrian would look like.  I was afraid of seeing something grotesque or horrible.  He was a boy eighteen months old, asleep in a crib in a very ordinary bedroom, close to the double bed in which his parents slept.</p>
+<p>A pretty child he was, with flaxen hair and the silky skin of infancy,
+asleep with one hand underneath the face. The only thing amiss with
+him was that he appeared to be too fat, too red-blooded, for such a
+baby.</p>
+<p>I like fat babies, but it was clear, even to my unskilled eyes, that
+there was something amiss with this one. The blood ran
+so red beneath the almost transparent skin, the lips were so
+scarlet. The child at once attracted and repelled me.</p>
+<p>But the transformation in Mrs. Adrian's face as she bent over the crib
+had in it something of infinite pathos. Gone was the anxious, harassed
+look that I had noted downstairs; in place of it was the touching
+solicitude of the mother, that infinite yearning toward the child that
+makes a mother's devotion one of the finest things on earth.</p>
+<p>As she leaned over the crib the little boy opened his eyes and smiled at her.</p>
+<p>Mrs. Adrian looked up at Martinus, tears trembling on her own lashes.
+&quot;He's always like this, so—so different when he first wakes up,&quot; she
+whispered.</p>
+<p>&quot;Yes,&quot; said Martinus softly. &quot;They can't trap him—where he goes. 'In
+heaven their angels do constantly behold——'&quot;</p>
+<p>Suddenly, in an instant, the expression on little Bobby Adrian's face
+was changed. In place of it appeared a cunning smile, a leer that
+seemed to convey some dreadful knowledge.  Then, as if seized with a
+convulsive spasm, he jerked himself upright in his crib, screwed up
+his face at his mother, and struck at her.<br>
+<br><br>
+HE mouthed, grimaced, and then watched the result, his eyes following
+Mrs. Adrian as she stepped quickly back to the far side of the room.
+She cowered there, shrinking back, terror stricken—could a demon take
+possession of an innocent baby?</p>
+<p>At the same moment Richard Adrian appeared in the doorway. He had seen
+the incident, and now strode forward and confronted Martinus. &quot;You see, he's always like that!&quot; he exclaimed. &quot;He hates his mother. Sometines I wish he was dead. He's possessed, if ever a child was.&quot;</p>
+<p>&quot;Yes, he's possessed,&quot; answered Martinus, &quot;but so are we all possessed. Every time we let our passions ride us.  The veil is very thin. ...&quot;</p>
+<p>He broke off and, bending over the crib, grasped the child by the arms, staring intently into its face. It stared back at him with leering impudence.</p>
+<p>&quot;Go back,&quot; said Martinus quietly. &quot;This is not your time. Go to sleep now.&quot;</p>
+<p>Gradually, as I watched, I saw a film seem to pass over the eyes.  The
+look of intense hate that Bobby still directed toward his mother was
+succeeded by one of mere fatigue. Slowly the eyes closed.  Martinus
+made a few passes over the face. Little Bobby slept.</p>
+<p>Mrs. Adrian came forward. &quot;What is it?&quot; she whispered. &quot;What is this
+evil spirit that seems to possess him? Is it—is it <em>her?</em>&quot;</p>
+<p>&quot;That we shall find out in due course,&quot; answered Martinus. &quot;With your
+permission, I shall bring another assistant here with me at an early
+date—Mrs. Sampson, a materializing medium who——&quot;</p>
+<p>&quot;You mean that faker who was exposed by the New York newspapers?&quot; asked Adrian hotly. &quot;I won't have her in my house. I'd rather—I'd rather have things go on as they are than have any such exhibitions here. My child is sacred to me. I don't believe in such nonsense, anyway. Besides, if there is any occult world, we are not supposed to tamper with it.&quot;</p>
+<p>&quot;I can guarantee that Mrs. Sampson is no faker, as you term her, but a most respectable woman,&quot; answered Martinus, &quot;However, just as you say.&quot;</p>
+<p>Mrs. Adrian drew her husband aside and seemed to be pleading with him in low tones. Reluctantly he turned toward Martinus.</p>
+<p>&quot;Well, bring her along,&quot; he said. &quot;Of course, you understand, if any
+harm comes of this—&quot;</p>
+<p>&quot;No, no!&quot; exclaimed Mrs. Adrian vehemently.  &quot;Do help us, Doctor. My husband is so distracted he doesn't know what he is saying.&quot;<br></p>
+<p>&quot;But that is too horrible for words!&quot;  I said to Martinus later.  &quot;You mean that the old legends of vampires are true? ... But the Adrian child cannot get out of its crib!&quot; I exclaimed, as if I had penetrated his defenses.</p>
+<p>&quot;My dear Branscombe, you misunderstand the theory upon which that
+legend, as you call it, was built. The vampire never drew its sustenance from its victim in living form.  On the contrary, he was invariably found at home in bed.&quot;</p>
+<p>&quot;You mean it materializes a phantom to perform its horrible work?  But
+how can a phantom perform a physical act?&quot;</p>
+<p>&quot;If you will look up your Homer, answered Martinus, &quot;you will see that
+when Ulysses went down into Hades to consult the spirits, he had first
+to pour blood of oxen into a trench for them to feed on. The blood is the life, as the Bible tells us, and essential to a complete materialization.  Even in the séance-room the medium often is forced to submit to a partial disintegration of the physical tissue in order to build up the body of the materializing entity.&quot;</p>
+<p>&quot;But a child—a baby like that!&quot; I exclaimed.</p>
+<p>&quot;Branscombe,&quot; said Martinus solemnly, &quot;a baby like that is quite a
+satisfactory agent for the entity that is making use of it in the
+fulfillment of its designs.  Remember, the child itself is guiltless.
+And remember what I was saying the other day, that the impulse toward
+incarnation on the part of the dead who have completed the cycle of
+discarnate life, or who are attached to earth by any strong emotion—this impulse is so intense that they will make use of anything, even the body of an animal....  But here is Mrs. Sampson, coming in at the door.&quot;<br>
+<br><br>
+MRS. SAMPSON was the wife of a small contractor, living in the
+Bronx. She had two grown daughters, and was, to all appearance, the
+type of stout, motherly woman who might be expected to live in such
+circumstances and surroundings. I had seen her before—she was, in
+fact, the medium whom I had refused to &quot;expose,&quot; and on whose account
+I had severed my connection with my newspaper.</p>
+<p>I had seen her perform certain inexplicable phenomena while in a
+state of trance. Judge my astonishment, therefore, when she began:</p>
+<p>&quot;Now, Doctor, you've been very kind to me, and you certainly helped my
+Margie when the doctors wanted to put her away, and she's engaged to
+marry a fine gentleman now, and I'll never cease to be grateful to
+you. And that's why I came. But you know Joe never liked me to take
+part in them conjuring tricks of yours, and he says there ain't going
+to be no more of it.&quot;</p>
+<p>&quot;Come, Mrs. Sampson, you won't turn me down when I need your help so
+badly,&quot; said Martinus, with a wheedling manner that sat so strangely
+on him could hardly keep from laughing.</p>
+<p>&quot;Where is it this time, Doctor?&quot;</p>
+<p>&quot;In Yonkers,&quot; he answered. &quot;Just some friends of mine who've got a boy who's a little out of his head. I've promised to help them, and I'm counting on you.&quot;</p>
+<p>The woman pursed her lips. &quot;You know, Doctor, this gets me in bad
+with the neighbors, and Margie being engaged now—no, I can't do it.
+Besides, it takes it all out of me, and I've never found out what you
+do while I'm asleep.  I don't like it, Doctor, making an exhibition of
+myself before people that way. Besides, supposing the police was to
+raid the house? They fined a fortune-teller fifty dollars only last week for pretending to tell the future.&quot;</p>
+<p>&quot;Ah, but I really do tell the future,&quot; answered the Doctor. &quot;Let me see your hand.&quot;</p>
+<p>He took Mrs. Sampson's thick palm in his, examining it intently.
+&quot;What's this?&quot; he asked. &quot;Money?  Why, my dear lady, do you know
+you're going to be richer than you ever dreamed of being, inside of
+a year?&quot;</p>
+<p>&quot;Why, that must be Uncle Jim!&quot; exclaimed Mrs. Sampson, in agitation. &quot;He said he'd leave me something, but it's years since I seen him, and I guessed he'd sort of forgotten me.  Do you really see money in my hand?&quot;</p>
+<p>&quot;I see more than that, Mrs. Sampson,&quot; responded Martinus gravely.
+&quot;What's this? Why, Mrs. Sampson, inside of a year you are going to
+have—no, surely that can't be so—and yet the palm can't lie. I see the
+cutest little fairy of a child——&quot;</p>
+<p>Mrs. Sampson blushed and bridled.  &quot;Why, Doctor, don't you see? That's
+Margie's baby!&quot; she said, all in a flutter.</p>
+<p>Martinus released her hand. &quot;True, of course!&quot; he exclaimed. &quot;Why didn't I think of that before? Well, Mrs. Sampson, I'm sorry you can't come, but guess I can find somebody _&quot;</p>
+<p>&quot;Now don't you go so fast,&quot; said the woman. &quot;I don't really see how I
+mightn't be willing to oblige, seeing what you done for Margie, and it
+being a private house...&quot;</p>
+<p>Five minutes later she left, with the understanding that she was to come to us two days later, on the evening arranged for the séance. Martinus was in high good humor when he came back, after closing the door on her.</p>
+<p>&quot;You certainly know how to handle women of that type,&quot; I suggested.</p>
+<p>He smiled, and shrugged his shoulders. &quot;She's always that way at first,&quot; he answered. &quot;It gives her an increased sense of her own importance.  She hasn't the least conception of what happens while she's in a trance, and doesn't dream she's one of the best materializing mediums in the country.&quot;</p>
+<p>&quot;Suppose Uncle Jim doesn't leave her that money,&quot; I suggested.</p>
+<p>&quot;I didn't say it was Uncle Jim,&quot; answered the Doctor. &quot;Though, as a matter of fact, she predicted herself, while in trance, that she would receive it, and she seems to have the genuine faculty of prevoyance.  But, anyway,&quot; and laughed, &quot;we've helped the cause along.&quot;<br>
+<br><br>
+MARTINUS told me his plans on our way up to Yonkers, Mrs. Sampson, on
+my other side, absorbed in <em>Evening Graphic</em>.</p>
+<p>&quot;We are going to lay a trap, or, rather, bait a trap, for this entity,&quot; he said, &quot;exactly as it baits a trap for poor Adrian and his wife when they cross in sleep to the other side, where it has its haunt.  You know the proverbial stupidity of the ghost, according to German folk-lore.  Whether or not it sees through our motives, it will be unable to resist the lure, simply because of what I have often spoken of—-the irresistible impulse toward incarnation.</p>
+<p>&quot;In plainer words, we shall endeavor to cause this thing, whatever it is, to leave the child and enter the body of good Mrs. Sampson, because she has the faculty of enabling it to attain the one thing it longs for more than any other—material life.</p>
+<p>&quot;Material life?&quot; I echoed.</p>
+<p>&quot;Material life—for a few seconds only, but, nevertheless, while it lasts, intensely real and intensely gratifying.&quot;</p>
+<p>&quot;But do you mean to assert that the materialized spirit actually
+consists of flesh and blood?&quot; I asked.</p>
+<p>&quot;Why not, my dear Branscombe? Nature has provided more than one method of reproduction among the orders—three, at least, corresponding to the three kingdoms; what is there improbable in the suggestion that she can make use of a fourth?  And materialization through ectoplasmic secretion is, after all, extremely similar to the reproduction of a tree or plant by budding.</p>
+<p>&quot;If you will read Sir William Crookes' account of his investigations in this subject,<label for="crookes" class="margin-toggle">⊕</label>
+<input type="checkbox" id="crookes" class="margin-toggle">
+<span class="marginnote"><a href="https://en.wikipedia.org/wiki/William_Crookes">Sir William Crookes</a> (1832-1919) was an English chemist and physicist. He is credited with the discovery of thallium, and is the inventor of the Crookes tube, an early (partial) vacuum tube. He got involved in spiritualism in the 1860s, and was president of the Society for Psychical Research in the 1890s.<br><a href="https://en.wikipedia.org/wiki/Katie_King_(spirit)">Katie King</a> was the name given to a spirit who was allegedly materialized by the medium Florence Cook, and others, in the 1870s. Crookes investigated Florence Cook, and avowed, controversially, that he witnessed a genuine Katie King manifestation.</span> you will find that the celebrated Katie King appeared to him while he was alone in his study with the medium, Florence Cook, and that she appeared in all respects a woman of flesh and blood.  She helped him raise the medium and deposit her more securely upon the couch.  He took her pulse, and the medium's, and found them to differ by a number of beats per minute.  He clasped her to him, and felt her solid form disappear into nothingness in his arms. All this, my dear Branscombe, is a matter of scientific report, made by one of the foremost physicists of his day, a man whose life work was the investigation of matter.&quot;</p>
+<p>&quot;But if you succeed in getting it to leave the child and go to Mrs. Sampson, what then?&quot; I asked.</p>
+<p>Martinus laughed in his dry way. &quot;We shall try to slam both doors in
+its face at once, and leave it out in the cold,&quot; he answered. &quot;Did
+you ever take part in an old-fashioned parlor game known as musical
+chairs? Yes, we ought to have a very interesting time with this
+phantom, Branscombe.&quot;<br>
+<br><br>
+IN spite of Martinus's matter-of-fact manner, and my own former experiences, I could not repress a thrill of fear when, the preparations having been completed, we took our places in the temporary séance-room into which the Adrians' bedroom had been converted.</p>
+<p>It was not the weirdness of the scene, or, rather, the contrast
+between that weirdness and the prosaic life of Yonkers going on
+outside—cars following one another down the street, voices of
+passers-by coming up to us through the shaded windows. It was the
+presence of the boy as the chief agent in what was being done.</p>
+<p>A cabinet had been constructed by means of two cheap screens, fastened
+together, in an opposite corner of the room; the child's crib was
+also screened, and in that crib sat the little boy, wide awake, and
+chuckling over a woolly lamb that he was hugging. Mrs. Sampson sat
+in the cabinet, of course.  Between this and the screened crib we four—the Adrians, Doctor Martinus and myself—formed a half-eircle. Outside, the twilight was swiftly fading into night.</p>
+<p>As this night deepened in the room, it was uncanny to hear those chuckles coming from the cot.</p>
+<p>&quot;He's never been like this before,&quot; Mrs. Adrian whispered. &quot;He always
+goes to sleep before this time. When he's awake he—he isn't like that,
+not with me in the room.&quot;</p>
+<p>There was an indescribable pathos in her voice. Adrian muttered
+uneasily. It was evident to me that he had been dragooned into
+attending the séance, disbelieved in it, and resented it.</p>
+<p>&quot;Let us keep silent,&quot; said Martinus.  Seated next to the cabinet in
+which Mrs. Sampson was, he leaned toward her.  &quot;Are you ready,
+Mrs. Sampson?&quot; he asked.</p>
+<p>&quot;Ready,&quot; she answered in a faint voice.</p>
+<p>A few seconds later I heard her sigh and begin breathing heavily.</p>
+<p>&quot;This is all nonsense!&quot; muttered Adrian uneasily.</p>
+<p>But it was eerie in that room, as the silent minutes passed, and now
+the child was chuckling no longer. I saw his mother trying to strain
+her eyes toward him through the darkness.</p>
+<p>&quot;Whatever happens,&quot; came Martinus' low tones, &quot;please remember to keep
+silent, and above all do not stir from your places under any pretext.&quot;<br>
+<br><br>
+MINUTES more. A street car rumbled past in the distance. My hands
+had that peculiar cold numbness that I always felt when something was
+impending.  I was straining my eyes upon the cabinet, from which I
+heard Mrs. Sampson's uneasy stirrings and moanings.  The black stuff
+curtain that hung in front of it was moving to and fro, but that might
+have been her hands.</p>
+<p>&quot;Oh, my God!&quot; whispered Mrs. Adrian suddenly.</p>
+<p>The curtain had partly fallen from one of the hooks that held it in
+position, affording a dim view of Mrs. Sampson's head and shoulders,
+barely outlined in the faint light that came from the sides of the
+window-shades.  And about the woman's shoulders some filmy stuff
+seemed to be condensing.</p>
+<p>&quot;Silencel&quot; Martinus whispered insistently.</p>
+<p>A few seconds more, and the filmy stuff was clearly visible, as if lit
+by its own phosphorescence. And it was moving, moving slowly toward
+the front of the cabinet—a cloud, a faintly luminous cloud, perhaps
+like that which guided the Children of Israel through the desert.
+Shapeless, nothing but a cloud, it moved and swirled with innumerable
+tiny eddies, and behind it I could see the figure of the medium sunk
+as if in sleep, and I could hear her heavy breathing.</p>
+<p>If the cloud was assuming shape, I could not see it. Sometimes I could
+see nothing, at others patches of mist seemed to float before my eyes.
+But of a sudden something happened that sent an icy chill down my
+spine.  From the child's crib came a wild, shrill, chuckling laugh.</p>
+<p>Never have I heard a human laugh so terrible as that, even from a
+grown man or woman. And following immediately upon it there came a
+scream from Mrs. Adrian:</p>
+<p>&quot;Oh, my God, Emma!&quot;</p>
+<p>What happened next I don't know. A chair was overturned, I heard
+Martinus land on both feet as if he had leaped from a height; there
+came an oath from Adrian, the sound of some one panting—then Martinus
+had switched on the electric light, and I saw Mrs. Adrian lying in a
+dead faint upon the floor, her husband kneeling beside her.</p>
+<p>Mrs. Sampson sat slumped in her chair within the cabinet.  One of the
+screens had fallen back against the wall. The child was silent in his
+crib, and Martinus was breathing heavily, as if he had been running.</p>
+<p>&quot;Too late, Branscombe,&quot; he whispered huskily. &quot;If she hadn't
+screamed——&quot;</p>
+<p>Adrian looked up, his face twisted with violent anger. &quot;Leave my house, all of you. I'm through with this foolery!&quot; he said.<br>
+<br><br>
+THREE weeks went by. Doctor Martinus had said very little to me
+about the failure of his experiment, and of course I had not
+questioned him. In the face of Adrian's attitude—he had practically
+turned us out of his house—there was nothing more to be done. I was
+absorbed in some abstruse work of Martinus' and had virtually
+dismissed the affair of the Yonkers vampire from my mind.</p>
+<p>Then one evening, as we were seated at Martinus' desk together,
+checking up some data—the subject had reference to the Einstein theory
+of light—the door-bell rang violently. Next minute the colored maid
+was showing in Mrs. Adrian.</p>
+<p>The three weeks had worked a shocking change in her. There was
+hardly a vestige of color in her face, which looked like that of a
+corpse.  Her skin was shrunken over the facial bones, her expression
+wild beyond anything I had seen.</p>
+<p>She ran to Martinus and seized him by the hand. &quot;Doctor, this can't
+go on!&quot;  she cried. &quot;We are at our wits end. My husband is on the
+verge of insanity. He begged me to come to you and ask  you to
+overlook the remarks he made to you at that séance in our house. If he
+hadn't I should have come to you anyway. We will do anything,
+literally anything, if only there is a chance that things will right
+themselves. Doctor, at night I go to the most frightful places. I
+can't remember what happens there, but—people without pity, Doctor,
+inhuman things ... and then our boy....&quot;</p>
+<p>Martinus laid his hand on her shoulder. &quot;I know all about it,
+Mrs. Adrian——&quot;</p>
+<p>&quot;And Richard and I go to the same place together. That is the horror
+of it. For a long time I wouldn't let him know that—that I had dreams
+like him, but now we know that we both go there.  And they are
+dragging us there. It means insanity, death—and Bobby——&quot;</p>
+<p>She broke off, incoherent and frenzied.  Martinus made her sit down.</p>
+<p>&quot;I thought you would be coming here soon, Mrs. Adrian,&quot; he said. &quot;Of
+course I know your husband was hardly responsible for what he said that night. I believe we can yet find the remedy.&quot;</p>
+<p>Before she left he had promised to be at the Yonkers house the
+following evening for another sitting.<br>
+<br><br>
+THERE was the usual prelude with Mrs. Sampson, who had come out of her trance in time to take some of Adrian's remarks to herself, and to feel accordingly offended; but Martinus soothed her ruffled feelings in his adroit way, and we three started up toward Yonkers as before. On the way the Doctor outlined his scheme to me.</p>
+<p>&quot;We're dealing with infinite cunning and determination, Branscombe,&quot;
+he said. &quot;Not in the human way, of course. Judged by any standards at
+all, the people on the other side fall far short of us humans in
+intelligence, because they function there through instinct.  But there
+is no doubt that the particular entity we are dealing with does understand in a dim way that we are laying a trap for it, and is resolved to outwit us.</p>
+<p>&quot;I told you, Branscombe, of my intention of decoying it out of little Bobby Adrian by the lure of Mrs. Sampson, and then slamming both doors on it. The trouble is that we were not quick enough to stop it. You saw the ectoplasm exude from Mrs. Sampson's body?  That was, of course, the veil of the entity that has taken possession of the child, and left him in order to attain materialization through this good lady on your left, who is so busy reading 'Advice to the Lovelorn' in that paper of hers.</p>
+<p>&quot;The instant Mrs. Adrian screamed the ectoplasmic exudation returned
+to Mrs. Sampson, and the entity, relinquishing its sheath, became one
+with Bobby Adrian again. This time I hope to throw a barrage around
+it which will effectively bar its way.&quot;</p>
+<p>&quot;I've heard the old legend of a spirit being unable to step outside a
+circle of chalk, &quot; I said.</p>
+<p>&quot;Not without a basis of sense, Branscombe. It is neither the chalk
+nor the circle, of course, but simply the disintegrating effect of
+white light, and, chalk being white, it might have something of the
+same effect.</p>
+<p>&quot;However, we have progressed beyond chalk. I have sent a certain
+apparatus up to the Adrians' house, and I hope that this will do the
+trick for us.&quot;<br>
+<br><br>
+IT had arrived before we got there, and consisted of a small but
+complicated apparatus somcthing like a projecting camera.  There
+was a circular slot arrangement too, and lenses, together with some
+sort of clockwork mechanism that I did not understand.  We carried it
+up to the bedroom, where the child lay asleep in his crib.</p>
+<p>But this time I could hardly repress a cry of horror at the sight of
+him.  The whole of that child's body was suffused with scarlet, the
+lips were carmine as a painted woman's lips, and more dreadful still
+was the look of smug satisfaction upon the face as the child slept.</p>
+<p>I looked from him to Martinus, who had left the apparatus that he was
+setting up, and had come to my side. Adrian, more ghastly than before,
+was standing in the doorway. Martinus made a gesture to me, hardly
+perceptible, indicating he wanted me to say nothing.</p>
+<p>But to the mother's eyes nothing was amiss. She bent over the crib,
+fearful lest the boy should awaken. She looked up at us.</p>
+<p>&quot;Doctor, isn't he a strong, beautiful boy!&quot; she said. &quot;I can't believe
+that anything is really wrong, of the kind you've told us about. Oh,
+if I could only believe that you can drive this dreadful thing away
+and let us be as happy as we used to be!&quot;</p>
+<p>&quot;I believe I can,&quot; answered the Doctor. &quot;Only this time everything
+will depend upon absolute silence, no matter what you hear or see.'</p>
+<p>&quot;You shall see that you can trust me this time,&quot; Mrs. Adrian responded.<br>
+<br><br>
+MRS. SAMPSON had taken her place within the cabinet. We four formed
+the same half-circle, but in front of Doctor Martinus was the apparatus, standing on a tripod, and somewhat resembling a surveyor's <a href="https://en.wikipedia.org/wiki/Theodolite">theodolite</a>. I wondered what part it was to play in the séance. But I should know soon enough. Already Mrs. Sampson was breathing hard and moaning inside the cabinet. Again I felt that cold wind on my hands. I saw the curtains swaying to and fro.</p>
+<p>Then, curling out beyond them, I saw the strands and shreds of
+mist. But this time they seemed to be taking tangible form. And gradually,
+very gradually, through the darkness, I saw the outlines of a woman's
+figure grow against that silhouette of blackness.</p>
+<p>Mrs. Adrian's hand in mine grew tense.  She was breathing
+convulsively, almost as hard as the medium inside the cabinet.  That
+shape, that terrible shape, was floating toward the half-circle. Suddenly I saw its face—and I was gripped by an uncanny terror.</p>
+<p>&quot;Emma!&quot; shrieked Mrs. Adrian, &quot;Emma!&quot; and fell back, fainting, in her chair.</p>
+<p>A face flat as a pasteboard mask, white as a death's head, the eyelids
+closed as it floated forward, the hands seeming to grope for
+something. I could not take my eyes off it. Suddenly that peal of
+wild, horrible laughter was repeated, but this time from the half-formed lips. And with that the cyes opened.</p>
+<p>Eyes of blazing black, like pools set in the sockets, pools of
+blackness against the whiteness of the face.  Eyes blazing triumph,
+scorn, and derision, as they fixed themselves upon Mrs. Adrian.</p>
+<p>But she had suddenly grown limp.  Her husband, at her side, was rigid
+in his chair, his head following the floating form with stiff,
+mechanical jerks. The figure stopped in front of us.  And then—I
+could not tell whether it was the form that spoke or Mrs, Sampson in
+the cabinet:</p>
+<p>&quot;I've got my eyes open!&quot;<br>
+<br><br>
+&quot;WHY have you come back?&quot; asked Martinus.</p>
+<p>&quot;I told her. I've been wandering in the dark. I didn't know where I
+was, but I've got my eyes open now.</p>
+<p>&quot;You've taken the wrong road.&quot;</p>
+<p>&quot;No, the right road, the right road. I'll make her pay.&quot;</p>
+<p>Martinus leaned a little forward. &quot;There is no passing by this road. You must take the other road, the road of birth. This road was closed long ago, long ago, Emma Wishart.&quot;</p>
+<p>&quot;It's too long, that other road, and I shall forget.&quot;</p>
+<p>&quot;No one ever forgets. Go back. This road is closed to you henceforward.
+You have been wandering. You have forgotten. Go back now and let the
+dead bury their dead. That life of yours is ended, the balance is
+drawn, the account closed. Go back and take that other road.&quot;</p>
+<p>A shriek of derision came from somewhere in the room. I saw Martinus' hand move, heard a lever click. Suddenly the figure was ringed with a flood of brilliant light, blazing between it and Mrs. Sampson, between it and the child.</p>
+<p>The scream that followed sounded like a bedlam of fiends in hell. For
+one instant longer I saw the figure white against the darker
+background; then it had vanished. The light had gone out, and I heard
+the collision of two heavy bodies somewhere in the room. From
+Adrian's lips came a maniacal gibbering.  I heard Martinus panting as
+he wrestled with some invisible adversary, and, groping, I found the
+electric light and turned it on.</p>
+<p>Mrs. Adrian was sprawled in her chair, unconscious. Her husband was on
+his feet, mouthing and gibbering. Upon the floor lay Mrs. Sampson, her
+arms locked convulsively about Martinus' neck, her fingers twitching
+at his throat.<br>
+<br><br>
+IT was Martinus' custom to maintain a certain reticence about his
+cases until some time had elapsed. Consequently, though I was
+decidedly curious to understand just what had happened, I had to
+wait his pleasure in this particular instance for nearly a month.</p>
+<p>What precipitated the discussion was the appearance one morning of
+Mrs. Adrian, bringing with her little Bobby, apparently a perfectly
+normal child of his age, and clinging lovingly to his mother.</p>
+<p>&quot;Doctor,&quot; she said, &quot;I shall never be able to thank you enough for
+what you did for us. My husband is well on the way of convalescence
+now. That terrible night was the end of all those horrors.  You saved
+us both from insanity, and you have given me back my boy.&quot;</p>
+<p>&quot;A fine-looking little fellow,' said Martinus, pinching his cheek. &quot;I
+needn't tell you to take good care of him, Mrs. Adrian.&quot;</p>
+<p>&quot;You know, Doctor, my husband and I have been talking over all this,
+and we have come to the conclusion that we must both have been badly
+run down, and imagined all sorts of stupid things. I'm not a sceptic,
+but of course one must use one's common-sense in such matters.  There
+wasn't really a—a spirit in that cabinet, was there?&quot;</p>
+<p>&quot;Well, not the conventional ghost—no, Madam,&quot; answered Martinus.
+&quot;But Mrs. Sampson, my medium, is really adept——&quot;</p>
+<p>&quot;Oh, you needn't go on,&quot; said Mrs.  Adrian. &quot;I knew it was she who
+came out of the cabinet, but still, I believe there is a lot of quite
+unconscious imposture. Anyway, I shall never criticize you because
+you saved my child.&quot;</p>
+<p>When she was gone, Martinus turned to me with a smile of cynical
+amusement. &quot;You see, my dear Branscombe? What chance has one of
+turning one's scientific discoveries to account, when the world is
+full of just such people as Mrs. Adrian?&quot;</p>
+<p>&quot;Doctor,&quot; I answered, &quot;you have never told me just what did occur. I imagine it was her husband's finding you at grips with Mrs. Sampson on the floor of the séance-room that brought about this change of attitude on Mrs. Adrian's part.&quot;<br>
+<br><br>
+MARTINUS nodded thoughtfully.  &quot;This identification of the medium
+with the form is the great stumbling-block to the lay mind,&quot; he said. &quot;But you know, Branscombe, that since the form is built up out of the very tissues of the medium, both are identical. Thus, when one grasps the form, the medium is instantly projected from the cabinet into the very hands of the scoffer who has seized it, and of course, incidentally, his cry of fraud appears entirely self-evident.</p>
+<p>&quot;In this case, by instantly encircling the materialized shape with a
+band of light containing the ultra-violet rays, which are immediately
+destructive of ectoplasmic tissue, I threw an impassable barrier
+between the shade of Emma Wishart and both Mrs. Sampson and the
+child. We slammed both doors, my dear Branscombe, leaving the vengeful
+spirit out in the cold, with no prospect of working out its revenge
+save by passing through the legitimate channels of rebirth. And by
+the time she is able to accomplish this, you and I and Bobby Adrian
+will have long since been mouldering in the dust.</p>
+<p>&quot;I want you to understand, Branscombe,&quot; he went on, &quot;that Emma Wishart is, or was, by no means consciously a devil. It was the impulse of the death-bed curse that carried her along. She was not consciously a vampire, nor did she wilfully prey upon her sister and her sister's husband through the medium of the child. All those doings were as unconscious as the doings of the newly dead man who, in his eagerness to inform his family that he is still alive, knocks down pictures and ornaments, flings lumps of coal, and generally raises cain with his antics, under the impression that he is merely signalling his presence in a decorous way. Given a wish, nature sets her own mechanism to work to fulfil it—and she generally sees that the wish is fulfilled.</p>
+<p>&quot;It was the intense desire to reassume material form that brought about the whole chain of circumstances.  With Bobby Adrian's soul firmly in the saddle again, and ruling his healthy little body, I don't think there is much likelihood that his aunt will ever succeed in imposing herself upon him again.&quot;</p>
+<p>&quot;I wish the Adrians could understand.&quot; I remarked. &quot;It seems, somehow, as if they ought to take a more intelligent interest in matters which concern them so intimately. It is pitiful that you should have to work in the dark, so to speak, when dealing with matters of such transcending importance.&quot;</p>
+<p>&quot;Yes,&quot; and Martinus nodded, &quot;but if they hear not Moses and the Prophets, they would not hear one though he rose from the dead.&quot;</p>
+<hr>
+<p>Part of the series <a href="/dark_tales_sleuth/pages/victor-rousseau/#dr-martinus-occultist"><em>Dr. Martinus, Occultist</em></a></p>
+<p>Illustrations from <em>Ghost Stories Magazine</em>, October 1926</p>
+
+</article>
+		</main>
+
+		<!-- footer -->
+		<hr>
+
+<div class="footer-container">
+	<p>&copy; 2025 Nina B. Zumel</p>
+	<div class="social_icons">
+	    <a href="mailto:nzumel@mzlabs.com?subject=Comment%20from%20Dark%20Tales%20Sleuth" aria-label="Email" target="_blank" rel="noopener noreferrer">
+			<i class="fas fa-fw fa-envelope"></i>
+		</a>
+		<a href="https://micro.blog/MultoGhost" aria-label="Micro.blog" target="_blank" rel="noopener noreferrer">
+			<i class="fab fa-fw fa-microblog"></i>
+		</a>
+		<a href="https://multoghost.wordpress.com/" aria-label="Multo (Ghost)" target="_blank" rel="noopener noreferrer">
+			<i class="fab fa-fw fa-wordpress"></i>
+		</a>
+		<a href="/dark_tales_sleuth/feed.xml" aria-label="RSS" target="_blank" rel="noopener noreferrer">
+			<i class="fa fa-fw fa-rss-square"></i>
+		</a>
+
+	</div>
+</div>
+		<!-- /footer-- >
+
+		<!-- Current page: /dark_tales_sleuth/victor-rousseau/child-or-demon-which/ -->
+	</body>
+</html>
