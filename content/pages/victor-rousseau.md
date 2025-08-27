@@ -140,7 +140,7 @@ Stories marked with an asterisk (`*`) are ones that I've transcribed here. The o
 
 ## Dr. Martinus, Occultist
 
-Dr. Martinus is a Dutch-born investigator of psychic phenomena, as well as a physician. He conducts much of his research empirically, via seances. Hypnosis is one of his tools. Martinus' cases are chronicled by his research assistant, a former newspaper reporter named Branscombe.
+Dr. Martinus is a Dutch-born investigator of psychic phenomena, as well as a physician. He conducts much of his research empirically, often through the use of mediums and seances. Martinus' cases are chronicled by his research assistant, a former newspaper reporter named Branscombe.
 
 Five Dr. Martinus stories and a six-part novella appeared in *Ghost Stories Magazine* between October 1826 and May 1928. 
 The tales in *Ghost Stories* were all presented as true, first-person narratives, with the narrator credited as the author, "as told to" the actual writer., 
