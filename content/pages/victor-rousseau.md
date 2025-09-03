@@ -157,7 +157,7 @@ In keeping with the conceit of the magazine, I'll give each story as "by Arthur/
 [**Child or Demon—Which?**](/victor-rousseau/child-or-demon-which/) - *Ghost Stories*, October 1926
 <br><span class="inline-note">Branscombe's first name is given here as Eugene. He becomes Arthur in the next story.</span>
 
-**The Doll That Came to Life** - *Ghost Stories*, January 1927 
+[**The Doll That Came to Life**](/victor-rousseau/doll-that-came-to-life/) - *Ghost Stories*, January 1927 
 
 **Ghost of the Red Cavalier** - *Ghost Stories*, March 1927
 
