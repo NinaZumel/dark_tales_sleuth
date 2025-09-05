@@ -1,12 +1,17 @@
 const { DateTime } = require("luxon");
+const markdown = require("markdown-it")({
+  html: true,
+  breaks: true,
+  linkify: true,
+});
 const markdownItAnchor = require("markdown-it-anchor");
 const markdownItFootnote = require("markdown-it-footnote");
 
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
-const pluginBundle = require("@11ty/eleventy-plugin-bundle");
 const pluginNavigation = require("@11ty/eleventy-navigation");
 const { EleventyHtmlBasePlugin } = require("@11ty/eleventy");
+const { eleventyImageTransformPlugin } = require("@11ty/eleventy-img");
 
 const pluginDrafts = require("./eleventy.config.drafts.js");
 const pluginImages = require("./eleventy.config.images.js");
@@ -29,6 +34,17 @@ module.exports = function(eleventyConfig) {
 	eleventyConfig.addPlugin(pluginDrafts);
 	eleventyConfig.addPlugin(pluginImages);
 
+	// Per-page bundles, see https://github.com/11ty/eleventy-plugin-bundle
+	// Adds the {% css %} paired shortcode
+	eleventyConfig.addBundle("css", {
+		toFileDirectory: "dist",
+	});
+	// Adds the {% js %} paired shortcode
+	eleventyConfig.addBundle("js", {
+		toFileDirectory: "dist",
+	});
+
+
 	// Official plugins
 	eleventyConfig.addPlugin(pluginRss);
 	eleventyConfig.addPlugin(pluginSyntaxHighlight, {
@@ -36,57 +52,83 @@ module.exports = function(eleventyConfig) {
 	});
 	eleventyConfig.addPlugin(pluginNavigation);
 	eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
-	eleventyConfig.addPlugin(pluginBundle);
+	eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
+		// output image formats
+		formats: ["auto"],
 
-	// Filters
-	// These work because I'm specifically putting the time zone into the datetimes on this blog
-	// On ninazumel.com where I'm only using date, there might be an off by one error, but whatever.
+		// output image widths
+		widths: ["auto"],
 
-	// luxon format strings https://moment.github.io/luxon/#/formatting
-	eleventyConfig.addFilter("readableDate", (dateObj, format, zone) => {
-		// Formatting tokens for Luxon: https://moment.github.io/luxon/#/formatting?id=table-of-tokens
-		return DateTime.fromJSDate(dateObj, { zone: zone || "local" }).toFormat(format || "dd LLLL yyyy t");
+		filenameFormat: (id, src, width, format) => {
+			const filename = src.split('/').slice(-1)[0].split('.')[0];
+			if (width) {
+				return `${filename}-${id}-${width}.${format}`
+			}
+			return `${filename}-${id}.${format}`
+		},
+
+		// optional, attributes assigned on <img> nodes override these values
+		htmlOptions: {
+			imgAttributes: {
+				loading: "lazy",
+				decoding: "async",
+			},
+			pictureAttributes: {}
+		},
 	});
 
-	eleventyConfig.addFilter('htmlDateString', (dateObj) => {
-		// dateObj input: https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
-		return DateTime.fromJSDate(dateObj, {zone: 'local'}).toFormat('yyyy-LL-dd t');
-	});
+	// filters
+        // luxon format strings https://moment.github.io/luxon/#/formatting
+    eleventyConfig.addFilter("readableDate", (dateObj, format, zone) => {
+        // Formatting tokens for Luxon: https://moment.github.io/luxon/#/formatting?id=table-of-tokens
+        return DateTime.fromJSDate(dateObj, { zone: zone || "local" }).toFormat(format || "dd LLLL yyyy t");
+    });
+
+    eleventyConfig.addFilter('htmlDateString', (dateObj) => {
+        // dateObj input: https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
+        return DateTime.fromJSDate(dateObj, {zone: 'local'}).toFormat('yyyy-LL-dd t');
+    });
+
+
+    // Get the first `n` elements of a collection.
+    eleventyConfig.addFilter("head", (array, n) => {
+        if(!Array.isArray(array) || array.length === 0) {
+            return [];
+        }
+        if( n < 0 ) {
+            return array.slice(n);
+        }
+
+        return array.slice(0, n);
+    });
+
+    // Return the smallest number argument
+    eleventyConfig.addFilter("min", (...numbers) => {
+        return Math.min.apply(null, numbers);
+    });
+
+    // Return all the tags used in a collection
+    eleventyConfig.addFilter("getAllTags", collection => {
+        let tagSet = new Set();
+        for(let item of collection) {
+            (item.data.tags || []).forEach(tag => tagSet.add(tag));
+        }
+        return Array.from(tagSet);
+    });
+
+    eleventyConfig.addFilter("filterTagList", function filterTagList(tags) {
+        return (tags || []).filter(tag => ["all", "posts"].indexOf(tag) === -1);
+    });
+
+	eleventyConfig.addFilter("markdown", function (rawString) {
+    	return markdown.render(rawString);
+  	});
 
 	// shortcodes
-	eleventyConfig.addShortcode('year', () => {
-		return `${new Date().getFullYear()}`;
-	});
+    eleventyConfig.addShortcode('year', () => {
+        return `${new Date().getFullYear()}`;
+    });
 
-	// Get the first `n` elements of a collection.
-	eleventyConfig.addFilter("head", (array, n) => {
-		if(!Array.isArray(array) || array.length === 0) {
-			return [];
-		}
-		if( n < 0 ) {
-			return array.slice(n);
-		}
-
-		return array.slice(0, n);
-	});
-
-	// Return the smallest number argument
-	eleventyConfig.addFilter("min", (...numbers) => {
-		return Math.min.apply(null, numbers);
-	});
-
-	// Return all the tags used in a collection
-	eleventyConfig.addFilter("getAllTags", collection => {
-		let tagSet = new Set();
-		for(let item of collection) {
-			(item.data.tags || []).forEach(tag => tagSet.add(tag));
-		}
-		return Array.from(tagSet);
-	});
-
-	eleventyConfig.addFilter("filterTagList", function filterTagList(tags) {
-		return (tags || []).filter(tag => ["all", "nav", "post", "posts"].indexOf(tag) === -1);
-	});
 
 	// shortcode for adding margin notes
 	eleventyConfig.addShortcode('marginnote', 
