@@ -166,6 +166,7 @@ In keeping with the conceit of the magazine, I'll give each story as "by Arthur/
 **The Soul that Lost its Way** - *Ghost Stories*, August 1927
 
 **The House of the Living Dead**  (six-part serial) - *Ghost Stories*, December 1927 - May 1928. 
+<br><span class="inline-note">The issue with the first installment (Dec. 1927) is available online, but the others are missing.</span>
 </div>
 <br>
 
