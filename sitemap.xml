@@ -122,17 +122,17 @@
 	</url>
 	
 	<url>
-		<loc>https://ninazumel.com/dark_tales_sleuth/recentposts</loc>
-		<lastmod>2024-02-19 11:19 AM</lastmod>
-	</url>
-	
-	<url>
 		<loc>https://ninazumel.com/dark_tales_sleuth/tags/</loc>
 		<lastmod>2024-02-19 11:19 AM</lastmod>
 	</url>
 	
 	<url>
 		<loc>https://ninazumel.com/dark_tales_sleuth/tags/evening-tales-for-the-winter/</loc>
+		<lastmod>2024-02-19 11:19 AM</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://ninazumel.com/dark_tales_sleuth/tags/thousand-and-one-nights/</loc>
 		<lastmod>2024-02-19 11:19 AM</lastmod>
 	</url>
 	
@@ -152,17 +152,17 @@
 	</url>
 	
 	<url>
-		<loc>https://ninazumel.com/dark_tales_sleuth/tags/johann-august-apel/</loc>
-		<lastmod>2024-02-19 11:19 AM</lastmod>
-	</url>
-	
-	<url>
 		<loc>https://ninazumel.com/dark_tales_sleuth/tags/rp-gillies/</loc>
 		<lastmod>2024-02-19 11:19 AM</lastmod>
 	</url>
 	
 	<url>
 		<loc>https://ninazumel.com/dark_tales_sleuth/tags/with-pdf/</loc>
+		<lastmod>2024-02-19 11:19 AM</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://ninazumel.com/dark_tales_sleuth/tags/johann-august-apel/</loc>
 		<lastmod>2024-02-19 11:19 AM</lastmod>
 	</url>
 	
@@ -227,7 +227,7 @@
 	</url>
 	
 	<url>
-		<loc>https://ninazumel.com/dark_tales_sleuth/tags/blackwood-s-magazine/</loc>
+		<loc>https://ninazumel.com/dark_tales_sleuth/tags/blackwoods-magazine/</loc>
 		<lastmod>2024-02-19 11:19 AM</lastmod>
 	</url>
 	
@@ -243,6 +243,11 @@
 	
 	<url>
 		<loc>https://ninazumel.com/dark_tales_sleuth/tags/wilhelm-hauff/</loc>
+		<lastmod>2024-02-19 11:19 AM</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://ninazumel.com/dark_tales_sleuth/tags/lambert-a-wilmer/</loc>
 		<lastmod>2024-02-19 11:19 AM</lastmod>
 	</url>
 	
@@ -312,11 +317,6 @@
 	</url>
 	
 	<url>
-		<loc>https://ninazumel.com/dark_tales_sleuth/tags/lambert-a-wilmer/</loc>
-		<lastmod>2024-02-19 11:19 AM</lastmod>
-	</url>
-	
-	<url>
 		<loc>https://ninazumel.com/dark_tales_sleuth/tags/tales-of-an-antiquary/</loc>
 		<lastmod>2024-02-19 11:19 AM</lastmod>
 	</url>
@@ -343,11 +343,6 @@
 	
 	<url>
 		<loc>https://ninazumel.com/dark_tales_sleuth/tags/dr-martinus/</loc>
-		<lastmod>2024-02-19 11:19 AM</lastmod>
-	</url>
-	
-	<url>
-		<loc>https://ninazumel.com/dark_tales_sleuth/tags/thousand-and-one-nights/</loc>
 		<lastmod>2024-02-19 11:19 AM</lastmod>
 	</url>
 	
@@ -679,5 +674,15 @@
 	<url>
 		<loc>https://ninazumel.com/dark_tales_sleuth/victor-rousseau/child-or-demon-which/</loc>
 		<lastmod>2025-08-23 10:48 PM</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://ninazumel.com/dark_tales_sleuth/victor-rousseau/doll-that-came-to-life/</loc>
+		<lastmod>2025-08-23 10:48 PM</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://ninazumel.com/dark_tales_sleuth/recentposts/</loc>
+		<lastmod>2025-09-04 5:19 PM</lastmod>
 	</url>
 </urlset>

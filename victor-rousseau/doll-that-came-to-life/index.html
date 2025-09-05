@@ -1,0 +1,1245 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>The Doll That Came to Life</title>
+		<meta name="description" content="Filling in the Literary Blanks">
+		<link rel="alternate" href="/dark_tales_sleuth/feed/feed.xml" type="application/atom+xml" title="Dark Tales Sleuth">
+		<link rel="alternate" href="/dark_tales_sleuth/feed/feed.json" type="application/json" title="Dark Tales Sleuth">
+
+        
+		<link rel="me" href="https://micro.blog/MultoGhost">
+		<link rel="authorization_endpoint" href="https://indieauth.com/auth">
+		<link rel="token_endpoint" href="https://tokens.indieauth.com/token">
+		<link href="https://github.com/ninazumel" rel="me">
+		<script src="https://kit.fontawesome.com/9bbe6f85f9.js" crossorigin="anonymous"></script>
+		
+		<style>/* minimal implementation; just plain text in the margin, no blockquotes, code, etc */
+/* only (unnumbered) margin notes, no sidenotes */
+/* stripped down from https://github.com/edwardtufte/tufte-css */
+
+/* need this for correct sidenote numbering; but I'm not using sidenotes */
+/*
+body {
+    counter-reset: sidenote-counter; 
+} 
+*/
+
+
+/* since I imagine these will change with different templates */
+:root {
+    --content-width: 65%;
+    --image-padding: 5%;
+    --image-max: 60%;  /* total image+padding <= content-width */
+    --notewidth: 30%; 
+    /* content-width + notewidth <  100%. I think you should leave some wiggle room. */
+    --note-right-margin: -45%;
+    /* if this margin is -(notewidth), the note will start just on the right border of the text */
+    /* so push it a little to the right (more negative) */
+}
+
+article {
+	padding-top: 1rem; 
+}
+
+/* make room for the notes in the article container */
+article > p,
+article > pre,
+article > ul {
+    width: var(--content-width);
+}
+
+/* 
+  blockquotes should be a little shorter 
+  This assumes that left indentation is 2em, which is what it looks like.
+  Subtract way more than 2 em, so that it's way shorter.
+  */
+article > blockquote {
+    width: calc(var(--content-width) - 10em); 
+}
+
+
+article > hr {
+    max-width: var(--content-width);
+    margin: 0
+}
+
+article > h1, 
+article > h2,
+article > h3,
+article > h4 {
+    max-width: var(--content-width);
+}
+
+article > center {
+    max-width: var(--content-width);
+}
+
+/* keep images/captions in the text column, rather than centered in the article container */
+article > img {
+    margin-left: 0;
+    padding-left: var(--image-padding);
+    max-width: var(--image-max); 
+}
+
+article > p.caption {
+	text-align: left;
+    padding-left: var(--image-padding);
+	font-style: italic;
+	font-size: 0.9em;
+	color: var(--caption-color);
+ }
+
+article > p.caption a:hover,
+article > p.caption a:active {
+    color: var(--text-color-link-active);
+}
+
+.footnote-item {
+    max-width: var(--content-width); 
+}
+
+ /* finally, the margin note */
+.marginnote {    
+    float: right;
+    clear: right;
+    width: var(--notewidth);         
+    margin-right: var(--note-right-margin);
+    margin-top: 0.3rem;
+    margin-bottom: 0;
+    font-size: 0.8rem;
+    line-height: 1.3;
+    vertical-align: baseline;
+    position: relative;
+    /* border: 2px solid blue; */
+}
+
+
+input.margin-toggle {
+    display: none;
+}
+
+
+label.margin-toggle {    
+    display: none;
+
+}
+
+/* The mobile fallback: */
+/* making max-width bigger makes the note fall inline sooner */
+@media (max-width: 768px) {  
+    body {
+        width: 84%;
+        padding-left: 8%;
+        padding-right: 8%;
+    }
+
+    hr,
+    article > p,
+    article > blockquote,
+    article > pre {
+        width: 100%;
+    }
+
+    label.margin-toggle {
+        display: inline;
+    }
+       
+    .marginnote {           
+         display: none;        
+        }    
+
+      
+    .margin-toggle:checked + .marginnote {            
+        display: block;            
+        float: left;            
+        left: 1rem;            
+        clear: both;            
+        width: 95%;            
+        margin: 1rem 2.5%;            
+        vertical-align: baseline;            
+        position: relative;        
+    }
+    label {
+        cursor: pointer;
+    }
+}
+* { box-sizing: border-box; }
+/* colors from flexoki - https://stephango.com/flexoki */
+
+:root {
+	--paper: #FFFCF0;
+	--tx-normal: #100F0F;
+	--tx-muted: #6F6E69;
+	--tx-faint: #B7B5AC;
+	--blue300: #66A0C8;
+	--blue400: #4385BE;
+	--blue600: #205EA6;
+	--blue700: #1A4F8C;
+	--blue800: #163B66; 
+	--blue850: #133051;
+	--red800: #6C201C;
+	--purple600: #5E409D;
+	--purple300: #A699D0;
+	--base50: #F2F0E5;
+	--base100: #E6E4D9;
+	--base300: #B7B5AC;
+
+	--description-color: var(--tx-muted); 
+    --caption-color: var(--tx-muted);
+	--background-color:  var(--paper); 
+    --hrule-color: var(--base100);
+    --hrule-faint-color: var(--base50);
+	--box-border-color: var(--base50);
+
+	--header-anchor-color: var(--base300); /* for the # links on headers */
+	--icon-color: var(--blue600);
+	--icon-hover-color: var(--blue300);
+	--tag-color: var(--purple600);
+	--tag-hover-color: var(--purple300);
+
+	--text-color: var(--tx-normal); 
+	--text-color-link: var(--blue700); 
+	--text-color-link-active: var(--blue400); 
+	--text-color-link-visited: var(--blue700); 
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--black: #100F0F;
+		--base200: #CECDC3; 
+		--base300: #B7B5AC;
+		--base500: #878580;
+		--base600: #6F6E69;
+		--base700: #575653;
+		--base900: #282726;
+		--base950: #1C1B1A;
+		--blue700: #1A4F8C;
+		--red400: #D14D41;
+		--purple400: #8B7EC8;
+		--purple500: #735EB5;
+		--purple600: #5E409D;
+	
+		--description-color: var(--base300); 
+		--caption-color: var(--base500);
+		--background-color:  var(--black); 
+		--hrule-color: var(--base900);
+		--hrule-faint-color: var(--base950);
+		--box-border-color: var(--base900);
+
+		--header-anchor-color: var(--base500); /* for the # links on headers */
+		--icon-color: var(--blue400);
+		--icon-hover-color: var(--blue600);
+		--tag-color: var(--purple400);
+		--tag-hover-color: var(--purple500);
+
+		--text-color: var(--base200); 
+		--text-color-link: var(--blue400); 
+		--text-color-link-active: var(--blue600); 
+		--text-color-link-visited: var(--blue400); 
+	}
+}
+/* Defaults */
+:root {
+	--font-family: Georgia, Times, -serif; /* Tahoma, -apple-system, system-ui, sans-serif; */
+	--font-family-sanserif: Tahoma, -apple-system, system-ui, sans-serif;
+	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+
+	/* from another template - experiment with these */
+	--font--serif: 'Bitstream Charter', Charter, Palatino, 'Palatino Linotype', 'Palatino LT STD', 'Book Antiqua', Georgia, serif;
+  	--font--sans: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+}
+
+/* Theme colors */
+:root {
+	--syntax-tab-size: 2;
+}
+
+
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	font-size: 18px;  /* a little bigger to accomodate a serif font */
+	color: var(--text-color);
+	background-color: var(--background-color);
+}
+html {
+	overflow-y: scroll;
+}
+body {
+	max-width: 70em; /* 50em; */
+}
+
+/* Basic heading typography */
+h1,h2,h3,h4,h5 {
+  font-family: var(--font--sans);
+  font-weight: 600;
+}
+
+/* different horizontal rules  https://www.w3schools.com/howto/howto_css_dividers.asp */
+ /* Dashed border */
+ hr.dashed {
+	border-top: 1px dashed var(--hrule-color);
+  }
+  
+  /* Dotted border */
+  hr.dotted {
+	border-top: 1px dotted var(--hrule-color);
+  }
+  
+  /* Solid border */
+  hr.solid {
+	border-top: 1px solid var(--hrule-color);
+  }
+  
+
+/* 
+https://css-tricks.com/barebones-css-for-fluid-images/ 
+Without this, images generated by eleventy-img will always use the largest available size
+-- ie, not be responsive.
+*/
+img {
+	max-width: 100%; 
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+  }
+  img[width] {
+	width: auto; /* Defer to max-width */
+  }
+  img[width][height] {
+	height: auto; /* Preserve aspect ratio */
+  }
+  
+  /* Let SVG scale without boundaries */
+  img[src$=".svg"] {
+	width: 100%;
+	height: auto;
+	max-width: none;
+  }
+  
+
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+p {
+	line-height: 1.5;
+	/* font-size: 1.2em; */
+}
+
+p.caption {
+	text-align: center;
+	font-style: italic;
+	font-size: 0.9em;
+	color: var(--caption-color);
+ }
+
+ /* for the credits at the bottom of a page */
+p.credit {
+	max-width: 50em;
+	font-size: 0.9em;
+	margin-left: auto;
+	margin-right: auto;
+ }
+
+
+/* for inline annotations, like translations */
+span.inline-note {
+	font-size: 0.9em;
+	font-style: italic;
+}
+
+li {
+	line-height: 1.5;
+	/* font-size: 1.2em; */
+}
+
+a[href] {
+	color: var(--text-color-link);
+	text-decoration: none; 
+}
+a[href]:visited {
+	color: var(--text-color-link-visited);
+}
+a[href]:hover,
+a[href]:active {
+	color: var(--text-color-link-active);
+}
+
+main {
+	padding: 1rem;
+}
+main :first-child {
+	margin-top: 0;
+}
+
+header {
+	border-bottom: 1px dashed var(--hrule-color);
+}
+header:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.links-nextprev {
+	text-align: center;
+	list-style: none;
+	border-top: 1px dashed var(--hrule-color);
+	padding: 1em 0;
+}
+
+
+table {
+	margin: 1em 0;
+}
+table td,
+table th {
+	padding-right: 1em;
+}
+
+pre,
+code {
+	font-family: var(--font-family);
+	font-size: 0.95em;
+}
+pre:not([class*="language-"]) {
+	margin: .5em 0;
+	line-height: 1.375; /* 22px /16 */
+	-moz-tab-size: var(--syntax-tab-size);
+	-o-tab-size: var(--syntax-tab-size);
+	tab-size: var(--syntax-tab-size);
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+}
+code {
+	word-break: break-all;
+}
+
+/*
+  Custom containters
+*/
+div.message-box {
+	max-width: 50em; 
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div.magazine-box {
+	max-width: 50em; 
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+/* Header */
+header {
+	font-family: var(--font--sans); 
+	display: flex;
+	gap: 1em .5em;
+	flex-wrap: wrap;
+	align-items: center;
+	padding: 1em;
+}
+.home-link {
+	font-size: 1.5em; /* 24px /16 (I think)*/
+	font-weight: 700;
+	margin-right: 2em;
+}
+.home-link:link:not(:hover) {
+	text-decoration: none;
+}
+
+/* Nav */
+.nav {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.nav-item {
+	display: inline-block;
+	margin-right: 1em;
+}
+.nav-item a[href]:not(:hover) {
+	text-decoration: none;
+}
+.nav a[href][aria-current="page"] {
+	text-decoration: underline;
+}
+
+/* Posts list */
+.postlist {
+	list-style: none;
+	padding: 0;
+	padding-left: 0; /* 1.5rem; */
+	max-width: 50em;
+}
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	counter-increment: start-from -1;
+	margin-bottom: 1em;
+	padding-bottom: 50px;
+	/* padding: 8px 16px; */
+	border-bottom: 1px dashed var(--hrule-color);
+}
+
+/* 
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	content: "" counter(start-from, decimal-leading-zero) ". ";
+	line-height: 100%;
+	text-align: right;
+	margin-left: -1.5rem;
+}
+*/
+
+.postlist-date,
+.postlist-item:before {
+	font-size: 0.8125em; /* 13px /16 */
+	color: var(--description-color);
+}
+.postlist-date {
+	word-spacing: -0.5px;
+	padding-left: .25em;
+}
+.postlist-link {
+	font-size: 1em; /* 1.1875em;  19px /16 */
+	font-weight: 700; 
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration: none; 
+	/* text-decoration-thickness: 1px; */
+}
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+/* Tags */
+.post-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+	font-style: italic;
+}
+.postlist-item > .post-tag {
+	align-self: center;
+}
+
+/* Tags list */
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: .5em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.post-metadata time {
+	margin-right: 1em;
+}
+
+/* I don't want tag links to stand out too much */
+.post-metadata a[href] {
+	color: var(--tag-color);
+}
+
+.post-metadata a[href]:hover,
+               a[href]:active {
+	color: var(--tag-hover-color);
+}
+
+
+.post-metadata li {
+	font-size: 0.875em;
+}
+
+/* metadata for posts and talks */
+
+.posttalk-metadata {
+	list-style: none;
+	padding-left: 0;
+	color: var(--description-color);
+}
+
+.posttalk-metadata ul {
+	list-style-type: none; /* no bullets */
+	padding: 0;  /* no indentation, either */
+	margin: 0;
+}
+
+/* Direct Links / Markdown Headers */
+.header-anchor {
+	text-decoration: none;
+	font-style: normal;
+	font-size: 1em;
+	margin-left: .1em;
+}
+a[href].header-anchor,
+a[href].header-anchor:visited {
+	color: transparent;
+}
+a[href].header-anchor:focus,
+a[href].header-anchor:hover {
+	text-decoration: underline;
+}
+a[href].header-anchor:focus,
+:hover > a[href].header-anchor {
+	color: var(--header-anchor-color);
+}
+
+h2 + .header-anchor {
+	font-size: 1.5em;
+}
+
+/* Footer */
+hr {
+    border: none;
+    background-color: var(--hrule-color);
+    height: 1px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+    hr {
+        width: 100%;
+    }
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2rem 0;
+    background-color: var(--background-color);
+	;
+}
+
+.footer-container p {
+    font-size: 1rem;
+    color: var(--description-color);
+}
+
+.footer-container .social_icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0 1rem;
+}
+
+.footer-container .social_icons a {
+    color: var(--icon-color);
+    font-size: 1.5rem;
+    transition: all 0.5s ease-in-out;
+}
+
+.footer-container .social_icons a:hover {
+    color: var(--icon-hover-color);
+}</style>
+	</head>
+	<body>
+		<a href="#skip" class="visually-hidden">Skip to main content</a>
+
+		<header>
+			<a href="/dark_tales_sleuth/" class="home-link">Dark Tales Sleuth</a>
+			<nav>
+				<h2 class="visually-hidden">Top level navigation menu</h2>
+				<ul class="nav">
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/about/">About</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/my-investigations/">My Cases</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/blog/">All Posts</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/comments/">Comments</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/about-me/">About Me</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="skip">
+			
+
+
+<h1>The Doll That Came to Life</h1>
+
+
+
+
+
+
+<ul class="posttalk-metadata">
+  <li>By Arthur Branscombe, as told to Victor Rousseau</li>
+  <li>Published in  <em>Ghost Stories Magazine</em>, January 1927</li>
+</ul>
+
+<article>
+<p><em>Why should anyone—man or ghoul—want to torment an innocent child?</em></p>
+<p>But, my dear Mrs. Temple, why were you not satisfied to let well
+enough alone?&quot; demanded Doctor Martinus brusquely. &quot;You had
+established a little shrine in that room of yours.  You had filled it
+with happy influences. But you were not content to leave that little
+haunt for the hallowed spirit to revisit in its dreams.  Why did you
+throw that bolt into the mechanism of the astral universe?&quot;</p>
+<p>&quot;Well, Doctor, you know people were beginning to talk about it, and to
+say that my mind had become unhinged through brooding. And my friends
+said it was heathenish.  They told me that my dear little Doris is now
+an angel in heaven, and that I shall meet her there when I die, but
+until then there is no possibility of our knowing anything about each
+other. And so I—&quot;</p>
+<img src="/dark_tales_sleuth/victor-rousseau/doll-that-came-to-life/doll-that-came-to-life-pWz4henf0l-1757.jpeg" alt="A woman holding a doll sits between two men, while a third man looks back over his shoulder, smiling at her." loading="lazy" decoding="async" width="1757" height="895">
+<p class="caption">"Here is your Mother, Doris," came the Doctor's voice.<br>"Mamma, where are you?" The voice piped. "I can't find you. I've been looking for you. I'm all alone."</p>
+<p>&quot;And so you ran to a charlatan, a mere dabbler in psychic matters—of
+which he is, and always will be, ignorant,&quot; said Martinus savagely.</p>
+<p>&quot;But, Doctor—Mr. Craven has a very strong spiritualistic power, and he
+assured me that he could lay the spirit for ever, and so I let him try.&quot;</p>
+<p>&quot;And instead of the little shrine, you got a full-blown haunted
+house,&quot; said Martinus.  &quot;How long after this man Craven performed his
+operations in that room did these manifestations begin?&quot;</p>
+<p>&quot;Three or four days, Doctor,&quot; said Mrs. Temple tearfully.  &quot;At first I
+thought it was my darling Doris—&quot;</p>
+<p>&quot;Pulling hair and pinching, and throwing glass and crockery!&quot; Martinus
+snorted.</p>
+<p>&quot;Mr. Craven said it was an after-manifestation that would soon
+disappear.&quot;</p>
+<p>&quot;And what did your heart tell you?&quot; demanded Martinus.</p>
+<p>&quot;Why, it—it told me—&quot;</p>
+<p>&quot;It told you it was a devil, and it was right!&quot; the doctor shouted. &quot;Very well, madam. I'll come, and see what I can do. Hereafter, rely more upon your Bible and less on fools like Craven, and remember the passage about the seven devils. You drove out the legitimate tenant, and its place was taken by one devil—or seven. That we shall see. Good afternoon, Mrs. Temple.&quot;</p>
+<p>Doctor Martinus turned to me when our visitor had departed.</p>
+<p>&quot;Sometimes, when I get a case like this, I almost despair,
+Branscombe,&quot; he said. &quot;That Mrs. Temple is the wife of a wealthy
+mining man, now out West. They have a big house, here in New York. Last year they lost their little girl, and she was almost distracted with grief.</p>
+<p>&quot;She did what the natural instinct of nearly every mother bids her
+do. She collected the child's toys, and her favorite doll, in the
+bedroom, and turned the place into a little shrine—just as the
+Japanese do when their loved ones die.  And because the act was so
+simple and so natural, and because nothing that is evil can pierce
+the armor of a mother's love, she turned that little room into a
+channel through which the loveliest influences descended to bless that
+home. <br>
+<br></p>
+<p>&quot;YOU CAN picture the dreaming soul of the child, revisiting its home,
+and finding there everything that it had known—its toys, a mother's
+love, and the mother who spent a good part of her time there, sewing,
+or doing other domestic duties, because, as she expressed herself,
+'It was the happiest room in the house.'</p>
+<p>&quot;What happens? The neighbors begin to talk. They say her mind has
+become unhinged. Then her friends persuade her that it is a
+heathenish practice—-that the dead are cut off for ever from the
+living. So, she goes to this man Craven, this quack spiritualist who
+knows nothing whatever about the real spiritualism, and—he comes on a
+visit of inspection!</p>
+<p>&quot;He sees the doll and the toys, and he persuades the mother that the
+spirit of her child has become 'earth-bound' (as he phrases it), and
+that the mother is wrecking her child's heavenly happiness by drawing
+it down from realms of bliss to an earthly environment. As if there
+could be any greater bliss in heaven than the remembrance of a happy
+childhood!</p>
+<p>&quot;What does he do? Mumbles some incantation, perfectly efficacious, not
+because it is a charm, but because of the intent that underlies the
+words. This faker breaks up the shrine, lays the doll away in a
+cupboard, turns the bed and furniture around so that the child shall
+not recognize the room, and goes away telling the mother that the
+'spirit is laid.'</p>
+<p>&quot;That was six weeks ago, Branscombe. Three days after that the
+manifestations began. Our friend Craven had turned the shrine into a
+typical haunted house.&quot;</p>
+<p>I had not been in the room during the beginning of the Doctor's
+conversation with Mrs. Temple. &quot;You mean that noises are heard, things
+thrown about, and so forth?&quot; I asked. &quot;And I heard something said
+about pinching and pulling hair.&quot;</p>
+<p>&quot;Yes, all the typical phenomena of the poltergeist.&quot; responded
+Martinus, &quot;And that ass, Craven, insists that these manifestations
+proceed from the spirit of the child, angry that it has lost its
+earthly home. Stark nonsense!&quot;</p>
+<p>&quot;I remember,&quot; I said, &quot;you once told me that these noisy hauntings
+generally had a merely physical explanation. You referred to the
+fact that in every such case, as reported from time to time in the
+newspapers, there appears to be present a boy or girl of about
+fourteen years, and that the child is subsequently supposed to be
+detected in trickery.&quot;</p>
+<p>&quot;I alluded to the simple explanation which, so far as I have read,
+has always escaped the notice of spirit investigators—that, with the
+advent of maturity, the etheric, or so-called 'astral' body on which
+the human frame is modeled, becomes capable of enormous extension. The
+child discovers that it has the faculty of throwing articles—-glassware, or crockery—from a distance, by grasping with the extended
+etheric hand. When it is detected in the act of throwing, even from a
+distance, the trick is proclaimed and the explanation is considered
+obvious. But that is neither here nor there.  There is no mischievous
+boy or girl of about fourteen in this case. It is a case of a genuine
+haunted house, and the haunter is not the child Doris, but one of the
+devils that enter into empty houses.</p>
+<p>&quot;But let us drop the subject for the present, Branscombe,&quot; said
+Martinus.  &quot;We have an engagement to visit Mrs. Temple's home
+to-morrow afternoon, and then we shall see what we shall see.&quot; <br>
+<br></p>
+<p>THE HOUSE, which was about ten years old, was a large one, standing in
+some small grounds, and well set back from the noisy street. A maid in
+a cap and apron opened the door. The interior showed some standards
+of taste, and advanced ones of comfort. As we entered we heard a man's
+high, rather shrill, unpleasant voice in the living-room. Mrs. Temple, who was in conversation with him, appeared embarrassed.</p>
+<p>&quot;Doctor Martinus, let me introduce you to Mr. Craven,&quot; she said.</p>
+<p>Martinus, who had not presented me to Mrs. Temple in his office, did
+so now, and I was introduced to Craven in turn. He did not impress me
+favorably. A stout, florid person, apparently in his early forties, in
+a semi-clerical coat and a clerical collar—pompous, over-fed, and
+evidently obsessed with the idea of his own importance. He greeted
+Martinus with a touch of condescension—as a professional might greet
+an amateur.</p>
+<p>&quot;Pleased to meet you, Doctor,&quot; he said. &quot;Mrs. Temple has been telling
+me about your work. Well, we psychie dabblers must stand together,
+whether inside the church or outside—eh, Doctor?&quot; he chuckled.</p>
+<p>Martinus looked at him blankly, but that did not disconcert him. Mrs. Temple intervened tremulously.</p>
+<p>&quot;Mr. Craven has been so kind as to promise to cooperate with you,
+Doctor,&quot; she said. &quot;I thought two heads might be better than one if—&quot;</p>
+<p>I thought Martinus would explode, but he did nothing of the sort. &quot;I
+shall be delighted to have Mr. Craven's cooperation,&quot; he said, with
+a cynical smile. <br>
+<br></p>
+<p>&quot;THAT'S FINE!&quot; boomed Craven.  &quot;Nothing small about us researchers, is
+there, Doctor? We can't afford to have any petty jealousy of each
+other. The subject's too vast.&quot;</p>
+<p>&quot;Yes—as big as the universe,&quot; replied the doctor. &quot;Or, as small as a
+bath-room,&quot; he added, with a meaning glance at me.  &quot;Just as we make
+it, you know, Mr. Craven.&quot;</p>
+<p>I knew he was thinking of the character in one of Dostoevsky's novels,<label for="eternity" class="margin-toggle">⊕</label>
+<input type="checkbox" id="eternity" class="margin-toggle">
+<span class="marginnote">“We always imagine eternity as something beyond our conception, something vast, vast! But why must it be vast? Instead of all that, what if it’s one little room, like a bath house in the country, black and grimy and spiders in every corner, and that’s all eternity is? I sometimes fancy it like that.”<br>--the character Svidrigaïlov, in Dostoevsky's <em>Crime and Punishment</em></span> who spoke of death as a possible imprisonment instead of a release. Craven saw nothing sardonic in the remark.</p>
+<p>&quot;Well, have you seen the room since I've altered it again?&quot;  he
+asked. &quot;We might go up, Mrs. Temple?  Yes, Doctor, I've put everything
+back again exactly as it was before. I'm not ashamed to own where
+I've made a mistake.  There's nothing petty about me, Doctor.&quot;</p>
+<p>It was a pretty little room, overlooking the quarter-acre of back
+lawn—a room containing a little white bed, with fresh sheets and a
+white and blue coverlet. A few engravings were on the walls. And the
+side of the room farthest from the window contained a table on which
+the child's toys had been set out—everything she had had since
+babyhood that had survived unbroken.</p>
+<img src="/dark_tales_sleuth/victor-rousseau/doll-that-came-to-life/doll-that-came-to-life-illo1-QBebKXgyMH-483.jpeg" alt="A doll in a white dress sits propped against three lighted candles." style="width: 30vw; height: auto;" loading="lazy" decoding="async" width="483" height="1000">
+<p class="caption">Against the wall was a stand on which was an enormous doll, propped up beneath three lighted candles.</p>
+<p>Against the wall was a stand on which was an enormous doll, propped up
+beneath three lighted candles.  An enlarged photograph of little
+Doris hung on the wall near by, and some fresh-cut flowers were in a
+tall vase, standing beside the doll.</p>
+<p>&quot;So you have put everything back again where it was?&quot; asked Martinus
+curtly, of Mr. Craven. &quot;The whole epitome of the child's life. May I
+ask why?&quot;</p>
+<p>&quot;Well, you see,&quot; replied the fake spiritualist, &quot;I came to the conclusion that the poor earth-bound spirit would continue to haunt this room until things were restored. My deductions had been wrong, but perfectly justifiable.&quot;</p>
+<p>&quot;And these manifestations have ceased, now that you have pieced
+together the broken fragments of the vase?&quot; Martinus asked. &quot;You
+suppose that everything is again—as it was?&quot;</p>
+<p>He was, of course, speaking metaphorically, but before Craven could
+reply there came a sudden crash in the corner of the room. We sprang
+back—looked around us.  A shower of broken glass lay on the
+carpet. Upon the stand beside the doll, the flowers lay scattered, and
+water was splashed over the table that contained the toys.</p>
+<p>&quot;My God!&quot; whimpered Craven, his teeth chattering. &quot;Who threw that
+vase?&quot;</p>
+<p>&quot;If we knew that,&quot; replied Martinus, &quot;we should have gone some
+distance toward the solution of this problem.&quot;</p>
+<p>My teeth were chattering. At that moment I was under the singular
+illusion that the doll's large, blue eyes had taken on an expression
+of intelligence!</p>
+<p>Human eyes? I forced myself to look again. No, of course it had been
+the way the light had played upon them.  They were just a doll's glass
+eyes.</p>
+<p>I was surprised at Martinus's sudden cordiality toward Craven. I had
+been afraid he would withdraw from the case.  Instead, he had
+cordially welcomed the pseudo spiritualist's cooperation. He had
+told Mrs. Temple that he proposed to hold a séance at an early date,
+and suggested that they might all form a circle. On the way back
+Martinus was silent for a long time—evidently pondering over the
+case. Then suddenly he began to chuckle.</p>
+<p>&quot;You're wondering why I wanted Craven, Branscombe?&quot; he asked me.</p>
+<p>&quot;I was surprised,&quot; I confessed.</p>
+<p>&quot;I have an idea,&quot; chuckled the doctor again, &quot;that Craven's presence
+will prove a powerful attraction to whatever spirit it is that has
+usurped the child's place in that room. The fool thinks he can tear
+down the shrine and reconstruct it, just as if nothing had happened,
+as if no consecration was necessary, as if reassemblage of the physical
+elements will call back the spirit. As well sew the head on a
+decapitated man, and expect him to awake to life! A fool like that
+should prove a powerful drawing-card to the kind of spirit I fancy
+has come into that room.&quot;</p>
+<p>&quot;I thought the poltergeist, when not merely an extension of the astral
+form at maturity, was always an elemental factor,&quot; I suggested.</p>
+<p>&quot;More or less right, Branscombe. It is a spirit of the lowest order, though
+it may or may not have once been incarnate. But you must remember I am always urging upon you that these manifestations of the discarnate—throwing of vases, breaking of crockery, and so forth—are merely expressions of energy. It is not to be supposed that the spirit is actually conscious of what it is doing.  It lets loose energy in the room, and this energy takes certain forms.</p>
+<p>&quot;For instance, a very dear friend of mine once promised his sister he
+would try to communicate with her after death.  He supposed he had
+merely established communication by taps and rappings.  He was
+heartbroken to learn that he had been pulling down pictures and wrecking the furniture!&quot; <br>
+<br></p>
+<p>&quot;THEN it may be the child after all?&quot;  I suggested.</p>
+<p>&quot;Impossible, Branscombe. No child could throw a vase across a
+room. Remember that before maturity no human being is more than
+one-tenth incarnate.  Little Doris Temple's earthly residence was the
+merest episode in the life of her spirit. All that remains of her is
+the happy dream and the memories so rudely shattered when the
+furniture of that room was shifted. No, Branscombe, it all comes back
+to Craven's asinine question, Who threw that vase?&quot;</p>
+<p>I told Martinus of the expression I had fancied I had seen in the eyes
+of the doll. He nodded abstractedly, but made no comment.</p>
+<p>It was two days later, and before Martinus had had time to go
+further into the case, that we had a visit from Mrs.  Temple
+again. She appeared in the greatest distress.</p>
+<p>&quot;I don't know what I'm going to do, Doctor Martinus,&quot; she sobbed,
+&quot;—and dear Mr. Craven admits that he is at his wits' end. He was so
+sure that dear little Doris would be satisfied when things were put
+back as they were, but it's growing worse all the time, and it's not
+only in that room now—it's all over the house. My maid has left me.&quot; <br>
+<br></p>
+<p>&quot;WHAT particular manifestations have occurred?&quot; asked Martinus.</p>
+<p>&quot;Footsteps up and down the stairs at night—a man's heavy footsteps. Doors opening and slamming. Pictures falling from the wall. And last night, as I lay in bed, I could have sworn I felt fingers about my throat. My maid was pinched black and blue, too. Oh, Doctor, it can't be Doris!&quot;</p>
+<p>&quot;No, it's not your little girl,&quot; said Martinus.  &quot;Have you been dreaming?&quot;</p>
+<p>&quot;Dreadful dreams, but I can't remember anything about them, except
+that—&quot; she hesitated.</p>
+<p>&quot;That?&quot; queried the doctor.</p>
+<p>&quot;That I had murdered somebody and was going to be executed. But I
+don't know who it was, or how I was to die.&quot;  She broke into hysterical weeping.</p>
+<p>Martinus made her sit down and mixed some bromide for her. After a
+little while she grew calmer.</p>
+<p>&quot;I am sorry to be so hysterical,&quot; she apologized, &quot;but I've gone
+through so much. What with my little girl and my husband—&quot;</p>
+<p>&quot;Tell me about your husband,&quot; said the doctor gently.</p>
+<p>&quot;Why, it was just at the time Doris lay dying. He was in Texas, and
+hadn't heard anything about her illness, because he was off with a
+posse. He sent me some clippings, and that alone would have scared me
+nearly to death.&quot;</p>
+<p>&quot;A posse, you say?&quot;</p>
+<p>&quot;Yes, Doctor. You remember reading about that man who escaped from
+the penitentiary, and shot his way clear across three States—James O'Connor?&quot;</p>
+<p>The doctor shook his head. But I remembered the affair. O'Connor
+had been serving a life term for murder.  He had broken loose, after
+killing three guards, and had escaped. At least a dozen of his
+pursuers had been killed and wounded before the posse surrounded him
+in his stronghold. There had been summary vengeance taken. The
+bandit's body was left swinging from a tree, riddled with bullets. I
+recalled the circumstances.</p>
+<p>&quot;My husband was with that posse,&quot; said Mrs. Temple. &quot;And he had
+written me about being summoned by the sheriff, and that—with Doris
+dying—nearly killed me! I was afraid I should lose both of them. Jim
+and I have always been devoted to each other, and his absence is
+unbearable now. He's coming home for good soon, and I'm trying to hold
+out till then. But after what's been happening&quot;</p>
+<p>Martinus patted her arm sympathetically. &quot;I think we shall be able
+to remedy things, Mrs. Temple,&quot; he said.  &quot;Suppose we come up to your
+house to-night. Can Mr. Craven provide a reliable medium for a séance?&quot;</p>
+<p>&quot;Oh, yes, there's Mrs. Jimpson. She's wonderful,&quot; said Mrs. Temple.
+&quot;Why, she described my father perfectly, and gave me his name and
+everything.&quot;</p>
+<p>&quot;Get her to your house to-night, about nine, then,&quot; said Martinus. He
+turned to me when she had gone. &quot;We can't use any of my mediums on a
+case like this,&quot; he said. &quot;I imagine this Mrs. Jimpson is one of Craven's crowd, and just the kind likely to attract the interest of the late James O'Connor.&quot;</p>
+<p>&quot;You mean—you think it's O'Connor manifesting in the house?&quot; I
+exclaimed.</p>
+<p>&quot;It's a perfectly good working theory, and decidedly a probability,&quot;
+he answered.</p>
+<p>&quot;You see,&quot; he explained, as we started for Mrs. Temple's house, if Jim
+Temple took a prominent part in the lynching of this bandit, it is
+probable that the fellow passed out with feelings of intense
+malignancy against him and the rest. When a murderer is hurried into
+eternity, as you know, he can hardly be said to be dead, in the sense
+that ordinary people die. Cut off in the full vigor of bodily
+prowess and activity, he is simply a disembodied entity, just as much
+attached to the earth life, perpetually rehearsing his crime and the
+circumstances of his death, and utilizing every opportunity to use
+other physical mediums for the gratification of his earthly desires
+and for revenge.&quot;</p>
+<p>&quot;But why should he have succeeded in molesting Mrs. Temple?&quot; I asked. <br>
+<br></p>
+<p>&quot;THE FACT that Jim Temple's litle girl passed out almost at the same
+time as himself established a <em>rapport</em>.  There are <em>rapports</em> of hate
+as well as of love. I have no doubt that, in an obscure way, James
+O'Connor discovered this means of at once getting into touch with
+earth life and of obtaining revenge. The emotional condition under
+which Mrs. Temple was laboring, the fact that her husband had her
+constantly in his mind—you heard her say they were devoted to each
+other—established the links in the chain.</p>
+<p>&quot;But he found the house occupied.  The little spirit of Doris guarded
+it, and, as love is stronger than hate, he was powerless—'till that
+fool Craven took the toys away, turned the furniture about, and played
+havoc generally.</p>
+<p>&quot;Then, when Craven re-established the shrine—well, he had
+re-established a road that was easy following for James O'Connor. But
+if that Mrs. Jimpson is any good at all we ought to learn something. One word—&quot;, he cautioned me.  &quot;It would be as well not to allude to our suspicions as to the identity of the poltergeist. If they think it is the child Doris, our friend O'Connor will play up to them, and incidentally play into our hands.&quot;</p>
+<p>Mrs. Jimpson was awaiting our arrival with Craven when we reached
+the house. The interior was brilliantly lit with electric bulbs of
+great power. It was easy to see that Mrs. Temple was afraid of the
+dark. The child's room, in which the séance was to be held, had been
+arranged under Craven's instructions. It contained the usual curtain
+of dark cloth strung across a corner, to form a cabinet, and the half
+circle of chairs extending from this to the further end of the table
+that held the toys.</p>
+<p>Mrs. Jimpson was a common sort of woman, but manifestly mediumistic.
+There is something about a genuine medium's eyes that identify
+her. She went into the cabinet, and passed into trance with the
+facility of long experience. I imagined that the late James O'Connor
+would manifest through her, much more readily than the child.</p>
+<p>Before Mrs. Jimpson had settled herself, Martinus took the doll from
+the stand and examined it. It was one of those large &quot;Mamma&quot; dolls,
+with movable arms and legs, about the size of a three months' child. The doctor handed it to Mrs. Temple.</p>
+<p>&quot;Please hold this on your lap and under no circumstances loose your
+hold of it during the séance,&quot; he told her. <br>
+<br></p>
+<p>&quot;DOCTOR, do you think this will bring my darling Doris back like she
+was before?&quot; she asked.</p>
+<p>&quot;I think it vital that you should associate yourself with this doll,&quot; replied Martinus, in his curt manner.</p>
+<p>&quot;What Doctor Martinus means,&quot; put in Craven blandly—I could see he did
+not relish taking a secondary part in the proceedings—&quot;is that the
+influence of the mother-love will pass into the doll, creating a fetish.&quot;</p>
+<p>&quot;That's one way of putting it,&quot; said the doctor ironically. &quot;Any way,
+please remember my instructions, Mrs. Temple.  And, of course, you
+understand that the circle is under no circumstances to be broken. Are
+you ready, Mrs. Jimpson?&quot; He snapped off the electric light.</p>
+<p>I heard the medium breathing stertorously within the cabinet. She
+stirred restlessly. Sighs came from her lips. I felt the tenseness
+emanating from Mrs. Temple next to me. In the faint light that came
+through the window I saw the outlines of the large doll she held in
+her arms. Was it only imagination, or did the thing actually resemble
+more and more a living child? The stiff body seemed to be growing
+limp, the head to fall back into the fold of the woman's arm.</p>
+<p>Suddenly a whimper broke from Mrs. Temple's lips:</p>
+<p>&quot;It—it's moving! It—oh, Doctor Martinus!&quot;</p>
+<p>&quot;Hold it!&quot; I heard the doctor whisper in her ear.</p>
+<p>&quot;I felt it move. It's too—too horrible!&quot;</p>
+<p>&quot;Hold it, as you value your security and your little girl's peace,&quot;
+came back the answer.</p>
+<p>She began breathing almost as harshly as the medium, who was keeping
+up a low moaning sound inside the cabinet. I felt that cold wind that
+always accompanies such conditions, chilling my fingers. I thought
+the curtains before the cabinet seemed to bulge outward.</p>
+<p>Then I confess my nerves almost gave way as I heard the sudden tiny,
+piping voice from within the cabinet clearly:</p>
+<p>&quot;Mamma!&quot; it cried—just like the &quot;Mamma&quot; doll, but it did not come from
+the doll—&quot;Mamma!&quot;</p>
+<p>I had thought Mrs. Temple a hysterical person, but she kept herself in admirable control.</p>
+<p>&quot;Is that you, Doris, my darling?&quot; she whispered, with a quick intake
+of her breath.</p>
+<p>&quot;Mamma, where are you?&quot; the voice piped. &quot;I can't find you. I've been
+looking for you. I'm all alone.&quot;</p>
+<p>&quot;Here is your mother, Doris,&quot; came the doctor's voice. Then, to Mrs. Temple, &quot;You're not afraid of your own child?&quot;</p>
+<p>&quot;No, no! Shall I see her?&quot;</p>
+<p>&quot;Not now,&quot; the voice piped back. &quot;But I can feel you, Mamma.&quot;</p>
+<p>A dreadful pause. What was occurring in the darkness? How still it
+all was! Even the medium had ceased to moan.</p>
+<p>&quot;How do you like your baby sister, Doris?&quot; said Martinus softly. I
+knew, by some sixth instinct, that he was gripping Mrs. Temple's arm
+to keep her quiet. &quot;Come, don't be afraid, my child. Come and see
+Mother and her little new baby.&quot;</p>
+<p>Again that dreadful silence. My hair felt almost as if standing on
+end. Something was moving near me in the darkness.  Suddenly a
+scream of uncontrollable terror burst from Mrs. Temple's lips.</p>
+<p>&quot;That's all!&quot; shouted Martinus. In a moment the room was flooded with
+the electric light. Mrs. Temple was lying back in her chair in a dead faint, but still gripping the child's doll. And it was just a doll, nothing more.</p>
+<p>&quot;Dear little Doris always wanted a baby sister,&quot; said Mrs. Temple
+later. &quot;But why was it necessary to deceive her, Doctor? It seems so
+dreadful that she should not have recognized the doll she was so fond
+of.&quot;</p>
+<p>She had taken quite a little while to recover from the shock. Martinus
+had insisted on assuming the role of physician, and on Craven's
+withdrawing. The faker had taken it with a bad grace, and there had
+been something like a passage at arms between the two men before he
+withdrew with Mrs. Jimpson.</p>
+<p>&quot;My dear Mrs. Temple, if the deception comforted you, surely it was
+justified,&quot; said the doctor glibly.</p>
+<p>&quot;But why did she not recognize the doll?&quot;</p>
+<p>&quot;Because she had been lost so long.  You must remember time does not
+pass on the other side as it does with us. It is measured by the intensity of emotion—and for your little Doris years had passed since she visited the shrine you made for her.&quot; <br>
+<br></p>
+<p>I KNEW Martinus was offering explanations that concealed some truth he was unwilling to expound to her.  But Mrs. Temple appeared satisfied.</p>
+<p>&quot;And you say I must keep the electric light burning there night and day?&quot; she asked.</p>
+<p>&quot;Yes, Mrs. Temple. Close to the figure, so that the little spirit may never stray again.&quot;</p>
+<p>&quot;What a beautiful idea, Doctor!&quot; she exclaimed. &quot;It is like a candle before a shrine—a perpetual candle.&quot;</p>
+<p>&quot;A good simile,&quot; answered the doctor. &quot;So long as the light burns, I do not think you will be troubled with any more manifestations. But—once in a while fuses blow out! We must take no chance of that. Tomorrow purchase some large candles of the kind they use in churches, and keep two perpetually burning in place of the electric light. After a year, it will be only a matter of sentiment. Until a year, at least, has passed, it will be essential to your child's happiness. And&quot;—he rose—&quot;let me beg of you not to let Mr. Craven, or any of your friends, turn you from your purpose.&quot;</p>
+<p>&quot;Nothing shall turn me from it,&quot; she answered solemnly. <br>
+<br></p>
+<p>DOCTOR Martinus usually explained his methods to me soon after such
+a case, but it was not until the following evening that he came to me
+in the little study off his own, where I was preparing his manuscripts.</p>
+<p>&quot;Well, Branscombe, you understood, I suppose, just what happened last
+evening?&quot; he asked me.</p>
+<p>&quot;I must confess I was completely baffled,&quot; I answered.  &quot;I understood
+it was O'Connor you expected to manifest, not the child.&quot;</p>
+<p>&quot;That was O'Connor,&quot; he answered, in tones that chilled my blood with
+horror.</p>
+<p>&quot;That voice?&quot; I stammered.</p>
+<p>&quot;O'Connor masquerading as the child—of whose existence he had become
+aware. And that was no easy feat in the land beyond death, where matter is so plastic, Branscombe, that it may almost be said, 'wishes are things.'  That is the real hell, Branscombe, for souls like O'Connor's—the inability to distinguish reality from the shapes that their desires assume.</p>
+<p>&quot;Yet O'Connor had pierced to reality by the force of his will, and
+that convinced me that we had a subtle and powerful enemy to deal
+with, bent upon revenge for being hurried out of life by the hangman's
+noose. He masqueraded as the child, and it was only when I tripped
+him up by making him think the doll was Doris's sister that I was
+myself convinced it was O'Connor.&quot;</p>
+<p>I was thinking of the ghastly horror of the discarnate life, when a doll may be mistaken for a child. What fools these ghosts are, and how true the old race-legends that substantiate this! Martinus read my thoughts.</p>
+<p>&quot;You must remember, Branscombe,&quot; he said gently, &quot;that the dead can
+only sense us through the force of emotion.  They have not eyes to
+see, or ears to hear. If the dead man mistook the doll for a child, it
+was because I had turned his expectations in that direction.&quot;</p>
+<p>&quot;Well, but—why?&quot; I asked.</p>
+<p>Martinus drew up a chair and sat down beside me. &quot;Branscombe,&quot; he said, &quot;you are advanced enough to know that the fetish is not a mere block of stone or wood, but actually contains the power ascribed to it, whether from an external source or as the creation of the united aspirations of the worshippers. As our friend Craven said—I did create a fetish. But let us rather call it a
+'Luck.' You know Longfellow's poem, <em>The Luck of</em> <em>Edenhall</em>?&quot;  he
+continued impatiently, &quot;how the fortunes of the house were bound up
+with the existence of the crystal goblet? The drunken heir shatters
+the goblet, and the foe rush in and put them to the sword.&quot;</p>
+<p>Yes, I recalled it. &quot;But is that more than a legend?&quot; I asked.</p>
+<p>&quot;My dear Branscombe, did you never know any one who kept a queer
+little manikin on his desk, which he called his mascot?&quot;</p>
+<p>I laughed, as he indicated the Billiken <label for="billiken" class="margin-toggle">⊕</label>
+<input type="checkbox" id="billiken" class="margin-toggle">
+<span class="marginnote">The Billiken, &quot;God of things as they ought to be,&quot; is a good-luck charm doll created by the Kansas City art teacher and illustrator Florence Pretz, around 1908. <a href="https://en.wikipedia.org/wiki/Billiken">Read more at Wikipedia.</a></span> on my own desk.</p>
+<p>&quot;Just why do you keep that, Branscombe?&quot;</p>
+<p>&quot;Oh, just for luck,&quot; I answered.</p>
+<p>&quot;What you have actually done, Branscombe, is to shut up, in that Billiken of yours, all the little bothers and perplexities and <em>gaucheries</em> that you want to rid
+yourself of—the Russian demon who always reverses your slippers, the little imp who makes you grouchy in the morning, the one that makes you shave too high up on one side of your face, and so on. <em>Well, O'Connor is in that</em> <em>doll!</em>&quot;</p>
+<p>I uttered an exclamation of incredulity.</p>
+<p>&quot;The practice of burning lights before the images of saints, Branscombe,&quot;
+continued Martinus, &quot;may or may not have been designed to keep them from leaving their habitations. But it is a safe guess that O'Connor will remain immobilized and powerless within the child's doll, just so long as there is a light in front of it. It is just as safe a guess as that you will remain immobilized in your bed to-night, until there is the light of a new day within the room.&quot;</p>
+<p>&quot;But if this will of his is strong enough to cross that light?&quot; I asked. &quot;Is that impossible?&quot;</p>
+<p>&quot;Not impossible, Branscombe,&quot; chuckled Martinus, &quot;but—he thinks he
+is inhabiting the body of Mrs. Temple's youngest child, and he will
+remain there, waiting for it to grow—until he finds that his opportunity has slipped by.  After a year or so—a year and a day, according to the conceptions of folk-lore, though there is, of course, no exact period—his power for evil will have dissipated itself, and James O'Connor will be resolved into that limbo where he will expiate his crimes on earth before he gets his new chance in a new body.&quot;<br>
+<br></p>
+<p>I HAVE recorded this case thus far from the notes I took at the time. Martinus had engaged me to keep a record of his cases, and this was one of the many that I attended in his company. The sequel was a telephone call from Mrs. Temple about a week later.  She announced that there had been a complete cessation of the hauntings, the candles were burned religiously in front of &quot;dear little Doris's doll,&quot; as she termed it, and she did not think it would be necessary to trouble us again.</p>
+<p>About two months later I was seated beside Martinus, reading proof for
+him, when the telephone rang. He picked up the instrument. I recognized Mrs. Temple's voice but I could not hear what she was saying.  The doctor listened impatiently, his face showing evidence of extreme displeasure.</p>
+<p>&quot;Mrs. Temple, since you have chosen to put yourself in the hands of Mr. Craven again, I feel it is impossible for me to handle the case,&quot; I heard him say.</p>
+<p>There followed the tones of Mrs. Temple's voice. Martinus frowned and shook his head. &quot;No, it is impossible,&quot; he repeated. More colloquy, then a shrug of his shoulders. The doctor capitulated.</p>
+<p>&quot;We'll come right up,&quot; he said, as he hung up the receiver. He turned
+to me. &quot;That woman's a type of the eternal feminine,&quot; he said. &quot;Her husband's coming home next week, and she doesn't know what to do. It appears that Craven persuaded her once again that the child had become 'earth-bound,' and about a month ago she ceased burning the candles and locked the door. It's been locked ever since. Now Jim Temple's returning, and she doesn't know how she's going to explain things to him. Craven has persuaded her to let him hold a séance with Mrs. Jimpson in that room to-night, but at the last moment her courage has failed and she is begging us to come.&quot;</p>
+<p>&quot;Have there been any manifestations since she ceased to burn the candles?&quot; I asked.</p>
+<p>&quot;Nothing at all. She told me that the first thing. That's what makes me afraid that fool Craven and Mrs. Jimpson are going to set loose forces that will prove absolutely uncontrollable. If that devil can break through to-night—God help Mrs. Temple! Branscombe, I've seen—but never mind what I've seen. We've got to hurry!&quot;</p>
+<p>&quot;Doctor,&quot; I asked, as we started, &quot;suppose that doll had been thrown in the Harlem River?&quot;</p>
+<p>&quot;Then, Branscombe, O'Connor would have had full play for his devilish impulses. To-night he must be sent back where he comes from—if we can do it.&quot;<br>
+<br></p>
+<p>THE SÉANCE was just beginning , when we arrived. Mrs. Temple did not
+seem to want to open the door for us. It was clear enough that, in
+spite of the moment of reaction from Craven's influence, during
+which she had telephoned the doctor, she had fallen entirely under the
+faker's control. She announced, with a nervous laugh, that there was
+to be no séance after all—denied that Craven and Mrs. Jimpson were in
+the house, until his voice came booming down the stairs, inquiring
+whether it was us. The doctor simply strode past Mrs. Temple and went
+upstairs. I followed him, and she came up behind, still protesting.</p>
+<p>The room was lighted, but there was no light before the doll, and
+everything was covered with dust. Mrs. Jimpson was just settling
+herself in the cabinet. Craven tried to bar our way.</p>
+<p>&quot;This is an outrage, Doctor Martinus!&quot; he shouted.  &quot;We are here by
+Mrs. Temple's invitation,&quot; answered the doctor quietly.  &quot;We intend
+to remain.&quot;</p>
+<p>Mrs. Temple weakened. &quot;I don't know what to do,&quot; she fretted. &quot;One
+advises me one thing, and one another. I only want my darling little
+girl to be happy.&quot;</p>
+<p>&quot;Doctor, if you had the most elementary knowledge of psychic
+matters, you would know that every effort to attach the spirit to
+earth draws it from its heavenly reward,&quot; Craven exclaimed. &quot;It was
+on my advice that Mrs. Temple let those candles burn themselves out a
+month ago. There have been no manifestations since, proving that the
+child no longer haunts this house. To-night we propose to hold a
+séance to determine that all is well with her, after which we shall
+leave the pure spirit to enjoy its well-earned rest.&quot;</p>
+<p>&quot;Go ahead,&quot; said Martinus. &quot;There will be no interference from either
+of us. But we propose to be present as spectators. You may be glad of
+it before the séance ends, Mr. Craven.&quot;</p>
+<p>&quot;If Doctor Martinus and Mr. Branscombe will pledge themselves not to
+interfere, I am sure you will not object to their staying, Mr. Craven?&quot; asked Mrs. Temple.</p>
+<p>Craven sulkily agreed.<br>
+<br></p>
+<p>AGAIN we took our seats, and the light was turned off. The medium
+began to struggle and moan. And this time I was conscious of a presence, indescribably evil, in that room. It was like physical contact with something too loathsome to have human form. I shuddered, I felt nauseated; it was all I could do to keep my place in the half-circle. I wondered if the others felt the same. All the while, too, it seemed as if I was resisting some physical pressure, bent on crowding me out. I strained against the chair—heard myself breathing hurriedly—felt the surge of the blood through my body.</p>
+<p>It came: &quot;Mamma! Mammal&quot; piping out of the cabinet.</p>
+<p>&quot;Doris? Darling little Doris, Mother is here. Are you happy, Doris?&quot;</p>
+<p>I heard the Doctor catch at his breath, as if about to speak—then he
+seemed to think better of it. I saw him outlined tensely against the
+faint light of the window-square.</p>
+<p>&quot;Daddy! I want my Daddy!&quot; came the baby voice.</p>
+<p>&quot;Daddy is here,&quot; boomed Craven.</p>
+<p>Now what induced the man to utter that lie is more than either Martinus or I could figure afterward. There followed a tense silence. Then that evil power within the room seemed to dominate, to overwhelm me.  My brain reeled. I was choking for breath.</p>
+<p>A peal of maniacal laughter rang through the silence. And I knew there
+was a body there—some vast, inchoate, evil thing that seemed to fill the room.</p>
+<p>A chair fell over. The thing laughed again, and mingled with it came
+Mrs. Temple's scream, and a sound from Craven's throat that I cannot
+possibly describe. It was a cry, but a cry that seemed the embodiment
+of utter despair—the cry of dissolution.</p>
+<p>Then—a heavy body toppling to the floor, and threshing it with its
+heels.</p>
+<p>&quot;The light, the light, Branscombe, for God's sake!&quot; I heard Martinus
+calling, but as if from far away.</p>
+<p>We were both groping for the button. We struck our heads together in
+the dark, fumbled in the dark, and at last, somehow, got the light turned on.</p>
+<p>The medium was stirring in the cabinet. Mrs. Temple was seated rigid in her chair, staring in front of her, and muttering.  The light of reason was gone from her eyes. On the floor lay Craven, apparently hugging to his heart the &quot;Mamma&quot; doll, with frantic grip.</p>
+<p>But as we bent over him I saw that the little porcelain fingers were fixed in his throat like steel hooks, so deep that the swelling flesh was already closing over the arms.</p>
+<p>Craven was dead. The fingers of the doll had stopped the circulation in the carotids completely. Death had been a matter of perhaps fifteen seconds.<br>
+<br></p>
+<p>THE REST is happier than either of us had hoped.  Thanks to Martinus's care, and certain suggestions made when Mrs. Temple was in a condition of hypnosis, and before she had recovered her reason, she awakened with no recollection of that final scene in the drama. Had she remembered, Martinus told me, reason would never have returned.</p>
+<p>She was told that Craven had collapsed and died of heart disease at the beginning of the séance, and this was believed by Mrs. Jimpson, who was still in trance at the time of Craven's death. It was a comparatively simple matter for Martinus to issue a death certificate to this effect, and so hush up the facts.</p>
+<p>Jim Temple returned to a house, swept and garnished, but this time without a devil in possession. The impulse that had enabled the dead bandit to wreak his revenge upon the living had been exhausted by that act, and James O'Connor was carried far beyond the sphere of earthly passions. The Doctor burned the doll in his fireplace when we got home that night.</p>
+<p>&quot;But the child—Doris?&quot; I asked him. &quot;Where was she while O'Connor was
+masquerading in her place?&quot;</p>
+<p>&quot;Don't let us worry about her, Branscombe,&quot; answered Martinus. &quot;It's a safe bet that there is provision on the other side to protect the Dorises against the James O'Connors.&quot;</p>
+<p>Then I added: &quot;In any case, you and I have done our part.&quot;</p>
+<hr>
+<p>Part of the series <a href="/dark_tales_sleuth/pages/victor-rousseau/#dr-martinus-occultist"><em>Dr. Martinus, Occultist</em></a></p>
+<p>Illustrations from <em>Ghost Stories Magazine</em>, January 1927</p>
+
+</article>
+		</main>
+
+		<!-- footer -->
+		<hr>
+
+<div class="footer-container">
+	<p>&copy; 2025 Nina B. Zumel</p>
+	<div class="social_icons">
+	    <a href="mailto:nzumel@mzlabs.com?subject=Comment%20from%20Dark%20Tales%20Sleuth" aria-label="Email" target="_blank" rel="noopener noreferrer">
+			<i class="fas fa-fw fa-envelope"></i>
+		</a>
+		<a href="https://micro.blog/MultoGhost" aria-label="Micro.blog" target="_blank" rel="noopener noreferrer">
+			<i class="fab fa-fw fa-microblog"></i>
+		</a>
+		<a href="https://multoghost.wordpress.com/" aria-label="Multo (Ghost)" target="_blank" rel="noopener noreferrer">
+			<i class="fab fa-fw fa-wordpress"></i>
+		</a>
+		<a href="/dark_tales_sleuth/feed.xml" aria-label="RSS" target="_blank" rel="noopener noreferrer">
+			<i class="fa fa-fw fa-rss-square"></i>
+		</a>
+
+	</div>
+</div>
+		<!-- /footer-- >
+
+		<!-- Current page: /dark_tales_sleuth/victor-rousseau/doll-that-came-to-life/ -->
+	</body>
+</html>
