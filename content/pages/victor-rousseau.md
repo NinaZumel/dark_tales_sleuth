@@ -164,6 +164,7 @@ In keeping with the conceit of the magazine, I'll give each story as "by Arthur/
 **Fire Water—and What** - *Ghost Stories*, June 1927
 
 **The Soul that Lost its Way** - *Ghost Stories*, August 1927
+<br><span class="inline-note">Reprinted, uncredited and possibly in abridged form, in **Prize Ghost Stories** (1963) as "Monkey-Face and Mrs. Thorpe." Yes, that's a dreadful title.</span>
 
 **The House of the Living Dead**  (six-part serial) - *Ghost Stories*, December 1927 - May 1928. 
 <br><span class="inline-note">The issue with the first installment (Dec. 1927) is available online, but the others are missing.</span>
@@ -179,8 +180,7 @@ bear a stronger similarity to Dr. Martinus, than to Drs. Brodsky or Immanuel.
 
 ### Professor Rinaldi
 
-Swiss occultist, who holds seances and consults with clients in New York. Does "wonderful things" locating missing persons. Aided by his valet *cum* medium, Potter.
-His Watson is Herbert Matthews, Research Officer at the Society for the Investigation of Psychical Phenomena. 
+Swiss occultist, who holds seances and consults with clients in New York. Does "wonderful things" locating missing persons. Aided by his valet *cum* medium, Potter. His Watson is Herbert Matthews, Research Officer at the Society for the Investigation of Psychical Phenomena. 
 
 [**The Blackest Magic of All**](/victor-rousseau/blackest-magic-of-all/) - *Ghost Stories*, July 1928.
 <br><span class="inline-note">Later reprinted as "Medium for Justice" in **Startling Mystery Stories**, Spring 1967.</span>
