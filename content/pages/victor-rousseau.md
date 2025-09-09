@@ -174,7 +174,18 @@ In keeping with the conceit of the magazine, I'll give each story as "by Arthur/
 
 ## Other Occultists
 
-In progress.
+Tales written later in Rousseau's career. These characters conduct their investigations via mediums and seances. Hence, they
+bear a stronger similarity to Dr. Martinus, than to Drs. Brodsky or Immanuel. 
+
+### Professor Rinaldi
+
+Swiss occultist, who holds seances and consults with clients in New York. Does "wonderful things" locating missing persons. Aided by his valet *cum* medium, Potter.
+His Watson is Herbert Matthews, Research Officer at the Society for the Investigation of Psychical Phenomena. 
+
+[**The Blackest Magic of All**](/victor-rousseau/blackest-magic-of-all/) - *Ghost Stories*, July 1928.
+<br><span class="inline-note">Later reprinted as "Medium for Justice" in **Startling Mystery Stories**, Spring 1967.</span>
+
+
 </div>
 
 <p class="credit">
