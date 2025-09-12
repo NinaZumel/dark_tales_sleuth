@@ -17,7 +17,7 @@ Unlike Martinus, who was primarily a researcher into the "science" of the supern
 
 Rinaldi is assisted by his valet *cum* medium, Potter. His Watson is Herbert Matthews, Research Officer for the Society for the Investigation of Psychical Phenomena. 
 
-* [**The Blackest Magic of All**](victor-rousseau/blackest-magic-of-all/) -- Mr. Goodrich engages Rinaldi to track down the killer of Goodrich's sister, and bring him to justice. The problem: the murder occurred before the War, in another country, and no one can even prove it was murder.
+* [**The Blackest Magic of All**](/victor-rousseau/blackest-magic-of-all/) -- Mr. Goodrich engages Rinaldi to track down the killer of Goodrich's sister, and bring him to justice. The problem: the murder occurred before the War, in another country, and no one can even prove it was murder.
 
 Potter's spirit guide is a "Chinaman" (Vietnamese, actually) named Chong-Qua, who speaks like the movie version of Charlie Chan. {% marginnote "chan", "Charlie Chan in the original novels speaks perfectly fine, grammatical English." %} It's cringey, but not bad enough to make me throw my laptop across the room. Rinaldi is a bit...unscrupulous, at times, but he stands generally on the side of right. Overall, I really liked this story.
 
