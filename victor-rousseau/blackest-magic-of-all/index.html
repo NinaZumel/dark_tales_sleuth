@@ -1,0 +1,948 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>The Blackest Magic of All</title>
+		<meta name="description" content="Filling in the Literary Blanks">
+		<link rel="alternate" href="/dark_tales_sleuth/feed/feed.xml" type="application/atom+xml" title="Dark Tales Sleuth">
+		<link rel="alternate" href="/dark_tales_sleuth/feed/feed.json" type="application/json" title="Dark Tales Sleuth">
+
+        
+		<link rel="me" href="https://micro.blog/MultoGhost">
+		<link rel="authorization_endpoint" href="https://indieauth.com/auth">
+		<link rel="token_endpoint" href="https://tokens.indieauth.com/token">
+		<link href="https://github.com/ninazumel" rel="me">
+		<script src="https://kit.fontawesome.com/9bbe6f85f9.js" crossorigin="anonymous"></script>
+		
+		<style>/* minimal implementation; just plain text in the margin, no blockquotes, code, etc */
+/* only (unnumbered) margin notes, no sidenotes */
+/* stripped down from https://github.com/edwardtufte/tufte-css */
+
+/* need this for correct sidenote numbering; but I'm not using sidenotes */
+/*
+body {
+    counter-reset: sidenote-counter; 
+} 
+*/
+
+
+/* since I imagine these will change with different templates */
+:root {
+    --content-width: 65%;
+    --image-padding: 5%;
+    --image-max: 60%;  /* total image+padding <= content-width */
+    --notewidth: 30%; 
+    /* content-width + notewidth <  100%. I think you should leave some wiggle room. */
+    --note-right-margin: -45%;
+    /* if this margin is -(notewidth), the note will start just on the right border of the text */
+    /* so push it a little to the right (more negative) */
+}
+
+article {
+	padding-top: 1rem; 
+}
+
+/* make room for the notes in the article container */
+article > p,
+article > pre,
+article > ul {
+    width: var(--content-width);
+}
+
+/* 
+  blockquotes should be a little shorter 
+  This assumes that left indentation is 2em, which is what it looks like.
+  Subtract way more than 2 em, so that it's way shorter.
+  */
+article > blockquote {
+    width: calc(var(--content-width) - 10em); 
+}
+
+
+article > hr {
+    max-width: var(--content-width);
+    margin: 0
+}
+
+article > h1, 
+article > h2,
+article > h3,
+article > h4 {
+    max-width: var(--content-width);
+}
+
+article > center {
+    max-width: var(--content-width);
+}
+
+/* keep images/captions in the text column, rather than centered in the article container */
+article > img {
+    margin-left: 0;
+    padding-left: var(--image-padding);
+    max-width: var(--image-max); 
+}
+
+article > p.caption {
+	text-align: left;
+    padding-left: var(--image-padding);
+	font-style: italic;
+	font-size: 0.9em;
+	color: var(--caption-color);
+ }
+
+article > p.caption a:hover,
+article > p.caption a:active {
+    color: var(--text-color-link-active);
+}
+
+.footnote-item {
+    max-width: var(--content-width); 
+}
+
+ /* finally, the margin note */
+.marginnote {    
+    float: right;
+    clear: right;
+    width: var(--notewidth);         
+    margin-right: var(--note-right-margin);
+    margin-top: 0.3rem;
+    margin-bottom: 0;
+    font-size: 0.8rem;
+    line-height: 1.3;
+    vertical-align: baseline;
+    position: relative;
+    /* border: 2px solid blue; */
+}
+
+
+input.margin-toggle {
+    display: none;
+}
+
+
+label.margin-toggle {    
+    display: none;
+
+}
+
+/* The mobile fallback: */
+/* making max-width bigger makes the note fall inline sooner */
+@media (max-width: 768px) {  
+    body {
+        width: 84%;
+        padding-left: 8%;
+        padding-right: 8%;
+    }
+
+    hr,
+    article > p,
+    article > blockquote,
+    article > pre {
+        width: 100%;
+    }
+
+    label.margin-toggle {
+        display: inline;
+    }
+       
+    .marginnote {           
+         display: none;        
+        }    
+
+      
+    .margin-toggle:checked + .marginnote {            
+        display: block;            
+        float: left;            
+        left: 1rem;            
+        clear: both;            
+        width: 95%;            
+        margin: 1rem 2.5%;            
+        vertical-align: baseline;            
+        position: relative;        
+    }
+    label {
+        cursor: pointer;
+    }
+}
+* { box-sizing: border-box; }
+/* colors from flexoki - https://stephango.com/flexoki */
+
+:root {
+	--paper: #FFFCF0;
+	--tx-normal: #100F0F;
+	--tx-muted: #6F6E69;
+	--tx-faint: #B7B5AC;
+	--blue300: #66A0C8;
+	--blue400: #4385BE;
+	--blue600: #205EA6;
+	--blue700: #1A4F8C;
+	--blue800: #163B66; 
+	--blue850: #133051;
+	--red800: #6C201C;
+	--purple600: #5E409D;
+	--purple300: #A699D0;
+	--base50: #F2F0E5;
+	--base100: #E6E4D9;
+	--base300: #B7B5AC;
+
+	--description-color: var(--tx-muted); 
+    --caption-color: var(--tx-muted);
+	--background-color:  var(--paper); 
+    --hrule-color: var(--base100);
+    --hrule-faint-color: var(--base50);
+	--box-border-color: var(--base50);
+
+	--header-anchor-color: var(--base300); /* for the # links on headers */
+	--icon-color: var(--blue600);
+	--icon-hover-color: var(--blue300);
+	--tag-color: var(--purple600);
+	--tag-hover-color: var(--purple300);
+
+	--text-color: var(--tx-normal); 
+	--text-color-link: var(--blue700); 
+	--text-color-link-active: var(--blue400); 
+	--text-color-link-visited: var(--blue700); 
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--black: #100F0F;
+		--base200: #CECDC3; 
+		--base300: #B7B5AC;
+		--base500: #878580;
+		--base600: #6F6E69;
+		--base700: #575653;
+		--base900: #282726;
+		--base950: #1C1B1A;
+		--blue700: #1A4F8C;
+		--red400: #D14D41;
+		--purple400: #8B7EC8;
+		--purple500: #735EB5;
+		--purple600: #5E409D;
+	
+		--description-color: var(--base300); 
+		--caption-color: var(--base500);
+		--background-color:  var(--black); 
+		--hrule-color: var(--base900);
+		--hrule-faint-color: var(--base950);
+		--box-border-color: var(--base900);
+
+		--header-anchor-color: var(--base500); /* for the # links on headers */
+		--icon-color: var(--blue400);
+		--icon-hover-color: var(--blue600);
+		--tag-color: var(--purple400);
+		--tag-hover-color: var(--purple500);
+
+		--text-color: var(--base200); 
+		--text-color-link: var(--blue400); 
+		--text-color-link-active: var(--blue600); 
+		--text-color-link-visited: var(--blue400); 
+	}
+}
+/* Defaults */
+:root {
+	--font-family: Georgia, Times, -serif; /* Tahoma, -apple-system, system-ui, sans-serif; */
+	--font-family-sanserif: Tahoma, -apple-system, system-ui, sans-serif;
+	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+
+	/* from another template - experiment with these */
+	--font--serif: 'Bitstream Charter', Charter, Palatino, 'Palatino Linotype', 'Palatino LT STD', 'Book Antiqua', Georgia, serif;
+  	--font--sans: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+}
+
+/* Theme colors */
+:root {
+	--syntax-tab-size: 2;
+}
+
+
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	font-size: 18px;  /* a little bigger to accomodate a serif font */
+	color: var(--text-color);
+	background-color: var(--background-color);
+}
+html {
+	overflow-y: scroll;
+}
+body {
+	max-width: 70em; /* 50em; */
+}
+
+/* Basic heading typography */
+h1,h2,h3,h4,h5 {
+  font-family: var(--font--sans);
+  font-weight: 600;
+}
+
+/* different horizontal rules  https://www.w3schools.com/howto/howto_css_dividers.asp */
+ /* Dashed border */
+ hr.dashed {
+	border-top: 1px dashed var(--hrule-color);
+  }
+  
+  /* Dotted border */
+  hr.dotted {
+	border-top: 1px dotted var(--hrule-color);
+  }
+  
+  /* Solid border */
+  hr.solid {
+	border-top: 1px solid var(--hrule-color);
+  }
+  
+
+/* 
+https://css-tricks.com/barebones-css-for-fluid-images/ 
+Without this, images generated by eleventy-img will always use the largest available size
+-- ie, not be responsive.
+*/
+img {
+	max-width: 100%; 
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+  }
+  img[width] {
+	width: auto; /* Defer to max-width */
+  }
+  img[width][height] {
+	height: auto; /* Preserve aspect ratio */
+  }
+  
+  /* Let SVG scale without boundaries */
+  img[src$=".svg"] {
+	width: 100%;
+	height: auto;
+	max-width: none;
+  }
+  
+
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+p {
+	line-height: 1.5;
+	/* font-size: 1.2em; */
+}
+
+p.caption {
+	text-align: center;
+	font-style: italic;
+	font-size: 0.9em;
+	color: var(--caption-color);
+ }
+
+ /* for the credits at the bottom of a page */
+p.credit {
+	max-width: 50em;
+	font-size: 0.9em;
+	margin-left: auto;
+	margin-right: auto;
+ }
+
+
+/* for inline annotations, like translations */
+span.inline-note {
+	font-size: 0.9em;
+	font-style: italic;
+}
+
+li {
+	line-height: 1.5;
+	/* font-size: 1.2em; */
+}
+
+a[href] {
+	color: var(--text-color-link);
+	text-decoration: none; 
+}
+a[href]:visited {
+	color: var(--text-color-link-visited);
+}
+a[href]:hover,
+a[href]:active {
+	color: var(--text-color-link-active);
+}
+
+main {
+	padding: 1rem;
+}
+main :first-child {
+	margin-top: 0;
+}
+
+header {
+	border-bottom: 1px dashed var(--hrule-color);
+}
+header:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.links-nextprev {
+	text-align: center;
+	list-style: none;
+	border-top: 1px dashed var(--hrule-color);
+	padding: 1em 0;
+}
+
+
+table {
+	margin: 1em 0;
+}
+table td,
+table th {
+	padding-right: 1em;
+}
+
+pre,
+code {
+	font-family: var(--font-family);
+	font-size: 0.95em;
+}
+pre:not([class*="language-"]) {
+	margin: .5em 0;
+	line-height: 1.375; /* 22px /16 */
+	-moz-tab-size: var(--syntax-tab-size);
+	-o-tab-size: var(--syntax-tab-size);
+	tab-size: var(--syntax-tab-size);
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+}
+code {
+	word-break: break-all;
+}
+
+/*
+  Custom containters
+*/
+div.message-box {
+	max-width: 50em; 
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div.magazine-box {
+	max-width: 50em; 
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+/* Header */
+header {
+	font-family: var(--font--sans); 
+	display: flex;
+	gap: 1em .5em;
+	flex-wrap: wrap;
+	align-items: center;
+	padding: 1em;
+}
+.home-link {
+	font-size: 1.5em; /* 24px /16 (I think)*/
+	font-weight: 700;
+	margin-right: 2em;
+}
+.home-link:link:not(:hover) {
+	text-decoration: none;
+}
+
+/* Nav */
+.nav {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.nav-item {
+	display: inline-block;
+	margin-right: 1em;
+}
+.nav-item a[href]:not(:hover) {
+	text-decoration: none;
+}
+.nav a[href][aria-current="page"] {
+	text-decoration: underline;
+}
+
+/* Posts list */
+.postlist {
+	list-style: none;
+	padding: 0;
+	padding-left: 0; /* 1.5rem; */
+	max-width: 50em;
+}
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	counter-increment: start-from -1;
+	margin-bottom: 1em;
+	padding-bottom: 50px;
+	/* padding: 8px 16px; */
+	border-bottom: 1px dashed var(--hrule-color);
+}
+
+/* 
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	content: "" counter(start-from, decimal-leading-zero) ". ";
+	line-height: 100%;
+	text-align: right;
+	margin-left: -1.5rem;
+}
+*/
+
+.postlist-date,
+.postlist-item:before {
+	font-size: 0.8125em; /* 13px /16 */
+	color: var(--description-color);
+}
+.postlist-date {
+	word-spacing: -0.5px;
+	padding-left: .25em;
+}
+.postlist-link {
+	font-size: 1em; /* 1.1875em;  19px /16 */
+	font-weight: 700; 
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration: none; 
+	/* text-decoration-thickness: 1px; */
+}
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+/* Tags */
+.post-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+	font-style: italic;
+}
+.postlist-item > .post-tag {
+	align-self: center;
+}
+
+/* Tags list */
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: .5em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.post-metadata time {
+	margin-right: 1em;
+}
+
+/* I don't want tag links to stand out too much */
+.post-metadata a[href] {
+	color: var(--tag-color);
+}
+
+.post-metadata a[href]:hover,
+               a[href]:active {
+	color: var(--tag-hover-color);
+}
+
+
+.post-metadata li {
+	font-size: 0.875em;
+}
+
+/* metadata for posts and talks */
+
+.posttalk-metadata {
+	list-style: none;
+	padding-left: 0;
+	color: var(--description-color);
+}
+
+.posttalk-metadata ul {
+	list-style-type: none; /* no bullets */
+	padding: 0;  /* no indentation, either */
+	margin: 0;
+}
+
+/* Direct Links / Markdown Headers */
+.header-anchor {
+	text-decoration: none;
+	font-style: normal;
+	font-size: 1em;
+	margin-left: .1em;
+}
+a[href].header-anchor,
+a[href].header-anchor:visited {
+	color: transparent;
+}
+a[href].header-anchor:focus,
+a[href].header-anchor:hover {
+	text-decoration: underline;
+}
+a[href].header-anchor:focus,
+:hover > a[href].header-anchor {
+	color: var(--header-anchor-color);
+}
+
+h2 + .header-anchor {
+	font-size: 1.5em;
+}
+
+/* Footer */
+hr {
+    border: none;
+    background-color: var(--hrule-color);
+    height: 1px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+    hr {
+        width: 100%;
+    }
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2rem 0;
+    background-color: var(--background-color);
+	;
+}
+
+.footer-container p {
+    font-size: 1rem;
+    color: var(--description-color);
+}
+
+.footer-container .social_icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0 1rem;
+}
+
+.footer-container .social_icons a {
+    color: var(--icon-color);
+    font-size: 1.5rem;
+    transition: all 0.5s ease-in-out;
+}
+
+.footer-container .social_icons a:hover {
+    color: var(--icon-hover-color);
+}</style>
+	</head>
+	<body>
+		<a href="#skip" class="visually-hidden">Skip to main content</a>
+
+		<header>
+			<a href="/dark_tales_sleuth/" class="home-link">Dark Tales Sleuth</a>
+			<nav>
+				<h2 class="visually-hidden">Top level navigation menu</h2>
+				<ul class="nav">
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/about/">About</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/my-investigations/">My Cases</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/blog/">All Posts</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/comments/">Comments</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/about-me/">About Me</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="skip">
+			
+
+
+<h1>The Blackest Magic of All</h1>
+
+
+
+
+
+
+<ul class="posttalk-metadata">
+  <li>By Herbert Matthews, as told to Victor Rousseau</li>
+  <li>Published in  <em>Ghost Stories Magazine</em>, July 1928</li>
+</ul>
+
+<article>
+<p><span class="inline-note">Reprinted as &quot;Medium for Justice,&quot; <strong>Startling Mystery Stories</strong>, Spring 1967.</span></p>
+<hr>
+<p><label for="teaser" class="margin-toggle">⊕</label>
+<input type="checkbox" id="teaser" class="margin-toggle">
+<span class="marginnote">The teaser in <em>Startling Mystery Stories</em> actually said, &quot;...and the body was in Switzerland.&quot; But that is clearly wrong.</span><em>Only the recovery of the dead woman's body could shake her husband's story—and the body was in Czechoslovakia.</em></p>
+<p>IT WAS AS Research Officer for the S. I. P. P.—the Society for the Investigation of Psychical Phenomena—that I met Rinaldi. I may say that my first impressions were frankly hostile. The Society had found some genuine psychics; now we were after frauds and miracle-mongers, and some of Rinaldi's exploits had looked a little too miraculous.</p>
+<p>Then, his bored, amused smile when I requested to be permitted to investigate him, savored too much of the professional conjurer. He seemed too sure of his ability to outwit me. A clever Italian sleight-of-hand performer, I thought him, though later I learned he was a Swiss. Besides, that expensive New York apartment of his, the golf sticks, strangely out of place in one of his profession, as it seemed to me—and above all, his man, Potter!</p>
+<p>Potter, sleek, deferential, and always half-asleep; Potter with his queer monkey-gestures, his disconcerting power of mind-reading; Potter, valet by day and <em>apport</em> medium by night!</p>
+<p>That was what had really got under the Society's skin. I should say four-fifths of our members had been forced, step by step, to the belief in spirit survival and communication. But we still had doubts about spirit photography and <em>apports</em>.</p>
+<p>An <em>apport</em> medium, as is probably well known, is one who claims the power of physically transporting some object or article from a distance, through intervening houses, walls, ceilings, and floors.</p>
+<p>What brought down Society upon Rinaldi was Mrs. Van Dittmeyer's claim that, seated in Rinaldi's seance-room, she had seen the very body of her son, who had been killed in France ten years before—in 1918. Not the spirit, but John Gaffrey Van Dittmeyer, Lieutenant, killed leading a charge against the German line, and—<em>just as he had been at the moment of death!</em></p>
+<p>That a human body could be transported more than three thousand miles was sufficiently dubious, but that the intervening ten years of disintegration could be obliterated, so that the mother was able to wipe the death sweat from the tortured features—well, that drove our President, old Jerrold, frantic.</p>
+<p>&quot;Get after this Rinaldi, Matthews,&quot; he said to me. &quot;Don't spare the money. Unmask him for the fake he is, and drive him from New York.&quot;</p>
+<p>And Rinaldi had received me with his bored, tolerant smile, and invited me to be present at all his seances with Potter.</p>
+<p>Little by little, I saw that the date of Rinaldi's showing-up would have to be considerably postponed; gradually, without realizing it, I was reaching the stage of conviction.</p>
+<p>Of course, cases of <em>apports</em> were few and far between, but a few weeks had been sufficient to convince me that Potter was a man of genuine psychic powers. I was no novice. After I had seen, and spoken with my own dead sister in front of the cabinet, with Potter visible within, grimacing in his monkey way, I began to draw in my horns.</p>
+<p>Still, those <em>apports</em>—conjuring tricks! Certainly I did not see how those bunches of roses, with the dew still on them, could appear upon the little table within our circle. And there was the disconcerting little dog that barked and wagged his tail, ran to the mistress who had left him in the Florida kennel, then disappeared as quickly as he had materialized. But I am no conjurer, and I flattered myself that it took more than that to convince me.<br>
+<br></p>
+<p>POTTER'S <em>apports</em> were reserved for grand occasions, though one never knew when they were coming. For the rest, Potter was simply a materializing medium, and I have seen better ones. His figures were generally indistinct and hazy, with nothing but a face visible in the cloud of nebulous ectoplasm that is called &quot;draperies&quot;. And as for the voices—well, Potter might have been a better ventriloquist.</p>
+<p>Still, there were dramatic episodes, as on the occasion when quite a little crowd had assembled in the big room with its velvet hangings. People came to Rinaldi by introduction, and they had to show serious reasons before he would admit them to his circles. On this occasion nothing much happened. Potter had been writhing and muttering and making his monkey gestures inside the cabinet with its half-drawn curtains. And suddenly there came a voice, a woman's voice, so awful in its fear and spiritual agony that it thrilled me with horror:</p>
+<p>&quot;Johann! Don't hurt me Johann! Johann, I love you!&quot;</p>
+<p>Potter was talking, too, in his mumbling way, all the time the voice went on.
+&quot;Poor woman! Ah, the beast! She never suspected! Water! Deep, deep water!&quot; I heard him saying. And at the same time the woman's voice:</p>
+<p>&quot;Johann, let me come back—the boat—I'll go away! You can divorce me! I didn't know! I thought you loved me! I love you, Johann!&quot; The voice was shrill with abject terror.</p>
+<p>And then the dreadful, bubbling sound of a person choking to death in water! It was so indescribably awful that all the gathering were upon their feet in an instant, and huddling together in front of the cabinet.</p>
+<p>Someone turned up the light. There was nothing visible except Potter, squirming and grimacing, and blinking as he began to come back to consciousness. Rinaldi took his stand in front of him, to shield him from interference. One woman leaped to her feet and advanced, as if to attack Rinaldi.</p>
+<p>&quot;It's too much! It's too much! You ought to be sent to jail!&quot; the woman was screaming. &quot;I didn't come here to listen to things like that!&quot;</p>
+<p>&quot;Oh, no, Madam!&quot; answered Rinaldi, in his ironical way. &quot;You prefer pretty talk about the spirits' doings in the spheres? Unfortunately, it is as hard to suppress them on that side as on this, particularly when they are ladies.&quot;</p>
+<p>That caused an uneasy laugh, and relieved the tension. The session being clearly at an end, the guests prepared to depart, buzzing volubly, and for the most part, indignantly.</p>
+<p>&quot;Well, sir?&quot; One man had stayed behind, with the evident intention of addressing himself to Rinaldi.</p>
+<p>&quot;Who—who was that spirit?&quot; he asked in a half-whisper. He was a man approaching middle age, well-dressed, a gentleman and quite obviously badly shaken by the occurrence.</p>
+<p>&quot;That, sir, I cannot tell you&quot; Rinaldi answered. &quot;We do not register our visitors, nor are they always in a mental condition to give their pedigrees.&quot;</p>
+<p>He turned away, but the man still lingered. The last of the guests were now buzzing in the hall. Potter was staggering out of the cabinet. He jerked his thumb toward the man.</p>
+<p>&quot;He's got her photo in his waistcoat pocket,&quot; he mumbled. Potter was still in a daze. As he made his way out of the room toward his bedroom, the man turned to Rinaldi again.</p>
+<p>&quot;Could you give me a private interview?&quot; he asked. &quot;I—it's too awful, but I believe I know who that was. I think she was my sister. I recognized the voice.&quot;
+<br>
+<br></p>
+<p>HE PULLED a small photograph out of his waistcoat pocket and handed it to Rinaldi, who glanced at it, and then gave it to me. It showed a young and rather pretty woman, with a pleasant, simple, trustful face.</p>
+<p>&quot;I've carried this for eleven years,&quot; the man went on, &quot;always in the hope that some day I should be able to solve the mystery of her disappearance. I know she's dead. We were too close to one another in childhood for me not to know that. But never until tonight—it's too horrible!&quot;</p>
+<p>&quot;Pray sit down,&quot; said Rinaldi, immediately all sympathy. He indicated a chair at the farther  end of the room, switched on two or three more lights, and himself sat down beside the man. &quot;If there's anything at all I can do to help you ...&quot; he began. &quot;You say your sister disappeared many years ago? Perhaps you would care to give me the details?&quot;</p>
+<p>&quot;If you can help me, I'll tell you everything. I don't mind saying I came to you tonight because I had heard of the wonderful things you have done in the way of locating missing persons. My name's Goodrich.&quot;</p>
+<p>&quot;I remember you, Mr. Goodrich,&quot; answered Rinaldi, &quot;but I understood from Mr. Taylor, who introduced you to me, that you merely hoped to get into communication with a friend who had crossed the line.&quot;</p>
+<p>&quot;That's the truth,&quot; replied Goodrich. &quot;I want to find the man who was responsible for my sister's murder.&quot;</p>
+<p>It was a sad and sordid story to which I listened as Goodrich facing Rinaldi, and gripping the arms of his chair tensely in his excitement, gradually rose to impassioned, bitter denunciation.</p>
+<p>Thirteen or fourteen years before, Goodrich's sister Amy had married Johann Minzner, a real estate man in their home town. The family had been bitterly opposed to the match on account of Minzner's character. He was known to have served a term in State's prison, and he was then engaged in some shady real estate speculations which netted him a large fortune. But the girl had been infatuated with the man, and had refused to listen to warnings.</p>
+<p>They had married, and about this time Minzner had left the town, with the half-million dollars that his speculations had brought him. Nothing had been heard of the couple for a year or two. Then had come a brief communication from Minzner, written from a village near Prague, in what was then Austrian territory. He enclosed a newspaper clipping, from which it appeared that Amy Minzner had been drowned in a lake on which the couple were sailing, in spite of her husband's heroic attempt to rescue her.</p>
+<p>&quot;I was not a rich man,&quot; cried Goodrich, &quot;but I placed the matter in the hands of the Parr Detective Agency, which has a reputation for running down difficult cases. Since then I have made a sizeable fortune, and I have retained the Parr people with a standing fee to keep in touch with the case. But the War broke out, and of course...&quot; Goodrich shrugged, &quot;...it was impossible to follow up any clues. After the Armistice I ascertained that Minzner had not been heard of since the beginning of the conflict. He had sold his property near Prague and disappeared.&quot;</p>
+<p>&quot;And what is your purpose, supposing you can find Minzner?&quot; asked Rinaldi.</p>
+<p>&quot;To send him to the electric chair as my sister's murderer!&quot;</p>
+<p>&quot;What is your reason for supposing that Minzner murdered your sister?&quot;</p>
+<p>&quot;I know it!&quot; shouted Goodrich. &quot;I've always felt it and I can't be mistaken. But tonight's evidence clinches the matter!&quot;</p>
+<p>&quot;I don't want to discourage you, Mr. Goodrich,&quot; replied Rinaldi, &quot;but communications from beyond are not quite so simple as you might be inclined to suppose. It is quite likely that that was your sister's voice. On the other hand, it may have been some malicious spirit that realized your state of mind and wished to take advantage of it to play a prank upon you. Again, it is possible that your ardent desire, continued for so many years, actually created what we call an elemental, to play the part. Thoughts create things, you know, Mr. Goodrich, though they cannot create souls, which is the prerogative of the Almighty.&quot;<br><br></p>
+<p>GOODRICH'S FACE fell. &quot;Then—then how can I ever know?&quot;</p>
+<p>&quot;Let me ask you, first, how you propose to send Minzner to the chair, granting that all your inferences are correct. The event took place in a foreign land. The lapse of years, the War, the change of government would certainly make the production of adequate evidence improbable. No jury would convict. And, even it they did, it would be in Czechoslovakia, and not in America, that the case would be tried.&quot; Rinaldi  paused, and the other stared at him.</p>
+<p>&quot;Then you mean to say nothing can be done? I'll swear that was my sister. I am resolved that her death shall not remain unretributed. What can be done, Professor Rinaldi?&quot;</p>
+<p>&quot;The first thing,&quot; answered Rinaldi, &quot;is to get in touch with your sister, and learn whether it was she tonight. The second is to find Minzner.&quot; He turned toward the closed door.</p>
+<p>As if the summons had been telegraphically conveyed to him, Potter came out of the bedroom, slipping on his coat. He was once more the smooth, sleek valet.</p>
+<p>Potter, do you feel able to give us another private sitting tonight?&quot; Rinaldi asked.</p>
+<p>Potter looked dubiously at Goodrich. &quot;What's he want?&quot; he demanded. &quot;He makes me feel sick in my lungs. It's something about water.&quot;</p>
+<p>&quot;He wants you to go on a little journey and find somebody,&quot; said Rinaldi. &quot;Are you willing to make the trip?&quot;</p>
+<p>&quot;No, sir! Nothing doing,&quot; Potter declared. &quot;The only person I'm going to find is myself in bed. He gives me a pain here. I don't like the looks of this fellow. How do we know he ain't a dick?&quot; he continued to Rinaldi in a whisper.</p>
+<p>I was used to Potter's ways by now. I knew that the man, being wholly ignorant of what he did while entranced, believed the whole business to be a fake, and Rinaldi a slick conjurer.</p>
+<p>&quot;Now, I won't do it, sir. I tell you it ain't safe. I tell you...&quot;</p>
+<p>But Potter's mumbling died away, for Rinaldi had simply grabbed him by the shoulders and made a few passes over him. I saw the body stiffen. It began to sway like a falling tree. Rinaldi caught and supported it, for Potter was in the full rigidity of catalepsy.</p>
+<p>Raising the valet over his shoulder exactly as if he had been a tailor's dummy, Rinaldi carried him into the cabinet and placed him on the chair. A pass or two and he had unbent the knees sufficiently to enable Potter to be seated. Then he beckoned to Goodrich and myself, and we three took our places in the middle of the front row of chairs before the cabinet. Rinaldi reached out and switched off the lights.</p>
+<p>It was Rinaldi speaking: &quot;Potter, bring back that woman who was here earlier in the evening. Tell her that she is wanted badly.&quot;</p>
+<p>A pause, then a high-pitched voice of Chong-Qua, the old Anamite <label for="annamite" class="margin-toggle">⊕</label>
+<input type="checkbox" id="annamite" class="margin-toggle">
+<span class="marginnote">Annam (or Trung Ký) was a French protectorate in what is now Central Vietnam. In the nineteenth century, the term <em>Annamite</em> was used to refer generally to Vietnamese people.</span> guide, not Potter's. &quot;She is no here. I go look some more, perhaps.&quot;</p>
+<p>&quot;Be quick about it, Chong,&quot; said Rinaldi. &quot;We've got a few questions to ask her.&quot;</p>
+<p>We waited—five minutes, perhaps. The only sound was Potter breathing stertorously in the cabinet. Then came the Chinaman's voice again, squeaky and breathless, as if the old man had been running:</p>
+<p>&quot;She not will come. She say it's a mistake. Her husband never mean to harm her, and she love him.'</p>
+<p>I heard a sharp, suppressed expletive from Goodrich. &quot;That's Amy all over. The little fool! Anybody can get around her,&quot; he whispered.</p>
+<p>&quot;She think you mean to do him harm,&quot; the droning voice went on. &quot;She will not come.&quot;</p>
+<p>&quot;She won't come, eh?&quot; thundered Rinaldi, &quot;<em>Then bring her husband!</em>&quot;</p>
+<p>I caught my breath. What did Rinaldi hope for? How could Chong-Qua bring Minzner, if he were still alive? But was he alive, or did Rinaldi mean in the spirit? If he were alive, how could he be bodily transported into the seance-room?</p>
+<p>I had witnessed many <em>apports</em> by Potter, though never that of a human body, as Mrs. Van Dittmeyer had claimed she had seen. If Minzner was still alive, and Potter or his guide could bring him there, into that room, in physical form—well, I should be in for a bad half-hour trying to convince old Jerrold, our President.</p>
+<p>And now the room had grown as still as death. We had been silent before, but this was an uncanny, unnatural stillness, If there can be degrees of stillness, this was the superlative one, for in that awful quiet I seemed to hear all the natural processes of my bodily organism, the pulsing of the heart valves, the building of the tissues.</p>
+<p>Then a deathly weakness seemed to overtake me. And I felt—somehow—smaller!</p>
+<p>&quot;Don't stir, don't speak, and on no account break the circle. No, it is not necessary to join hands, but for heaven's sake don't speak or move. And ignore that weakness! Potter is drawing on all of us. It's the hardest thing in the world.&quot;</p>
+<p>Rinaldi's voice was very soft. I was barely conscious of it, for all my vitality seemed to be engaged in a struggle against some sapping force that was depleting it. Very softly Rinaldi leaned forward again to the switch in the wall and snapped a button. A faint red light began to glow immediately in front of the cabinet.<br><br></p>
+<p>IT WAS NO brighter than that used in a photographer's dark room; for anything stronger would have dissipated the ectoplasm. But now there was no ectoplasm. There was visible only the face of the medium, thrown back over the rigid neck. The eyes were wide open, but only the whites showed. And Potter had ceased to breathe audibly. A cold wind seemed to emanate from the cabinet, slightly ruffling the thin curtains that hung in front of it.</p>
+<p>I felt the approach of some tremendous climax. I gritted my teeth, trying to shake off that lethargy that gripped me. I was more afraid than I have ever been in my life, and yet it was of nothing tangible.</p>
+<p>Then suddenly the climax came. There was a crash somewhere in the room, a chair beside me was overturned, and the body of a heavy man lay in the tiny space between us and the cabinet!</p>
+<p>I heard the oath that trembled on Goodrich's lips. I saw him start forward; and then Rinaldi's hands were pressing like dead weights upon his shoulders, forcing him back into his place. In that instant I was aware that Goodrich had recognized the man as Minzner.</p>
+<p>But the man on the floor was flesh and blood! I shall maintain that till my dying day. I have seen materializations so perfect that I could detect the pulse in the wrist; I have seen an apparition breathe carbon dioxide into baryta water <label for="baryta" class="margin-toggle">⊕</label>
+<input type="checkbox" id="baryta" class="margin-toggle">
+<span class="marginnote"><em>baryta water</em>: barium hydroxide (Ba(OH)<sub>2</sub>). Commonly used to titrate weak acids. Also used for synthesizing various barium compounds, and other applications.</span> in proof that it had lungs; but I have never seen an apparition that did not conceal some imperfection in its physical organism by means of the usual cloudy draperies.</p>
+<p>Not so this form. It was the complete body of a man in evening clothes. He was lying upon his back, sleeping noisily. I could even detect the fumes of alcohol upon his breath.</p>
+<p>Inside the cabinet, still visible, was Potter, looking, for all his five feet eight, no bigger than a doll and moaning feebly.</p>
+<p>What would have happened next, I do not know. Would Rinaldi have awakened Minzner and forced him to make a confession? Whatever would have happened was not what did occur, for, as Rinaldi removed his hands from Goodrich's shoulders, Goodrich suddenly bounded from his chair and flung himself upon the unconscious man.</p>
+<p>I saw Rinaldi leap forward and snatch something from the floor as Goodrich precipitated himself upon Minzner. Next instant—how it came about I know not—the <em>apport</em> had disappeared, and it was the medium, Potter, with whom Goodrich was battling.</p>
+<p>&quot;Hold him! Hold Goodrich!&quot; shouted Rinaldi to me. Then he pressed the electric button.</p>
+<p>The regular lights went on. Potter, with a bruised lip and a bloody nose, was struggling weakly in Goodrich's grasp. I was about to obey Rinaldi's orders when the latter plucked at my arm violently.</p>
+<p>&quot;Quick! Read that!&quot; he gasped.</p>
+<p>I saw, then, that he held a card-case in his hand, a card-case of some fabric so unsubstantial that it was slowly crumbling away. Rinaldi had half-detached a card from it, and the edge of the card, as he withdrew it, was crumbling too, into what seemed a fine, invisible powder.</p>
+<p>Interpreting Rinaldi's wish, I jerked the card from the pocket. On it I read:</p>
+<pre><code>John Wentworth Saunders
+Boggs Ferry
+Crossgills, N. Y.
+</code></pre>
+<p>The next instant, I was holding nothing. Card-case and card had simply become dissipated into thin air!<br><br></p>
+<p>THREE DAYS LATER Rinaldi and I were seated in the apartment when the bell rang. Potter ushered in two men, one of them Goodrich, the other a short, alert, middle-aged man who regarded us both with quick, suspicious glances.</p>
+<p>&quot;Professor Rinaldi, let me introduce Mr. James Regan, of the Parr Agency,&quot; said Goodrich.</p>
+<p>Rinaldi bowed and presented me. Then we drew up our chairs and fell to a discussion of the case.</p>
+<p>&quot;Mr. Regan has been to Boggs Ferry,&quot; began Goodrich. &quot;He has ascertained that John Wentworth Saunders is beyond all doubt Johann Minzner. He has, with the aid of information previously gathered, been able to trace Minzner's life fairly comprehensively during the past twelve years.&quot;</p>
+<p>He glanced at Regan, as if inviting him to take up the discussion, but Regan sat motionless, still eyeing Rinaldi distrustfully.</p>
+<p>&quot;It appears that Minzner and my sister lived at Boggs Ferry, for a year after their marriage,&quot; Goodrich resumed, &quot;that year when none of us knew where  she had gone. Then the house was closed, and they went abroad. Evidently they resided at that place near Prague where my poor sister was murdered by that unspeakable scoundrel.</p>
+<p>&quot;At the outbreak of the War, Minzner, who was a naturalized American, returned to this country. He took up his residence at Boggs Ferry again, and assumed the role of a country gentleman. He married again, but three years ago his wife left him and secured a divorce in Reno, Nevada.</p>
+<p>&quot;In spite of his money, he is extremely unpopular in the vicinity. The neighbors distrust him, and his only social life seems to be enjoyed with a dubious crowd of fast-livers from New York, who spend the week-end with him occasionally.&quot;</p>
+<p>&quot;What sort of place is that Boggs Ferry?&quot; asked Rinaldi.</p>
+<p>Regan spoke for the first time: &quot;A lonely spot in the mountains. Mr. Saunders has an estate of several hundred acres, bordering on the Adirondacks. There is a lake in front of his house, the other side of which is State land. He has had trouble with campers. He spends his winters in New York and Boston.</p>
+<p>&quot;I may as well add,&quot; continued the detective, &quot;that I am frankly sceptical as to the means Mr. Goodrich tells me were employed in running down Minzner. I do not believe in the supernatural at all.&quot;</p>
+<p>But Rinaldi's suave, mocking bow seemed to disconcert him. He shifted his feet irritably. &quot;Of course, I'm willing to be shown,&quot; he said.</p>
+<p>&quot;You see,&quot; he went on, after we had discussed the matter a little further, &quot;the Parr people are of the belief that Mr. Goodrich is simply throwing his money away. Of course, it was a stroke <label for="luck" class="margin-toggle">⊕</label>
+<input type="checkbox" id="luck" class="margin-toggle">
+<span class="marginnote">I added the &quot;of good luck,&quot; as the original text appeared to be missing a phrase here.</span> [of good luck], finding that this Saunders fellow was Minzner, no matter how it was done.&quot; He glanced at Rinaldi with the same expression of disbelief. &quot;But that don't carry us anywhere.</p>
+<p>&quot;First, the fact of a man changing his name doesn't amount to a hill of beans. A man has the common law right to change his name, even without recourse to the courts. Suppose he changed it at the time of the War because Austrian names were unpopular? Well—that's that.</p>
+<p>&quot;Second, there isn't a particle of evidence to prove he murdered his first wife. You can't drag a ghost into court to testify, nor a medium either. That don't go down with juries; and, if it did, there's the higher court would step in.</p>
+<p>&quot;Third, even if Minzner did murder his wife, there's no jurisdiction in America. The Austrian Government, or the Czechoslovak authorities would have to apply for extradition. That's that. Now, what can you do?&quot;</p>
+<p>&quot;You are sure that Minzner lived with his wife at Boggs Ferry before taking her to Austria?&quot; asked Rinaldi.</p>
+<p>&quot;Yeh, but he didn't murder her at Boggs Ferry.&quot;</p>
+<p>&quot;What actual evidence is there that he ever took her abroad at all? That newspaper clipping, Goodrich?&quot;</p>
+<p>&quot;Nope, the records of the Red Star Line show that a Mr. and Mrs. Minzner sailed for Antwerp on—I haven't got the date with me, but it was a year or so before the War,&quot; said Regan. &quot;What are you driving at, Mr. Rinaldi?&quot;</p>
+<p>Rinaldi smiled enigmatically. &quot;You gentlemen can accompany me to Boggs Ferry tomorrow morning?&quot; he asked. &quot;There's a train leaving the Grand Central at eight o'clock which will enable us to make our connections so as to arrive in the afternoon.&quot; He ignored our surprised looks.</p>
+<p>&quot;Aiming to pay Mr. Minzner a visit?&quot; inquired Regan.</p>
+<p>&quot;Not immediately,&quot; said Rinaldi. &quot;We're going to camp on the State lands opposite his property. I've ordered tents and a complete outfit. We'll get a little fishing, I hope. Those Adirondack lakes are not quite so fished out as some people think they are.&quot;</p>
+<p>I didn't see, any more than Regan, what Rinaldi was driving at, and Rinaldi's confidences were few and far between. I did understand, though, that he had committed himself unreservedly to the task of sending Minzner to the electric chair, and I wondered how he proposed to do it on the word of a phantom—and an unwilling phantom at that.<br><br></p>
+<p>REGAN AND Goodrich were waiting for us at the station. There was one tragicomic interlude. As soon as Potter saw Goodrich, he positively refused to get aboard. Rinaldi had refrained from telling him that Goodrich was to be one of our party.</p>
+<p>&quot;I won't go, sir, and that's flat,&quot; mumbled the medium, nursing his swollen nose. &quot;I don't mind getting my face took up and concreted in the line of duty, but that fellow with him's a dick. I tell you, Professor, they're just waiting their chance to send us up to the big house for a five-year stretch. I won't go, sir, <em>I won't go</em>...&quot;</p>
+<p>&quot;No, never mind a cup of water, Conductor,&quot; said Rinaldi, as Potter stiffened out. &quot;My friend's liable to slight attacks of this kind. Yes, a kind of fit, but he'll
+be over it in a few minutes.&quot;</p>
+<p>Potter came around all right, to find himself wedged in among our crowd, and he sulkily accepted the inevitable.</p>
+<p>Arrangements had been made for the hire of a flivver at Boggs Ferry, and, after a two hours' jouncing over a rough mountain trail, we found ourselves with our impedimenta on the border of the lake, with Minzner's house staring at us from among the trees on the opposite side.</p>
+<p>&quot;Now where's the State boundary post?&quot; asked Rinaldi, examining the road. &quot;Here, what's this? Here we are. All this side of this post is free camping ground. Looks like a good site just over there,&quot; he added, pointing.</p>
+<p>&quot;You got it wrong, Professor,&quot; said the detective. &quot;This side is State land. That's Minzner's land.&quot;</p>
+<p>&quot;Had trouble with campers, didn't you say?&quot; asked Rinaldi. &quot;Then we'll just set up our tents on Minzner's land and see if we can draw him.&quot;</p>
+<p>We drew him quickly enough. Hardly were the tents pitched and the beds laid out, hardly had the bacon begun over the fire before a heavy-bodied, irate man whom I had seen before under circumstances that he never dreamed of came walking into our camp.</p>
+<p>&quot;Hey, this is my land!&quot; he shouted rudely. &quot;If you fellows have got to camp on this lake, get back across the boundary!&quot; He strode right up to the fire, then paused to read the sign that hung in front of Rinaldi's tent:</p>
+<p>EASTERN SPIRITUALISTS' CAMP</p>
+<p>He turned about, interest and curiosity in his eyes. &quot;So you fellows are Spiritualists, are you? Just what's the game?&quot;</p>
+<p>&quot;This gentleman,&quot; I said, &quot;is Professor Rinaldi, of whom you have doubtless heard. Professor Rinaldi is taking his vacation prior to going on to the annual convention at Lillydale. <label for="lillydale" class="margin-toggle">⊕</label>
+<input type="checkbox" id="lillydale" class="margin-toggle">
+<span class="marginnote"> Lillydale, or <a href="https://en.wikipedia.org/wiki/Lily_Dale%2C_New_York">Lily Dale</a>, in southwestern New York, is a hamlet long associated with the Spiritualist movement. I mention it briefly in <a href="https://multoghost.wordpress.com/2024/09/14/hunting-for-haunted-stumps/">this article</a> on haunted stump legends.</span> I am a representative of the Society for the Investigation of Psychical Phenomena, and I may say that Professor Rinaldi's work in New York the last season is going to revolutionize a good many scientific conceptions. This gentleman&quot;—I presented Potter—&quot;is the most famous medium of the day, Mr. Potter.&quot;</p>
+<p>I had drawn him again. Of course, after Rinaldi had outlined his plan to me I was heart and soul with him. Goodrich remained in the background. I do not know whether Minzner would have recognized him after that lapse of years, but Goodrich understood that another false move on his part would mean the Professor's retiring from the case.</p>
+<p>&quot;Humph!&quot; grunted Minzner. &quot;Calls up the dead, and all that, I suppose, does he?&quot;</p>
+<p>&quot;Pray don't let that disturb you,&quot; answered Rinaldi blandly. &quot;I am not here on business. Besides, I never evoke the dead when their presence is likely to be disagreeable.&quot;</p>
+<p>&quot;What do you mean by that?&quot; shouted Minzner.</p>
+<p>&quot;I have generally discovered in the course of my professional career,&quot; said Rinaldi, still more blandly, &quot;that the evocation of the departed does not always prove an unmixed satisfaction to the living. Potter,&quot; he added, &quot;this gentleman says we've got to move back to the State line.&quot;</p>
+<p>&quot;That don't apply to you,&quot; Minzner grunted. &quot;Stay where you are, gentlemen. I'll see you again, I hope, and I trust you'll get good fishing and have an enjoyable time here.&quot;</p>
+<p>&quot;Hooked!&quot; grinned Potter, with one of his inimitable gestures, as Minzner took his departure.<br><br></p>
+<p>MINZNER WAS hooked all right, as the next day's proceedings showed. He was back at our camp by the time we had breakfasted, and doing his best to make himself agreeable to all. As soon as we sighted him coming around the lake, Rinaldi intimated to Goodrich that he was to take himself out of sight, and he obeyed.</p>
+<p>&quot;Now, this spiritualist business—I'm asking you confidentially, Mr. Rinaldi, is it real, or is it just conjuring?&quot; Minzner inquired, after beating about the bush a while.</p>
+<p>&quot;That's what we call a leading question,&quot; smiled Rinaldi. &quot;Have you any particular reason for asking it, Mr. Saunders?&quot;</p>
+<p>&quot;Well, of course, I've had folks that have passed over,&quot; Minzner admitted. &quot;I'd like to know one or two things about them. Can you call up anybody that's dead?&quot;</p>
+<p>&quot;You remember Shakespeare, Mr. Saunders? 'I can call spirits from the vasty deep,' says one of his characters.<label for="vasty" class="margin-toggle">⊕</label>
+<input type="checkbox" id="vasty" class="margin-toggle">
+<span class="marginnote"><em>...spirits from the vasty deep</em>: <em>Henry IV</em>, Part I; Act 3, Scene 1</span> 'But will they come when you do call for them?' replies the other. No, Mr. Saunders, I have neither the power nor the purpose to evoke unwilling spirits. But as a matter of fact, I have very little to do with it. I regard all such meetings as sacred and confidential, and it is my assistant, Mr. Potter, who acts as intermediary. I am, so to say, merely the showman.&quot;</p>
+<p>Potter favored Minzner with one of his inimitable facial contortions.</p>
+<p>&quot;You see,&quot; Rinaldi went on, &quot;I sit some distance from the cabinet, and it is seldom that I overhear what transpires. Nor do I consider myself at liberty to do so. All such conversations are necessarily private and intimate. While as for Potter, he is in a state of complete trance, and remembers nothing when he awakens.&quot;</p>
+<p>&quot;Then, you mean to say, nobody knows anything about what's said at such a meeting?&quot; blustered Minzner.</p>
+<p>&quot;No one except the inquirer and the departed spirit.&quot;</p>
+<p>&quot;And do you suppose—if I offered you a substantial fee—you could arrange a sitting for me?&quot; Minner queried eagerly.</p>
+<p>&quot;Hooked? Yes, he's swallowed line, hook, and sinker,&quot; said Rinaldi grimly, after Minzner had gone, with the seance arranged for the following evening.</p>
+<p>&quot;But still, I don't quite see what's going to happen,&quot; I rejoined.</p>
+<p>&quot;How's that, Mr. Matthews?&quot; demanded Rinaldi.</p>
+<p>&quot;His wife—supposing she appears to him? She'll do everything in her power to shield him. She doesn't want him punished. She...&quot;</p>
+<p>&quot;That is the reason why I intend to see that she shall not oppose us tomorrow night.&quot;</p>
+<p>&quot;But how can Potter control her, if she chooses to come?&quot; I protested.</p>
+<p>&quot;Matthews,&quot; answered Rinaldi earnestly, &quot;vague and shadowy, and almost totally unmapped as the field of psychic phenomena is, there are certain laws that we have been able to deduce. One of these is that action and consciousness do not go together. At the one end of the scale, for instance, we have pure consciousness, manifesting itself through the voice or hand of the medium; at the other the rowdy Poltergeist, flinging crockery about haunted houses, yet mere action, and ignorant of its very identity. Matthews, I propose to impose such action upon Amy Minzner that she will lose all consciousness of her identity, and will be unable&quot;—Rinaldi's voice grew stern—&quot;to interfere with the course of justice.&quot;</p>
+<p>And he added, as if speaking to himself, &quot;Regan has authority to effect arrests in case of major crimes.&quot;</p>
+<p>&quot;But,&quot; I cried, &quot;what can be done? What do you expect to accomplish tomorrow night?&quot;</p>
+<p>&quot;To place Minzner under arrest for the murder of Amy Minzner. To take the first step that leads to the little green door and the burning chair. To teach the ever-forgotten lesson that God's arm extends even to the uttermost parts of the earth.&quot;</p>
+<p>&quot;But—but ...&quot; I stammered, and was silent. I knew Rinaldi's whole soul was in this task, but I knew also that the difficulties were apparently insurmountable.</p>
+<p>Regan was of that opinion too. He thought the contemplated seance a fake, by means of which it was proposed to entrap Minzner into a confession.
+&quot;That's about all the Professor can do, I guess,&quot; he said. Regan's opinion of &quot;the Professor&quot; had, however, taken an upward turn, as the result of Rinaldi's masterly strategy in getting Minzner to our camp. &quot;I'll have my notebook ready,&quot; he vouchsafed, &quot;and I'll write down anything that Minzner says. But he's a deep one. I ain't building on tomorrow night. But I'd give a month's pay to send him to the chair. He's got the stamp of murder on his face, if I know what it looks like.&quot;<br><br></p>
+<p>&quot;SO THAT'S YOUR outfit!&quot; Minner looked curiously at the cabinet that Rinaldi and Potter had set up under the cluster of big pines. &quot;But why are you holding this meeting right at the edge of the lake?&quot;</p>
+<p>&quot;Deep water there!&quot; Rinaldi laughed. &quot;There's a channel runs in along this point. It's fifteen feet deep—right along-shore—if it's a foot. And water acts sometimes as a sort of transmitter, you know.&quot;</p>
+<p>&quot;You've a got the patter of the trade all right,&quot; laughed Minzner, digging Rinaldi in the ribs. He had been drinking, and was in a jovial mood. &quot;I'll admit frankly I don't believe in Spiritualism, but I'm willing to be convinced.&quot;</p>
+<p>&quot;Is there anybody in particular whom you are anxious to see?&quot; asked Rinaldi.</p>
+<p>&quot;Eh? What's that?&quot; For an instant Minner looked flabbergasted. &quot;Why should there be anybody I want to see?&quot;</p>
+<p>&quot;Usually there's somebody,&quot; suggested Rinaldi. &quot;Or maybe there's somebody you don't want to see. As I told you, I cannot guarantee our visitors. Potter here is simply the open circuit, you understand.&quot;</p>
+<p>&quot;Let's cut that out,&quot; answered Minzner roughly. &quot;If I get tired of the show, I'll quit. It's up to you to earn your money, Professor.&quot;</p>
+<p>&quot;Ah!&quot; Rinaldi rubbed his sleek hands together. I could see that he was thoroughly enjoying himself. &quot;I sincerely trust that I shall earn my money, Mr. Saunders. Yes, I believe I shall. Are you ready, Potter? Sit on this log, gentlemen, and pray keep silent. No, it is not necessary to hold hands.&quot;</p>
+<p>Regan was on one side of Minzner, Rinaldi on the other. Goodrich, acting under instructions, was to remain in the background till the denouement, whatever it was to be, of the success of which Rinaldi seemed confident. There was a brilliant moon, but here, in the shadows of the pines, it was just light enough for us to see the contorted face of Potter inside the cabinet. Despite his affectation of indifference, I could see that Minzner was livid with fear, and I marvelled at the impulse in him, akin to that which makes a murderer revisit the scene of his crime.</p>
+<p>Perhaps he felt so secure that he was confident in his ability to brazen it out, whatever happened. That he could do so, Regan and I were in full agreement. That even a confession, should Minzner be scared into making one, would hold good in a court of law, I did not believe for a moment.</p>
+<p>Potter was mumbling in the cabinet. The tense moment ought to have been at hand. I heard Goodrich behind me, creeping softly toward us. The moon shone on his face, disclosing a passion of hate that shocked me. What an orgy of passions rioted under the moon that night, I thought! But, however hot the hell in Goodrich's heart, it could not equal the medley in the heart of Minzner.</p>
+<p>Muttering, mumbling, mumbling in the cabinet! The voice of Potter, entranced, and the shrill tones of old Chong-Qua, the guide, now reduced to mouse-like pipings! What were those two conferring about?</p>
+<p>&quot;Well, when's it going to begin? asked Minner uneasily.</p>
+<p>&quot;You must keep silence, please,&quot; came Rinaldi's voice.</p>
+<p>Minzner subsided sulkily. The muttering went on, on, on; ceased abruptly. And suddenly that stark fear that I had felt before gripped me. There was the same deathly weakness, the same stillness. There had been a light breeze, but now the very leaves had ceased to rustle. Again the chill and horror of death! Silence, and something creeping over me, that sensation of an approaching awful climax!</p>
+<p>&quot;Oh, God!&quot; screeched Potter suddenly, and, bursting out of the cabinet, he dropped like a log before us.</p>
+<p>Even as he fell, there came the sound of something hurtling through the trees. It dropped into the lake, deluging the cabinet and ourselves with a torrent of water.</p>
+<p>In an instant, we were upon our feet and rushing to the water's edge. I heard a bellow of abject fear from Minzner, followed by a roar from Goodrich.<br><br></p>
+<p>THERE, FLOATING face upward upon the glassy surface of the lake, with a heavy leaden weight chained about the neck and another about the feet, yet floating, I say, was the body of a young and pretty woman, as fresh as if the life had only just left her. A stain of blood across the temple, and a swelling of the skin, told how her death had been accelerated, probably by the blow of an oar. And there, at the lake's edge, Goodrich was raining blows upon Minzner's face, and bellowing like a madman, while Minzner howled and cringed, and made hardly any effort to defend himself.</p>
+<p>&quot;You murdererl You murderer!&quot; panted Goodrich. &quot;It's Amy! You killed her, sent her to her death here in this lake.&quot;</p>
+<p>&quot;It's a lie!&quot; raved Minzner. &quot;It was in Bohemia. She fell overboard. I tried to save her. I...&quot;</p>
+<p>I saw that the body was now beginning to sink. Regan put out his hand, caught it by the feet, and began hauling it to the beach. Then I saw him take out his pencil and begin to write in his notebook.</p>
+<p>&quot;It's Amy!&quot; bellowed Goodrich again. &quot;Her engagement ring! If I didn't know her face, I'd know that ring in a million. You boasted of that large blue diamond with the rubies. I'll kill you...&quot;</p>
+<p>&quot;Leave him to a higher power than yours, Goodrich,&quot; interposed Rinaldi, laying his hand upon Goodrich's shoulder and forcing him away. &quot;Come, get up, Minzner,&quot; he continued, addressing the prostrate figure. &quot;The game's up. No don't try that...&quot; as Minzner's hand went to his hip. Rinaldi wrenched away the revolver and flung it into the lake. &quot;The game's up,&quot; he repeated. &quot;This is your first wife's body, and it will be for you to explain just how it got here.&quot;</p>
+<p>&quot;I took her to Austria!&quot; bawled Minzner. &quot;It's a trick to trap me. How could it be my wife, when she was drowned in the lake there...&quot;</p>
+<p>&quot;Ah, can you prove that you took her to Austria?&quot; Rinaldi asked him blandly.</p>
+<p>&quot;The steamship company...&quot;</p>
+<p>&quot;Has record that you accompanied some lady, who was passing as Mrs. Minzner, on board an east-bound ship. If you can prove that the lady in question was Mrs. Minzner, by all means bring that proof forward. Otherwise...&quot;</p>
+<p>But Minzner was already cracking; he babbled incoherently, and all the while I saw Regan's pencil move briskly. And now I realized what had happened: Potter, in what I am sure was the supreme effort of his career, had made an <em>apport</em> of the body of the murdered woman, bringing it from the lake near Prague to the Adirondacks lake, and thus bringing Minzner within jurisdiction of an American court. Obviously! What court would believe that the murder had taken place abroad, when the body was here?</p>
+<p>Of course, the fact that Minzner and his first wife had lived together at Boggs Ferry damned him from the first. That some woman had accompanied him overseas as his wife was clear enough, but that she was Amy Minzner—true as this was—was something that Minzner's lawyer could not establish. He could not break the testimony of those who had seen the body in the Adirondacks.</p>
+<p>It was by a ring and a broken wrist-bone that the identity of the dead woman was established, for in a short time the body had decomposed almost to a skeleton. Rinaldi explained to me afterward that, while a live <em>apport</em> will disintegrate rather soon, the body of a dead person will remain more or less intact. That, I believe, is one of the debatable points of metaphysics.</p>
+<p>However. this much is not debatable: Fifteen years after the murder, Minzner expiated it in the electric chair.</p>
+<hr>
+<p>Part of the series <a href="/dark_tales_sleuth/pages/victor-rousseau/#other-occultists"><em>The Occult Detectives of Victor Rousseau</em></a></p>
+<p>This transcription is from <em>Startling Mystery Stories</em>, Spring 1967. I've followed the <em>Ghost Stories</em> practice of giving the story as by the first person narrator, &quot;as told to&quot; Victor Rousseau.</p>
+
+</article>
+		</main>
+
+		<!-- footer -->
+		<hr>
+
+<div class="footer-container">
+	<p>&copy; 2025 Nina B. Zumel</p>
+	<div class="social_icons">
+	    <a href="mailto:nzumel@mzlabs.com?subject=Comment%20from%20Dark%20Tales%20Sleuth" aria-label="Email" target="_blank" rel="noopener noreferrer">
+			<i class="fas fa-fw fa-envelope"></i>
+		</a>
+		<a href="https://micro.blog/MultoGhost" aria-label="Micro.blog" target="_blank" rel="noopener noreferrer">
+			<i class="fab fa-fw fa-microblog"></i>
+		</a>
+		<a href="https://multoghost.wordpress.com/" aria-label="Multo (Ghost)" target="_blank" rel="noopener noreferrer">
+			<i class="fab fa-fw fa-wordpress"></i>
+		</a>
+		<a href="/dark_tales_sleuth/feed.xml" aria-label="RSS" target="_blank" rel="noopener noreferrer">
+			<i class="fa fa-fw fa-rss-square"></i>
+		</a>
+
+	</div>
+</div>
+		<!-- /footer-- >
+
+		<!-- Current page: /dark_tales_sleuth/victor-rousseau/blackest-magic-of-all/ -->
+	</body>
+</html>
