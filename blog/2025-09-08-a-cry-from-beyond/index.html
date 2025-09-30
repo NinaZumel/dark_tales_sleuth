@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Dark Tales Sleuth</title>
+		<title>A Cry From Beyond</title>
 		<meta name="description" content="Filling in the Literary Blanks">
 		<link rel="alternate" href="/dark_tales_sleuth/feed/feed.xml" type="application/atom+xml" title="Dark Tales Sleuth">
 		<link rel="alternate" href="/dark_tales_sleuth/feed/feed.json" type="application/json" title="Dark Tales Sleuth">
@@ -15,82 +15,155 @@
 		<link href="https://github.com/ninazumel" rel="me">
 		<script src="https://kit.fontawesome.com/9bbe6f85f9.js" crossorigin="anonymous"></script>
 		
-		<style>.postlist { counter-reset: start-from 51 }
-/* For displaying image and description*/
+		<style>/* minimal implementation; just plain text in the margin, no blockquotes, code, etc */
+/* only (unnumbered) margin notes, no sidenotes */
+/* stripped down from https://github.com/edwardtufte/tufte-css */
 
-.author_container {
-	text-align: center;
-	vertical-align: middle;
+/* need this for correct sidenote numbering; but I'm not using sidenotes */
+/*
+body {
+    counter-reset: sidenote-counter; 
+} 
+*/
+
+
+/* since I imagine these will change with different templates */
+:root {
+    --content-width: 65%;
+    --image-padding: 5%;
+    --image-max: 60%;  /* total image+padding <= content-width */
+    --notewidth: 30%; 
+    /* content-width + notewidth <  100%. I think you should leave some wiggle room. */
+    --note-right-margin: -45%;
+    /* if this margin is -(notewidth), the note will start just on the right border of the text */
+    /* so push it a little to the right (more negative) */
 }
 
-.author_container img {
-	  max-width: 175px;
-	  border-radius: 50%;
-	  display: block;
-	  margin-left: auto;
-	  margin-right: auto;
+article {
+	padding-top: 1rem; 
 }
 
-.author_description {
-	margin-left: auto;
-    margin-right: auto;
-	line-height: 1;
-
+/* make room for the notes in the article container */
+article > p,
+article > pre,
+article > ul {
+    width: var(--content-width);
 }
 
-.author_description p {
+/* 
+  blockquotes should be a little shorter 
+  This assumes that left indentation is 2em, which is what it looks like.
+  Subtract way more than 2 em, so that it's way shorter.
+  */
+article > blockquote {
+    width: calc(var(--content-width) - 10em); 
+}
+
+
+article > hr {
+    max-width: var(--content-width);
+    margin: 0
+}
+
+article > h1, 
+article > h2,
+article > h3,
+article > h4 {
+    max-width: var(--content-width);
+}
+
+article > center {
+    max-width: var(--content-width);
+}
+
+/* keep images/captions in the text column, rather than centered in the article container */
+article > img {
+    margin-left: 0;
+    padding-left: var(--image-padding);
+    max-width: var(--image-max); 
+}
+
+article > p.caption {
+	text-align: left;
+    padding-left: var(--image-padding);
 	font-style: italic;
-	font-size: 1em;
-	color: var(--description-color);
+	font-size: 0.9em;
+	color: var(--caption-color);
+ }
+
+article > p.caption a:hover,
+article > p.caption a:active {
+    color: var(--text-color-link-active);
 }
 
-.padded_author_container {
-	text-align: center;
-	padding-top: 50px;
+.footnote-item {
+    max-width: var(--content-width); 
 }
 
-.padded_author_container img {
-	max-width: 250px;
-	border-radius: 50%;
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-}
-/* Message Box */
-.message-box {
-	--color-message-box:  var(--background-color); 
-    --border-color:  var(--box-border-color);
-
-	display: block;
-	background-color: var(--color-message-box);
-	color: var(--text-color);
-	padding: 1em 0.625em;  /* 16px 10px /16 */
-	padding-left: 2em;  /* bit more on the left */
-	padding-right: 2em;  /* to balance it */
-	border: 2px solid var(--box-border-color);
-}
-.message-box ol {
-	margin-top: 0;
-}
-
-.message-box h1 {
-	text-align: center;
-}
-
-.message-box h2 {
-	text-align: center;
-}
-
-.message-box h3 {
-	text-align: center;
+ /* finally, the margin note */
+.marginnote {    
+    float: right;
+    clear: right;
+    width: var(--notewidth);         
+    margin-right: var(--note-right-margin);
+    margin-top: 0.3rem;
+    margin-bottom: 0;
+    font-size: 0.8rem;
+    line-height: 1.3;
+    vertical-align: baseline;
+    position: relative;
+    /* border: 2px solid blue; */
 }
 
 
+input.margin-toggle {
+    display: none;
+}
 
-@media (prefers-color-scheme: dark) {
-	.message-box {
-		--color-message-box: var(--background-color);
-	}
+
+label.margin-toggle {    
+    display: none;
+
+}
+
+/* The mobile fallback: */
+/* making max-width bigger makes the note fall inline sooner */
+@media (max-width: 768px) {  
+    body {
+        width: 84%;
+        padding-left: 8%;
+        padding-right: 8%;
+    }
+
+    hr,
+    article > p,
+    article > blockquote,
+    article > pre {
+        width: 100%;
+    }
+
+    label.margin-toggle {
+        display: inline;
+    }
+       
+    .marginnote {           
+         display: none;        
+        }    
+
+      
+    .margin-toggle:checked + .marginnote {            
+        display: block;            
+        float: left;            
+        left: 1rem;            
+        clear: both;            
+        width: 95%;            
+        margin: 1rem 2.5%;            
+        vertical-align: baseline;            
+        position: relative;        
+    }
+    label {
+        cursor: pointer;
+    }
 }
 * { box-sizing: border-box; }
 /* colors from flexoki - https://stephango.com/flexoki */
@@ -618,60 +691,35 @@ hr {
 		<main id="skip">
 			
 
+<h1>A Cry From Beyond</h1>
 
-
-<div class="author_container">
-    <img src="/dark_tales_sleuth/img/pen-hero-j8J9xa_KMY-283.jpeg" alt="Fountain pen" loading="lazy" decoding="async" width="283" height="292">
-    <br>
-    <div class="author_description">
-        <p>Filling in the Literary Blanks</p>
-    </div>
+<div class="posttalk-metadata">
+  <time datetime="2025-09-28 5:00 PM">28 September 2025</time>
 </div>
-
-<br>
-<br>
-
-
-
-
-
-<div class="message-box">
-<h2>Latest Posts</h2>
+<ul class="post-metadata">
+	<li><a href="/dark_tales_sleuth/tags/victor-rousseau/" class="post-tag">Victor Rousseau</a>, </li>
+	<li><a href="/dark_tales_sleuth/tags/occult-detectives/" class="post-tag">occult detectives</a>, </li>
+	<li><a href="/dark_tales_sleuth/tags/dr-merrick/" class="post-tag">Dr Merrick</a>, </li>
+	<li><a href="/dark_tales_sleuth/tags/with-html-transcription/" class="post-tag">with html transcription</a></li>
+</ul>
 
 
+<article>
+	<p>We're concluding the <a href="/dark_tales_sleuth/pages/victor-rousseau/"><em>Occult Detectives of Victor Rousseau</em></a> with one last story, from <em>Strange Tales of Mystery and Terror</em>, September 1931.</p>
+<p>In <a href="/dark_tales_sleuth/victor-rousseau/cry-from-beyond/"><strong>A Cry From Beyond</strong></a>, Dr. Claude Merrick investigates a case at the behest of a spirit: the late artist, Weathermore. The wife of Alfred French, another artist, keeps falling into strange, cataleptic sleep; their daughter is mysteriously wasting away. Could French's dead first wife be the culprit?</p>
+<p>Taken on its own, this isn't a bad story at all. But if you've been reading a lot of Rousseau's occult investigator fiction, you'll find this tale fairly derivative.
+The plot is a variation on the first Dr. Martinus story, <a href="/dark_tales_sleuth/victor-rousseau/child-or-demon-which/">&quot;Child or Demon--Which?&quot;</a>. The discussion of &quot;elementals&quot; waiting to prey on the living harks back to the <a href="/dark_tales_sleuth/victor-rousseau/#dr-ivan-brodsky-surgeon-of-souls">Ivan Brodsky</a> series. And like Brodsky, Merrick believes that most cases of insanity are really due to spiritual possession.</p>
+<p>The basic character setup of an occult investigator with a servant <em>cum</em> medium as his assistant is just like <a href="http://localhost:8080/victor-rousseau/blackest-magic-of-all/">the previous story I shared</a>, featuring Dr. Rinaldi. There are details, like the poltergeist anecdote, that I recognized from previous stories. The only work this story doesn't remind me of is the Dr. Immanuel series.</p>
+<p>But as I said, it's not bad, and it does have some of the horror story elements that Rousseau began introducing into his occult detection tales with the Dr. Martinus series.  I liked that Dr. Merrick got &quot;hired&quot; by a ghost to take on this case. I also liked the public telephone analogy of communicating with the other world:</p>
+<blockquote>
+<p>Imagine a public call-box, with the receiver off the hook, and a mob, all at the same time, trying to transmit messages, while half asleep, to various friends; also imagine a group of urchins interrupting them to shout opprobrious epithets or to play pranks, and you begin to get some notion of the difficulties of posthumous communication.</p>
+</blockquote>
+<p>Dr. Merrick's servant/medium is his Chinese &quot;houseboy&quot; (ugh) Charlie Wing, which is cringey, but I've read worse. His Watson is his personal secretary, Benson.</p>
+<p>Overall, a satisfying way to wrap up this series. Do enjoy.</p>
 
-
-<ol reversed="" class="postlist">
-	<li class="postlist-item">
-		<a href="/dark_tales_sleuth/blog/2025-09-08-a-cry-from-beyond/" class="postlist-link">A Cry From Beyond</a>
-		<time class="postlist-date" datetime="2025-09-28 5:00 PM">28 September 2025</time>
-		<p>We&#39;re concluding the Occult Detectives of Victor Rousseau with one last story, from Strange Tales of Mystery and Terror, September 1931.
-In A Cry From Beyond, Dr. Claude Merrick investigates a case at the behest of a spirit: the late artist, Weathermore....</p>
-	</li>
-	<li class="postlist-item">
-		<a href="/dark_tales_sleuth/blog/2025-09-08-the-blackest-magic-of-all/" class="postlist-link">The Blackest Magic of All</a>
-		<time class="postlist-date" datetime="2025-09-07 5:00 PM">07 September 2025</time>
-		<p>After Victor Rousseau concluded his Dr. Martinus series, he wrote at least two more occult researcher stories. I&#39;ve posted the first one today.
-The immediate successor to Dr. Martinus was Professor Rinaldi: his story appeared in the July 1928 issue of...</p>
-	</li>
-	<li class="postlist-item">
-		<a href="/dark_tales_sleuth/blog/2025-09-04-the-doll-that-came-to-life/" class="postlist-link">The Doll That Came to Life</a>
-		<time class="postlist-date" datetime="2025-09-03 5:00 PM">03 September 2025</time>
-		<p>I&#39;ve posted another Dr. Martinus story to the project page.
-In The Doll That Came to Life, Dr. Martinus must contend with both a malicious, doll-possessing poltergeist, and a fraudulent spiritualist
-who keeps giving their mutual client the wrong advice....</p>
-	</li>
-</ol>
-
-
-
-
-
-
-<p>More posts in <a href="/dark_tales_sleuth/blog/">the archive</a>.</p>
-
-</div>
-
+</article>
+<ul class="links-nextprev"><li><a href="/dark_tales_sleuth/blog/2025-09-08-the-blackest-magic-of-all/">&#8592;</a> <span style="color: #9B9C9D">Previous</span></li>
+</ul>
 
 		</main>
 
@@ -698,6 +746,6 @@ who keeps giving their mutual client the wrong advice....</p>
 </div>
 		<!-- /footer-- >
 
-		<!-- Current page: /dark_tales_sleuth/recentposts/ -->
+		<!-- Current page: /dark_tales_sleuth/blog/2025-09-08-a-cry-from-beyond/ -->
 	</body>
 </html>
