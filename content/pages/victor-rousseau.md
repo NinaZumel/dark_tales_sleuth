@@ -142,7 +142,7 @@ Stories marked with an asterisk (`*`) are ones that I've transcribed here. The o
 
 Dr. Martinus is a Dutch-born investigator of psychic phenomena, as well as a physician. He conducts much of his research empirically, often through the use of mediums and seances. Martinus' cases are chronicled by his research assistant, a former newspaper reporter named Branscombe.
 
-Five Dr. Martinus stories and a six-part novella appeared in *Ghost Stories Magazine* between October 1826 and May 1928. 
+Five Dr. Martinus stories and a six-part novella appeared in *Ghost Stories Magazine* between October 1926 and May 1928. 
 The tales in *Ghost Stories* were all presented as true, first-person narratives, with the narrator credited as the author, "as told to" the actual writer., 
 
 [Read my discussion of *Dr Martinus* here.](/blog/2025-08-24-dr-martinus-occultist/)
@@ -184,6 +184,13 @@ Swiss occultist, who holds seances and consults with clients in New York. Does "
 
 [**The Blackest Magic of All**](/victor-rousseau/blackest-magic-of-all/) - *Ghost Stories*, July 1928.
 <br><span class="inline-note">Later reprinted as "Medium for Justice" in **Startling Mystery Stories**, Spring 1967.</span>
+
+### Dr. Claude Merrick
+
+A notable physician who believes that most cases of insanity are due to possession. Aided by his servant *cum* medium, Charlie Wing. His Watson is his secretary, Benson.
+
+[**A Cry From Beyond**](/victor-rousseau/cry-from-beyond/) -  *Strange Tales of Mystery and Terror*, September 1931.
+<br><span class="inline-note">Later reprinted in **Magazine of Horror**, March 1968. My transcription is from the 1931 version.</span>
 
 
 </div>
