@@ -4,12 +4,67 @@
 	<subtitle>Filling in the Literary Blanks</subtitle>
 	<link href="https://ninazumel.com/dark_tales_sleuth/feed.xml" rel="self"/>
 	<link href="https://ninazumel.com/dark_tales_sleuth/dark_tales_sleuth"/>
-	<updated>2025-09-29T00:00:00Z</updated>
+	<updated>2026-01-05T00:00:00Z</updated>
 	<id>https://ninazumel.com/dark_tales_sleuth</id>
 	<author>
 		<name>Nina B. Zumel</name>
 		<email>nzumel@mzlabs.com.com</email>
 	</author>
+	
+	<entry>
+		<title>A Possible Origin for &quot;Encourage the Beautiful&quot;</title>
+		<link href="https://ninazumel.com/dark_tales_sleuth/blog/2026-01-05-goethe-quote/"/>
+		<updated>2026-01-05T00:00:00Z</updated>
+		<id>https://ninazumel.com/dark_tales_sleuth/blog/2026-01-05-goethe-quote/</id>
+		<content type="html">&lt;p&gt;A couple of years ago, I came across the lovely quote&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Encourage the Beautiful, for the Useful encourages itself.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;which is commonly (mis)attributed to Goethe. And of course, &lt;a href=&quot;https://ninazumel.com/dark_tales_sleuth/blog/2024-03-25-encourage-the-beautiful/&quot;&gt;I wanted to investigate&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;After some digging, I came to the tentative conclusion that the originator of this quote, and its
+misattribution, was &lt;a href=&quot;https://en.wikipedia.org/wiki/George_Henry_Lewes&quot;&gt;George Henry Lewes&lt;/a&gt;, who used the quote
+as an epigraph for the literary section of the British periodical &lt;em&gt;The Leader&lt;/em&gt; from March 1850 until mid-November 1854.
+My guess is that either Lewes misquoted Goethe, or misremembered the quote as being by Goethe.&lt;/p&gt;
+&lt;p&gt;I&#39;ve never been able to find &amp;quot;Encourage the Beautiful&amp;quot; attributed to anyone other than Goethe&lt;sup class=&quot;footnote-ref&quot;&gt;&lt;a href=&quot;https://ninazumel.com/dark_tales_sleuth/blog/2026-01-05-goethe-quote/#fn1&quot; id=&quot;fnref1&quot;&gt;[1]&lt;/a&gt;&lt;/sup&gt;.
+And I am not familiar enough with Goethe to suggest what Lewes might have misquoted.&lt;/p&gt;
+&lt;p&gt;But recently, I got an email from Mr. Artur Zwolski, who proposes the following as the closest actual Goethe quote:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;Es ist nämlich ein Vorrecht des Schönen, daß es nicht nützlich zu sein braucht.&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;which he translates as &amp;quot;It is namely the privilege of the beautiful that it does not have to be useful.&amp;quot;&lt;/p&gt;
+&lt;p&gt;This comes from Goethe&#39;s essay &lt;a href=&quot;http://www.zeno.org/Literatur/M/Goethe,+Johann+Wolfgang/Theoretische+Schriften/%C2%BB%C3%9Cber+die+bildende+Nachahmung+des+Sch%C3%B6nen%C2%AB&quot;&gt;&amp;quot;Über die bildende Nachahmung des Schönen&amp;quot;&lt;/a&gt; &lt;label for=&quot;scan&quot; class=&quot;margin-toggle&quot;&gt;⊕&lt;/label&gt;
+&lt;input type=&quot;checkbox&quot; id=&quot;scan&quot; class=&quot;margin-toggle&quot;&gt;
+&lt;span class=&quot;marginnote&quot;&gt;You can find a &lt;a href=&quot;https://ds.ub.uni-bielefeld.de/viewer/image/1951387_067/111/LOG_0013/&quot;&gt;scan of the original here&lt;/a&gt; (courtesy of Bielefeld University).&lt;/span&gt; (On the Formative Imitation of the Beautiful), first
+published in &lt;em&gt;Der Teutsche Merkur&lt;/em&gt; (&lt;a href=&quot;https://en.wikipedia.org/wiki/Der_Teutsche_Merkur&quot;&gt;The German Mercury&lt;/a&gt;), July 1789. I don&#39;t read German, but the essay appears to be Goethe&#39;s commentary on a &lt;a href=&quot;http://www.zeno.org/Literatur/M/Moritz,+Karl+Philipp/%C3%84sthetische+Schriften/%C3%9Cber+die+bildende+Nachahmung+des+Sch%C3%B6nen&quot;&gt;1788 essay of the same name&lt;/a&gt; by &lt;a href=&quot;https://en.wikipedia.org/wiki/Karl_Philipp_Moritz&quot;&gt;Karl Philipp Moritz&lt;/a&gt;. Here&#39;s the quote in context &lt;label for=&quot;context&quot; class=&quot;margin-toggle&quot;&gt;⊕&lt;/label&gt;
+&lt;input type=&quot;checkbox&quot; id=&quot;context&quot; class=&quot;margin-toggle&quot;&gt;
+&lt;span class=&quot;marginnote&quot;&gt;This section of Goethe&#39;s essay seems to be a paraphrase of Moritz&#39;s. So in a way, we might credit &#39;it is the privilege of the beautiful&#39; to Moritz.&lt;/span&gt; (translation courtesy of Kagi):&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The question now arises, how is the imitation of the noble and good distinguished from the imitation of the beautiful?&lt;/p&gt;
+&lt;p&gt;The former strives to form itself inwardly, the latter, outwardly. [...]&lt;/p&gt;
+&lt;p&gt;The noble and the good stand, as it were, midway between the beautiful and the useful; good and noble ascend to the beautiful. The useful can be combined with the bad, the bad with the useless; and where the concepts seem to diverge most, they meet again as if in a circle. &lt;strong&gt;For it is a prerogative of the beautiful that it need not be useful&lt;/strong&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The point being, I guess, that beauty is a higher ideal than usefulness; that goodness and nobility aspire to beauty; yet, paradoxically, beauty transcends usefulness, or even good:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;...the beautiful came into being, without regard to utility, indeed, without regard to the harm it might cause.  [...]&lt;/p&gt;
+&lt;p&gt;If we now ascend through all the stages, we find the beautiful at the summit of all things, which, like a deity, brings happiness and misery, benefits and harms, without our being able or permitted to call it to account for it.&lt;br&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p class=&quot;caption&quot;&gt;-- Goethe, &quot;Über die bildende Nachahmung des Schönen.&quot; Translation by Kagi&lt;/p&gt; 
+&lt;p&gt;This isn&#39;t quite the same sentiment as &amp;quot;Encourage the beautiful, for the Useful encourages itself.&amp;quot; But it&#39;s plausible to me that someone can &amp;quot;remember&amp;quot; a quote,
+or paraphrase it, the way they want it to be, rather than as it really is.&lt;/p&gt;
+&lt;hr class=&quot;footnotes-sep&quot;&gt;
+&lt;section class=&quot;footnotes&quot;&gt;
+&lt;ol class=&quot;footnotes-list&quot;&gt;
+&lt;li id=&quot;fn1&quot; class=&quot;footnote-item&quot;&gt;&lt;p&gt;Reprints of the essay &amp;quot;The Philosophy of Christianity,&amp;quot; by James Anthony Froude, often appear with &amp;quot;Encourage the Beautiful&amp;quot; as an epigraph,
+as seen in &lt;a href=&quot;https://archive.org/details/essaysinliterat00frou/page/184/mode/2up&quot;&gt;this 1906 edition of &lt;em&gt;Essays in Literature &amp;amp; History&lt;/em&gt;&lt;/a&gt;. This practice
+continues to the present; Mr. Zwolski notes that the essay and quote appear together in &lt;em&gt;The Oxford Book of Essays&lt;/em&gt; (John Gross, editor), first published in 1991.&lt;/p&gt;
+&lt;p&gt;However, &amp;quot;The Philosophy of Christianity&amp;quot; originally appeared in &lt;em&gt;The Leader&lt;/em&gt;, on June 14, 1851, when Lewes was editor of the literary section (called &amp;quot;Portfolio&amp;quot;).
+As you can see in &lt;a href=&quot;https://ncse.ac.uk/periodicals/l/issues/cld_14061851/page/15/articles/ar01501/?highlight=philosophy%20of%20christianity&amp;amp;from=search&quot;&gt;this scan of the original&lt;/a&gt;, the quote appears below the &amp;quot;Portfolio&amp;quot; header and above the title of the essay, indicating that it is
+attached to the literary section as a whole, not just this specific essay. &lt;a href=&quot;https://ninazumel.com/dark_tales_sleuth/blog/2026-01-05-goethe-quote/#fnref1&quot; class=&quot;footnote-backref&quot;&gt;↩︎&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/section&gt;
+</content>
+	</entry>
 	
 	<entry>
 		<title>A Cry From Beyond</title>
@@ -442,9 +497,9 @@ reader gets a little piece of British Post Office history, as well.&lt;/p&gt;
 &lt;p&gt;I first came across this quote, with its attribution to &lt;a href=&quot;https://en.wikipedia.org/wiki/Johann_Wolfgang_von_Goethe&quot;&gt;Goethe&lt;/a&gt; (1749-1832), on a &lt;a href=&quot;https://www.oldbookillustrations.com/illustrations/ex-libris-encourage-beautiful/&quot;&gt;lovely 1905 bookplate&lt;/a&gt; by Louis Rhead. I wanted to use the bookplate to decorate &lt;a href=&quot;https://ninazumel.com/short_thoughts/pages/titledposts/&quot;&gt;a page on one of my blogs&lt;/a&gt;, and naturally (being me), I wanted a more precise source for the aphorism.&lt;/p&gt;
 &lt;p&gt;That turned out not to be easy. As of this writing (March, 2024), “Encourage the beautiful…” is currently listed as &amp;quot;Disputed&amp;quot; on the &lt;a href=&quot;https://en.wikiquote.org/wiki/Johann_Wolfgang_von_Goethe#Disputed&quot;&gt;Wikiquote page for Goethe&lt;/a&gt;. An internet search for the quote will find it in many places, in texts going back more than a century and a half. Sometimes it is unattributed, but it’s more often credited to Goethe. This is a classic case of a “factoid,” mindlessly repeated—repeated for so long that we may never get to the truth of it.&lt;/p&gt;
 &lt;p&gt;But we can try.&lt;/p&gt;
-&lt;p&gt;After a solid day of digging, I traced the quote all the way back to 1850, to the appearance of the British political and literary review, &lt;a href=&quot;https://ncse.ac.uk/headnotes/ldr.html&quot;&gt;&lt;em&gt;The Leader&lt;/em&gt;&lt;/a&gt; (later &lt;em&gt;The Saturday Analyst and Leader&lt;/em&gt;). The literary section of &lt;em&gt;The Leader&lt;/em&gt; was called “The Portfolio,” and our favorite quote served as its epigram, from the first issue (March 30, 1850), until mid-November of 1854, when “The Portfolio” disappeared from the paper.&lt;label for=&quot;portfolio&quot; class=&quot;margin-toggle&quot;&gt;⊕&lt;/label&gt;
+&lt;p&gt;After a solid day of digging, I traced the quote all the way back to 1850, to the appearance of the British political and literary review, &lt;a href=&quot;https://ncse.ac.uk/headnotes/ldr.html&quot;&gt;&lt;em&gt;The Leader&lt;/em&gt;&lt;/a&gt; (later &lt;em&gt;The Saturday Analyst and Leader&lt;/em&gt;). The literary section of &lt;em&gt;The Leader&lt;/em&gt; was called “The Portfolio,” and our favorite quote served as its epigraph, from the first issue (March 30, 1850), until mid-November of 1854, when “The Portfolio” disappeared from the paper.&lt;label for=&quot;portfolio&quot; class=&quot;margin-toggle&quot;&gt;⊕&lt;/label&gt;
 &lt;input type=&quot;checkbox&quot; id=&quot;portfolio&quot; class=&quot;margin-toggle&quot;&gt;
-&lt;span class=&quot;marginnote&quot;&gt;“The Portfolio” appeared until at least Volume 5, Issue 241 (November 4, 1854). It was gone by Issue 243 (November 18, 1854). Issue 242 is not available at the Internet Archive, so I didn’t check. The complete(?) archives are also available at ncse.ac.uk, but my connection to them was slow and fairly unusable.&lt;/span&gt; The complete epigram ran:&lt;/p&gt;
+&lt;span class=&quot;marginnote&quot;&gt;“The Portfolio” appeared until at least Volume 5, Issue 241 (November 4, 1854). It was gone by Issue 243 (November 18, 1854). Issue 242 is not available at the Internet Archive, so I didn’t check. The complete(?) archives are also available at ncse.ac.uk, but my connection to them was slow and fairly unusable.&lt;/span&gt; The complete epigraph ran:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;We should do our utmost to encourage the Beautiful, for the useful encourages itself.&lt;/p&gt;
 &lt;/blockquote&gt;
