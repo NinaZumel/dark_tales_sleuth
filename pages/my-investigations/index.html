@@ -91,6 +91,8 @@
 	--blue700: #1A4F8C;
 	--blue800: #163B66; 
 	--blue850: #133051;
+	--green400: #879A39;
+	--green600: #66800B;
 	--red800: #6C201C;
 	--purple600: #5E409D;
 	--purple300: #A699D0;
@@ -115,6 +117,11 @@
 	--text-color-link: var(--blue700); 
 	--text-color-link-active: var(--blue400); 
 	--text-color-link-visited: var(--blue700); 
+
+	--collapsible-summary-color: var(--green600);
+	--details-box-color: var(--base50);
+
+
 }
 
 @media (prefers-color-scheme: dark) {
@@ -128,6 +135,8 @@
 		--base900: #282726;
 		--base950: #1C1B1A;
 		--blue700: #1A4F8C;
+		--green400: #879A39;
+	    --green600: #66800B;
 		--red400: #D14D41;
 		--purple400: #8B7EC8;
 		--purple500: #735EB5;
@@ -150,6 +159,9 @@
 		--text-color-link: var(--blue400); 
 		--text-color-link-active: var(--blue600); 
 		--text-color-link-visited: var(--blue400); 
+
+		--collapsible-summary-color: var(--green400);
+		--details-box-color: var(--base900);
 	}
 }
 /* Defaults */
@@ -459,6 +471,19 @@ header {
 	font-weight: bold;
 }
 
+/* for collapsible text blocks.
+Put the hidden text into p element(s); it looks better.
+*/
+
+/*
+original details background color: #f5f5f5 
+original box border color: #0066cc
+*/
+
+details {  margin: 1em 0;  padding: 1em;  background-color: var(--details-box-color);  border-left: 4px solid var(--collapsible-summary-color);}
+summary {  cursor: pointer;  font-weight: bold;  color: var(--collapsible-summary-color);}
+summary:hover {  text-decoration: underline;}
+
 /* Tags */
 .post-tag {
 	display: inline-flex;
@@ -610,18 +635,20 @@ hr {
 <br>
 <div class="message-box">
 <h3>My Cases</h3>
+<h4 id="the-supernatural-writings-of-stuart-palmer" tabindex="-1"><a href="/dark_tales_sleuth/pages/stuart-palmer/">The Supernatural Writings of Stuart Palmer</a> <a class="header-anchor" href="#the-supernatural-writings-of-stuart-palmer">#</a></h4>
+<p>In progress. Stuart Palmer was a prolific and well-regarded mystery writer, active in the detective fiction community from the 1930s into the 1960s. But his earliest published work was for <em>Ghost Stories</em> magazine, much of which has fallen into the US public domain. I'm collecting and transcribing as much of his <em>Ghost Stories</em> writing as I can find.</p>
 <h4 id="the-occult-detectives-of-victor-rousseau" tabindex="-1"><a href="/dark_tales_sleuth/pages/victor-rousseau/">The Occult Detectives of Victor Rousseau</a> <a class="header-anchor" href="#the-occult-detectives-of-victor-rousseau">#</a></h4>
-<p>Currently active case. Victor Rousseau produced three occult detective series in the early decades of the twentieth century, and wrote a few standalone tales, too.
-I'm collecting links and/or making transcriptions of all the stories from these series that I can find.</p>
+<p><strong>As complete as I can make it (for now).</strong> Victor Rousseau produced three occult detective series in the early decades of the twentieth century, and wrote a few standalone tales, too.
+I've collected links and/or have made transcriptions of all the stories from these series that I can find. Most of the missing pieces are from issues of <em>Ghost Stories</em> magazine that are not currently online. I am still keeping an eye out; and if any of those issues come to light, I will continue to add stories to this project.</p>
 <h4 id="selected-stories-of-austin-philips" tabindex="-1"><a href="/dark_tales_sleuth/pages/austin-philips/">Selected Stories of Austin Philips</a> <a class="header-anchor" href="#selected-stories-of-austin-philips">#</a></h4>
-<p>Currently active case. I'm collecting as many of the Post Office detective and Post Office supernatural short stories of Austin Philips as I can find online. Possibly some non-post office ghost stories, too.</p>
+<p><strong>Done, for now.</strong> I've collected as many of the Post Office detective and Post Office supernatural short stories of Austin Philips as I can find online. Currently, most of these pieces have been posted; I'm not sure I'm going to post any more, as I feel the quality of the later pieces has somewhat declined.</p>
 <h4 id="evening-tales-for-the-winter" tabindex="-1"><a href="/dark_tales_sleuth/pages/evening-tales-for-the-winter-1856/">Evening Tales for the Winter</a> <a class="header-anchor" href="#evening-tales-for-the-winter">#</a></h4>
 <p><strong>Case Complete!</strong> <em>Evening Tales for the Winter</em> is an 1856 anthology of gothic and supernatural tales, compiled by Henry St. Clair. Many of these  &quot;Wonderful &amp; Supernatural Stories,&quot; were translated from German sources. Neither the translators nor original authors/stories are credited, so I’ve tracked down author and translator attributions for the stories included.</p>
 <h4 id="selected-stories-from-tales-of-an-antiquary-1828" tabindex="-1"><a href="/dark_tales_sleuth/pages/tales-of-an-antiquary/">Selected Stories from <em>Tales of an Antiquary</em> (1828)</a> <a class="header-anchor" href="#selected-stories-from-tales-of-an-antiquary-1828">#</a></h4>
 <p><strong>Case Complete!</strong> This rather unreadable 1828 fictional &quot;memoir&quot; by antiquarian Richard Thomson has some interesting stories buried within it.
 I've revived some of these highlights and featured them here.</p>
 <h4 id="quote-attributions" tabindex="-1"><a href="/dark_tales_sleuth/pages/quote-attributions/">Quote Attributions</a> <a class="header-anchor" href="#quote-attributions">#</a></h4>
-<p>In progress. My attempts to correctly attribute incorrectly or incompletely attributed quotes.</p>
+<p><em>Inactive</em>. My attempts to correctly attribute incorrectly or incompletely attributed quotes. After I started, I discovered the <a href="https://quoteinvestigator.com/">Quote Investigator</a>, who has been doing this for quite a while already. If I ever come across something QI hasn't researched (yet), I'll probably drop an entry here, but this project has largely been mothballed.</p>
 <h4 id="miscellany-and-digressions" tabindex="-1"><a href="/dark_tales_sleuth/pages/miscellany-and-digressions/">Miscellany and Digressions</a> <a class="header-anchor" href="#miscellany-and-digressions">#</a></h4>
 <p>These are literary investigations that pop up while I’m in the middle of another project (often, another investigation). I get curious about things, and I can’t help but dig. Since the results don’t always fit neatly into the other “active case” categories on the site, I keep them here.</p>
 <h4 id="vincent-price-and-caedmon-records" tabindex="-1"><a href="/dark_tales_sleuth/pages/vincent-price-and-caedmon-records/">Vincent Price and Caedmon Records</a> <a class="header-anchor" href="#vincent-price-and-caedmon-records">#</a></h4>

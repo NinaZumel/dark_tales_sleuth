@@ -46,7 +46,8 @@ article {
 /* make room for the notes in the article container */
 article > p,
 article > pre,
-article > ul {
+article > ul,
+article > details {
     width: var(--content-width);
 }
 
@@ -179,6 +180,8 @@ label.margin-toggle {
 	--blue700: #1A4F8C;
 	--blue800: #163B66; 
 	--blue850: #133051;
+	--green400: #879A39;
+	--green600: #66800B;
 	--red800: #6C201C;
 	--purple600: #5E409D;
 	--purple300: #A699D0;
@@ -203,6 +206,11 @@ label.margin-toggle {
 	--text-color-link: var(--blue700); 
 	--text-color-link-active: var(--blue400); 
 	--text-color-link-visited: var(--blue700); 
+
+	--collapsible-summary-color: var(--green600);
+	--details-box-color: var(--base50);
+
+
 }
 
 @media (prefers-color-scheme: dark) {
@@ -216,6 +224,8 @@ label.margin-toggle {
 		--base900: #282726;
 		--base950: #1C1B1A;
 		--blue700: #1A4F8C;
+		--green400: #879A39;
+	    --green600: #66800B;
 		--red400: #D14D41;
 		--purple400: #8B7EC8;
 		--purple500: #735EB5;
@@ -238,6 +248,9 @@ label.margin-toggle {
 		--text-color-link: var(--blue400); 
 		--text-color-link-active: var(--blue600); 
 		--text-color-link-visited: var(--blue400); 
+
+		--collapsible-summary-color: var(--green400);
+		--details-box-color: var(--base900);
 	}
 }
 /* Defaults */
@@ -547,6 +560,19 @@ header {
 	font-weight: bold;
 }
 
+/* for collapsible text blocks.
+Put the hidden text into p element(s); it looks better.
+*/
+
+/*
+original details background color: #f5f5f5 
+original box border color: #0066cc
+*/
+
+details {  margin: 1em 0;  padding: 1em;  background-color: var(--details-box-color);  border-left: 4px solid var(--collapsible-summary-color);}
+summary {  cursor: pointer;  font-weight: bold;  color: var(--collapsible-summary-color);}
+summary:hover {  text-decoration: underline;}
+
 /* Tags */
 .post-tag {
 	display: inline-flex;
@@ -753,7 +779,7 @@ attached to the literary section as a whole, not just this specific essay. <a hr
 </section>
 
 </article>
-<ul class="links-nextprev"><li><a href="/dark_tales_sleuth/blog/2025-09-08-a-cry-from-beyond/">&#8592;</a> <span style="color: #9B9C9D">Previous</span></li>
+<ul class="links-nextprev"><li><a href="/dark_tales_sleuth/blog/2025-09-08-a-cry-from-beyond/">&#8592;</a> <span style="color: #9B9C9D">Previous</span></li><li><span style="color: #9B9C9D">Next</span> <a href="/dark_tales_sleuth/blog/2026-06-11-supernatural-writing-stuart-palmer/">&#8594</a></li>
 </ul>
 
 		</main>

@@ -305,6 +305,19 @@ header {
 	font-weight: bold;
 }
 
+/* for collapsible text blocks.
+Put the hidden text into p element(s); it looks better.
+*/
+
+/*
+original details background color: #f5f5f5 
+original box border color: #0066cc
+*/
+
+details {  margin: 1em 0;  padding: 1em;  background-color: var(--details-box-color);  border-left: 4px solid var(--collapsible-summary-color);}
+summary {  cursor: pointer;  font-weight: bold;  color: var(--collapsible-summary-color);}
+summary:hover {  text-decoration: underline;}
+
 /* Tags */
 .post-tag {
 	display: inline-flex;
