@@ -22,6 +22,9 @@
 	--text-color-link-active: #5f2b48;
 	--text-color-link-visited: #2d2fb5;
 
+	--collapsible-summary-color: #1A4F8C;
+	--details-box-color: #f5f5f5;
+
 }
 
 
@@ -39,6 +42,8 @@
 		--blue400: #4385BE;
 		--blue600: #205EA6;
 		--blue700: #1A4F8C;
+		--green400: #879A39;
+	    --green600: #66800B;
 		--red400: #D14D41;
 		--purple400: #8B7EC8;
 		--purple500: #735EB5;
@@ -61,6 +66,9 @@
 		--text-color-link: var(--blue400); 
 		--text-color-link-active: var(--blue600); 
 		--text-color-link-visited: var(--blue400); 
+
+		--collapsible-summary-color: var(--green400);
+	    --details-box-color: var(--base900);
 	}
 }
 

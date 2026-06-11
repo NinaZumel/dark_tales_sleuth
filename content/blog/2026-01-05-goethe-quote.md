@@ -55,3 +55,5 @@ This isn't quite the same sentiment as "Encourage the beautiful, for the Useful 
 or paraphrase it, the way they want it to be, rather than as it really is.
 
 
+
+

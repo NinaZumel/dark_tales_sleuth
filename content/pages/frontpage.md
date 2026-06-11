@@ -21,6 +21,8 @@ layout: layouts/home.njk
 This is a blog for my forays into "literary sleuthing," where I try to track down author attributions and original publication sources
 for unattributed (usually public domain) works.
 
+I've also been doing "literary excavation" projects, where I collect what I consider interesting, but little known, bodies of writing. Mostly supernatural themed.
+
 Sometimes I investigate quotes, and other literary mysteries, too.
 </div>
 
@@ -29,14 +31,10 @@ Sometimes I investigate quotes, and other literary mysteries, too.
 <div class="message-box">
 <h3>My Current Cases</h3>
 
-#### [The Occult Detectives of Victor Rousseau](/pages/victor-rousseau/)
+#### [The Supernatural Writings of Stuart Palmer](/pages/stuart-palmer/)
 
-Victor Rousseau produced three occult detective series in the early decades of the twentieth century, and wrote a few standalone tales, too.
-I'm collecting links and/or making transcriptions of all the stories from these series that I can find.
+Stuart Palmer was a prolific and well-regarded mystery writer, active in the detective fiction community from the 1930s into the 1960s. But his earliest published work was for *Ghost Stories* magazine, much of which has fallen into the US public domain. I'm collecting and transcribing as much of his *Ghost Stories* writing as I can find.
 
-#### [Selected Stories of Austin Philips](/pages/austin-philips/)
-
-I'm collecting as many of the Post Office detective and Post Office supernatural short stories of Austin Philips as I can find online. Possibly some non-post office crime stories, too.
 
 <hr/>
 
