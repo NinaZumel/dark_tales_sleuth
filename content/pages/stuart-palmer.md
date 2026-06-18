@@ -16,7 +16,7 @@ title: The Supernatural Writings of Stuart Palmer
 
 Stuart Palmer was a prolific mystery writer from the 1930s into the 1960s, and the 1954 President of the Mystery Writers of America. He is best known as the creator of Hildegard Withers, a spinster schoolteacher who solves murders with the reluctant help of Inspector Oscar Piper of the NYPD. The character first appeared in 1931, and was popular enough to spawn an RKO Pictures film series, from 1932 to 1937.
 
-But Palmer's earliest writing was for *Ghost Stories* magazine. Writing under a variety of pen names, he contributed short stories, articles, and a five-part novella for the magazine, over the period 1928-1931. Of particular interest to me is a mini occult investigator series, comprised of two (possibly three) stories about Max Brandt, "ghost-layer." 
+But Palmer's earliest writing was for *Ghost Stories* magazine. Writing under a variety of pen names, he contributed short stories, articles, and a five-part novella for the magazine, over the period 1928-1931. Of particular interest to me is a mini occult investigator series, comprised of two (possibly three) stories about Karl Brandt, "ghost-layer." 
 
 Here, I'm collecting as many of Palmer's *Ghost Stories* contributions as I can find.
 
@@ -38,6 +38,9 @@ In keeping with the conceit of the magazine, when appropriate, I'll give a story
 <br><span class="inline-note"> A sinister man comes to physician Dr. Park Graham with severe, mysterious burns. Burns that heal within a day, only to appear the next morning.
 </span>
 
+[**A Sleeper Bewitched**](/stuart-palmer/sleeper-bewitched/) (October 1928)
+<br><span class="inline-note"> Karl Brandt and his sidekick Stanley Horton investigate the case of a disembodied hand, hovering over the bed of a man who has been asleep for almost a month. The first of the "Karl Brandt, ghost-layer" stories.
+</span>
 
 </div>
 
