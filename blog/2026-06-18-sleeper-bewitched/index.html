@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Tagged “Ghost Stories Magazine”</title>
+		<title>A Sleeper Bewitched</title>
 		<meta name="description" content="Filling in the Literary Blanks">
 		<link rel="alternate" href="/dark_tales_sleuth/feed/feed.xml" type="application/atom+xml" title="Dark Tales Sleuth">
 		<link rel="alternate" href="/dark_tales_sleuth/feed/feed.json" type="application/json" title="Dark Tales Sleuth">
@@ -15,82 +15,156 @@
 		<link href="https://github.com/ninazumel" rel="me">
 		<script src="https://kit.fontawesome.com/9bbe6f85f9.js" crossorigin="anonymous"></script>
 		
-		<style>.postlist { counter-reset: start-from 3 }
-/* For displaying image and description*/
+		<style>/* minimal implementation; just plain text in the margin, no blockquotes, code, etc */
+/* only (unnumbered) margin notes, no sidenotes */
+/* stripped down from https://github.com/edwardtufte/tufte-css */
 
-.author_container {
-	text-align: center;
-	vertical-align: middle;
+/* need this for correct sidenote numbering; but I'm not using sidenotes */
+/*
+body {
+    counter-reset: sidenote-counter; 
+} 
+*/
+
+
+/* since I imagine these will change with different templates */
+:root {
+    --content-width: 65%;
+    --image-padding: 5%;
+    --image-max: 60%;  /* total image+padding <= content-width */
+    --notewidth: 30%; 
+    /* content-width + notewidth <  100%. I think you should leave some wiggle room. */
+    --note-right-margin: -45%;
+    /* if this margin is -(notewidth), the note will start just on the right border of the text */
+    /* so push it a little to the right (more negative) */
 }
 
-.author_container img {
-	  max-width: 175px;
-	  border-radius: 50%;
-	  display: block;
-	  margin-left: auto;
-	  margin-right: auto;
+article {
+	padding-top: 1rem; 
 }
 
-.author_description {
-	margin-left: auto;
-    margin-right: auto;
-	line-height: 1;
-
+/* make room for the notes in the article container */
+article > p,
+article > pre,
+article > ul,
+article > details {
+    width: var(--content-width);
 }
 
-.author_description p {
+/* 
+  blockquotes should be a little shorter 
+  This assumes that left indentation is 2em, which is what it looks like.
+  Subtract way more than 2 em, so that it's way shorter.
+  */
+article > blockquote {
+    width: calc(var(--content-width) - 10em); 
+}
+
+
+article > hr {
+    max-width: var(--content-width);
+    margin: 0
+}
+
+article > h1, 
+article > h2,
+article > h3,
+article > h4 {
+    max-width: var(--content-width);
+}
+
+article > center {
+    max-width: var(--content-width);
+}
+
+/* keep images/captions in the text column, rather than centered in the article container */
+article > img {
+    margin-left: 0;
+    padding-left: var(--image-padding);
+    max-width: var(--image-max); 
+}
+
+article > p.caption {
+	text-align: left;
+    padding-left: var(--image-padding);
 	font-style: italic;
-	font-size: 1em;
-	color: var(--description-color);
+	font-size: 0.9em;
+	color: var(--caption-color);
+ }
+
+article > p.caption a:hover,
+article > p.caption a:active {
+    color: var(--text-color-link-active);
 }
 
-.padded_author_container {
-	text-align: center;
-	padding-top: 50px;
+.footnote-item {
+    max-width: var(--content-width); 
 }
 
-.padded_author_container img {
-	max-width: 250px;
-	border-radius: 50%;
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-}
-/* Message Box */
-.message-box {
-	--color-message-box:  var(--background-color); 
-    --border-color:  var(--box-border-color);
-
-	display: block;
-	background-color: var(--color-message-box);
-	color: var(--text-color);
-	padding: 1em 0.625em;  /* 16px 10px /16 */
-	padding-left: 2em;  /* bit more on the left */
-	padding-right: 2em;  /* to balance it */
-	border: 2px solid var(--box-border-color);
-}
-.message-box ol {
-	margin-top: 0;
-}
-
-.message-box h1 {
-	text-align: center;
-}
-
-.message-box h2 {
-	text-align: center;
-}
-
-.message-box h3 {
-	text-align: center;
+ /* finally, the margin note */
+.marginnote {    
+    float: right;
+    clear: right;
+    width: var(--notewidth);         
+    margin-right: var(--note-right-margin);
+    margin-top: 0.3rem;
+    margin-bottom: 0;
+    font-size: 0.8rem;
+    line-height: 1.3;
+    vertical-align: baseline;
+    position: relative;
+    /* border: 2px solid blue; */
 }
 
 
+input.margin-toggle {
+    display: none;
+}
 
-@media (prefers-color-scheme: dark) {
-	.message-box {
-		--color-message-box: var(--background-color);
-	}
+
+label.margin-toggle {    
+    display: none;
+
+}
+
+/* The mobile fallback: */
+/* making max-width bigger makes the note fall inline sooner */
+@media (max-width: 768px) {  
+    body {
+        width: 84%;
+        padding-left: 8%;
+        padding-right: 8%;
+    }
+
+    hr,
+    article > p,
+    article > blockquote,
+    article > pre {
+        width: 100%;
+    }
+
+    label.margin-toggle {
+        display: inline;
+    }
+       
+    .marginnote {           
+         display: none;        
+        }    
+
+      
+    .margin-toggle:checked + .marginnote {            
+        display: block;            
+        float: left;            
+        left: 1rem;            
+        clear: both;            
+        width: 95%;            
+        margin: 1rem 2.5%;            
+        vertical-align: baseline;            
+        position: relative;        
+    }
+    label {
+        cursor: pointer;
+    }
 }
 * { box-sizing: border-box; }
 /* colors from flexoki - https://stephango.com/flexoki */
@@ -643,32 +717,35 @@ hr {
 		<main id="skip">
 			
 
+<h1>A Sleeper Bewitched</h1>
 
-<h1>Tagged “Ghost Stories Magazine”</h1>
-
-
-
-<ol reversed="" class="postlist">
-	<li class="postlist-item">
-		<a href="/dark_tales_sleuth/blog/2026-06-18-sleeper-bewitched/" class="postlist-link">A Sleeper Bewitched</a>
-		<time class="postlist-date" datetime="2026-06-10 5:00 PM">10 June 2026</time>
-		<p>The next entry in my Supernatural Writings of Stuart Palmer series is the first of two (possibly three) stories about Karl Brandt, &amp;quot;ghost layer.&amp;quot;
-
-A Sleeper Bewitched: Mr. Crane has been asleep for a month. No one knows why; no one can wake him...</p>
-	</li>
-	<li class="postlist-item">
-		<a href="/dark_tales_sleuth/blog/2026-06-11-supernatural-writing-stuart-palmer/" class="postlist-link">The Supernatural Writings of Stuart Palmer</a>
-		<time class="postlist-date" datetime="2026-06-10 5:00 PM">10 June 2026</time>
-		<p>A new literary excavation project: ghost stories, articles, and an occult investigator mini-series!
-Stuart Palmer (1905-1968) was a prolific writer, active in the crime fiction community from the 1930s into the 1960s. He was a well-regarded practitioner...</p>
-	</li>
-</ol>
+<div class="posttalk-metadata">
+  <time datetime="2026-06-10 5:00 PM">10 June 2026</time>
+</div>
+<ul class="post-metadata">
+	<li><a href="/dark_tales_sleuth/tags/stuart-palmer/" class="post-tag">Stuart Palmer</a>, </li>
+	<li><a href="/dark_tales_sleuth/tags/ghost-stories-magazine/" class="post-tag">Ghost Stories Magazine</a>, </li>
+	<li><a href="/dark_tales_sleuth/tags/occult-detectives/" class="post-tag">occult detectives</a>, </li>
+	<li><a href="/dark_tales_sleuth/tags/with-html-transcription/" class="post-tag">with html transcription</a></li>
+</ul>
 
 
+<article>
+	<p>The next entry in my <a href="/dark_tales_sleuth/pages/stuart-palmer/">Supernatural Writings of Stuart Palmer</a> series is the first of two (possibly three) stories about Karl Brandt, &quot;ghost layer.&quot;</p>
+<ul>
+<li><a href="/dark_tales_sleuth/stuart-palmer/sleeper-bewitched/"><strong>A Sleeper Bewitched</strong></a>: Mr. Crane has been asleep for a month. No one knows why; no one can wake him up.  And there's a strange, disembodied hand hovering over his bed. Mrs. Crane calls in Karl Brandt, &quot;ghost layer,&quot; to help save her husband.</li>
+</ul>
+<p>Brandt started out as a ghost <em>debunker</em>, working with his cousin in the real estate business to rehabilitate the reputations of so-called &quot;haunted houses&quot; for his cousin to sell. A cute idea! And, naturally, in the course of his job, Brandt runs into enough strange phenomena to change his mind about the non-existence of ghosts. Hence, his new sideline as &quot;ghost-layer.&quot;</p>
+<p>I really like this story, and I also like the idea of a <a href="https://en.wikipedia.org/wiki/Carnacki">Thomas Carnacki</a> type character who works in real estate. What a great series that could be! As we will see, apparently Stuart Palmer thought so, too. Although the real estate angle never actually comes into play. Ah, well.</p>
+<p>According to an article he wrote for the <em>Baker Street Journal</em>,<label for="bsj" class="margin-toggle">⊕</label>
+<input type="checkbox" id="bsj" class="margin-toggle">
+<span class="marginnote">Palmer, Stuart. &quot;The I-O-U of Hildegarde Withers,&quot; <em>The Baker Street Journal,</em> Vol. 3, No. 1, January 1948. Collected in <em>Hildegarde Withers, Final Riddles?</em>, Crippen &amp; Landru (2021).</span> Palmer had been a fan of Sherlock Holmes since childhood. Conan Doyle's portrayal of Holmes was a strong influence on Palmer's Hildegarde Withers character, and you can see those influences at play in this earlier Karl Brandt story, as well.</p>
+<p>Brandt's &quot;Watson&quot; is an old schoolmate named Stanley Horton, who opens the story by alluding to &quot;the Prentiss case,&quot; which I'm pretty sure is not a story Palmer ever wrote. And like Holmes (and Miss Withers), Brandt has the irritating habit of keeping his deductions close to his chest until the very end. But at least Brandt doesn't seem to have any substance abuse problems—or a violin.</p>
+<p>Anyway, do enjoy. You'll be seeing Karl Brandt again.</p>
 
-
-<p>See <a href="/dark_tales_sleuth/tags/">all tags</a>.</p>
-
+</article>
+<ul class="links-nextprev"><li><a href="/dark_tales_sleuth/blog/2026-06-11-supernatural-writing-stuart-palmer/">&#8592;</a> <span style="color: #9B9C9D">Previous</span></li>
+</ul>
 
 		</main>
 
@@ -695,6 +772,6 @@ Stuart Palmer (1905-1968) was a prolific writer, active in the crime fiction com
 </div>
 		<!-- /footer-- >
 
-		<!-- Current page: /dark_tales_sleuth/tags/ghost-stories-magazine/ -->
+		<!-- Current page: /dark_tales_sleuth/blog/2026-06-18-sleeper-bewitched/ -->
 	</body>
 </html>

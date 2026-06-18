@@ -1,0 +1,956 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>A Sleeper Bewitched</title>
+		<meta name="description" content="Filling in the Literary Blanks">
+		<link rel="alternate" href="/dark_tales_sleuth/feed/feed.xml" type="application/atom+xml" title="Dark Tales Sleuth">
+		<link rel="alternate" href="/dark_tales_sleuth/feed/feed.json" type="application/json" title="Dark Tales Sleuth">
+
+        
+		<link rel="me" href="https://micro.blog/MultoGhost">
+		<link rel="authorization_endpoint" href="https://indieauth.com/auth">
+		<link rel="token_endpoint" href="https://tokens.indieauth.com/token">
+		<link href="https://github.com/ninazumel" rel="me">
+		<script src="https://kit.fontawesome.com/9bbe6f85f9.js" crossorigin="anonymous"></script>
+		
+		<style>/* minimal implementation; just plain text in the margin, no blockquotes, code, etc */
+/* only (unnumbered) margin notes, no sidenotes */
+/* stripped down from https://github.com/edwardtufte/tufte-css */
+
+/* need this for correct sidenote numbering; but I'm not using sidenotes */
+/*
+body {
+    counter-reset: sidenote-counter; 
+} 
+*/
+
+
+/* since I imagine these will change with different templates */
+:root {
+    --content-width: 65%;
+    --image-padding: 5%;
+    --image-max: 60%;  /* total image+padding <= content-width */
+    --notewidth: 30%; 
+    /* content-width + notewidth <  100%. I think you should leave some wiggle room. */
+    --note-right-margin: -45%;
+    /* if this margin is -(notewidth), the note will start just on the right border of the text */
+    /* so push it a little to the right (more negative) */
+}
+
+article {
+	padding-top: 1rem; 
+}
+
+/* make room for the notes in the article container */
+article > p,
+article > pre,
+article > ul,
+article > details {
+    width: var(--content-width);
+}
+
+/* 
+  blockquotes should be a little shorter 
+  This assumes that left indentation is 2em, which is what it looks like.
+  Subtract way more than 2 em, so that it's way shorter.
+  */
+article > blockquote {
+    width: calc(var(--content-width) - 10em); 
+}
+
+
+article > hr {
+    max-width: var(--content-width);
+    margin: 0
+}
+
+article > h1, 
+article > h2,
+article > h3,
+article > h4 {
+    max-width: var(--content-width);
+}
+
+article > center {
+    max-width: var(--content-width);
+}
+
+/* keep images/captions in the text column, rather than centered in the article container */
+article > img {
+    margin-left: 0;
+    padding-left: var(--image-padding);
+    max-width: var(--image-max); 
+}
+
+article > p.caption {
+	text-align: left;
+    padding-left: var(--image-padding);
+	font-style: italic;
+	font-size: 0.9em;
+	color: var(--caption-color);
+ }
+
+article > p.caption a:hover,
+article > p.caption a:active {
+    color: var(--text-color-link-active);
+}
+
+.footnote-item {
+    max-width: var(--content-width); 
+}
+
+ /* finally, the margin note */
+.marginnote {    
+    float: right;
+    clear: right;
+    width: var(--notewidth);         
+    margin-right: var(--note-right-margin);
+    margin-top: 0.3rem;
+    margin-bottom: 0;
+    font-size: 0.8rem;
+    line-height: 1.3;
+    vertical-align: baseline;
+    position: relative;
+    /* border: 2px solid blue; */
+}
+
+
+input.margin-toggle {
+    display: none;
+}
+
+
+label.margin-toggle {    
+    display: none;
+
+}
+
+/* The mobile fallback: */
+/* making max-width bigger makes the note fall inline sooner */
+@media (max-width: 768px) {  
+    body {
+        width: 84%;
+        padding-left: 8%;
+        padding-right: 8%;
+    }
+
+    hr,
+    article > p,
+    article > blockquote,
+    article > pre {
+        width: 100%;
+    }
+
+    label.margin-toggle {
+        display: inline;
+    }
+       
+    .marginnote {           
+         display: none;        
+        }    
+
+      
+    .margin-toggle:checked + .marginnote {            
+        display: block;            
+        float: left;            
+        left: 1rem;            
+        clear: both;            
+        width: 95%;            
+        margin: 1rem 2.5%;            
+        vertical-align: baseline;            
+        position: relative;        
+    }
+    label {
+        cursor: pointer;
+    }
+}
+* { box-sizing: border-box; }
+/* colors from flexoki - https://stephango.com/flexoki */
+
+:root {
+	--paper: #FFFCF0;
+	--tx-normal: #100F0F;
+	--tx-muted: #6F6E69;
+	--tx-faint: #B7B5AC;
+	--blue300: #66A0C8;
+	--blue400: #4385BE;
+	--blue600: #205EA6;
+	--blue700: #1A4F8C;
+	--blue800: #163B66; 
+	--blue850: #133051;
+	--green400: #879A39;
+	--green600: #66800B;
+	--red800: #6C201C;
+	--purple600: #5E409D;
+	--purple300: #A699D0;
+	--base50: #F2F0E5;
+	--base100: #E6E4D9;
+	--base300: #B7B5AC;
+
+	--description-color: var(--tx-muted); 
+    --caption-color: var(--tx-muted);
+	--background-color:  var(--paper); 
+    --hrule-color: var(--base100);
+    --hrule-faint-color: var(--base50);
+	--box-border-color: var(--base50);
+
+	--header-anchor-color: var(--base300); /* for the # links on headers */
+	--icon-color: var(--blue600);
+	--icon-hover-color: var(--blue300);
+	--tag-color: var(--purple600);
+	--tag-hover-color: var(--purple300);
+
+	--text-color: var(--tx-normal); 
+	--text-color-link: var(--blue700); 
+	--text-color-link-active: var(--blue400); 
+	--text-color-link-visited: var(--blue700); 
+
+	--collapsible-summary-color: var(--green600);
+	--details-box-color: var(--base50);
+
+
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--black: #100F0F;
+		--base200: #CECDC3; 
+		--base300: #B7B5AC;
+		--base500: #878580;
+		--base600: #6F6E69;
+		--base700: #575653;
+		--base900: #282726;
+		--base950: #1C1B1A;
+		--blue700: #1A4F8C;
+		--green400: #879A39;
+	    --green600: #66800B;
+		--red400: #D14D41;
+		--purple400: #8B7EC8;
+		--purple500: #735EB5;
+		--purple600: #5E409D;
+	
+		--description-color: var(--base300); 
+		--caption-color: var(--base500);
+		--background-color:  var(--black); 
+		--hrule-color: var(--base900);
+		--hrule-faint-color: var(--base950);
+		--box-border-color: var(--base900);
+
+		--header-anchor-color: var(--base500); /* for the # links on headers */
+		--icon-color: var(--blue400);
+		--icon-hover-color: var(--blue600);
+		--tag-color: var(--purple400);
+		--tag-hover-color: var(--purple500);
+
+		--text-color: var(--base200); 
+		--text-color-link: var(--blue400); 
+		--text-color-link-active: var(--blue600); 
+		--text-color-link-visited: var(--blue400); 
+
+		--collapsible-summary-color: var(--green400);
+		--details-box-color: var(--base900);
+	}
+}
+/* Defaults */
+:root {
+	--font-family: Georgia, Times, -serif; /* Tahoma, -apple-system, system-ui, sans-serif; */
+	--font-family-sanserif: Tahoma, -apple-system, system-ui, sans-serif;
+	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+
+	/* from another template - experiment with these */
+	--font--serif: 'Bitstream Charter', Charter, Palatino, 'Palatino Linotype', 'Palatino LT STD', 'Book Antiqua', Georgia, serif;
+  	--font--sans: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+}
+
+/* Theme colors */
+:root {
+	--syntax-tab-size: 2;
+}
+
+
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	font-size: 18px;  /* a little bigger to accomodate a serif font */
+	color: var(--text-color);
+	background-color: var(--background-color);
+}
+html {
+	overflow-y: scroll;
+}
+body {
+	max-width: 70em; /* 50em; */
+}
+
+/* Basic heading typography */
+h1,h2,h3,h4,h5 {
+  font-family: var(--font--sans);
+  font-weight: 600;
+}
+
+/* different horizontal rules  https://www.w3schools.com/howto/howto_css_dividers.asp */
+ /* Dashed border */
+ hr.dashed {
+	border-top: 1px dashed var(--hrule-color);
+  }
+  
+  /* Dotted border */
+  hr.dotted {
+	border-top: 1px dotted var(--hrule-color);
+  }
+  
+  /* Solid border */
+  hr.solid {
+	border-top: 1px solid var(--hrule-color);
+  }
+  
+
+/* 
+https://css-tricks.com/barebones-css-for-fluid-images/ 
+Without this, images generated by eleventy-img will always use the largest available size
+-- ie, not be responsive.
+*/
+img {
+	max-width: 100%; 
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+  }
+  img[width] {
+	width: auto; /* Defer to max-width */
+  }
+  img[width][height] {
+	height: auto; /* Preserve aspect ratio */
+  }
+  
+  /* Let SVG scale without boundaries */
+  img[src$=".svg"] {
+	width: 100%;
+	height: auto;
+	max-width: none;
+  }
+  
+
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+p {
+	line-height: 1.5;
+	/* font-size: 1.2em; */
+}
+
+p.caption {
+	text-align: center;
+	font-style: italic;
+	font-size: 0.9em;
+	color: var(--caption-color);
+ }
+
+ /* for the credits at the bottom of a page */
+p.credit {
+	max-width: 50em;
+	font-size: 0.9em;
+	margin-left: auto;
+	margin-right: auto;
+ }
+
+
+/* for inline annotations, like translations */
+span.inline-note {
+	font-size: 0.9em;
+	font-style: italic;
+}
+
+li {
+	line-height: 1.5;
+	/* font-size: 1.2em; */
+}
+
+a[href] {
+	color: var(--text-color-link);
+	text-decoration: none; 
+}
+a[href]:visited {
+	color: var(--text-color-link-visited);
+}
+a[href]:hover,
+a[href]:active {
+	color: var(--text-color-link-active);
+}
+
+main {
+	padding: 1rem;
+}
+main :first-child {
+	margin-top: 0;
+}
+
+header {
+	border-bottom: 1px dashed var(--hrule-color);
+}
+header:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.links-nextprev {
+	text-align: center;
+	list-style: none;
+	border-top: 1px dashed var(--hrule-color);
+	padding: 1em 0;
+}
+
+
+table {
+	margin: 1em 0;
+}
+table td,
+table th {
+	padding-right: 1em;
+}
+
+pre,
+code {
+	font-family: var(--font-family);
+	font-size: 0.95em;
+}
+pre:not([class*="language-"]) {
+	margin: .5em 0;
+	line-height: 1.375; /* 22px /16 */
+	-moz-tab-size: var(--syntax-tab-size);
+	-o-tab-size: var(--syntax-tab-size);
+	tab-size: var(--syntax-tab-size);
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+}
+code {
+	word-break: break-all;
+}
+
+/*
+  Custom containters
+*/
+div.message-box {
+	max-width: 50em; 
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div.magazine-box {
+	max-width: 50em; 
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+/* Header */
+header {
+	font-family: var(--font--sans); 
+	display: flex;
+	gap: 1em .5em;
+	flex-wrap: wrap;
+	align-items: center;
+	padding: 1em;
+}
+.home-link {
+	font-size: 1.5em; /* 24px /16 (I think)*/
+	font-weight: 700;
+	margin-right: 2em;
+}
+.home-link:link:not(:hover) {
+	text-decoration: none;
+}
+
+/* Nav */
+.nav {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.nav-item {
+	display: inline-block;
+	margin-right: 1em;
+}
+.nav-item a[href]:not(:hover) {
+	text-decoration: none;
+}
+.nav a[href][aria-current="page"] {
+	text-decoration: underline;
+}
+
+/* Posts list */
+.postlist {
+	list-style: none;
+	padding: 0;
+	padding-left: 0; /* 1.5rem; */
+	max-width: 50em;
+}
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	counter-increment: start-from -1;
+	margin-bottom: 1em;
+	padding-bottom: 50px;
+	/* padding: 8px 16px; */
+	border-bottom: 1px dashed var(--hrule-color);
+}
+
+/* 
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	content: "" counter(start-from, decimal-leading-zero) ". ";
+	line-height: 100%;
+	text-align: right;
+	margin-left: -1.5rem;
+}
+*/
+
+.postlist-date,
+.postlist-item:before {
+	font-size: 0.8125em; /* 13px /16 */
+	color: var(--description-color);
+}
+.postlist-date {
+	word-spacing: -0.5px;
+	padding-left: .25em;
+}
+.postlist-link {
+	font-size: 1em; /* 1.1875em;  19px /16 */
+	font-weight: 700; 
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration: none; 
+	/* text-decoration-thickness: 1px; */
+}
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+/* for collapsible text blocks.
+Put the hidden text into p element(s); it looks better.
+*/
+
+/*
+original details background color: #f5f5f5 
+original box border color: #0066cc
+*/
+
+details {  margin: 1em 0;  padding: 1em;  background-color: var(--details-box-color);  border-left: 4px solid var(--collapsible-summary-color);}
+summary {  cursor: pointer;  font-weight: bold;  color: var(--collapsible-summary-color);}
+summary:hover {  text-decoration: underline;}
+
+/* Tags */
+.post-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+	font-style: italic;
+}
+.postlist-item > .post-tag {
+	align-self: center;
+}
+
+/* Tags list */
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: .5em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.post-metadata time {
+	margin-right: 1em;
+}
+
+/* I don't want tag links to stand out too much */
+.post-metadata a[href] {
+	color: var(--tag-color);
+}
+
+.post-metadata a[href]:hover,
+               a[href]:active {
+	color: var(--tag-hover-color);
+}
+
+
+.post-metadata li {
+	font-size: 0.875em;
+}
+
+/* metadata for posts and talks */
+
+.posttalk-metadata {
+	list-style: none;
+	padding-left: 0;
+	color: var(--description-color);
+}
+
+.posttalk-metadata ul {
+	list-style-type: none; /* no bullets */
+	padding: 0;  /* no indentation, either */
+	margin: 0;
+}
+
+/* Direct Links / Markdown Headers */
+.header-anchor {
+	text-decoration: none;
+	font-style: normal;
+	font-size: 1em;
+	margin-left: .1em;
+}
+a[href].header-anchor,
+a[href].header-anchor:visited {
+	color: transparent;
+}
+a[href].header-anchor:focus,
+a[href].header-anchor:hover {
+	text-decoration: underline;
+}
+a[href].header-anchor:focus,
+:hover > a[href].header-anchor {
+	color: var(--header-anchor-color);
+}
+
+h2 + .header-anchor {
+	font-size: 1.5em;
+}
+
+/* Footer */
+hr {
+    border: none;
+    background-color: var(--hrule-color);
+    height: 1px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+    hr {
+        width: 100%;
+    }
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2rem 0;
+    background-color: var(--background-color);
+	;
+}
+
+.footer-container p {
+    font-size: 1rem;
+    color: var(--description-color);
+}
+
+.footer-container .social_icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0 1rem;
+}
+
+.footer-container .social_icons a {
+    color: var(--icon-color);
+    font-size: 1.5rem;
+    transition: all 0.5s ease-in-out;
+}
+
+.footer-container .social_icons a:hover {
+    color: var(--icon-hover-color);
+}</style>
+	</head>
+	<body>
+		<a href="#skip" class="visually-hidden">Skip to main content</a>
+
+		<header>
+			<a href="/dark_tales_sleuth/" class="home-link">Dark Tales Sleuth</a>
+			<nav>
+				<h2 class="visually-hidden">Top level navigation menu</h2>
+				<ul class="nav">
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/about/">About</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/my-investigations/">My Cases</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/blog/">All Posts</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/comments/">Comments</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/about-me/">About Me</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="skip">
+			
+
+
+<h1>A Sleeper Bewitched</h1>
+
+
+
+
+
+
+<ul class="posttalk-metadata">
+  <li>By Stanley Horton, as told to Stuart Palmer</li>
+  <li>Published in  <em>Ghost Stories Magazine</em>, October 1928</li>
+</ul>
+
+<article>
+<img src="/dark_tales_sleuth/stuart-palmer/sleeper-bewitched/sleeper-bewitched-8f3vEAuYhb-748.png" alt="A man sleeps on a bed as a ghostly hand reaches out from behind a curtain over him. A woman stands near a window, looking on in horror." loading="lazy" decoding="async" width="748" height="436">
+<p><em>He lay asleep for thirty days, drifting toward death. But why did a dismembered hand hover above him?</em></p>
+<p>FOUR years ago this summer I first became acquainted with the unusual profession that Karl Brandt had chosen. We were thrown together during the Prentiss case, and the horrible week we spent in that abandoned house is fresh in my memory. It was then that I learned to appreciate the cool, hard head of my old acquaintance, who had set himself up as a sort of &quot;ghost-layer,&quot; if I may use the term. He called himself merely a &quot;Consultant.&quot;</p>
+<p>His work at the time consisted mostly of proving to superstitious townsfolk the fact that old and vacant houses were perfectly safe to live in. He had a cousin in the real-estate business, and Karl was co-operating with him in rebuilding and rehabilitating old houses throughout New England. From this rather prosaic work his profession originated. All over the country he discovered that things existed, or were thought to exist, which could not be explained by natural means—and as soon as the public learned that this lanky Easterner with his wide smile and keen blue eyes was having unusual success in applying common-sense methods to the Unknown, Karl found himself greatly in demand.</p>
+<p>At college Karl had been decidedly unsuperstitious, and he began his work in real estate with the idea that superstition and credulity would account for all the &quot;ghost stuff,&quot; as he called it. But the Prentiss case, and some that followed, changed his mind considerably.</p>
+<p>Being a reasonable person, Karl applied reasonable and scientific methods to the Unknown, with almost unvarying success. From time to time, I heard rumors of his achievements but we did not meet again until he telegraphed me to wait for him at Grand Central Station on a certain evening in July. He had been in the Far West.</p>
+<p>He was the same Karl, as he suddenly appeared beside me in the crowded waiting room. His face wore the same wide smile, but I noticed that lines appeared here and there. Some of the boyishness had been worn away. While a Red Cap followed us with the luggage, we sought a cab.</p>
+<p>After our cigarettes were going well, and the cab was worming its way north through the network of Manhattan's streets, I leaned back against the cushions and looked expectantly at Karl. Except for giving the driver an address in the Bronx, he had hardly spoken since we met.
+<br><br></p>
+<p>SUDDENLY he laughed. &quot;I suppose you are wondering why and wherefore. Sit tight and listen. I just got a call to investigate a case here of a man with sleeping sickness.&quot;</p>
+<p>&quot;But you're a spook-chaser, not a doctor.&quot;</p>
+<p>&quot;Yes—but listen. The chappie that's so sound asleep is being haunted now and then by a phantom arm, so it seems. And the idea has come to his family that maybe the arm is the cause of the sickness. Now you know as much about it all as I do.&quot;</p>
+<p>&quot;But what do you make of it?&quot; I asked.</p>
+<p>&quot;Nothing, yet. Wait till we get there. I've discovered that at least ninety per cent of  'ghosts' are pure fiction, anyway. The others work according to very real laws, and have a reason behind them. The Dead don't come back as a rule—their interests aren't here, unless something is weighing terribly on their minds. Ghosts don't haunt for amusement, old son.&quot;</p>
+<p>I shivered a little at the matter-of-fact way he discussed it all. &quot;You weren't so calm the last time we were together,&quot; I told him.</p>
+<p>&quot;No, I wasn't. But I have learned a lot since then—about this world and the next. That's why I wired you. I want you to go along with me on this investigation, so that I can show you how my methods have changed.&quot;</p>
+<p>When the long trip was over, the cab pulled up in front of a large and somewhat lonely house in the upper part of the Bronx. It was rather imposing, or had been at one time. But around the place were vacant lots, some of them covered with weeds and rubbish. On an adjoining lot a broken-down wagon stood on the edge of a gaping hole which had once been a cellar.</p>
+<p>The house itself was rather dingy, but it had formerly been white with green shutters. A porch ran all around it, and vines straggled here and there up its side. Karl instructed the driver to take his grips to a near-by hotel, and we climbed the steps.</p>
+<p>They were not expecting us. In a moment a tired-looking woman opened the door a narrow crack.</p>
+<p>&quot;What do you want, please?&quot; she asked. Then she seemed to recognize Karl. &quot;Oh, come in, Mr. Brandt. Thank God you've come at last!&quot;</p>
+<p>We were ushered into a long hall that ran straight back into the house. There came to my nostrils the acrid odor of antiseptics. It seemed far more like a hospital than a haunted house. She led us into a large, attractive living room and library.</p>
+<p>&quot;I am Mrs. Crane,&quot; she said. &quot;Do you wish to see my husband now?&quot;</p>
+<p>Karl shook his head. &quot;Not yet.&quot; His eyes roamed over the room, taking in every detail. Yet I suspected that his mind was far away. &quot;Will you please tell us everything you know about the whole case? This&quot;—with a slight gesture toward me—&quot;is an old friend of mine who has helped me many times. You may speak freely.&quot;</p>
+<p>&quot;There isn't much to tell. My husband retired from business a few years ago, and since then has lived here very quietly. He has never had an enemy, living or dead. I can't imagine who or what can be doing this terrible thing to him. I—I——&quot;</p>
+<p>&quot;Mrs. Crane,&quot; said Karl calmly, &quot;you must start at the beginning and tell me everything that you know. When did this start?&quot;</p>
+<p>&quot;They brought him home late one night—two men in a cab, they were. And they said that he had become unconscious at a meeting or a show or something—I don't know what. He seemed to be sleeping perfectly normally. But he didn't wake. The men brought him in and left him. I called doctors, and they said that it was sleeping sickness. At least, some of them did. Others claimed it failed to show all the symptoms, and now they say that if it were sleeping sickness my husband would have been dead long ago. For twenty-six days he has been just as he is now. The doctors give him a little nourishment through a tube, where he lost a tooth. His jaws are locked together, and his pulse is slow. It gets slower every day.&quot;</p>
+<p>Karl nodded. &quot;Go on.&quot; he said. &quot;You mentioned a—a hand?&quot;
+<br><br></p>
+<p>MRS. CRANE shuddered. &quot;Yes. I've seen it. Three times, when I've been watching over his bedside, I've felt a horribly creepy feeling and looked up to see a dim and wavering hand over the bed—a hand and part of an arm! Once I thought I saw two eyes.&quot;</p>
+<p>&quot;Has anyone else seen it?&quot;</p>
+<p>&quot;Yes. The maid and the nurse saw it—and now I can't get anyone to take their places. So the doctor stays here a little while in the daytime, and I watch at night. I know it's some horrible thing from Beyond which has come to finish the work it started! And I won't let it! I'll fight it every way I can.&quot; Her jaw was resolute.</p>
+<p>Karl Brandt stood up. &quot;Will you let us see your husband?&quot;</p>
+<p>She led the way up a winding staircase. In a large and dimly lit bedroom on the second floor lay a bearded man of about sixty. He seemed to be sleeping peacefully. With a start I remembered that he had been sleeping like this for almost a month!</p>
+<p>Karl took his pulse and respiration, nodding to himself as if finding what he had expected. Then he turned to Mrs. Crane. &quot;When you first saw the arm—take the same position now, and show me all that happened.&quot;</p>
+<p>Her face went white, but she stood by a window at the foot of the bed. &quot;I was here.&quot; She pointed to a spot a few feet above the sleeping man, and directly in front of him. &quot;There I saw the arm—the horrible snake-like arm and the twisting fingers! Also, I saw the eyes, burning like fire.&quot;</p>
+<p>Karl nodded, but I could tell that he was puzzled. &quot;What did you do? You said
+that you were fighting against the Thing.&quot;</p>
+<p>&quot;I screamed at the top of my voice, and turned on all the lights. It disappeared. Then I put these here.&quot; She proudly pointed out to us a variety of charms and amulets, surprising in as sensible a person as she seemed. Across the head of the bed were three rosaries, with dangling crucifixes. Sprigs of garlic, henbane and parsley were tied at each door and window.</p>
+<p>&quot;I've read that the Dead cannot come into such a room,&quot; she said. &quot;But once since I put them up, I have seen the hand outside the window, and once in the hall. So It is only waiting—waiting—— And my husband cannot live much longer this way! It will win, even if I keep It away from him!&quot;</p>
+<p>I smiled, against my will. But Karl was not smiling. &quot;Keep up your precautions,&quot; he told her. Then he added: &quot;Don't worry, Mrs. Crane. We'll soon get to the root of the matter. Have you thought of moving your husband to a hospital?&quot;</p>
+<p>&quot;Sometimes. But I have a feeling that whatever It is, would come anywhere. And they'd laugh, the doctors and nurses, at my feeling about the rosaries.&quot;
+<br><br></p>
+<p>WE left the room, and went downstairs again. Karl started to put on his coat. &quot;We'll be back shortly, Mrs. Crane. Perhaps one of us will watch with you tonight.&quot;</p>
+<p>He and I walked down the deserted street. I knew that Karl always thought most deeply when he was physically exhausted, and for over an hour we walked through the suburban streets. Finally we found a bench.</p>
+<p>&quot;What do you make of it?&quot; asked Karl.</p>
+<p>I shook my head. &quot;Nothing much. Maybe his wife is poisoning him, and making up the story about the hand. But she didn't look the type.&quot;</p>
+<p>&quot;No, not that,&quot; Karl corrected. &quot;She would have nothing to gain by killing him, except a little insurance. And remember that the nurse and the maid left, because they could see the hand. She is not a spiritualistic trickster, materializing under cheese-cloth.&quot;</p>
+<p>&quot;Well, then—what is it?&quot;</p>
+<p>&quot;I'll know by tomorrow,&quot; Karl told me, but I thought he was overconfident.</p>
+<p>We went back to the house. Mrs. Crane seemed glad to see us. For a moment we stood on the porch.</p>
+<p>Karl whispered in my ear, &quot;Will you watch tonight?&quot;</p>
+<p>&quot;Yes,&quot; I told him. &quot;But why?&quot;</p>
+<p>&quot;Mostly for her sake. Nothing will happen.&quot;</p>
+<p>Then we went in. It was settled that I was to watch by the bedside of the sleeping man while his wife got some much-needed rest. I did not understand why Karl was not to stay. Of course, he was tired from his journey, but I had never known him to turn his back on an adventure before. Unless, of course, he was right in thinking that nothing could happen.</p>
+<p>I settled myself for the evening, with a cigarette case beside me, and a magazine. It was an especially hot night, and I opened both windows, unconsciously walking on tiptoe so as not to awaken the sick man. Awaken him! If sound would have done it, he'd have been awake weeks before!</p>
+<p>The long night passed. I caught myself dozing twice, but there was no change in the still form of poor Crane, and no sign of anything out of the ordinary. When the first faint flush of dawn touched the gloom, I turned out the lights and rested my eyes in the pleasant morning dusk. A cool wind stirred the shade at the window. It was the &quot;zero hour,&quot; when soldiers went over the top. Just before dawn, doctors say, is the hour when most men die, and the time when human resistance is at its weakest.</p>
+<p>Suddenly I saw It! Just outside the window, faintly shining through the dimness, was a weird human arm and hand, pointed directly at the sleeping man. The fingers moved slowly. A chill ran through my body, and my scalp tingled. The muscles of my throat twitched, and a cold perspiration broke out on my back. But I did not run. I could not have risen to my feet if it would have saved me from death and from damnation. For above the arm were two burning, unwinking eyes—human eyes! They were focused on the sleeping man.
+<br><br></p>
+<p>ALL this happened in a moment. Suddenly strength returned to me—I leaped to my feet and jerked the light cord. The room sprang into brilliance, and the eyes faded away. But just as the arm disappeared, I thought it moved in a despairing gesture. When I reached the window, nothing was there. In the east, the sun was shimmering on a distant roof.</p>
+<p>When I started to leave the room, I noticed with a sudden shock that the sleeping man had moved his hand above the coverlet! In an instant I was by his side. His pulse was the same, as was his breathing. But he had moved! For the first time in nearly a month, he had voluntarily moved!</p>
+<p>When I showed Mrs. Crane what had happened, she was overjoyed. She looked on her husband's slight movement as a sign that the Unseen Power she feared had begun to loose its hold. But when I admitted that the spectral arm had appeared before the change occurred, she was suddenly broken. Her iron will was being visibly shaken by the terrible strain she had been under. Never before in my life had I seen a character such as hers. I wonder if women, after all, are not the stronger sex.</p>
+<p>It was nine in the morning, and though the doctor had come to give poor Crane his tubeful of liquid food, there was no sign of Karl. I asked the doctor, when Mrs. Crane was out of the room, what he thought of the case. He looked at me, shrugging his shoulders.</p>
+<p>&quot;Probably sleeping sickness of some new type. There are thousands of ramifications to every disease. I am now preparing a monograph on the subject, and——&quot;</p>
+<p>I broke in. &quot;My God, here is a man slowly dying and you write pamphlets!&quot;</p>
+<p>Again he shrugged his shoulders. &quot;Medicine hasn't solved all the problems yet, my friend. We're just studying and going along half blindly toward the goal of Health. We're not near it. I confess this has stumped me.&quot;</p>
+<p>&quot;What about the arm Mrs. Crane sees?&quot;</p>
+<p>&quot;Nonsense—pure nonsense! Overwrought imagination. She believed it and scared the nurse and maid. All nonsense.&quot;</p>
+<p>I smiled, a little grimly, remembering what I had seen outside the window only a few hours before. Then I went down to the hotel where Karl was staying. I confess that I felt somewhat resentful at him for having left me alone in that gloomy room with the haunted man. He was the ghost-chaser, not I. While he had been peacefully sleeping, I had been facing the Unknown in its most unpleasant form. I was prepared to say something to Karl about it, but when I opened the door to his room I found him hard at work at the table, surrounded by newspapers. His bed had not been slept in, and his eyes showed that he had rested less than I during the night.
+<br><br></p>
+<p>HE looked up and waved me to a chair. &quot;You've seen the hand?&quot;</p>
+<p>I nodded.</p>
+<p>&quot;I thought it might possibly be overwrought imagination on the part of Mrs. Crane and her helpers. But if you saw the Thing, it must be real. Describe it, and everything that happened.&quot;</p>
+<p>I told him the whole story. When I came to the part about the movement on the part of the sleeping man, he leaped to his feet. &quot;I've got it!&quot; he shouted. &quot;At least, I think I see what it means.&quot; He stuffed two or three newspaper clippings into his pocket and reached for his hat.</p>
+<p>&quot;Stay here and get some sleep,&quot; he said to &quot;I'll need you tonight, and need you badly. I've got to make a few calls. Wait here until I get back.&quot;</p>
+<p>I was a trifle put-out at not being taken into his confidence. For a little while I sat on the bed and tried to piece together the various parts of the mystery. I began to wonder if I had seen the arm, or if the superstition of Mrs. Crane's overwrought mind had influenced me indirectly. Soon I fell asleep on Karl's bed.</p>
+<p>I was awakened by someone shaking me.</p>
+<p>&quot;Get up,&quot; Karl ordered. &quot;Do you know what time it is?&quot;
+<br><br></p>
+<p>IT was early evening, and I had nearly slept the clock around. As soon as I had a cold shower and dressed, I noticed that Karl was under high nervous tension.</p>
+<p>&quot;Tell me what you know,&quot; I asked him. &quot;What did you have all those newspapers for?&quot;</p>
+<p>He smiled, and showed me the clippings, which were several weeks old.</p>
+<p>The first was an obituary notice. &quot;Winkelmann, Jacob V., died of angina pectoris... evening of June 25th...relatives in Germany cabled... burial in Woodlawn...&quot;</p>
+<p>I could see nothing in that.</p>
+<p>Others contained advertisements of various psychic fakers and mesmerists. One was an advertising bill for a performance by &quot;The Great Wilhelm.&quot;</p>
+<p>The rest were various newspaper stories about the strange illness of Crane. For a while he had been featured in every New York daily; then new wonders had displaced him, and the &quot;Sleeping Marvel,&quot; as the tabloids had dubbed him, was moved to Page Eight and even farther toward the back of the paper. All this had no direct bearing on the case, as far as I could see.</p>
+<p>&quot;Where have you been all day?&quot; I asked Karl.</p>
+<p>He laughed. &quot;Most of the time I've been sleeping here in the armchair. A lot depends on tonight, and we have got to be in good shape. This morning I tried to run down the men who brought Crane home that night, but they have left no traces. If I could find them, I would know for sure what really made Crane this way. But I've a theory—you'll see it either work out or fail tonight.&quot;</p>
+<p>He started out of the room and I followed him.</p>
+<p>&quot;How can we get Mrs. Crane out of the house tonight?&quot; Karl asked, turning to me suddenly. &quot;Do you think she will be willing to go to some friend's home and give us a free hand?&quot;</p>
+<p>&quot;Why should she go away?&quot;</p>
+<p>&quot;You'll understand later—it's the most necessary thing in the whole business.&quot;</p>
+<p>We found her glad to see us. The patient's condition had not changed during the day, and the doctor had found at four in the afternoon that his blood pressure was far below normal. It was very evident that his long sleep was soon to be changed for a longer one, and that the fight which his brave wife had waged was of little avail. If anything were to be done to bring John Crane back from the silence, it would have to be done immediately.</p>
+<p>Strange to say, Mrs. Crane seemed quite willing to leave the house for the evening. &quot;I will stay at my sister's home, only a block away. You will call me at once if there is any—any change? I think I need to rest now. It has been a long time since I felt I could trust anyone alone with my poor husband. You are not afraid?&quot;</p>
+<p>Karl smiled his wide, beaming smile. &quot;It is my business to face things that other people fear. I'll call you if there is any news, and I think it may be good news.&quot;</p>
+<p>Mrs. Crane shook her head. &quot;I'm afraid not. The doctor says that my husband cannot live more than a day or two longer, in his present condition. And I have a feeling that the devilish power is getting stronger and stronger. It is only a matter of time now.&quot; She broke down for a moment, wiping her eyes.</p>
+<p>Karl comforted her, and then walked with her around the corner to her sister's. I sat smoking on the porch. I am not a coward, but I did not care to spend any more time alone in that house if I could help it.
+<br><br></p>
+<p>KARL was soon back. &quot;There's nothing for us to do yet,&quot; he said. &quot;Shall we have dinner?&quot;</p>
+<p>I was not at all hungry, and told him so. There is something about excitement which makes eating unnecessary.</p>
+<p>Karl nodded. &quot;We'll think better if we don't eat, I guess. And we need our brains tonight.&quot;</p>
+<p>&quot;What are you going to do, Karl? Shall we try to drive the Thing away? What brings it here? How can we frighten away the Unknown?&quot;</p>
+<p>&quot;One question at a time,&quot; he answered. &quot;Perhaps it won't be necessary to drive it away. Ghosts, as I said, don't haunt for the joy of it. They have their purposes, and anything which is important enough to bring the Dead back is worth our study—and our respect.&quot;</p>
+<p>He was talking in general terms when I wanted him to be specific. I think it amused him to keep me utterly in the dark, but it was exasperating to me.</p>
+<p>&quot;You'll know everything soon enough,&quot; he assured me. &quot;Let's go upstairs.&quot;
+<br><br></p>
+<p>THE room in which the sleeper lay was just as I had left it that morning, except for the fact that Mrs. Crane had redoubled her &quot;precautions.&quot; There was not a possible place in the room where she had not tied crucifixes and magical herbs. They seemed strangely out-of-place in such matter-of-fact surroundings. But they had not been prosaic to me that morning. I shuddered as I looked out of the window.</p>
+<p>It was about ten-thirty in the evening and the city shone with a dim radiance to the south, against the low-hanging clouds. The night was hot and the air seemed sticky. Not a breath of wind moved</p>
+<p>I turned-and gasped to see that Karl was busily removing the crucifixes and herbs from the door and bed!</p>
+<p>&quot;Why—what are you doing that for? Didn't they keep the Thing away? It will come into the room tonight and——&quot;</p>
+<p>He smiled, rather tolerantly I thought. &quot;Maybe that's what I want to do.&quot;</p>
+<p>&quot;But—you can't endanger the sick man that way!&quot; I pointed to the motionless
+figure lying on the wide bed. &quot;He is nearly dead because of this Thing. You don't dare to risk his chances for life.&quot;</p>
+<p>Karl looked at me intently. &quot;His only chance rests in what I hope will happen. It must be done now, or it will forever be too late. Sit down—and listen to me. Why is it necessary to believe that every manifestation of the supernatural is vindictive? The cases where ghosts have harmed the living are not as common as people think. We naturally fear the Unknown. But isn't it possible that strong love, or duty, or some other benevolent emotion, could bring the Dead back, as well as malignancy?&quot;</p>
+<p>&quot;Then you think that—that the Thing I saw is not the cause of what has kept this man here all these weeks, asleep?&quot;</p>
+<p>&quot;I don't know, yet.&quot;</p>
+<p>&quot;Why did you take down all Mrs. Crane's charms?&quot;</p>
+<p>&quot;Well, they haven't cured her husband. He is sure to die if we leave him in his present condition. I much doubt whether such fetishes will keep the Dead away, anyhow. But it is certain that Mrs. Crane's mental resistance could keep a disembodied spirit from materializing. I removed the herbs and the rosaries because they had been so closely associated with her long vigil here that they might retain an influence. I am making an experiment tonight that I think is utterly new.&quot;</p>
+<p>&quot;I think you are taking a great risk! But what shall I do?&quot;</p>
+<p>&quot;Nothing, but watch with me. Try to subordinate your mind. Do not fear anything that may come. Be passive. I want no resistance here in this house throughout the night.&quot;</p>
+<p>&quot;But—suppose the Thing comes into the room?&quot;</p>
+<p>&quot;I hope it will. There is nothing to lose. Crane will die soon if nothing is done for him. We are risking a little to gain a lot—if what I hope is true.&quot;</p>
+<p>He arranged two chairs at the one end of the room, and opened the window wide. The curtains hung lifelessly. Somewhere I heard a clock strike eleven.</p>
+<p>&quot;It is very early yet,&quot; Karl said. He was whispering. &quot;Midnight is not the hour at which the next world is closest to this one. That idea is a relic of the ages when men practiced the Black Mass at midnight, with the thought that by reversing time and saying the Lord's Prayer backwards they could invoke demons. I have found that early in the morning is the best—or worst—time for
+the Dead to come.&quot;</p>
+<p>I shivered, remembering the dawn. We sat down, and made ourselves as comfortable as possible. There was a soft, shaded light by the head of the bed. The rest of the room was nearly dark, but the body of Crane was outlined in white against the wall. The light shone in his face, which looked like that of a cadaver—drawn and pale gray.
+<br><br></p>
+<p>IN spite of the sleep I had had, I found it almost impossible to keep awake. My lids would drop, and the room would blur away into nothing. Then I would come to myself with a jerk, wide-awake and at an abnormally high tension.</p>
+<p>Karl was silently smoking. His head was in his hands, and he appeared to be concentrating. Once he leaned over to me.</p>
+<p>&quot;You must not fear,&quot; he said. &quot;You must be passive. Allow the night to enter into you! Open your mind to truths that are stranger than our truth! Remember that there are things good and evil that are beyond our comprehension. And do not fear!&quot;</p>
+<p>Fear is an abstract horror that men can hardly control. But I tried to remember all that Karl had said. He was more used to that sort of thing than I, and while the supernatural has always had a fascination for me, I had never been able to come to terms with it, as he seemed to have managed.</p>
+<p>There is nothing that requires more effort than waiting. Man is used to action. I wanted to walk the floor, to leap and shout and relieve my nerves in any way. But I sat there in the armchair, motionless.
+<br><br></p>
+<p>THE hours dragged by, and if it had not been for my memory of the previous night, I should have given up hope, or fear, of anyone or anything coming. Finally, I think I dozed. My sleep was fitful, and tortured by hideous dreams of a vast and awful hand that brushed men before it like dominoes.</p>
+<p>Suddenly I awakened with a start. Karl's hand gripped my arm. He was not smiling. My eyes followed where he pointed.</p>
+<p>There, above the sleeping man, was the Thing. I could see the same wavering white arm, with the fingers which moved slowly and terribly. As I watched, two eyes came out of nothing—two burning eyes that were turned away from us, and directly on the sleeping man.</p>
+<p>Karl's fingers were clenched around my arm so tightly that it felt paralyzed. He held me in my chair by main force, for I would have reached for the light cord. I could not speak. The room was permeated with a force which made every nerve in my body vibrate in response.</p>
+<p>The arm grew clearer, and I could see the suggestion of a face around the eyes. The face did not seem malignant. Rather, it struck me as being under the greatest strain, and worried. The brow was high and wide, but wrinkled and contorted. The deep and burning eyes never wavered from the face of the sleeping man. Below the aquiline nose, the mouth was tense. I suddenly lost most of my fear. This specter was not malignant. But it was possessed with a strong purpose.</p>
+<p>&quot;Will success for It!&quot; Karl whispered. &quot;It needs help. Give It of your strength, as I am doing——&quot;</p>
+<p>I tried to do as he said. As I cast my willpower in that direction, the specter tossed its head back with an imperious gesture of command. At the same moment the fingers of that ghostly hand snapped sharply. I jumped almost out of my chair, but Karl held me.</p>
+<p>The motionless figure of the man on the bed moved slightly. Again the spectral figure commenced the slow, rhythmic movement of its hand. It seemed to be drawing something out of John Crane. I might have wondered if it were not his very life itself, had it not been for the unspoken confidence which Karl seemed to have. He was <em>willing</em>, with every power of his brain—willing success to that figure from the Other World. I tried to add my strength.</p>
+<p>A second time the specter threw back its head with the strange gesture of command. Again the long, powerful fingers snapped sharply. I could see that great beads of perspiration were standing out on the forehead of the Thing. But the sleeping man only raised himself a few inches and sank back weakly on the pillow.</p>
+<p>&quot;Now, for the last time!&quot; Karl whispered fiercely. &quot;If this fails, everything must fail. Once more—together—the three of us——&quot;</p>
+<p>Again the fingers were building up their rhythm. The figure vibrated with a strange, eerie humming noise, like a reed in the wind. The eyes closed for a moment, as if to gain strength, and then burned out again like searchlights. Together, Karl and I and that Thing strove for some mastery that I could will, but not understand.</p>
+<p>John Crane slowly rose to a sitting posture on the bed. His hands were extended in front of him. Then <em>&quot;snap&quot;</em> went the fingers, and Crane opened his eyes!</p>
+<p>&quot;What—where am I? What has happened?&quot;
+<br><br></p>
+<p>AS he spoke, I saw the spectral figure fade out into obscurity. Karl loosed my arm and leaped to his feet. I sank back exhausted into my chair. I felt drained of energy.</p>
+<p>&quot;Get Mrs. Crane quick—&quot; called Karl. He was leaning over the man on the bed. I staggered downstairs to the telephone, and in a few minutes Mrs. Crane was running ahead of me up the stairs.</p>
+<p>&quot;Thank God,&quot; she was sobbing. &quot;Thank God——&quot;</p>
+<p>Her husband was propped up in the bed, with Karl talking gaily to him. He seemed weak, but otherwise all right.</p>
+<p>&quot;What happened?&quot; Mrs. Crane asked as she sat on the bed, with her husband's hand in hers. &quot;Did you drive It away—forever?&quot;</p>
+<p>Karl looked at me, with a tenseness of his lips that spelled secrecy. He smiled at the Cranes. &quot;Nothing will bother you again. We'd better not tire the man any more than we must.&quot;
+<br><br></p>
+<p>IN a short time he and I had bid farewell to the Cranes and were walking together in the early morning.</p>
+<p>Suddenly I faced him. &quot;I'm going no farther until I know the whole story. I
+can guess, but——&quot;</p>
+<p>He laughed. &quot;Well, I've been silent. I wasn't sure, and I didn't want to spoil everything by talking before I was sure. I'll tell you all about it in the hotel.&quot;</p>
+<p>A little while later we sat at the table in his room. &quot;I'll start at the beginning,&quot; he said, &quot;and outline it for you.</p>
+<p>&quot;To begin with, we were dealing with a man who had been sleeping for about a month. I dismissed the sleeping-sickness idea at once. The symptoms were not the same, and the doctors were undoubtedly out of their element.</p>
+<p>&quot;Then, in regard to the Thing that appeared to Mrs. Crane—I have come into contact with too many real manifestations to doubt seriously the testimony of as sensible a woman as she is. Furthermore, the nurse and the maid had seen the apparition, too. Of course, the natural thing for a person to do when he sees something abnormal is to fear it. Yet Mrs. Crane was defeating her own purposes. The ghost meant only good—but how was she to know? So much for that.</p>
+<p>&quot;I have made rather a complete study of hypnotism in all its phases. And as soon as I looked at John Crane, I was sure that he was in a profound hypnotic state.</p>
+<p>&quot;I did not believe, when I sent you to watch alone in the room, that anything would happen. At that time I thought the hypnotist who had put Crane to sleep was living.&quot;</p>
+<p>&quot;Do you mean that Crane was hypnotized by a ghost?&quot;</p>
+<p>&quot;No—not exactly. Listen! I spent the night going through the back files of New York newspapers. I showed you my findings, but you did not see the point.&quot;</p>
+<p>&quot;All you showed me were obituary notices and such things——&quot;</p>
+<p>&quot;Yes—obituary notices. But if you had read a little further you would have discovered that Jacob Winkelmann, who died at ten o'clock on the night of the twenty fifth of June, was known in theatrical circles as 'The Great Wilhelm?' And the play-bills I showed you were for a performance in hypnosis to be given on that very night by that man Winkelmann, under the name Wilhelm. Do you see?&quot;</p>
+<p>&quot;Partly. But——&quot;</p>
+<p>&quot;It's perfectly clear. If I could have found the two men who brought Crane home, I might have been able to prove it all to you before we went back to the room. But the city is large, and I had no time to advertise for them. So I took a chance.&quot;</p>
+<p>&quot;You mean-Crane was hypnotized by Winkelmann, or the Great Wilhelm, after
+the fellow was dead?&quot;</p>
+<p>&quot;No, of course not. Crane must have offered himself as a subject at the performance. In the library at his house I noticed several books on telepathy, mesmerism, and the like. He was probably skeptical about the power of one mind over another. He must be convinced now.</p>
+<p>&quot;Picture the meeting—a large hall packed with people; the Great Wilhelm, an imposing figure, standing on the platform, asking for a volunteer who will consent to be placed in a hypnotic state. Crane answers, and goes up on the stage, determined to have a battle of wills with the hypnotist.</p>
+<p>&quot;In such cases, it is difficult for the performer. Wilhelm, as he called himself, had to exert all his mental strength against the man he was trying to put to sleep. Finally the stronger intellect triumphed, and Crane went into a hypnotic state as deep as is possible to man. His resistance being suddenly released, he was put into a much more complicated sleep than would have been the case if he had been merely passive all the time.
+<br><br></p>
+<p>&quot;BUT then, under the tremendous strain, the heart of the old hypnotist stopped beating. He fell dead on the platform, leaving his subject in the deepest of hypnotic states. See?&quot;</p>
+<p>I nodded. It was misty yet, but I began to visualize what Karl was leading up to. &quot;Go on.&quot;</p>
+<p>&quot;Well—someone around the theater, perhaps the stage manager, sent Crane home in a cab. I did not have time to talk to him, but undoubtedly he had no knowledge of the real seriousness of Crane's condition. His one idea was to keep the thing as quiet as possible, and to avoid letting the newspapers
+get the story. He succeeded.</p>
+<p>&quot;It didn't matter much. I doubt if any other hypnotist could have brought Crane. out of it, even then. He was entirely subject to the will-power of a dead man!&quot;</p>
+<p>Karl smiled, and gestured. &quot;See it all? Crane was asleep, and would die asleep if
+nothing were done for him.</p>
+<p>&quot;But Jacob Winkelmann was a conscientious man. He realized, in whatever dim land he found himself, that he had left a fellow mortal in dire straits. He knew, with a certain knowledge, that he and he alone could bring John Crane back to life. So his spirit sought to materialize above the sleeper; it sought energy enough to awaken him. And——&quot;</p>
+<p>&quot;Then Mrs. Crane was fighting against the Thing which was trying to save her husband?&quot;</p>
+<p>&quot;Yes. She thought of the Unknown as inimical to mankind. And it isn't, necessarily.</p>
+<p>&quot;But to go on with the story—I guessed at what was going on, and went with you into that room, intent on helping the specter in any way I could. That is why I removed every evidence of fear and resistance that Mrs. Crane had left. That is why I asked you to eliminate fear from your mind. I was trying to give aid to the ghost of Jacob Winkelmann. For it faced an almost impossible task—the necessity of materializing in human form, and controlling a human mind. The brain of 'The Great Wilhelm' lies rotting in Woodlawn Cemetery—but he called it back to him for a few moments, and drawing on us for energy, he managed to undo what he had, in all innocence, done to his hypnotic sub- ject. Thus Crane awakened, and the ghost, its work finished, went back behind the veil.&quot;
+<br><br></p>
+<p>I WIPED my forehead. I suddenly realized the stupendousness of what had been happening in the last few hours.</p>
+<p>&quot;I didn't want to explain matters to the Cranes,&quot; Karl went on. &quot;They might not have believed it all, anyway—and Mr. Crane was naturally in a greatly weakened condition. His wife thinks that I, with the help of her crucifixes and herbs, drove away the terrible Thing which had kept her husband in that condition. And he probably remembers very little of his last evening of consciousness and his experiment with the hypnotist. It is better that he forget it all as soon as possible, for his will has been for so long subject to a powerful, if distant, control, that he will have to convalesce mentally as well as physically. He has been where few have been before.&quot;</p>
+<p>&quot;By the way,&quot; I asked, &quot;what fee did you charge for coming across the continent and bringing John Crane to life?&quot;</p>
+<p>Karl Brandt looked at me and burst out laughing. &quot;Good Lord,&quot; he said, &quot;I forgot all about that! I guess I've made Mrs. Crane a present of her husband!&quot;</p>
+<hr>
+<p>Part of the series <a href="/dark_tales_sleuth/pages/stuart-palmer/"><em>The Supernatural Writings of Stuart Palmer</em></a>.<br>
+Illustration from <em>Ghost Stories Magazine</em>, October 1928.</p>
+
+</article>
+		</main>
+
+		<!-- footer -->
+		<hr>
+
+<div class="footer-container">
+	<p>&copy; 2026 Nina B. Zumel</p>
+	<div class="social_icons">
+	    <a href="mailto:nzumel@mzlabs.com?subject=Comment%20from%20Dark%20Tales%20Sleuth" aria-label="Email" target="_blank" rel="noopener noreferrer">
+			<i class="fas fa-fw fa-envelope"></i>
+		</a>
+		<a href="https://micro.blog/MultoGhost" aria-label="Micro.blog" target="_blank" rel="noopener noreferrer">
+			<i class="fab fa-fw fa-microblog"></i>
+		</a>
+		<a href="https://multoghost.wordpress.com/" aria-label="Multo (Ghost)" target="_blank" rel="noopener noreferrer">
+			<i class="fab fa-fw fa-wordpress"></i>
+		</a>
+		<a href="/dark_tales_sleuth/feed.xml" aria-label="RSS" target="_blank" rel="noopener noreferrer">
+			<i class="fa fa-fw fa-rss-square"></i>
+		</a>
+
+	</div>
+</div>
+		<!-- /footer-- >
+
+		<!-- Current page: /dark_tales_sleuth/stuart-palmer/sleeper-bewitched/ -->
+	</body>
+</html>
