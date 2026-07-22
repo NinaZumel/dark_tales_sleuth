@@ -4,7 +4,6 @@ date: "2026-07-22"
 tags: 
   - Stuart Palmer
   - Ghost Stories Magazine
-  - occult detectives
   - with html transcription
 ---
 
