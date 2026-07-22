@@ -1,6 +1,6 @@
 ---
 title: A Sleeper Bewitched
-date: "2026-06-11"
+date: "2026-06-18"
 tags: 
   - Stuart Palmer
   - Ghost Stories Magazine
