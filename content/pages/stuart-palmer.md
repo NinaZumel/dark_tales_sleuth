@@ -39,7 +39,13 @@ In keeping with the conceit of the magazine, when appropriate, I'll give a story
 </span>
 
 [**A Sleeper Bewitched**](/stuart-palmer/sleeper-bewitched/) (October 1928)
-<br><span class="inline-note"> Karl Brandt and his sidekick Stanley Horton investigate the case of a disembodied hand, hovering over the bed of a man who has been asleep for almost a month. The first of the "Karl Brandt, ghost-layer" stories.
+<br><span class="inline-note"> Karl Brandt and his sidekick Stanley Horton investigate the case of a man who has been asleep for a month, with occasional visits from a disembodied hand. The first of the "Karl Brandt, ghost-layer" stories.
+</span>
+
+**The Haunted Harem** (November 1928)
+
+[**Seven Gray Wolves**](/stuart-palmer/seven-gray-wolves/) (December 1928)
+<br><span class="inline-note"> Duke the collie was a faithful friend to Frank Meadock's family, and the guardian of Frank's sheep. Duke takes his responsibilities seriously—even after death!
 </span>
 
 </div>
