@@ -1,0 +1,900 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Seven Gray Wolves</title>
+		<meta name="description" content="Filling in the Literary Blanks">
+		<link rel="alternate" href="/dark_tales_sleuth/feed/feed.xml" type="application/atom+xml" title="Dark Tales Sleuth">
+		<link rel="alternate" href="/dark_tales_sleuth/feed/feed.json" type="application/json" title="Dark Tales Sleuth">
+
+        
+		<link rel="me" href="https://micro.blog/MultoGhost">
+		<link rel="authorization_endpoint" href="https://indieauth.com/auth">
+		<link rel="token_endpoint" href="https://tokens.indieauth.com/token">
+		<link href="https://github.com/ninazumel" rel="me">
+		<script src="https://kit.fontawesome.com/9bbe6f85f9.js" crossorigin="anonymous"></script>
+		
+		<style>/* minimal implementation; just plain text in the margin, no blockquotes, code, etc */
+/* only (unnumbered) margin notes, no sidenotes */
+/* stripped down from https://github.com/edwardtufte/tufte-css */
+
+/* need this for correct sidenote numbering; but I'm not using sidenotes */
+/*
+body {
+    counter-reset: sidenote-counter; 
+} 
+*/
+
+
+/* since I imagine these will change with different templates */
+:root {
+    --content-width: 65%;
+    --image-padding: 5%;
+    --image-max: 60%;  /* total image+padding <= content-width */
+    --notewidth: 30%; 
+    /* content-width + notewidth <  100%. I think you should leave some wiggle room. */
+    --note-right-margin: -45%;
+    /* if this margin is -(notewidth), the note will start just on the right border of the text */
+    /* so push it a little to the right (more negative) */
+}
+
+article {
+	padding-top: 1rem; 
+}
+
+/* make room for the notes in the article container */
+article > p,
+article > pre,
+article > ul,
+article > details {
+    width: var(--content-width);
+}
+
+/* 
+  blockquotes should be a little shorter 
+  This assumes that left indentation is 2em, which is what it looks like.
+  Subtract way more than 2 em, so that it's way shorter.
+  */
+article > blockquote {
+    width: calc(var(--content-width) - 10em); 
+}
+
+
+article > hr {
+    max-width: var(--content-width);
+    margin: 0
+}
+
+article > h1, 
+article > h2,
+article > h3,
+article > h4 {
+    max-width: var(--content-width);
+}
+
+article > center {
+    max-width: var(--content-width);
+}
+
+/* keep images/captions in the text column, rather than centered in the article container */
+article > img {
+    margin-left: 0;
+    padding-left: var(--image-padding);
+    max-width: var(--image-max); 
+}
+
+article > p.caption {
+	text-align: left;
+    padding-left: var(--image-padding);
+	font-style: italic;
+	font-size: 0.9em;
+	color: var(--caption-color);
+ }
+
+article > p.caption a:hover,
+article > p.caption a:active {
+    color: var(--text-color-link-active);
+}
+
+.footnote-item {
+    max-width: var(--content-width); 
+}
+
+ /* finally, the margin note */
+.marginnote {    
+    float: right;
+    clear: right;
+    width: var(--notewidth);         
+    margin-right: var(--note-right-margin);
+    margin-top: 0.3rem;
+    margin-bottom: 0;
+    font-size: 0.8rem;
+    line-height: 1.3;
+    vertical-align: baseline;
+    position: relative;
+    /* border: 2px solid blue; */
+}
+
+
+input.margin-toggle {
+    display: none;
+}
+
+
+label.margin-toggle {    
+    display: none;
+
+}
+
+/* The mobile fallback: */
+/* making max-width bigger makes the note fall inline sooner */
+@media (max-width: 768px) {  
+    body {
+        width: 84%;
+        padding-left: 8%;
+        padding-right: 8%;
+    }
+
+    hr,
+    article > p,
+    article > blockquote,
+    article > pre {
+        width: 100%;
+    }
+
+    label.margin-toggle {
+        display: inline;
+    }
+       
+    .marginnote {           
+         display: none;        
+        }    
+
+      
+    .margin-toggle:checked + .marginnote {            
+        display: block;            
+        float: left;            
+        left: 1rem;            
+        clear: both;            
+        width: 95%;            
+        margin: 1rem 2.5%;            
+        vertical-align: baseline;            
+        position: relative;        
+    }
+    label {
+        cursor: pointer;
+    }
+}
+* { box-sizing: border-box; }
+/* colors from flexoki - https://stephango.com/flexoki */
+
+:root {
+	--paper: #FFFCF0;
+	--tx-normal: #100F0F;
+	--tx-muted: #6F6E69;
+	--tx-faint: #B7B5AC;
+	--blue300: #66A0C8;
+	--blue400: #4385BE;
+	--blue600: #205EA6;
+	--blue700: #1A4F8C;
+	--blue800: #163B66; 
+	--blue850: #133051;
+	--green400: #879A39;
+	--green600: #66800B;
+	--red800: #6C201C;
+	--purple600: #5E409D;
+	--purple300: #A699D0;
+	--base50: #F2F0E5;
+	--base100: #E6E4D9;
+	--base300: #B7B5AC;
+
+	--description-color: var(--tx-muted); 
+    --caption-color: var(--tx-muted);
+	--background-color:  var(--paper); 
+    --hrule-color: var(--base100);
+    --hrule-faint-color: var(--base50);
+	--box-border-color: var(--base50);
+
+	--header-anchor-color: var(--base300); /* for the # links on headers */
+	--icon-color: var(--blue600);
+	--icon-hover-color: var(--blue300);
+	--tag-color: var(--purple600);
+	--tag-hover-color: var(--purple300);
+
+	--text-color: var(--tx-normal); 
+	--text-color-link: var(--blue700); 
+	--text-color-link-active: var(--blue400); 
+	--text-color-link-visited: var(--blue700); 
+
+	--collapsible-summary-color: var(--green600);
+	--details-box-color: var(--base50);
+
+
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--black: #100F0F;
+		--base200: #CECDC3; 
+		--base300: #B7B5AC;
+		--base500: #878580;
+		--base600: #6F6E69;
+		--base700: #575653;
+		--base900: #282726;
+		--base950: #1C1B1A;
+		--blue700: #1A4F8C;
+		--green400: #879A39;
+	    --green600: #66800B;
+		--red400: #D14D41;
+		--purple400: #8B7EC8;
+		--purple500: #735EB5;
+		--purple600: #5E409D;
+	
+		--description-color: var(--base300); 
+		--caption-color: var(--base500);
+		--background-color:  var(--black); 
+		--hrule-color: var(--base900);
+		--hrule-faint-color: var(--base950);
+		--box-border-color: var(--base900);
+
+		--header-anchor-color: var(--base500); /* for the # links on headers */
+		--icon-color: var(--blue400);
+		--icon-hover-color: var(--blue600);
+		--tag-color: var(--purple400);
+		--tag-hover-color: var(--purple500);
+
+		--text-color: var(--base200); 
+		--text-color-link: var(--blue400); 
+		--text-color-link-active: var(--blue600); 
+		--text-color-link-visited: var(--blue400); 
+
+		--collapsible-summary-color: var(--green400);
+		--details-box-color: var(--base900);
+	}
+}
+/* Defaults */
+:root {
+	--font-family: Georgia, Times, -serif; /* Tahoma, -apple-system, system-ui, sans-serif; */
+	--font-family-sanserif: Tahoma, -apple-system, system-ui, sans-serif;
+	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+
+	/* from another template - experiment with these */
+	--font--serif: 'Bitstream Charter', Charter, Palatino, 'Palatino Linotype', 'Palatino LT STD', 'Book Antiqua', Georgia, serif;
+  	--font--sans: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+}
+
+/* Theme colors */
+:root {
+	--syntax-tab-size: 2;
+}
+
+
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	font-size: 18px;  /* a little bigger to accomodate a serif font */
+	color: var(--text-color);
+	background-color: var(--background-color);
+}
+html {
+	overflow-y: scroll;
+}
+body {
+	max-width: 70em; /* 50em; */
+}
+
+/* Basic heading typography */
+h1,h2,h3,h4,h5 {
+  font-family: var(--font--sans);
+  font-weight: 600;
+}
+
+/* different horizontal rules  https://www.w3schools.com/howto/howto_css_dividers.asp */
+ /* Dashed border */
+ hr.dashed {
+	border-top: 1px dashed var(--hrule-color);
+  }
+  
+  /* Dotted border */
+  hr.dotted {
+	border-top: 1px dotted var(--hrule-color);
+  }
+  
+  /* Solid border */
+  hr.solid {
+	border-top: 1px solid var(--hrule-color);
+  }
+  
+
+/* 
+https://css-tricks.com/barebones-css-for-fluid-images/ 
+Without this, images generated by eleventy-img will always use the largest available size
+-- ie, not be responsive.
+*/
+img {
+	max-width: 100%; 
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+  }
+  img[width] {
+	width: auto; /* Defer to max-width */
+  }
+  img[width][height] {
+	height: auto; /* Preserve aspect ratio */
+  }
+  
+  /* Let SVG scale without boundaries */
+  img[src$=".svg"] {
+	width: 100%;
+	height: auto;
+	max-width: none;
+  }
+  
+
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+p {
+	line-height: 1.5;
+	/* font-size: 1.2em; */
+}
+
+p.caption {
+	text-align: center;
+	font-style: italic;
+	font-size: 0.9em;
+	color: var(--caption-color);
+ }
+
+ /* for the credits at the bottom of a page */
+p.credit {
+	max-width: 50em;
+	font-size: 0.9em;
+	margin-left: auto;
+	margin-right: auto;
+ }
+
+
+/* for inline annotations, like translations */
+span.inline-note {
+	font-size: 0.9em;
+	font-style: italic;
+}
+
+li {
+	line-height: 1.5;
+	/* font-size: 1.2em; */
+}
+
+a[href] {
+	color: var(--text-color-link);
+	text-decoration: none; 
+}
+a[href]:visited {
+	color: var(--text-color-link-visited);
+}
+a[href]:hover,
+a[href]:active {
+	color: var(--text-color-link-active);
+}
+
+main {
+	padding: 1rem;
+}
+main :first-child {
+	margin-top: 0;
+}
+
+header {
+	border-bottom: 1px dashed var(--hrule-color);
+}
+header:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.links-nextprev {
+	text-align: center;
+	list-style: none;
+	border-top: 1px dashed var(--hrule-color);
+	padding: 1em 0;
+}
+
+
+table {
+	margin: 1em 0;
+}
+table td,
+table th {
+	padding-right: 1em;
+}
+
+pre,
+code {
+	font-family: var(--font-family);
+	font-size: 0.95em;
+}
+pre:not([class*="language-"]) {
+	margin: .5em 0;
+	line-height: 1.375; /* 22px /16 */
+	-moz-tab-size: var(--syntax-tab-size);
+	-o-tab-size: var(--syntax-tab-size);
+	tab-size: var(--syntax-tab-size);
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+}
+code {
+	word-break: break-all;
+}
+
+/*
+  Custom containters
+*/
+div.message-box {
+	max-width: 50em; 
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div.magazine-box {
+	max-width: 50em; 
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+/* Header */
+header {
+	font-family: var(--font--sans); 
+	display: flex;
+	gap: 1em .5em;
+	flex-wrap: wrap;
+	align-items: center;
+	padding: 1em;
+}
+.home-link {
+	font-size: 1.5em; /* 24px /16 (I think)*/
+	font-weight: 700;
+	margin-right: 2em;
+}
+.home-link:link:not(:hover) {
+	text-decoration: none;
+}
+
+/* Nav */
+.nav {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.nav-item {
+	display: inline-block;
+	margin-right: 1em;
+}
+.nav-item a[href]:not(:hover) {
+	text-decoration: none;
+}
+.nav a[href][aria-current="page"] {
+	text-decoration: underline;
+}
+
+/* Posts list */
+.postlist {
+	list-style: none;
+	padding: 0;
+	padding-left: 0; /* 1.5rem; */
+	max-width: 50em;
+}
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	counter-increment: start-from -1;
+	margin-bottom: 1em;
+	padding-bottom: 50px;
+	/* padding: 8px 16px; */
+	border-bottom: 1px dashed var(--hrule-color);
+}
+
+/* 
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	content: "" counter(start-from, decimal-leading-zero) ". ";
+	line-height: 100%;
+	text-align: right;
+	margin-left: -1.5rem;
+}
+*/
+
+.postlist-date,
+.postlist-item:before {
+	font-size: 0.8125em; /* 13px /16 */
+	color: var(--description-color);
+}
+.postlist-date {
+	word-spacing: -0.5px;
+	padding-left: .25em;
+}
+.postlist-link {
+	font-size: 1em; /* 1.1875em;  19px /16 */
+	font-weight: 700; 
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration: none; 
+	/* text-decoration-thickness: 1px; */
+}
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+/* for collapsible text blocks.
+Put the hidden text into p element(s); it looks better.
+*/
+
+/*
+original details background color: #f5f5f5 
+original box border color: #0066cc
+*/
+
+details {  margin: 1em 0;  padding: 1em;  background-color: var(--details-box-color);  border-left: 4px solid var(--collapsible-summary-color);}
+summary {  cursor: pointer;  font-weight: bold;  color: var(--collapsible-summary-color);}
+summary:hover {  text-decoration: underline;}
+
+/* Tags */
+.post-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+	font-style: italic;
+}
+.postlist-item > .post-tag {
+	align-self: center;
+}
+
+/* Tags list */
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: .5em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.post-metadata time {
+	margin-right: 1em;
+}
+
+/* I don't want tag links to stand out too much */
+.post-metadata a[href] {
+	color: var(--tag-color);
+}
+
+.post-metadata a[href]:hover,
+               a[href]:active {
+	color: var(--tag-hover-color);
+}
+
+
+.post-metadata li {
+	font-size: 0.875em;
+}
+
+/* metadata for posts and talks */
+
+.posttalk-metadata {
+	list-style: none;
+	padding-left: 0;
+	color: var(--description-color);
+}
+
+.posttalk-metadata ul {
+	list-style-type: none; /* no bullets */
+	padding: 0;  /* no indentation, either */
+	margin: 0;
+}
+
+/* Direct Links / Markdown Headers */
+.header-anchor {
+	text-decoration: none;
+	font-style: normal;
+	font-size: 1em;
+	margin-left: .1em;
+}
+a[href].header-anchor,
+a[href].header-anchor:visited {
+	color: transparent;
+}
+a[href].header-anchor:focus,
+a[href].header-anchor:hover {
+	text-decoration: underline;
+}
+a[href].header-anchor:focus,
+:hover > a[href].header-anchor {
+	color: var(--header-anchor-color);
+}
+
+h2 + .header-anchor {
+	font-size: 1.5em;
+}
+
+/* Footer */
+hr {
+    border: none;
+    background-color: var(--hrule-color);
+    height: 1px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+    hr {
+        width: 100%;
+    }
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2rem 0;
+    background-color: var(--background-color);
+	;
+}
+
+.footer-container p {
+    font-size: 1rem;
+    color: var(--description-color);
+}
+
+.footer-container .social_icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0 1rem;
+}
+
+.footer-container .social_icons a {
+    color: var(--icon-color);
+    font-size: 1.5rem;
+    transition: all 0.5s ease-in-out;
+}
+
+.footer-container .social_icons a:hover {
+    color: var(--icon-hover-color);
+}</style>
+	</head>
+	<body>
+		<a href="#skip" class="visually-hidden">Skip to main content</a>
+
+		<header>
+			<a href="/dark_tales_sleuth/" class="home-link">Dark Tales Sleuth</a>
+			<nav>
+				<h2 class="visually-hidden">Top level navigation menu</h2>
+				<ul class="nav">
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/about/">About</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/my-investigations/">My Cases</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/blog/">All Posts</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/comments/">Comments</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/about-me/">About Me</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="skip">
+			
+
+
+<h1>Seven Gray Wolves</h1>
+
+
+
+
+
+
+<ul class="posttalk-metadata">
+  <li>By Frank Meadock, as told to Stuart Palmer</li>
+  <li>Published in  <em>Ghost Stories Magazine</em>, December 1928</li>
+</ul>
+
+<article>
+<p style="text-align:center; font-style:italic; font-size:1.2em"><strong>Seven Gray Wolves</strong>—and how their savage attack on Frank Meadock's sheep furnished proof that the dead return.</p>
+<img src="/dark_tales_sleuth/stuart-palmer/seven-gray-wolves/seven-gray-wolves-8VUsnjrG18-1488.png" alt="A rough collie, highlighted by the moon, faces three slavering wolves on the side of a mountain." loading="lazy" decoding="async" width="1488" height="979">
+<p>THE doctors in New York told me that my only chance for life lay in going to the West, to some high altitude. This was a heavy blow to me, for I was a young man of thirty, with my own way to make in the world, and with a family and little else. My wife and I discussed it night after night. She could not work and care for our little daughter at the same time, and it seemed that there was no way for us to keep together and for me to seek the possible health that the West might bring me.</p>
+<p>Then a friend who knew of my trouble wrote to me, suggesting a sheep ranch and offering to start me in the business somewhere in the mountains. After a family consultation we accepted his offer gratefully.</p>
+<p>The sale of our house and furniture paid our way to a little town in the foothills of northern Montana, and left us enough to fit out a small cabin on the shoulder of a mountain near the Kootenai Pass. The money, lent by my friend, supplied us with a small flock of sheep.</p>
+<p>There was not a great deal of grazing there, but stockmen had put up no fences and the land was free, if tilled. It was hard work for me, and lonely for my wife, who had never been away from the crowds before in all her life. But slowly our flock grew.</p>
+<p>After four seasons the sheep numbered nearly a thousand fine young ewes, and I had high hopes of repaying my debt to my friend that spring. My health had greatly improved with the out-of-door life, and all three of us had learned to love our corner among the peaks. I said &quot;all three,&quot; but we were really four. Since the beginning of my work I had been constantly accompanied by Duke, a fine pedigreed collie. He was almost as much a member of the family as our little daughter, whom he worshiped.</p>
+<p>It was due more to Duke's loyal efforts than my own that the flock increased as it did, and that no sheep were lost and none destroyed by wild animals. The collie was a sleepless guardian of the flock. His clear, ringing bark would awaken me in the night if anything disturbed the sheep or if his keen scent gave warning of a taint of beast in the air.</p>
+<p>Many times I rushed out, Winchester in hand, to find Duke in battle with a cougar or mountain lion. Valiant as he was, he could not match them in strength. This he knew. So he would fence with them, leaping in and slashing with his razor teeth, all the while barking furiously to summon me.</p>
+<p>Then Duke died. He was old, very old, when I purchased him, and though we did everything for him that we could, he breathed his last one bitter December day, before the open fire. Dogs, as a rule, wish to die alone, and they will creep far away in seclusion when they know that the time has come. But Duke did not want to leave us.</p>
+<p>We were all heart-broken, for he had been the great playmate of my little girl, as well as the constant companion of all of us. For that reason I could not bear to replace him with another dog, though I needed one badly.</p>
+<p>He was buried on the hillside above the corral, where he had used to lie at night, watching over the cabin and the sheep.</p>
+<p>The long, hard winter ended at last. The hay I had bought was nearly gone, and I was glad to see the snow melting and the new grass sprouting. The sheep had come through the winter well, and lambing time was almost upon us.</p>
+<p>But I dreaded to let my flock out of the corral. Without Duke, I did not know how matters would fare with them when they started to wander off to have their lambs. And they represented everything I owned in the world—my chance to repay my benefactor and to regain my independence, as well as my health.</p>
+<p>In that rough country a thousand things can happen to sheep, for they are among the most helpless creatures known. Ordinarily they have a tendency to flock together but in lambing time each ewe seeks seclusion—and with no Duke to help me I feared that I might lose many through straying or through the depredations of wild animals.<br><br></p>
+<p>THE time came when they could be no longer confined except at night. In most places the snow was gone, and the sheep found good feed in the dry last year's grass, through which the new green shoots were sprouting.</p>
+<p>The mountain slopes were barer of life than I had ever seen them before. The winter had taken its toll of the wild creatures, and I saw only a few distant deer in the lowlands.</p>
+<p>One night I awakened trembling with terror. I did not know what had frightened me. Then it came again...the faint wail of a wolf. I knew it for what it was, though I had never heard the sound before. Coyotes were plentiful, and their yapping disturbed no one. But there is always something in the timbre of a wolf's howl that chills the blood of one who hears it.</p>
+<p>The winter had starved the gray wolves out of their haunts in the north, and they were running in the Kootenai! My little girl awoke and started crying. I reassured my wife, and went out to look at the sheep, finding them crowded together in one end of the long corral. The howling had been borne by the wind across miles of rocks and ravines. Yet there seemed a personal menace in it. I knew that it was unlikely that the dreaded beasts would ever come near my cabin, but during the rest of that night I lay awake, listening for a repetition of the long-drawn cry. But it did not come again.<br><br></p>
+<p>NEXT morning the sheep had to be let out again, and I spent most of the day watching them and keeping them from straying too far. I wondered what I could do to improve my corral. It was far from impregnable, even to the sheep themselves, who used to break through occasionally. Hungry wolves would have no difficulty in leaping among the terrified sheep, and I knew that if that ever should happen, not one of my fleecy ewes would be alive by morning. For the gray wolves are renegades, in every sense of the word. They will slaughter for the sheer love of killing.</p>
+<p>That day, when the old mail-carrier came through the Pass, I sent out for another collie, because I saw that I would need a better watchman than myself if my flock were to be safe that spring. However, I realized that the collie might not arrive for a month, or even more. I was angry at myself for having let sentiment keep me from sending for one months before. Then I might have had a dog when I needed him most, instead of being alone.</p>
+<p>&quot;Alone,&quot; I thought I was...</p>
+<p>We heard no more howling the rest of that week, which was the last in April. The lambs were coming well...most of the sheep had twins, and the little fellows were a sight to behold as they toddled after their mothers. Each one looked something like a ball of yarn on stilts.</p>
+<p>On Sunday, the first of May, I put the sheep in the corral as usual at dark. Lambing time was nearly over, and there was a great hubbub as the lambs baaed and wailed after their mothers. For a while I stood by the gate and watched them milling around in the narrow enclosure. I had grown fond of these sheep in the four years I had tended and nursed them. Apart from their value, which was more than five thousand dollars at the market, I saw them as representing my successful struggle for health and independence. They were symbolical of the struggle that I, and my family as well, had gone through.</p>
+<p>As I stood there, thinking these thoughts and wondering if there were real danger of wolves, my wife called out from the open door of the cabin.</p>
+<p>&quot;Frank! Bring Baby in to supper—it's all ready.&quot;</p>
+<p>Her words struck chill to my heart. I turned and ran to her, for I had not seen our little daughter since that noon.</p>
+<p>&quot;Isn't she with you?&quot; I cried, as I stumbled up the steps.</p>
+<p>My wife turned from the table, her face going suddenly white.</p>
+<p>&quot;She wanted to watch you put the sheep. in for the night. I thought she found you—I was getting supper.&quot;</p>
+<p>Together, we ran out into the yard. It was getting dark—and there was no sign of baby anywhere! A little girl of five...alone somewhere on the mountain side at night!</p>
+<p>Almost paralyzed with fear, we took lanterns and scoured the slopes. Call though we might, there was no answering childish treble.</p>
+<p>My wife was sobbing. &quot;She's hurt...I know she's hurt somewhere.&quot;</p>
+<p>There was no moon, and the stars cast only a faint and gloomy radiance over the mountains. Everything seemed distorted Finally, breathless and half insane with fear, we stopped to rest on a little point near the summit.</p>
+<p>I was calling the child's name as loudly as I could. &quot;Betsy! Betsy!&quot;</p>
+<p>But there was no answer. The echo mocked me dismally. &quot;Betsy-y-y-y!&quot; Then I cursed myself for having failed to get another collie when Duke died, for a good dog could have tracked the little girl wherever she had wandered.<br><br></p>
+<p>&quot;IF only Duke were here——&quot; I started wishing aloud.</p>
+<p>&quot;Listen!&quot; My wife caught my hand.</p>
+<p>I strained my ears. I could hear nothing but the wind.</p>
+<p>&quot;I heard...something.... Could it have been...a wolf?&quot;</p>
+<p>The word struck terror to my heart. It was bad enough to have the child wandering alone in the darkness, near the great chasms and ravines. But if wolves were running in the foot-hills...</p>
+<p>Then I heard it! Far back, in the direction of the cabin, I could hear a strange, eerie howling. Again it came.</p>
+<p>Without waiting for my wife to follow, I stumbled down the mountain side, gasping with fear. Horrible pictures of what I might find at the end of my quest ran through my mind.</p>
+<p>I think that was the worst quarter of an hour I ever spent in all my life. I fell over rocks, breaking the lantern to bits. I bruised myself against the dwarf pine trees. Then I came out on the familiar sheep trail, and made better time. The howling was louder now, and seemed to come from the canyon directly below the cabin. It did not sound like the bloodthirsty, moaning cry of a wolf—instead, it was like the long-drawn barking of a dog, summoning aid. But there was something mournful and uncanny about the sound!</p>
+<p>I could hear my wife running along behind me. The mother instinct, when aroused by danger, can give wings to tired feet, and she was almost abreast of me when we came out above the canyon.</p>
+<p>We stopped, and one great loud howl rose almost at our feet, followed by two sharp, staccato barks which could have come from the throat of no wolf that ever lived! If I had not laid poor Duke away on the hillside above, I should have sworn that it was his familiar voice!</p>
+<p>There was nothing in sight—neither wolf nor dog nor coyote!</p>
+<p>Slowly we made our way down the canyon wall. There, firmly caught in a roll of barbed wire that I had once used on the corral wall, we found Betsy. She had sobbed herself to sleep long before, but still clutched firmly in her hand a few wilted hepaticas. She had been gathering flowers for Mother!<br><br></p>
+<p>THE child was uninjured, and only a little shaken up by her tumble. The wire had caught her clothing fast, and held her from falling to a terrible death at the bottom of the canyon.</p>
+<p>And the walls had thrown her tiny voice back and forth so that we above could not hear it. Yet we had heard something! A voice had come to us out of that narrow crack in the mountain side...a voice which had called us across two miles of rough country.</p>
+<p>But there was no sign of any living thing in the canyon. The dust showed no footprint. I walked a little way along the wall, but it was very evident that nothing had passed that way since the last heavy rain.</p>
+<p>Betsy, when we questioned her, knew nothing of what had happened, except that she had fallen while trying to reach some particularly tempting blossoms.</p>
+<p>&quot;An' then I got all stuck in the wire, and I couldn't get loose at all...&quot;</p>
+<p>In too highly excited a state to sleep, my wife and I watched over the child for most of the night. We could not explain what had happened. Had we imagined the sound of the howling? But why had it led us to the lost girl, and why had it resembled Duke's voice so strangely? For my wife and I had both noticed that, even in our frantic anxiety to reach the child.<br><br></p>
+<p>NEITHER of us believed it to be anything but the strangest of coincidences. I was of the opinion that our fear of wolves had made us hear sounds which did not exist.</p>
+<p>Finally we gave up trying to explain what we could not understand, and went to sleep, thanking God that our little daughter had been so mysteriously rescued.</p>
+<p>After that, nearly a week went by without event. The lambs grew larger and more capable of finding their way around. We both watched Betsy every moment, dreading a repetition of what had happened. The child was lonely without playmates, and of an adventurous spirit. She was apt to forget the promises she had made to both of us, and wander off to look for flowers again.</p>
+<p>There was no more howling at night, either of dogs or of wolves, and we had almost put such thoughts and fears out of our heads. In a few weeks the sheep-shearers would come, to divest my flock of their heavy coats for the summer. The wool alone, at the current prices, would almost pay my debt to my friend—and leave me a free man once more!</p>
+<p>But one day I noticed that the sheep were uneasy. The old ewes would throw their heads into the air every few minutes and sniff angrily. Then they would lead the way to a different grazing ground, where they would stay only a few minutes before repeating the same thing. The lambs, too, were caught by the spirit of restlessness, and I noticed that they did not play and run as usual. There was no parade among them, no stiff-legged jumping, no king-of-the-castle game as usual. Each lamb stood whimpering beside his mother.</p>
+<p>Yet I could find nothing to worry them. I scoured the slope with a rifle in my hand, but nothing was there. No lurking cougar waited for a lamb or small yearling to carry away.</p>
+<p>I put them in the corral early in the afternoon, for they had stopped grazing and huddled together near a clump of dwarfed pine trees. I have seen sheep act in that manner sometimes when a storm was about to break, but the sky was clear, with a faint haze. There was nothing ominous in the weather, to me at least.</p>
+<p>Even in the corral I noticed that they did not lie down, or nurse their lambs, but circled aimlessly about. There was something strange and unreal about the whole scene.<br><br></p>
+<p>SUDDENLY I realized what it was. Not one of the lambs was baaing. They were silent, every one of them! The stillness seemed like a noise, so used was I to the cheerful bleating of the multitude.</p>
+<p>I fastened them in as well as I could, and went on into the cabin. There my wife and the little girl were playing school, and in their happy laughter I forgot the strange actions of the flock. Betsy was not used to having her daddy home in the afternoon, and we improvised games and had a gay time until after supper.</p>
+<p>Then it was dark, and Betsy's bedtime. She insisted that she was not sleepy at all, but as usual she was asleep as soon as her little head had touched the pillow.</p>
+<p>My wife and I sat on the door-step and discussed plans for the future. At last we could dare to hope for a return to civilization. I had had no return of my sickness for a long while, and I had regained my former weight and strength. And the success of our sheep-raising meant that we could repay the money we had borrowed and go east with more money than we had started with!</p>
+<p>&quot;We'll be sorry to leave here,&quot; I said. &quot;But it's lonely for you, and hard to do without the conveniences you once had. And Baby can't be brought up here, without other children, and schools, and doctors.&quot;</p>
+<p>&quot;I'll be glad to go,&quot; admitted my wife. &quot;Particularly now, for I've had a feeling during the last three or four days that something terrible could happen. We are so alone, and the mountains are so big!&quot;</p>
+<p>I laughed, and reassured her. &quot;Now that I'm well again, nothing terrible can happen,&quot; I said.</p>
+<p>&quot;Look!&quot; She pointed toward the corral. &quot;What's wrong with the sheep?&quot;</p>
+<p>I could see nothing to cause her alarm.</p>
+<p>&quot;The wall is down, where you mended it. See the post leaning over?&quot;</p>
+<p>Her eyes were keener than mine. After she pointed, I could see that the fence was leaning awkwardly over.</p>
+<p>&quot;And why are the sheep so silent tonight?&quot;</p>
+<p>I was getting to my feet, with the idea of fixing the corral wall before some sheep should break through.</p>
+<p>&quot;They were silent all day,&quot; I answered her. &quot;They must feel a storm coming on, or something like that.&quot;</p>
+<p>But when I reached the corral, I found it empty!</p>
+<p>Thousands of tiny footprints—sharp-hoofed footprints—were marked in the dust outside the broken wall. Some time that evening, while I had laughed and played with Betsy in the cabin a hundred yards away, every sheep and lamb had silently bolted!</p>
+<p>Sheep are among the most simple-minded creatures I have ever known. If one of them does a foolish thing, every sheep in the flock will follow, without pausing to consider the wisdom of it. I have seen one sheep, dazed by fright, leap into a river—and the whole flock would be ready to leap after.</p>
+<p>I stood there, uncertain of what to do. Somewhere, within a mile or so, the sheep that represented everything I had in the world were huddled in a frightened, shuddering mass. Perhaps they were a tangled, bloody mass at the foot of some cliff. Perhaps....</p>
+<p>Then there came to me, across the mountain side, the wild howl of a wolf. Again it awakened in me that old, inherited fear. It was imminent with danger, almost paralyzing my muscles.<br><br></p>
+<p>MORE howls. It was the cry of a wolf pack, hunting! The weird noise seemed to come from everywhere and nowhere. Echoes magnified and distorted the sounds until I was not sure whether the beasts were all around me in the gathering darkness, or far away across the foothills.</p>
+<p>Motioning my wife back into the cabin, I set out at a run—for now I could hear the frightened baaing of sheep. Somewhere above me on the slopes of the mountain were my sheep, bewildered, frightened, and lost. And somewhere—I knew not where—a pack of fierce gray wolves were running, their nostrils full of the scent of warm prey.</p>
+<p>The sheep were making more noise now. The deep voices of the old ewes chimed in with the treble of the lambs. If only Duke had been with me! His quick brain would have sent him hot-foot up the hillside, and in a few minutes he would have found the flock and started them back toward home and safety.<br><br></p>
+<p>BUT man's senses are not so keen. I could only guess in what direction I should be going. And, strong as I was from the long months of outdoor life, I could make but slow time up the slope.</p>
+<p>I came out on the bare side of Mount Boden. A little above me, and to one side, I could see the grayish-white of my sheep—about a quarter of a mile away. They were moving slowly and aimlessly up the mountain. Above the timber-line lies safety for the wild things, as a rule. No beast of prey can leap out and surprise them there.</p>
+<p>But of what avail would this inherited sense be to my sheep if the wolves were on their trail? For a sheep, at its fastest, cannot outrun a strong man—and a wolf is ten times as fast!</p>
+<p>The moon came out from behind a cloud and cast weird lights and shadows over the hills. Even exhausted and breathless as I was, I could not fail to note the beauty of the scene. It was a setting for some tragedy of epic proportions. The vast amphitheater of mountains—far above me, the white of the eternal snow—all softened and blurred by the light of the moon.</p>
+<p>Then it happened. I stopped, and saw a pack of lean gray wolves coming down on my sheep from the higher slopes! They were running close together—a blanket might have covered them. And now they made no sound. If it had not been for the snow on which they were running, I could not have seen them. As it was, I could make out only a blurred gray mass, sliding down silently and menacingly.</p>
+<p>Before I could hope to get to my sheep, they would be upon them! And what could I do? In my haste I had come without my rifle.</p>
+<p>Above the timber-line there is neither rock nor stick which might serve as a weapon. The trees lie below, and the surface of the ground is everlasting granite, frozen and covered with lingering snow.</p>
+<p>I knew what must happen. There would be a few minutes of horrible butchery. The maddened sheep would plunge about until terror would cause them to huddle helplessly together or plunge over the cliff which lay below them. And all the time, gray demons with unsatiable hunger would slash, and slash....</p>
+<p>In that moment I saw the work of four years fall to nothing. I saw myself again struggling under a load of debt, my wife and child unprovided for.</p>
+<p>But even more clearly than this, I saw the pain and hurt which was coming to the helpless creatures I had cared for. I had raised most of them from gawky lamb-hood into maturity. I had nursed the sick ones and fed the motherless lambs, and thought of them all as a sort of second family. Now I must watch them butchered.</p>
+<p>Tears running down my cheeks, I started running again. If I could have reached the wolves then, I would have fought them with my bare hands—until the yellow fangs found my throat inevitably.</p>
+<p>I was staggering up the hillside, screaming at the distant wolf-pack which steadily drew closer to the flock. I was half delirious with impotent rage.</p>
+<p>In my hysteria I forgot about the grave where I had laid my faithful helper, and called, &quot;Duke! Duke! Here, Duke; here, Duke!&quot;</p>
+<p>Once upon a time my voice would have brought him from anywhere in the hills, his swift white paws flying. Once upon a time my voice would have brought the answering bark in that familiar tone. But Duke was dead. With my own hand I had dug the shallow grave above the corral, and laid his tired old body to rest, in the very spot where he had always chosen to lie and watch the sheep.</p>
+<p>Once again, in my madness, I called, &quot;Duke! Save the sheep, Duke! Here, Duke; here, Duke....&quot;</p>
+<p>And then—I shall never be able to forget that moment—I heard the familiar answering bark, in the tone I knew so well! Faint and far away it was, as if Duke had been on some distant quest of his own. Then it came again and again, drawing steadily closer!<br><br></p>
+<p>FOR an instant the impossibility of it all did not strike me. It was so natural to have him answer! It had always been thus in the old days when we herded the sheep together. If I called when he was far away, he would give vent to a fierce, eager yelp every second or so as he came, as if to reassure me that he had heard.</p>
+<p>And there, on that desolate mountain, alone with my frightened sheep and the menacing wolves, I heard his swiftly approaching bark. Closer and closer it came, from the rocky slope behind me.</p>
+<p>I was running more slowly now, and I could see that the wolves were but a few yards from the sheep. I was sure that what I heard behind me was a delusion, born of my fear and longing for aid.<br><br></p>
+<p>BUT just as I tried to rationalize what I had heard, a well-known shape flashed past me—flashed by faster than the wind! There are few living creatures that can outrun a speeding collie—and I dare not guess how far Duke had run that night to come to me. His fur shone in the moonlight as he skimmed up the slope. His voice rang out in fierce eagerness.</p>
+<p>I sank against a boulder and watched. I could not have moved if all the wolves in the Kootenai had surrounded me. For even then I could not believe that Duke had heard my call in the silent land, and come back to me!</p>
+<p>Like a bullet he whizzed up toward the sheep he had guarded so faithfully while he lived. The wolves were almost upon them now.</p>
+<p>He circled the flock in his old way, forcing the stragglers in, and went on. The sheep were silent again. The rank odor of wolf, which had made them fearful all the day, was in their nostrils. If any one of them had taken the lead, the whole flock would have leaped over the precipice or stampeded down the sheer slope of the mountain. But they were paralyzed with fear of the gray figures that moved with deadly monotony down from the snows.</p>
+<p>For a few moments I lost sight of Duke. Then he reappeared, on the other side of the flock. He was not running now, but waiting. His bark was stilled, and I could see his plume-like tail erect and resolute. It was a banner of courage, that he had never lowered while he lived. Slowly it waved back and forth.</p>
+<p>Suddenly I realized that if it were really Duke standing there, and not a mirage, he could do nothing to save his sheep this time! For the strongest collie is no match for a wolf, and the odds were terribly against him.</p>
+<p>I clenched my hands until the nails cut into the palm. Watching that drama of impending struggle and death, I almost forgot to breathe.</p>
+<p>The wolves are almost upon Duke now. Running with their noses close to the earth, they have not yet given sign of noticing him. Is he only a wraith, a fiction that I have made of my desire and my memory? Will they run through him without seeing what I see—will he disappear like smoke while the butchery begins?</p>
+<p>I can count the gray figures now. There are seven of them. They run so closely together that they move as one.</p>
+<p>On tireless paws, the wolves keep up their monotonous race. I imagine that I can see their round, bloodshot eyes, their slavering jaws....</p>
+<p>Then, shattering the silence, a lamb bleats quaveringly. The faint and pitiful sound typifies the hopelessness of the whole affair.</p>
+<p>The figure of Duke straightens and braces itself. The wolves are not more than a dozen paces away....I see the whole scene as if it were being run through a slow-motion picture machine.</p>
+<p>The silent multitude of the sheep are waiting, terrified and helpless, on the edge of the cliff. Cut off from all hope of escape, they await their stupid martyrdom. Just above them, silhouetted against the moonlit sky, stands Duke. He is braced and still, except for a slow movement of his plumed tail. Is he real? Can those gray wolves see him?</p>
+<p>The leader of the wolves raises his head. Up to this time he has had his nose close to earth, running almost blindly as a wolf does.</p>
+<p>Then, with a howl that set every nerve in my body trembling, with his great, fierce head thrown back—choking, but without missing a stride, the leader of the wolf pack swerved aside from the silent guardian who waited there. There was brief pandemonium as the struggling, howling mass swept over the face of the cliff...down...down...five hundred feet to the base of the gully, to the jagged rocks below. There was a crescendo of yelps, and then a sickening crash, and silence.<br><br></p>
+<p>I COULD hardly believe that only a second before, there had been seven murderous fiends in full chase on the hill above me. The wolves were gone as if they had never existed.</p>
+<p>An old ewe moved aside from the flock and began to crop the new grass around a boulder. Her lambs began to nurse.</p>
+<p>As I watched, unable to move, I saw the motionless figure of Duke begin to fade against the evening sky. I seemed to see a star appear...<em>through</em> his gallant body. Like mist, he wavered and disappeared.</p>
+<p>But just as he went, I seemed to see his face turned in my direction. And I thought that the white tail wagged once or twice in doggish salute. Then Duke was gone...and only the peacefully grazing sheep and I were there on that mountain slope.<br><br></p>
+<p>AFTER a little while I climbed above the flock and headed them for home. I was in a daze. I seemed to be moving in a dream.</p>
+<p>When I first told my wife, I think she wondered if I had been the victim of a delusion. She, herself, had seen mirages of beautiful cities and forests through the mountain pass...cities and trees upside down.</p>
+<p>But she had heard that familiar barking when Betsy was lost...the barking which had led us straight to the child.</p>
+<p>Next morning there was only the broken corral to show for the events of the night. The sheep were, as usual, making a great commotion as they were let out to pasture. None of them remembered, in their foolish woolly heads, the danger that had made them restless all the preceding day, and the death that had turned aside at the last minute.</p>
+<p>I was still half inclined to doubt my senses. If I could only have been sure—absolutely sure that it had not all been a nightmare!</p>
+<p>Then, as my wife and I walked across the yard after the sheep, she caught my arm suddenly.</p>
+<p>High on the mountain above us, circling mournfully through the air, were the gathering turkey-buzzards. On motionless wings they poised above that gully of death. Slowly they descended in wide spirals. Even as they sank, more appeared to join in the ghoulish banquet.</p>
+<p>And I knew that at the foot of the cliff lay the tangled heap of broken bone and fur...gray fur.</p>
+<p>What had the wolves seen in the white moonlight? They would not have turned aside for any living dog or man. With the scent of blood in their fierce nostrils, a volley of rifle-fire could hardly have made them pause.</p>
+<p>But they had dashed over the cliff in a despairing, choking suicide rather than face, even for an instant, the motionless figure that waited between them and their prey.<br><br></p>
+<p>I KNOW that Duke came back twice from the silent land...once at a child's cry, and once in answer to my call, which he had never failed to answer while living. I know that the stilling of his loyal old heart did not silence him forever, but that the call of duty reached him in the little grave above the corral—or was it from some far distant land that his spirit came, across the eternities? Did he wake from some pleasant sleep in a new world to hear my voice calling him as of old?</p>
+<p>All I know is that even death did not end his guardianship over the child and the flock of sheep that he had joyfully taken under his care when alive.</p>
+<p>Does he still wait on the hillside above the corral, sleeping deeply with his nose on two white paws, and with an ear cocked, as of old, for my voice?</p>
+<hr>
+<p>Image from <em>Ghost Stories</em>, December 1928.</p>
+
+</article>
+		</main>
+
+		<!-- footer -->
+		<hr>
+
+<div class="footer-container">
+	<p>&copy; 2026 Nina B. Zumel</p>
+	<div class="social_icons">
+	    <a href="mailto:nzumel@mzlabs.com?subject=Comment%20from%20Dark%20Tales%20Sleuth" aria-label="Email" target="_blank" rel="noopener noreferrer">
+			<i class="fas fa-fw fa-envelope"></i>
+		</a>
+		<a href="https://micro.blog/MultoGhost" aria-label="Micro.blog" target="_blank" rel="noopener noreferrer">
+			<i class="fab fa-fw fa-microblog"></i>
+		</a>
+		<a href="https://multoghost.wordpress.com/" aria-label="Multo (Ghost)" target="_blank" rel="noopener noreferrer">
+			<i class="fab fa-fw fa-wordpress"></i>
+		</a>
+		<a href="/dark_tales_sleuth/feed.xml" aria-label="RSS" target="_blank" rel="noopener noreferrer">
+			<i class="fa fa-fw fa-rss-square"></i>
+		</a>
+
+	</div>
+</div>
+		<!-- /footer-- >
+
+		<!-- Current page: /dark_tales_sleuth/stuart-palmer/seven-gray-wolves/ -->
+	</body>
+</html>
