@@ -8,7 +8,7 @@ publication_date: October 1928
 
 {% image "./images/sleeper-bewitched.png", "A man sleeps on a bed as a ghostly hand reaches out from behind a curtain over him. A woman stands near a window, looking on in horror." %}
 
-*He lay asleep for thirty days, drifting toward death. But why did a dismembered hand hover above him?*
+<p class="largeintro">He lay asleep for thirty days, drifting toward death. But why did a dismembered hand hover above him?</p>
 
 FOUR years ago this summer I first became acquainted with the unusual profession that Karl Brandt had chosen. We were thrown together during the Prentiss case, and the horrible week we spent in that abandoned house is fresh in my memory. It was then that I learned to appreciate the cool, hard head of my old acquaintance, who had set himself up as a sort of "ghost-layer," if I may use the term. He called himself merely a "Consultant."
 

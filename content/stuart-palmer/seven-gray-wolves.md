@@ -6,7 +6,7 @@ first_published: Ghost Stories Magazine
 publication_date: December 1928
 ---
 
-<p style="text-align:center; font-style:italic; font-size:1.2em"><strong>Seven Gray Wolves</strong>—and how their savage attack on Frank Meadock's sheep furnished proof that the dead return.</p>
+<p class="largeintro"><strong>Seven Gray Wolves</strong>—and how their savage attack on Frank Meadock's sheep furnished proof that the dead return.</p>
 
 {% image "./images/seven-gray-wolves.png", "A rough collie, highlighted by the moon, faces three slavering wolves on the side of a mountain." %}
 

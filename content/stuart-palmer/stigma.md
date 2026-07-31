@@ -8,7 +8,7 @@ publication_date: September 1928
 
 {% image "./images/stigma.png", "Two men face each other. The man on the left is explaining something to the man on the right, who looks on increduously." %}
 
-*The man of mystery showed weird burns that came and went on his body. In dreadful fashion, the doctor learned the why of it.*
+<p class="largeintro">The man of mystery showed weird burns that came and went on his body. In dreadful fashion, the doctor learned the why of it.</p>
 
 THE strangest thing in my long and varied career as a general practitioner happened in prosaic New York, not twelve blocks from where I still have my office.
 
