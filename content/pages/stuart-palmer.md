@@ -48,6 +48,10 @@ In keeping with the conceit of the magazine, when appropriate, I'll give a story
 <br><span class="inline-note"> Duke the collie was a faithful friend to Frank Meadock's family, and the guardian of Frank's sheep. Duke takes his responsibilities seriously—even after death!
 </span>
 
+[**The Red Curse of the Mummy**](/stuart-palmer/red-curse-of-the-mummy/) (February 1929 -- as Theodore Orchards)
+<br><span class="inline-note"> Ted Orchards and Professor Beames join Lord Cairns' expedition to excavate the tomb of the Pharoah Amenophis. But Egyptian tombs always come with a curse—don't they?
+</span>
+
 </div>
 
 <p class="credit">
