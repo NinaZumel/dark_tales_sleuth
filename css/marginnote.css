@@ -149,6 +149,18 @@ label.margin-toggle {
         width: 100%;
     }
 
+    article > center,
+    article > img,
+    article > hr {
+        max-width: 100%;
+    }
+
+    article > p.largeintro,
+    article > p.intro {
+        text-align: left;
+        max-width: 100%;
+    }
+
     article > h1, 
     article > h2,
     article > h3,
