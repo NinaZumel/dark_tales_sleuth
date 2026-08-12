@@ -8,7 +8,7 @@ publication_date: June 1929
 
 <p class="largeintro">When a Brooklyn medium uttered a few enigmatic words concerning a lost coin, who could have guessed that this mysterious message would change the life of a famous publisher—startle the greatest scientists of the day—and remove an error from the dictionary?</p>
 
-{% image "./images/beecher-funk.png", "Busts of Henry Ward Beecher and Isaac Funk, facing each other." %}
+{% image "./images/beecher-funk.png", "Portraits of Henry Ward Beecher and Isaac Funk, facing each other." %}
 <p class="caption">Left: Henry Ward Beecher, the eminent clergyman and orator, who died in 1887. Did his ghost send a weird request to Doctor Funk?<br> 
 Right: Doctor Isaac Funk, founder of the <span style="font-style:normal;">Literary Digest</span>, who carried out the astounding instructions of the spirit world.
 </p>
@@ -105,10 +105,7 @@ At any rate, Doctor Funk mailed both coins to the new Superintendent of the Phil
 
 He asked the question out of a clear sky, but the answer came without delay.
 
-"The dark one is genuine," announced the spirit. "It is the true Lepton,{% marginnote "lepton", "The *lepton* or *Prutah* was the lowest denomination coin in circulation in Judea at the time of Jesus. The [*mite*](https://commons.wikimedia.org/wiki/File:Medieval_coin,_Billon_Mite_of_Flanders_(FindID_804840).jpg) was a low-value Flemish coin of the 14th and 15th centuries, used as an equivalent in the King James translation of the Bible. ([citation](https://www.currencyandcoin.com/rare-coin-report/coins-of-the-bible-widows-mite/))
-"%} dated at about 105 B.C. and the other is an imitation."
-
-[^4]: The *lepton* or *Prutah* was the lowest denomination coin in circulation in Judea at the time of Jesus. The [*mite*](https://commons.wikimedia.org/wiki/File:Medieval_coin,_Billon_Mite_of_Flanders_(FindID_804840).jpg) was a low-value Flemish coin of the 14th and 15th centuries, used as an equivalent coin in the King James translation of the Bible. ([citation](https://www.currencyandcoin.com/rare-coin-report/coins-of-the-bible-widows-mite/))
+"The dark one is genuine," announced the spirit. "It is the true Lepton,{% marginnote "lepton", "The *lepton* or *Prutah* was the lowest denomination coin in circulation in Judea at the time of Jesus. The [*mite*](https://commons.wikimedia.org/wiki/File:Medieval_coin,_Billon_Mite_of_Flanders_(FindID_804840).jpg) was a low-value Flemish coin of the 14th and 15th centuries, used as an equivalent coin in the King James translation of the Bible. ([citation](https://www.currencyandcoin.com/rare-coin-report/coins-of-the-bible-widows-mite/))" %} dated at about 105 B.C. and the other is an imitation."
 
 Doctor Funk was surprised. Did this prove fraud somewhere? Was the medium, or the spirit, simply making wild guesses? There was good authority for the decision that had been made—that the lighter coin was the genuine one.
 
