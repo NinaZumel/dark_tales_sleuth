@@ -1,0 +1,919 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>How a Spirit Corrected the Standard Dictionary</title>
+		<meta name="description" content="Filling in the Literary Blanks">
+		<link rel="alternate" href="/dark_tales_sleuth/feed/feed.xml" type="application/atom+xml" title="Dark Tales Sleuth">
+		<link rel="alternate" href="/dark_tales_sleuth/feed/feed.json" type="application/json" title="Dark Tales Sleuth">
+
+        
+		<link rel="me" href="https://micro.blog/MultoGhost">
+		<link rel="authorization_endpoint" href="https://indieauth.com/auth">
+		<link rel="token_endpoint" href="https://tokens.indieauth.com/token">
+		<link href="https://github.com/ninazumel" rel="me">
+		<script src="https://kit.fontawesome.com/9bbe6f85f9.js" crossorigin="anonymous"></script>
+		
+		<style>/* minimal implementation; just plain text in the margin, no blockquotes, code, etc */
+/* only (unnumbered) margin notes, no sidenotes */
+/* stripped down from https://github.com/edwardtufte/tufte-css */
+
+/* need this for correct sidenote numbering; but I'm not using sidenotes */
+/*
+body {
+    counter-reset: sidenote-counter; 
+} 
+*/
+
+
+/* since I imagine these will change with different templates */
+:root {
+    --content-width: 65%;
+    --image-padding: 5%;
+    --image-max: 60%;  /* total image+padding <= content-width */
+    --notewidth: 30%; 
+    /* content-width + notewidth <  100%. I think you should leave some wiggle room. */
+    --note-right-margin: -45%;
+    /* if this margin is -(notewidth), the note will start just on the right border of the text */
+    /* so push it a little to the right (more negative) */
+}
+
+article {
+	padding-top: 1rem; 
+}
+
+/* make room for the notes in the article container */
+article > p,
+article > pre,
+article > ul,
+article > details {
+    width: var(--content-width);
+}
+
+/* 
+  blockquotes should be a little shorter 
+  This assumes that left indentation is 2em, which is what it looks like.
+  Subtract way more than 2 em, so that it's way shorter.
+  */
+article > blockquote {
+    width: calc(var(--content-width) - 10em); 
+}
+
+
+article > hr {
+    max-width: var(--content-width);
+    margin: 0
+}
+
+article > h1, 
+article > h2,
+article > h3,
+article > h4 {
+    max-width: var(--content-width);
+}
+
+article > center {
+    max-width: var(--content-width);
+}
+
+/* keep images/captions in the text column, rather than centered in the article container */
+article > img {
+    margin-left: 0;
+    padding-left: var(--image-padding);
+    max-width: var(--image-max); 
+}
+
+article > p.caption {
+	text-align: left;
+    padding-left: var(--image-padding);
+	font-style: italic;
+	font-size: 0.9em;
+	color: var(--caption-color);
+ }
+
+article > p.caption a:hover,
+article > p.caption a:active {
+    color: var(--text-color-link-active);
+}
+
+article > p.largeintro {
+    text-align:center;
+    margin-left: 0;
+    padding-left: var(--image-padding);
+    max-width: var(--image-max); 
+    font-style: italic;
+    font-size: 1.2em;
+    color: var(--text-color);
+    
+}
+
+article > p.intro {
+    text-align:center;
+    margin-left: 0;
+    padding-left: var(--image-padding);
+    max-width: var(--image-max); 
+    font-style: italic;
+    color: var(--text-color);
+    
+}
+
+article > p.featurebox {
+    text-align: center;  
+    margin-left: var(--image-padding);  
+    padding: 15px;  
+    width: calc(var(--image-max) - var(--image-padding));
+    font-style: italic;  
+    color: var(--text-color);  
+    border: 2px solid var(--text-color);  
+    box-sizing: border-box;
+}
+
+.footnote-item {
+    max-width: var(--content-width); 
+}
+
+ /* finally, the margin note */
+.marginnote {    
+    float: right;
+    clear: right;
+    width: var(--notewidth);         
+    margin-right: var(--note-right-margin);
+    margin-top: 0.3rem;
+    margin-bottom: 0;
+    font-size: 0.8rem;
+    line-height: 1.3;
+    vertical-align: baseline;
+    position: relative;
+    /* border: 2px solid blue; */
+}
+
+
+input.margin-toggle {
+    display: none;
+}
+
+
+label.margin-toggle {    
+    display: none;
+
+}
+
+/* The mobile fallback: */
+/* making max-width bigger makes the note fall inline sooner */
+@media (max-width: 768px) {  
+    body {
+        width: 84%;
+        padding-left: 8%;
+        padding-right: 8%;
+    }
+
+    hr,
+    article > p,
+    article > blockquote,
+    article > pre, 
+    article > ul,
+    article > details {
+        width: 100%;
+    }
+
+    article > center,
+    article > img,
+    article > hr {
+        max-width: 100%;
+    }
+
+    article > p.largeintro,
+    article > p.intro {
+        text-align: left;
+        max-width: 100%;
+    }
+
+    article > p.featurebox {
+        text-align: left;
+        width: 100%;
+    }
+
+    article > h1, 
+    article > h2,
+    article > h3,
+    article > h4 {
+        max-width: 100%;
+    }
+
+    label.margin-toggle {
+        display: inline;
+    }
+       
+    .marginnote {           
+         display: none;        
+        }    
+
+      
+    .margin-toggle:checked + .marginnote {            
+        display: block;            
+        float: left;            
+        left: 1rem;            
+        clear: both;            
+        width: 95%;            
+        margin: 1rem 2.5%;            
+        vertical-align: baseline;            
+        position: relative;        
+    }
+    label {
+        cursor: pointer;
+    }
+}
+* { box-sizing: border-box; }
+/* colors from flexoki - https://stephango.com/flexoki */
+
+:root {
+	--paper: #FFFCF0;
+	--tx-normal: #100F0F;
+	--tx-muted: #6F6E69;
+	--tx-faint: #B7B5AC;
+	--blue300: #66A0C8;
+	--blue400: #4385BE;
+	--blue600: #205EA6;
+	--blue700: #1A4F8C;
+	--blue800: #163B66; 
+	--blue850: #133051;
+	--green400: #879A39;
+	--green600: #66800B;
+	--red800: #6C201C;
+	--purple600: #5E409D;
+	--purple300: #A699D0;
+	--base50: #F2F0E5;
+	--base100: #E6E4D9;
+	--base300: #B7B5AC;
+
+	--description-color: var(--tx-muted); 
+    --caption-color: var(--tx-muted);
+	--background-color:  var(--paper); 
+    --hrule-color: var(--base100);
+    --hrule-faint-color: var(--base50);
+	--box-border-color: var(--base50);
+
+	--header-anchor-color: var(--base300); /* for the # links on headers */
+	--icon-color: var(--blue600);
+	--icon-hover-color: var(--blue300);
+	--tag-color: var(--purple600);
+	--tag-hover-color: var(--purple300);
+
+	--text-color: var(--tx-normal); 
+	--text-color-link: var(--blue700); 
+	--text-color-link-active: var(--blue400); 
+	--text-color-link-visited: var(--blue700); 
+
+	--collapsible-summary-color: var(--green600);
+	--details-box-color: var(--base50);
+
+
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--black: #100F0F;
+		--base200: #CECDC3; 
+		--base300: #B7B5AC;
+		--base500: #878580;
+		--base600: #6F6E69;
+		--base700: #575653;
+		--base900: #282726;
+		--base950: #1C1B1A;
+		--blue700: #1A4F8C;
+		--green400: #879A39;
+	    --green600: #66800B;
+		--red400: #D14D41;
+		--purple400: #8B7EC8;
+		--purple500: #735EB5;
+		--purple600: #5E409D;
+	
+		--description-color: var(--base300); 
+		--caption-color: var(--base500);
+		--background-color:  var(--black); 
+		--hrule-color: var(--base900);
+		--hrule-faint-color: var(--base950);
+		--box-border-color: var(--base900);
+
+		--header-anchor-color: var(--base500); /* for the # links on headers */
+		--icon-color: var(--blue400);
+		--icon-hover-color: var(--blue600);
+		--tag-color: var(--purple400);
+		--tag-hover-color: var(--purple500);
+
+		--text-color: var(--base200); 
+		--text-color-link: var(--blue400); 
+		--text-color-link-active: var(--blue600); 
+		--text-color-link-visited: var(--blue400); 
+
+		--collapsible-summary-color: var(--green400);
+		--details-box-color: var(--base900);
+	}
+}
+/* Defaults */
+:root {
+	--font-family: Georgia, Times, -serif; /* Tahoma, -apple-system, system-ui, sans-serif; */
+	--font-family-sanserif: Tahoma, -apple-system, system-ui, sans-serif;
+	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+
+	/* from another template - experiment with these */
+	--font--serif: 'Bitstream Charter', Charter, Palatino, 'Palatino Linotype', 'Palatino LT STD', 'Book Antiqua', Georgia, serif;
+  	--font--sans: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+}
+
+/* Theme colors */
+:root {
+	--syntax-tab-size: 2;
+}
+
+
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	font-size: 18px;  /* a little bigger to accomodate a serif font */
+	color: var(--text-color);
+	background-color: var(--background-color);
+}
+html {
+	overflow-y: scroll;
+}
+body {
+	max-width: 70em; /* 50em; */
+}
+
+/* Basic heading typography */
+h1,h2,h3,h4,h5 {
+  font-family: var(--font--sans);
+  font-weight: 600;
+}
+
+/* different horizontal rules  https://www.w3schools.com/howto/howto_css_dividers.asp */
+ /* Dashed border */
+ hr.dashed {
+	border-top: 1px dashed var(--hrule-color);
+  }
+  
+  /* Dotted border */
+  hr.dotted {
+	border-top: 1px dotted var(--hrule-color);
+  }
+  
+  /* Solid border */
+  hr.solid {
+	border-top: 1px solid var(--hrule-color);
+  }
+  
+
+/* 
+https://css-tricks.com/barebones-css-for-fluid-images/ 
+Without this, images generated by eleventy-img will always use the largest available size
+-- ie, not be responsive.
+*/
+img {
+	max-width: 100%; 
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+  }
+  img[width] {
+	width: auto; /* Defer to max-width */
+  }
+  img[width][height] {
+	height: auto; /* Preserve aspect ratio */
+  }
+  
+  /* Let SVG scale without boundaries */
+  img[src$=".svg"] {
+	width: 100%;
+	height: auto;
+	max-width: none;
+  }
+  
+
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+p {
+	line-height: 1.5;
+	/* font-size: 1.2em; */
+}
+
+p.caption {
+	text-align: center;
+	font-style: italic;
+	font-size: 0.9em;
+	color: var(--caption-color);
+ }
+
+ /* for the credits at the bottom of a page */
+p.credit {
+	max-width: 50em;
+	font-size: 0.9em;
+	margin-left: auto;
+	margin-right: auto;
+ }
+
+
+/* for inline annotations, like translations */
+span.inline-note {
+	font-size: 0.9em;
+	font-style: italic;
+}
+
+li {
+	line-height: 1.5;
+	/* font-size: 1.2em; */
+}
+
+a[href] {
+	color: var(--text-color-link);
+	text-decoration: none; 
+}
+a[href]:visited {
+	color: var(--text-color-link-visited);
+}
+a[href]:hover,
+a[href]:active {
+	color: var(--text-color-link-active);
+}
+
+main {
+	padding: 1rem;
+}
+main :first-child {
+	margin-top: 0;
+}
+
+header {
+	border-bottom: 1px dashed var(--hrule-color);
+}
+header:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.links-nextprev {
+	text-align: center;
+	list-style: none;
+	border-top: 1px dashed var(--hrule-color);
+	padding: 1em 0;
+}
+
+
+table {
+	margin: 1em 0;
+}
+table td,
+table th {
+	padding-right: 1em;
+}
+
+pre,
+code {
+	font-family: var(--font-family);
+	font-size: 0.95em;
+}
+pre:not([class*="language-"]) {
+	margin: .5em 0;
+	line-height: 1.375; /* 22px /16 */
+	-moz-tab-size: var(--syntax-tab-size);
+	-o-tab-size: var(--syntax-tab-size);
+	tab-size: var(--syntax-tab-size);
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+}
+code {
+	word-break: break-all;
+}
+
+/*
+  Custom containters
+*/
+div.message-box {
+	max-width: 50em; 
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div.magazine-box {
+	max-width: 50em; 
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+/* Header */
+header {
+	font-family: var(--font--sans); 
+	display: flex;
+	gap: 1em .5em;
+	flex-wrap: wrap;
+	align-items: center;
+	padding: 1em;
+}
+.home-link {
+	font-size: 1.5em; /* 24px /16 (I think)*/
+	font-weight: 700;
+	margin-right: 2em;
+}
+.home-link:link:not(:hover) {
+	text-decoration: none;
+}
+
+/* Nav */
+.nav {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.nav-item {
+	display: inline-block;
+	margin-right: 1em;
+}
+.nav-item a[href]:not(:hover) {
+	text-decoration: none;
+}
+.nav a[href][aria-current="page"] {
+	text-decoration: underline;
+}
+
+/* Posts list */
+.postlist {
+	list-style: none;
+	padding: 0;
+	padding-left: 0; /* 1.5rem; */
+	max-width: 50em;
+}
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	counter-increment: start-from -1;
+	margin-bottom: 1em;
+	padding-bottom: 50px;
+	/* padding: 8px 16px; */
+	border-bottom: 1px dashed var(--hrule-color);
+}
+
+/* 
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	content: "" counter(start-from, decimal-leading-zero) ". ";
+	line-height: 100%;
+	text-align: right;
+	margin-left: -1.5rem;
+}
+*/
+
+.postlist-date,
+.postlist-item:before {
+	font-size: 0.8125em; /* 13px /16 */
+	color: var(--description-color);
+}
+.postlist-date {
+	word-spacing: -0.5px;
+	padding-left: .25em;
+}
+.postlist-link {
+	font-size: 1em; /* 1.1875em;  19px /16 */
+	font-weight: 700; 
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration: none; 
+	/* text-decoration-thickness: 1px; */
+}
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+/* for collapsible text blocks.
+Put the hidden text into p element(s); it looks better.
+*/
+
+/*
+original details background color: #f5f5f5 
+original box border color: #0066cc
+*/
+
+details {  margin: 1em 0;  padding: 1em;  background-color: var(--details-box-color);  border-left: 4px solid var(--collapsible-summary-color);}
+summary {  cursor: pointer;  font-weight: bold;  color: var(--collapsible-summary-color);}
+summary:hover {  text-decoration: underline;}
+
+/* Tags */
+.post-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+	font-style: italic;
+}
+.postlist-item > .post-tag {
+	align-self: center;
+}
+
+/* Tags list */
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: .5em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.post-metadata time {
+	margin-right: 1em;
+}
+
+/* I don't want tag links to stand out too much */
+.post-metadata a[href] {
+	color: var(--tag-color);
+}
+
+.post-metadata a[href]:hover,
+               a[href]:active {
+	color: var(--tag-hover-color);
+}
+
+
+.post-metadata li {
+	font-size: 0.875em;
+}
+
+/* metadata for posts and talks */
+
+.posttalk-metadata {
+	list-style: none;
+	padding-left: 0;
+	color: var(--description-color);
+}
+
+.posttalk-metadata ul {
+	list-style-type: none; /* no bullets */
+	padding: 0;  /* no indentation, either */
+	margin: 0;
+}
+
+/* Direct Links / Markdown Headers */
+.header-anchor {
+	text-decoration: none;
+	font-style: normal;
+	font-size: 1em;
+	margin-left: .1em;
+}
+a[href].header-anchor,
+a[href].header-anchor:visited {
+	color: transparent;
+}
+a[href].header-anchor:focus,
+a[href].header-anchor:hover {
+	text-decoration: underline;
+}
+a[href].header-anchor:focus,
+:hover > a[href].header-anchor {
+	color: var(--header-anchor-color);
+}
+
+h2 + .header-anchor {
+	font-size: 1.5em;
+}
+
+/* Footer */
+hr {
+    border: none;
+    background-color: var(--hrule-color);
+    height: 1px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+    hr {
+        width: 100%;
+    }
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2rem 0;
+    background-color: var(--background-color);
+	;
+}
+
+.footer-container p {
+    font-size: 1rem;
+    color: var(--description-color);
+}
+
+.footer-container .social_icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0 1rem;
+}
+
+.footer-container .social_icons a {
+    color: var(--icon-color);
+    font-size: 1.5rem;
+    transition: all 0.5s ease-in-out;
+}
+
+.footer-container .social_icons a:hover {
+    color: var(--icon-hover-color);
+}</style>
+	</head>
+	<body>
+		<a href="#skip" class="visually-hidden">Skip to main content</a>
+
+		<header>
+			<a href="/dark_tales_sleuth/" class="home-link">Dark Tales Sleuth</a>
+			<nav>
+				<h2 class="visually-hidden">Top level navigation menu</h2>
+				<ul class="nav">
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/about/">About</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/my-investigations/">My Cases</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/blog/">All Posts</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/comments/">Comments</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/about-me/">About Me</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="skip">
+			
+
+
+<h1>How a Spirit Corrected the Standard Dictionary</h1>
+
+
+
+
+
+
+<ul class="posttalk-metadata">
+  <li>By Stuart Palmer</li>
+  <li>Published in  <em>Ghost Stories Magazine</em>, June 1929</li>
+</ul>
+
+<article>
+<p class="largeintro">When a Brooklyn medium uttered a few enigmatic words concerning a lost coin, who could have guessed that this mysterious message would change the life of a famous publisher—startle the greatest scientists of the day—and remove an error from the dictionary?</p>
+<img src="/dark_tales_sleuth/stuart-palmer/how-a-spirit-corrected-the-standard-dictionary/beecher-funk-nBJlDQcJPB-1318.png" alt="Portraits of Henry Ward Beecher and Isaac Funk, facing each other." loading="lazy" decoding="async" width="1318" height="1055">
+<p class="caption">Left: Henry Ward Beecher, the eminent clergyman and orator, who died in 1887. Did his ghost send a weird request to Doctor Funk?<br> 
+Right: Doctor Isaac Funk, founder of the <span style="font-style:normal;">Literary Digest</span>, who carried out the astounding instructions of the spirit world.
+</p>
+<hr>
+<br>
+<p><strong>&quot;HENRY WARD BEECHER</strong><label for="beecher" class="margin-toggle">⊕</label>
+<input type="checkbox" id="beecher" class="margin-toggle">
+<span class="marginnote">Paraphrased from <a href="https://en.wikipedia.org/wiki/Henry_Ward_Beecher">Wikipedia</a>: Henry Ward Beecher (1813-1887) was an American clergyman, social reformer, and speaker, known for his support of the abolition of slavery, his emphasis on Christ's love, and his 1875 adultery trial. He also championed Darwin's theory of evolution, stating that it was not incompatible with Christian beliefs.</span> is here!&quot; The wavering voice filled the little room in Brooklyn house where a small circle was gathered to investigate psychic phenomena. The elderly medium lay back in her rocking-chair stiff in a trance. The listeners gasped, for it was in the early part of February, 1903, and the great preacher had been dead for a decade.</p>
+<p>But one of the listeners, who had come incognito, was particularly interested. This was the Reverend Doctor Isaac Funk,<label for="funk" class="margin-toggle">⊕</label>
+<input type="checkbox" id="funk" class="margin-toggle">
+<span class="marginnote"><a href="https://en.wikipedia.org/wiki/Isaac_K._Funk">Isaac K. Funk</a> (1838-1912) was a Lutheran minister and co-founder of publishing company Funk and Wagnalls, known for <em>The Standard Dictionary of the English Language</em> and other authoritative reference works.</span> head of the publishing firm of Funk and Wagnalls, whose skeptical investigation of spiritualism had become increasingly serious since the death of his close friend, Doctor Beecher.</p>
+<p>Doctor Funk leaned forward. Could it be true that Beecher was in communication with the circle, through the medium's control &quot;Jack Rakestraw&quot;? There was no man in the world better able to test the authenticity of the phenomenon than himself, for he had known Beecher like a brother.</p>
+<p>It was Doctor Funk's third visit to the little private circle in Brooklyn. Every Wednesday night for four years, he was told, the little old lady who acted as medium had joined her son and brother in what she called &quot;a prayer-meeting with my family.&quot; No admission or collection had ever been taken, and the circumstances were such that Doctor Funk had confidence in the genuineness of the whole thing.</p>
+<p>Before he had been admitted to the circle for the first time, he had given his word not to divulge the name of the medium, for the good woman insisted that notoriety would only spoil her communion with her dead relatives. This promise, by the way, was always kept by Doctor Funk, even in his published works dealing with the affair.</p>
+<p>&quot;Henry Ward Beecher is here,&quot; came the spirit voice again. &quot;Has anyone here anything belonging to him?&quot;</p>
+<p>There was a moment's silence. Doctor Funk whispered to Mr. Irving S. Roney, his business associate, that he had in his pocket a letter from Doctor Beecher's pastoral successor. Might this be what the spirit meant?</p>
+<p>Clear and loud, the answer came, in &quot;Rakestraw's&quot; gruff voice: &quot;No, Mr. Beecher is worried—worried about something—&quot; There was a pause, and then the voice continued more swiftly:</p>
+<p>&quot;I must speak for Doctor Beecher, as he has not been on this side of the Veil long enough to project his voice back to you. He is—I get it now—he is worried over a coin—a coin called the <em>Widow's Mite</em>.<label for="mitepassage" class="margin-toggle">⊕</label>
+<input type="checkbox" id="mitepassage" class="margin-toggle">
+<span class="marginnote"><em>Widow's mite</em> is a reference to the following biblical passage: &quot;And [Jesus] looked up, and saw the rich men casting their gifts into the treasury. And he saw also a certain <strong>poor widow casting in thither two mites</strong> [two small coins].  And he said, 'Of a truth I say unto you, that this poor widow hath cast in more than they all:  For all these have of their abundance cast in unto the offerings of God: but she of her penury hath cast in all the living that she had.'&quot; Luke 21:1-4 (King James Translation)</span> It is out of place, and he looks to you&quot;—the voice grew lower and seemed to ring in Doctor Funk's ear—&quot;he looks to you to return it!&quot;
+<br><br></p>
+<p><strong>THE</strong> good doctor was nonplussed. &quot;But I have no coin of that name.&quot;</p>
+<p>&quot;All I know is that the coin is out of place and Doctor Beecher looks to you to return it. He says that you alone can find it.&quot;</p>
+<p>&quot;Can you ask Doctor Beecher to talk to me directly, or to tell me where this coin is?&quot;</p>
+<p>The voice came more faintly. &quot;He cannot speak to you yet. But I once led the choir in his church, and he is using me as a spokesman. He says that you must return the <em>Widow's Mite</em>.&quot;</p>
+<p>Suddenly Doctor Funk remembered a coin of that name. Years before, in preparing the illustrations for the <em>Funk and Wagnalls Standard Dictionary</em>, he had borrowed a copper coin of ancient Hebrew mintage from a collector in Brooklyn. But he could not remember the man's name, and the coin, of course, had been returned after being photographed. He resolved to test the control. &quot;Where is this coin?&quot;</p>
+<p>The spirit answered with another question. &quot;Is there a safe—an iron safe—in Plymouth Church?&quot;</p>
+<p>Doctor Funk could remember none. Churches, as a rule, deal in the treasures which none &quot;break in and steal,&quot; and have little use for safes.
+<br><br></p>
+<p><strong>&quot;ANYWAY,</strong> the <em>Widow's Mite</em> is in an iron safe, lost and forgotten under some papers. It must be returned. And you can return it.&quot;</p>
+<p>This seemed to be all that Doctor Funk could get out of the elusive control, and after a short interval the medium awoke. So far as Doctor Funk was aware, his identity was unknown to everyone present except his companion. There seemed little chance of fraud.</p>
+<p>The next day he called his brother, Mr. B. F. Funk, into his office. The younger Mr. Funk was head of the Business Department of the publishing house.</p>
+<p>&quot;Do you remember a coin called the <em>Widow's Mite</em> that we used in illustrating the <em>Standard</em>?&quot;</p>
+<p>His brother thought a moment and then nodded. &quot;The one we sent to the mint to determine its genuineness? Yes, I remember it.&quot;</p>
+<p>&quot;What was done with it?&quot;</p>
+<p>&quot;I remember ordering it sent back to the owner, with thanks.&quot;</p>
+<p>Doctor Funk nodded. A few minutes later his partuer Mr. Wagnalls, and Mr. E. J. Wheeler, then editor of the <a href="https://en.wikipedia.org/wiki/The_Literary_Digest"><em>Literary Digest</em></a>, confirmed this. The <em>Widow's Mite</em> had certainly been sent back to its owner, a Mr. West.</p>
+<p>Still, Doctor Funk was anxious to test the matter as fully as was possible. There had been something in the voice from the Beyond which impressed him with its truth and sincerity.</p>
+<p>There was no iron safe in the Plymouth Church. But there were two such containers in the outer offices of Doctor Funk's own firm!</p>
+<p>The cashier was called. He remembered the whole <em>Widow's Mite</em> affair, and insisted that he had carried out the orders of his superiors and sent the coin back to its owner. But the files showed no record of this.</p>
+<p>It was decided to search the two safes, and the whole party followed Raymond, the cashier, into the room where the two safes had stood for years. The first one was in constant use, and a quick search of it proved fruitless. There was nothing hidden away in it.</p>
+<p>Then the smaller, older strong-box was opened. Only the two owners and the cashier knew its combination. Slowly the deposit of years was removed. Old records, forgotten papers and books—all were carefully searched and then laid aside.
+<br><br></p>
+<p><strong>THE</strong> men drew closer as the last drawer was withdrawn. Then they drew back with a start.</p>
+<p>Underneath the débris of ten years lay a yellowed envelope, inscribed with Mr. West's name.</p>
+<p>Feverishly it was opened—and to the astonishment of the searchers, not one, but <em>two</em> ancient Hebrew coins were foumd!</p>
+<p>One coin was large, and its copper had turned quite black with the years. The other, slightly smaller, was lighter in color.</p>
+<p>As Doctor Funk examined them, the cashier remembered that there had been some question as to which of the two was genuine. He searched in his files, and found a letter from the mint at Philadelphia, crediting the lighter as the true coin. In making up the plate for the dictionary, the lighter coin had, therefore, been used. But it had never been returned, and the voice from Beyond had been right, after all!</p>
+<p class="featurebox">
+<strong>Eyes That See Through Steel</strong><br>
+The coin had lain hidden under a pile of papers in a locked safe, for ten years. No living man even remembered its existence. How, then, did the medium find out about it? Did she really receive a message from the spirit of Henry Ward Beecher? Read the actual facts!
+</p>
+<p>However, Doctor Funk was pre-eminently an investigator and he did not let his enthusiasm run away with his judgment. He had been told to return the coin, but to whom did it now belong? Professor West, he ascertained, was dead, and his collection of coins had been sold to a man in Baltimore for $17,000. Should the <em>Widow's Mite</em> go to the heirs of Mr. West, or to the man who had purchased his entire collection?</p>
+<p>And which coin was the <em>Widow's Mite</em>? There seemed to be a slight doubt in his mind, and in the minds of his associates, in spite of the letter from the mint.</p>
+<p>At any rate, Doctor Funk mailed both coins to the new Superintendent of the Philadelphia Mint, an expert in ancient coins. In the meantime he resolved upon a test. He could not understand why Doctor Beecher should be interested in the affair, and the Professor not. Why had not Mr. West's voice asked for the return of his own coin?
+<br><br></p>
+<p><strong>ON</strong> the following Wednesday night he again visited the psychic circle in Brooklyn. Late in the evening the voice of &quot;Jack Rakestraw&quot; came from the medium's lips.</p>
+<p>&quot;I have a question,&quot; Doctor Funk declared immediately. &quot;Can you tell me which of the coins is genuine?&quot;</p>
+<p>He asked the question out of a clear sky, but the answer came without delay.</p>
+<p>&quot;The dark one is genuine,&quot; announced the spirit. &quot;It is the true Lepton,<label for="lepton" class="margin-toggle">⊕</label>
+<input type="checkbox" id="lepton" class="margin-toggle">
+<span class="marginnote">The <em>lepton</em> or <em>Prutah</em> was the lowest denomination coin in circulation in Judea at the time of Jesus. The <a href="https://commons.wikimedia.org/wiki/File:Medieval_coin,_Billon_Mite_of_Flanders_(FindID_804840).jpg"><em>mite</em></a> was a low-value Flemish coin of the 14th and 15th centuries, used as an equivalent coin in the King James translation of the Bible. (<a href="https://www.currencyandcoin.com/rare-coin-report/coins-of-the-bible-widows-mite/">citation</a>)</span> dated at about 105 B.C. and the other is an imitation.&quot;</p>
+<p>Doctor Funk was surprised. Did this prove fraud somewhere? Was the medium, or the spirit, simply making wild guesses? There was good authority for the decision that had been made—that the lighter coin was the genuine one.</p>
+<p>He went on. &quot;Where shall I return this coin?&quot;</p>
+<p>There was some hesitancy on the part of the spirit. At last it answered: &quot;I cannot say. Doctor Beecher is not here at present, and I have only a message from him. He says——&quot;</p>
+<p>Doctor Funk was losing patience. &quot;Tell me, then, of whom did I borrow the coin?&quot;</p>
+<p>A longer wait came, and then: &quot;A man in Brooklyn.&quot;</p>
+<p>This much was true. Professor West had been in charge of a girl's high school in Brooklyn Heights for years. The voice went on: &quot;I don't know his name. He lived near here, and I know that he had something to do with girls and with books.&quot;</p>
+<p>The séance ended, and left Doctor Funk, puzzled. The messages seemed inconclusive. Particularly since the spirit voice had apparently made a mistake in the color of the right coin.</p>
+<p>His doubt remained until he received a letter from Albert A. Norris, acting superintendent of the Philadelphia Mint. Mr. Norris referred to a book by a numismatist named Madden and proved conclusively that a mistake had been made in the previous verdict, and that the darker coin was the genuine one, valued at $2,500!</p>
+<img src="/dark_tales_sleuth/stuart-palmer/how-a-spirit-corrected-the-standard-dictionary/mite-Y4v-BAB36E-1266.png" alt="Drawing of the two faces of a Widow's mite, or Lepton coin from ancient Judea." loading="lazy" decoding="async" width="1266" height="552">
+<p class="caption">This enlarged drawing shows the two faces of the <span style="font-style:normal;">Widow's Mite</span>, the ancient Hebrew coin that played a startling part of this true drama of the supernatural.
+</p>
+<p>&quot;The true <em>Widow's Mite</em>,&quot; Mr. Norris said in his letter, &quot;is so called because, being the lowest valued coin in the Holy Land, it must have been the one cast into the alms box by the poor woman mentioned in the Bible. Its true name is Lepton, and its value is half a denarius. It may be recognized by a knob in the center, surrounded by six stars or lobes, and it bears the name Jehonatan Hamelik. The lighter colored coin enclosed is spurious.&quot;</p>
+<p><em>The voice from Beyond had been right, not only in the location of the coin, but in the designation of the genuine one!</em></p>
+<p>Doctor Funk was entirely convinced. He lost no time in returning the true <em>Widow's Mite</em> to the son of the late Professor Charles E. West, and the plate in the <em>Standard Dictionary</em><label for="plate" class="margin-toggle">⊕</label>
+<input type="checkbox" id="plate" class="margin-toggle">
+<span class="marginnote">See coin 6 in <a href="https://archive.org/details/in.ernet.dli.2015.121020/page/n574/mode/1up">this plate</a> from Vol. 1 of <em>Funk &amp; Wagnalls New Standard Dictionary of the English Language</em> (1929 printing).</span> was changed to conform with the Mint Superintendent's verdict. Both copies of the Dictionary are to be found in most public libraries, and comparison of the two <em>Widow's Mites</em> is interesting.</p>
+<p>He also announced the full result of his investigations, withholding only the name of the medium, in accordance with his promise.<label for="book" class="margin-toggle">⊕</label>
+<input type="checkbox" id="book" class="margin-toggle">
+<span class="marginnote"> Funk, Isaac K. <em>The Widow's Mite and Other Psychic Phenomena</em> (1904), pp 157-184.</span> Complete affidavits were made out and signed by all the parties concerned, and the entire collection of documents was photographed and copies sent to scholars and psychologists all over the world.</p>
+<p>A majority of these authorities—including such men as the philosopher William James, professor of psychology at Harvard—decided that the case was absolute proof of the existence of either an active spirit world, or an untapped source of mental energy. The affair won the skeptical Doctor Funk over to spiritualism, and he devoted the remainder of his life to the movement.</p>
+<p>Only one thing seemed unsatisfactory to Doctor Funk. Why had not his friend Beecher spoken to him directly, and why had the spirit bothered about so mundane a thing as a coin?
+<br><br></p>
+<p><strong>SEVERAL</strong> months after the <em>Widow's Mite</em> affair when Doctor Funk was still thinking of these questions, he chanced to attend a séance held by a group who were strangers to him.</p>
+<p>For a long time the group sat in the darkened room, awaiting developments.  Certain vague manifestations had taken place—a tambourine had jingled in the dark—but there was nothing to impress the Doctor.</p>
+<p>Suddenly, he heard his name called. He leaned forward. &quot;Funk—can you see me?&quot; It was Beecher's voice, clearly recognizable, though weak and far away.</p>
+<p>&quot;Can't you see me?&quot; The voice came imploringly, and a hand parted the curtains. Behind them, dim but distinct in the red light, was the face of Henry Ward Beecher!</p>
+<p>&quot;I could not come before. It is almost impossible now,&quot; the spirit whispered. &quot;But I wanted you to believe. I——&quot;</p>
+<p>Doctor Funk asked about the <em>Widow's Mite</em>. &quot;That is of no importance,&quot; he was told. &quot;It was only a means of convincing you. Next to you, West was my best friend on earth. The conjunction of our three personalities gave me strength enough to do what was done with the coin.&quot;</p>
+<p>Funk waited tensely, but the phantom was already fading. &quot;Good-by,&quot; it said, adding a nickname which only Beecher had ever used in referring to the Reverend Doctor.</p>
+<p>Then the figure sank down to the ground like a flame exhausted, and disappeared. But just as it went, so the Doctor always maintained, a firm hand gripped his shoulder for a  moment, in farewell.
+<br></p>
+<hr>
+<p>Annotations by Nina Zumel.</p>
+<p>Illustrations by Lew Aiello, for &quot;How a Spirit Corrected the Standard Dictionary,&quot; <em>Ghost Stories</em>, June 1929. Captions from the original text.</p>
+
+</article>
+		</main>
+
+		<!-- footer -->
+		<hr>
+
+<div class="footer-container">
+	<p>&copy; 2026 Nina B. Zumel</p>
+	<div class="social_icons">
+	    <a href="mailto:nzumel@mzlabs.com?subject=Comment%20from%20Dark%20Tales%20Sleuth" aria-label="Email" target="_blank" rel="noopener noreferrer">
+			<i class="fas fa-fw fa-envelope"></i>
+		</a>
+		<a href="https://micro.blog/MultoGhost" aria-label="Micro.blog" target="_blank" rel="noopener noreferrer">
+			<i class="fab fa-fw fa-microblog"></i>
+		</a>
+		<a href="https://multoghost.wordpress.com/" aria-label="Multo (Ghost)" target="_blank" rel="noopener noreferrer">
+			<i class="fab fa-fw fa-wordpress"></i>
+		</a>
+		<a href="/dark_tales_sleuth/feed.xml" aria-label="RSS" target="_blank" rel="noopener noreferrer">
+			<i class="fa fa-fw fa-rss-square"></i>
+		</a>
+
+	</div>
+</div>
+		<!-- /footer-- >
+
+		<!-- Current page: /dark_tales_sleuth/stuart-palmer/how-a-spirit-corrected-the-standard-dictionary/ -->
+	</body>
+</html>

@@ -101,6 +101,17 @@ article > p.intro {
     
 }
 
+article > p.featurebox {
+    text-align: center;  
+    margin-left: var(--image-padding);  
+    padding: 15px;  
+    width: calc(var(--image-max) - var(--image-padding));
+    font-style: italic;  
+    color: var(--text-color);  
+    border: 2px solid var(--text-color);  
+    box-sizing: border-box;
+}
+
 .footnote-item {
     max-width: var(--content-width); 
 }
@@ -159,6 +170,11 @@ label.margin-toggle {
     article > p.intro {
         text-align: left;
         max-width: 100%;
+    }
+
+    article > p.featurebox {
+        text-align: left;
+        width: 100%;
     }
 
     article > h1, 
