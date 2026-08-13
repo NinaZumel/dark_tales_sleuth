@@ -161,7 +161,7 @@ header:after {
 }
 
 .links-nextprev {
-	text-align: center;
+	text-align: left;
 	list-style: none;
 	border-top: 1px dashed var(--hrule-color);
 	padding: 1em 0;
