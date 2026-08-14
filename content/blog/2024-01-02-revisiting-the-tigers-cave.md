@@ -47,5 +47,5 @@ Nor do we know who is responsible for the English translation in _The Monthly Ma
 
 So there we have it! Any Danish or German literary sleuths who feel like verifying my work or filling in any holes, please do. And thank you, Tara Challoner!
 
-[*Comments on this post*](/pages/comments/#revisiting-the-tiger-s-cave)
+[*Older comments on this post*](/pages/comments/#revisiting-the-tiger-s-cave)
 

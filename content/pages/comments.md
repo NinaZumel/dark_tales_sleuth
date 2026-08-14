@@ -1,9 +1,6 @@
 ---
 layout: layouts/home.njk
 title: Comments on Posts
-eleventyNavigation:
-  key: Comments
-  order: 4
 ---
   
 <div class="message-box">
@@ -12,9 +9,7 @@ eleventyNavigation:
 When I moved this blog from Wordpress, the comments did not come along. Since there weren't very many, it was easy to move
 them here manually. 
 
-Unfortunately, I don't have a comment mechanism for this version of the blog, but please feel free to drop me a note, using the mail icon in the footer.
-If you would like me to make the comment public (for example, if you have further information about one of these stories), please let me know, and
-I will add it to this page and associate it with the relevant blog post.
+I've finally added a comment mechanism to this version of the blog, so you can now leave me a note directly beneath posts, or in the [Guestbook](/pages/guestbook/). You can also drop me an email, using the mail icon in the footer.
 
 </div>
 
