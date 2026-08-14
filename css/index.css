@@ -34,7 +34,7 @@ html {
 	overflow-y: scroll;
 }
 body {
-	max-width: 70em; /* 50em; */
+	max-width: 65em; /* 50em; */
 }
 
 /* Basic heading typography */
@@ -161,7 +161,7 @@ header:after {
 }
 
 .links-nextprev {
-	text-align: center;
+	text-align: left;
 	list-style: none;
 	border-top: 1px dashed var(--hrule-color);
 	padding: 1em 0;
@@ -201,7 +201,7 @@ code {
 }
 
 /*
-  Custom containters
+  Custom containers
 */
 div.message-box {
 	max-width: 50em; 
@@ -213,6 +213,12 @@ div.magazine-box {
 	max-width: 50em; 
 	margin-left: auto;
 	margin-right: auto;
+}
+
+/* for comments */
+iframe {
+	max-width: 50em;
+	background-color: var(--background-color);
 }
 
 
