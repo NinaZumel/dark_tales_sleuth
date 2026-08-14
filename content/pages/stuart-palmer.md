@@ -2,6 +2,11 @@
 layout: layouts/bigimage.njk
 title: The Supernatural Writings of Stuart Palmer
 ---
+<style>
+.inline-note {
+    padding-left: 20px; /* Add a small left indent */
+}
+</style>
 
 <div class="top_container">
     {% image "./images/ghost-stories-cover-10-28.png", "Cover of Ghost Stories October 1928" %}
