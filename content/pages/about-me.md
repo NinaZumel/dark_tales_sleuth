@@ -27,7 +27,7 @@ eleventyNavigation:
 
     I don't do regular social media, but you can follow me here directly via RSS. I also point to my *Dark Tales Sleuth* posts from my primary blog, [*Multo(Ghost)*](https://multoghost.wordpress.com), which is a Wordpress blog, so you can follow me there, if you like.
     
-    If you want to drop me a note, please feel free to send me an email, via the email icon at the footer of this blog.
+    If you want to drop me a note, please feel free to leave a comment in [the Guestbook](/pages/guestbook). Or you can send me an email, via the email icon at the footer of this blog.
 
 </div>
 
