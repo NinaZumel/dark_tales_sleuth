@@ -16,17 +16,12 @@ eleventyNavigation:
 <h2>Guestbook</h2>
 
 Have a comment or question about something on the site? Please feel free to drop a note here in the guestbook.
-You don't need to login to anything, unless you want to be notified about replies, or you would like me to reply directly to you via email. Just type in the comment box. Markdown will work.
+You don't need to login to anything (unless you want to be notified about replies); just type in the comment box. Markdown will work.
 
 Or you can drop me a note via email, using the mail icon in the footer. Cheers!
 
 [*See some comments from the older version of this site.*](/pages/comments)
 
-</div>
-
-<div class="message-box">
-<iframe src="https://komments.cloud/3f3b499db2e430de1fef8a/noheader" style="width: 100%; height: 600px; border: none;">
-</iframe>
 </div>
 
 <br>

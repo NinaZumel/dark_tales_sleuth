@@ -9,7 +9,7 @@ title: Comments on Posts
 When I moved this blog from Wordpress, the comments did not come along. Since there weren't very many, it was easy to move
 them here manually. 
 
-I've finally added a comment mechanism to this version of the blog, so you can now leave me a note directly beneath posts, or in the [Guestbook](/pages/guestbook/). You can also drop me an email, using the mail icon in the footer.
+I've finally added a simple comment mechanism to this version of the blog, so you can now leave me a note in the [Guestbook](/pages/guestbook/). You can also drop me an email, using the mail icon in the footer.
 
 </div>
 
