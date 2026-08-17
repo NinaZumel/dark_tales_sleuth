@@ -12,11 +12,11 @@
 	</author>
 	
 	<entry>
-		<title>I&#39;ve Added Comments to the Blog</title>
+		<title>I&#39;ve Added a Guestbook to the Blog</title>
 		<link href="https://ninazumel.com/dark_tales_sleuth/blog/2026-08-13-added-comments/"/>
 		<updated>2026-08-13T00:00:00Z</updated>
 		<id>https://ninazumel.com/dark_tales_sleuth/blog/2026-08-13-added-comments/</id>
-		<content type="html">&lt;p&gt;You can now comment beneath posts, or drop a note in &lt;a href=&quot;https://ninazumel.com/dark_tales_sleuth/pages/guestbook&quot;&gt;the Guestbook&lt;/a&gt;. No need to login to anything (unless you want to be notified about replies); just type in the comment box. Markdown will work.&lt;/p&gt;
+		<content type="html">&lt;p&gt;If you feel like saying hi, you can now drop a note in &lt;a href=&quot;https://ninazumel.com/dark_tales_sleuth/pages/guestbook&quot;&gt;the Guestbook&lt;/a&gt;. No need to login to anything (unless you want to be notified about replies); just type in the comment box. Markdown will work.&lt;/p&gt;
 &lt;p&gt;Or if you prefer, you can drop me a note via email, using the mail icon in the footer. Cheers!&lt;/p&gt;
 </content>
 	</entry>
