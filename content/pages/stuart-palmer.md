@@ -65,6 +65,11 @@ In keeping with the conceit of the magazine, when appropriate, I'll give a story
 <br><span class="inline-note"> Non-fiction article relating how the ghost of Henry Ward Beecher recovered a lost coin, and corrected an error in *Funk & Wagnalls Standard Dictionary*. Likely based on Isaac Funk's published account of the events.
 </span>
 
+[**The Specter in the New Hotel**](/stuart-palmer/specter-in-the-new-hotel/) (August 1929)
+<br><span class="inline-note"> 
+Palmer's highly embellished account of a ghost cat haunting a New York hotel. Based on an actual incident.
+</span>
+
 </div>
 
 <p class="credit">

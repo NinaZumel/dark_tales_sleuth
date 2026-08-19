@@ -32,12 +32,16 @@ but neither are you free
 to abandon it. 
 ```
 
-\-- [Rabbi Rami Shapiro](https://en.wikipedia.org/wiki/Rami_M._Shapiro), from _Wisdom of the Jewish Sages: A Modern Reading of the Pirke Avot_ (Bell Tower, New York, 1993), a loose translation/interpolation of the _Pirke Avot_. The passage in question is the last verse of Chapter II, and is said to be commentary by [Rabbi Tarfon](https://en.wikipedia.org/wiki/Rabbi_Tarfon) on Micah 6:8. The quote as given above is paraphrased from Shapiro's actual text.
+\-- [Rabbi Rami Shapiro](https://en.wikipedia.org/wiki/Rami_M._Shapiro), from _Wisdom of the Jewish Sages: A Modern Reading of the Pirke Avot_ (Bell Tower, New York, 1993), a loose translation/interpolation of the _Pirke Avot_. The passage in question is the last verse of Chapter II, and is said to be commentary by [Rabbi Tarfon](https://en.wikipedia.org/wiki/Rabbi_Tarfon) on Micah 6:8. 
+
+The quote as given above is paraphrased from Shapiro's actual text. This paraphrase probably came from Barbara J. McClure, in her book *Moving Beyond Individualism in Pastoral Care and Counseling* (2010).
 
 * * *
 
 [**Encourage the Beautiful, for the Useful encourages itself.**](/blog/2024-03-25-encourage-the-beautiful/)
 
 \-- Commonly attributed to Goethe, but no known source. Earliest discovered appearance so far is in the British periodical _The Leader_, March 30, 1850 (first issue). The original use, plus credit to Goethe, tentatively attributed to [George Henry Lewes](https://en.wikipedia.org/wiki/George_Henry_Lewes), literary editor for _The Leader_ from 1850-1854.
+
+See [this post](/blog/2026-01-05-goethe-quote/) for a discussion of what is possibly the closest actual Goethe quote, as identified by scholar Artur Zwolski.
 
 </div>

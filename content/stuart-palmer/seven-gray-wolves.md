@@ -291,6 +291,6 @@ Does he still wait on the hillside above the corral, sleeping deeply with his no
 
 
 ---
-
+Part of the series [*The Supernatural Writings of Stuart Palmer*](/pages/stuart-palmer/).<br>
 Image from *Ghost Stories*, December 1928.
 

@@ -158,7 +158,7 @@ Then the figure sank down to the ground like a flame exhausted, and disappeared.
 <br>
 
 ---
-
+Part of the series [*The Supernatural Writings of Stuart Palmer*](/pages/stuart-palmer/).<br>
 Annotations by Nina Zumel.
 
 Illustrations by Lew Aiello, for "How a Spirit Corrected the Standard Dictionary," *Ghost Stories*, June 1929. Captions from the original text.

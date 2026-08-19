@@ -43,7 +43,7 @@ The text is said to be a commentary on Micah 6:8. Here's the [King James' Bible 
 
 > He hath shewed thee, O man, what is good; and what doth the LORD require of thee, but to do justly, and to love mercy, and to walk humbly with thy God?
 
-And these together give us the quote that I started with. But who is it from? It appears to be a slightly jumbled version of the passage II:20 from _Wisdom of the Jewish Sages: A Modern Reading of the Pirke Avot_ (Bell Tower, New York, 1993), by [Rabbi Rami Shapiro](https://en.wikipedia.org/wiki/Rami_M._Shapiro). You can [borrow read and the text at the Open Library](https://archive.org/details/wisdomofjewishsa0000unse/page/42/mode/2up), with an account, but I'll give you the whole passage, here.
+And these together give us the quote that I started with. But who is it from? It appears to be a slightly jumbled version of the passage II:20 from _Wisdom of the Jewish Sages: A Modern Reading of the Pirke Avot_ (Bell Tower, New York, 1993), by [Rabbi Rami Shapiro](https://en.wikipedia.org/wiki/Rami_M._Shapiro). You can [borrow and read the text at the Open Library](https://archive.org/details/wisdomofjewishsa0000unse/page/42/mode/2up), with an account, but I'll give you the whole passage, here.
 
 ```
 

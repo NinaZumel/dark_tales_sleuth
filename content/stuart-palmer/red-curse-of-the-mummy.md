@@ -372,6 +372,7 @@ If our souls had not been in complete harmony that night, I should have placed m
 
 ---
 
+Part of the series [*The Supernatural Writings of Stuart Palmer*](/pages/stuart-palmer/).<br>
 Annotations by Nina Zumel.
 
 Image remixed from  illustrations for "The Red Curse of the Mummy," *Ghost Stories*, February 1929.

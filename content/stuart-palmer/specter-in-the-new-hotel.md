@@ -190,6 +190,7 @@ Webb shivered, and drew back. What manner of cat was it that had won the affecti
 Read the actual story—more prosaic, but also sadder—of <a href="https://catsabouttowntours.com/stories/feline-ghost-of-ansonia-hotel">the "ghost cat" of the Ansonia Hotel</a> here.
 </p>
 
+Part of the series [*The Supernatural Writings of Stuart Palmer*](/pages/stuart-palmer/).<br>
 Annotations by Nina Zumel.
 
 Illustrations from "The Specter in the New Hotel," *Ghost Stories*, August 1929. Captions from the original text.
