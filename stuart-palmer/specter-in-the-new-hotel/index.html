@@ -1,0 +1,933 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>The Specter in the New Hotel</title>
+		<meta name="description" content="Filling in the Literary Blanks">
+		<link rel="alternate" href="/dark_tales_sleuth/feed/feed.xml" type="application/atom+xml" title="Dark Tales Sleuth">
+		<link rel="alternate" href="/dark_tales_sleuth/feed/feed.json" type="application/json" title="Dark Tales Sleuth">
+
+        
+		<link rel="me" href="https://micro.blog/MultoGhost">
+		<link rel="authorization_endpoint" href="https://indieauth.com/auth">
+		<link rel="token_endpoint" href="https://tokens.indieauth.com/token">
+		<link href="https://github.com/ninazumel" rel="me">
+		<script src="https://kit.fontawesome.com/9bbe6f85f9.js" crossorigin="anonymous"></script>
+		
+		<style>/* minimal implementation; just plain text in the margin, no blockquotes, code, etc */
+/* only (unnumbered) margin notes, no sidenotes */
+/* stripped down from https://github.com/edwardtufte/tufte-css */
+
+/* need this for correct sidenote numbering; but I'm not using sidenotes */
+/*
+body {
+    counter-reset: sidenote-counter; 
+} 
+*/
+
+
+/* since I imagine these will change with different templates */
+:root {
+    --content-width: 65%;
+    --image-padding: 5%;
+    --image-max: 60%;  /* total image+padding <= content-width */
+    --notewidth: 30%; 
+    /* content-width + notewidth <  100%. I think you should leave some wiggle room. */
+    --note-right-margin: -45%;
+    /* if this margin is -(notewidth), the note will start just on the right border of the text */
+    /* so push it a little to the right (more negative) */
+}
+
+article {
+	padding-top: 1rem; 
+}
+
+/* make room for the notes in the article container */
+article > p,
+article > pre,
+article > ul,
+article > details {
+    width: var(--content-width);
+}
+
+/* 
+  blockquotes should be a little shorter 
+  This assumes that left indentation is 2em, which is what it looks like.
+  Subtract way more than 2 em, so that it's way shorter.
+  */
+article > blockquote {
+    width: calc(var(--content-width) - 10em); 
+}
+
+
+article > hr {
+    max-width: var(--content-width);
+    margin: 0
+}
+
+article > h1, 
+article > h2,
+article > h3,
+article > h4 {
+    max-width: var(--content-width);
+}
+
+article > center {
+    max-width: var(--content-width);
+}
+
+/* keep images/captions in the text column, rather than centered in the article container */
+article > img {
+    margin-left: 0;
+    padding-left: var(--image-padding);
+    max-width: var(--image-max); 
+}
+
+article > p.caption {
+	text-align: left;
+    padding-left: var(--image-padding);
+	font-style: italic;
+	font-size: 0.9em;
+	color: var(--caption-color);
+ }
+
+article > p.caption a:hover,
+article > p.caption a:active {
+    color: var(--text-color-link-active);
+}
+
+article > p.largeintro {
+    text-align:center;
+    margin-left: 0;
+    padding-left: var(--image-padding);
+    max-width: var(--image-max); 
+    font-style: italic;
+    font-size: 1.2em;
+    color: var(--text-color);
+    
+}
+
+article > p.intro {
+    text-align:center;
+    margin-left: 0;
+    padding-left: var(--image-padding);
+    max-width: var(--image-max); 
+    font-style: italic;
+    color: var(--text-color);
+    
+}
+
+article > p.featurebox {
+    text-align: center;  
+    margin-left: var(--image-padding);  
+    padding: 15px;  
+    width: calc(var(--image-max) - var(--image-padding));
+    font-style: italic;  
+    color: var(--text-color);  
+    border: 2px solid var(--text-color);  
+    box-sizing: border-box;
+}
+
+.footnote-item {
+    max-width: var(--content-width); 
+}
+
+ /* finally, the margin note */
+.marginnote {    
+    float: right;
+    clear: right;
+    width: var(--notewidth);         
+    margin-right: var(--note-right-margin);
+    margin-top: 0.3rem;
+    margin-bottom: 0;
+    font-size: 0.8rem;
+    line-height: 1.3;
+    vertical-align: baseline;
+    position: relative;
+    /* border: 2px solid blue; */
+}
+
+
+input.margin-toggle {
+    display: none;
+}
+
+
+label.margin-toggle {    
+    display: none;
+
+}
+
+/* The mobile fallback: */
+/* making max-width bigger makes the note fall inline sooner */
+@media (max-width: 768px) {  
+    body {
+        width: 84%;
+        padding-left: 8%;
+        padding-right: 8%;
+    }
+
+    hr,
+    article > p,
+    article > blockquote,
+    article > pre, 
+    article > ul,
+    article > details {
+        width: 100%;
+    }
+
+    article > center,
+    article > img,
+    article > hr {
+        max-width: 100%;
+    }
+
+    article > p.largeintro,
+    article > p.intro {
+        text-align: left;
+        max-width: 100%;
+    }
+
+    article > p.featurebox {
+        text-align: left;
+        width: 100%;
+    }
+
+    article > h1, 
+    article > h2,
+    article > h3,
+    article > h4 {
+        max-width: 100%;
+    }
+
+    label.margin-toggle {
+        display: inline;
+    }
+       
+    .marginnote {           
+         display: none;        
+        }    
+
+      
+    .margin-toggle:checked + .marginnote {            
+        display: block;            
+        float: left;            
+        left: 1rem;            
+        clear: both;            
+        width: 95%;            
+        margin: 1rem 2.5%;            
+        vertical-align: baseline;            
+        position: relative;        
+    }
+    label {
+        cursor: pointer;
+    }
+}
+* { box-sizing: border-box; }
+/* colors from flexoki - https://stephango.com/flexoki */
+
+:root {
+	--paper: #FFFCF0;
+	--tx-normal: #100F0F;
+	--tx-muted: #6F6E69;
+	--tx-faint: #B7B5AC;
+	--blue300: #66A0C8;
+	--blue400: #4385BE;
+	--blue600: #205EA6;
+	--blue700: #1A4F8C;
+	--blue800: #163B66; 
+	--blue850: #133051;
+	--green400: #879A39;
+	--green600: #66800B;
+	--red800: #6C201C;
+	--purple600: #5E409D;
+	--purple300: #A699D0;
+	--base50: #F2F0E5;
+	--base100: #E6E4D9;
+	--base300: #B7B5AC;
+
+	--description-color: var(--tx-muted); 
+    --caption-color: var(--tx-muted);
+	--background-color:  var(--paper); 
+    --hrule-color: var(--base100);
+    --hrule-faint-color: var(--base50);
+	--box-border-color: var(--base50);
+
+	--header-anchor-color: var(--base300); /* for the # links on headers */
+	--icon-color: var(--blue600);
+	--icon-hover-color: var(--blue300);
+	--tag-color: var(--purple600);
+	--tag-hover-color: var(--purple300);
+
+	--text-color: var(--tx-normal); 
+	--text-color-link: var(--blue700); 
+	--text-color-link-active: var(--blue400); 
+	--text-color-link-visited: var(--blue700); 
+
+	--collapsible-summary-color: var(--green600);
+	--details-box-color: var(--base50);
+
+
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--black: #100F0F;
+		--base200: #CECDC3; 
+		--base300: #B7B5AC;
+		--base500: #878580;
+		--base600: #6F6E69;
+		--base700: #575653;
+		--base900: #282726;
+		--base950: #1C1B1A;
+		--blue700: #1A4F8C;
+		--green400: #879A39;
+	    --green600: #66800B;
+		--red400: #D14D41;
+		--purple400: #8B7EC8;
+		--purple500: #735EB5;
+		--purple600: #5E409D;
+	
+		--description-color: var(--base300); 
+		--caption-color: var(--base500);
+		--background-color:  var(--black); 
+		--hrule-color: var(--base900);
+		--hrule-faint-color: var(--base950);
+		--box-border-color: var(--base900);
+
+		--header-anchor-color: var(--base500); /* for the # links on headers */
+		--icon-color: var(--blue400);
+		--icon-hover-color: var(--blue600);
+		--tag-color: var(--purple400);
+		--tag-hover-color: var(--purple500);
+
+		--text-color: var(--base200); 
+		--text-color-link: var(--blue400); 
+		--text-color-link-active: var(--blue600); 
+		--text-color-link-visited: var(--blue400); 
+
+		--collapsible-summary-color: var(--green400);
+		--details-box-color: var(--base900);
+	}
+}
+/* Defaults */
+:root {
+	--font-family: Georgia, Times, -serif; /* Tahoma, -apple-system, system-ui, sans-serif; */
+	--font-family-sanserif: Tahoma, -apple-system, system-ui, sans-serif;
+	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+
+	/* from another template - experiment with these */
+	--font--serif: 'Bitstream Charter', Charter, Palatino, 'Palatino Linotype', 'Palatino LT STD', 'Book Antiqua', Georgia, serif;
+  	--font--sans: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+}
+
+/* Theme colors */
+:root {
+	--syntax-tab-size: 2;
+}
+
+
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	font-size: 18px;  /* a little bigger to accomodate a serif font */
+	color: var(--text-color);
+	background-color: var(--background-color);
+}
+html {
+	overflow-y: scroll;
+}
+body {
+	max-width: 65em; /* 50em; */
+}
+
+/* Basic heading typography */
+h1,h2,h3,h4,h5 {
+  font-family: var(--font--sans);
+  font-weight: 600;
+}
+
+/* different horizontal rules  https://www.w3schools.com/howto/howto_css_dividers.asp */
+ /* Dashed border */
+ hr.dashed {
+	border-top: 1px dashed var(--hrule-color);
+  }
+  
+  /* Dotted border */
+  hr.dotted {
+	border-top: 1px dotted var(--hrule-color);
+  }
+  
+  /* Solid border */
+  hr.solid {
+	border-top: 1px solid var(--hrule-color);
+  }
+  
+
+/* 
+https://css-tricks.com/barebones-css-for-fluid-images/ 
+Without this, images generated by eleventy-img will always use the largest available size
+-- ie, not be responsive.
+*/
+img {
+	max-width: 100%; 
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+  }
+  img[width] {
+	width: auto; /* Defer to max-width */
+  }
+  img[width][height] {
+	height: auto; /* Preserve aspect ratio */
+  }
+  
+  /* Let SVG scale without boundaries */
+  img[src$=".svg"] {
+	width: 100%;
+	height: auto;
+	max-width: none;
+  }
+  
+
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+p {
+	line-height: 1.5;
+	/* font-size: 1.2em; */
+}
+
+p.caption {
+	text-align: center;
+	font-style: italic;
+	font-size: 0.9em;
+	color: var(--caption-color);
+ }
+
+ /* for the credits at the bottom of a page */
+p.credit {
+	max-width: 50em;
+	font-size: 0.9em;
+	margin-left: auto;
+	margin-right: auto;
+ }
+
+
+/* for inline annotations, like translations */
+span.inline-note {
+	font-size: 0.9em;
+	font-style: italic;
+}
+
+li {
+	line-height: 1.5;
+	/* font-size: 1.2em; */
+}
+
+a[href] {
+	color: var(--text-color-link);
+	text-decoration: none; 
+}
+a[href]:visited {
+	color: var(--text-color-link-visited);
+}
+a[href]:hover,
+a[href]:active {
+	color: var(--text-color-link-active);
+}
+
+main {
+	padding: 1rem;
+}
+main :first-child {
+	margin-top: 0;
+}
+
+header {
+	border-bottom: 1px dashed var(--hrule-color);
+}
+header:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.links-nextprev {
+	text-align: left;
+	list-style: none;
+	border-top: 1px dashed var(--hrule-color);
+	padding: 1em 0;
+}
+
+
+table {
+	margin: 1em 0;
+}
+table td,
+table th {
+	padding-right: 1em;
+}
+
+pre,
+code {
+	font-family: var(--font-family);
+	font-size: 0.95em;
+}
+pre:not([class*="language-"]) {
+	margin: .5em 0;
+	line-height: 1.375; /* 22px /16 */
+	-moz-tab-size: var(--syntax-tab-size);
+	-o-tab-size: var(--syntax-tab-size);
+	tab-size: var(--syntax-tab-size);
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+}
+code {
+	word-break: break-all;
+}
+
+/*
+  Custom containers
+*/
+div.message-box {
+	max-width: 50em; 
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div.magazine-box {
+	max-width: 50em; 
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* for comments */
+iframe {
+	max-width: 50em;
+	border: 2px solid var(--collapsible-summary-color);
+}
+
+
+/* Header */
+header {
+	font-family: var(--font--sans); 
+	display: flex;
+	gap: 1em .5em;
+	flex-wrap: wrap;
+	align-items: center;
+	padding: 1em;
+}
+.home-link {
+	font-size: 1.5em; /* 24px /16 (I think)*/
+	font-weight: 700;
+	margin-right: 2em;
+}
+.home-link:link:not(:hover) {
+	text-decoration: none;
+}
+
+/* Nav */
+.nav {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.nav-item {
+	display: inline-block;
+	margin-right: 1em;
+}
+.nav-item a[href]:not(:hover) {
+	text-decoration: none;
+}
+.nav a[href][aria-current="page"] {
+	text-decoration: underline;
+}
+
+/* Posts list */
+.postlist {
+	list-style: none;
+	padding: 0;
+	padding-left: 0; /* 1.5rem; */
+	max-width: 50em;
+}
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	counter-increment: start-from -1;
+	margin-bottom: 1em;
+	padding-bottom: 50px;
+	/* padding: 8px 16px; */
+	border-bottom: 1px dashed var(--hrule-color);
+}
+
+/* 
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	content: "" counter(start-from, decimal-leading-zero) ". ";
+	line-height: 100%;
+	text-align: right;
+	margin-left: -1.5rem;
+}
+*/
+
+.postlist-date,
+.postlist-item:before {
+	font-size: 0.8125em; /* 13px /16 */
+	color: var(--description-color);
+}
+.postlist-date {
+	word-spacing: -0.5px;
+	padding-left: .25em;
+}
+.postlist-link {
+	font-size: 1em; /* 1.1875em;  19px /16 */
+	font-weight: 700; 
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration: none; 
+	/* text-decoration-thickness: 1px; */
+}
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+/* for collapsible text blocks.
+Put the hidden text into p element(s); it looks better.
+*/
+
+/*
+original details background color: #f5f5f5 
+original box border color: #0066cc
+*/
+
+details {  margin: 1em 0;  padding: 1em;  background-color: var(--details-box-color);  border-left: 4px solid var(--collapsible-summary-color);}
+summary {  cursor: pointer;  font-weight: bold;  color: var(--collapsible-summary-color);}
+summary:hover {  text-decoration: underline;}
+
+/* Tags */
+.post-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+	font-style: italic;
+}
+.postlist-item > .post-tag {
+	align-self: center;
+}
+
+/* Tags list */
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: .5em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.post-metadata time {
+	margin-right: 1em;
+}
+
+/* I don't want tag links to stand out too much */
+.post-metadata a[href] {
+	color: var(--tag-color);
+}
+
+.post-metadata a[href]:hover,
+               a[href]:active {
+	color: var(--tag-hover-color);
+}
+
+
+.post-metadata li {
+	font-size: 0.875em;
+}
+
+/* metadata for posts and talks */
+
+.posttalk-metadata {
+	list-style: none;
+	padding-left: 0;
+	color: var(--description-color);
+}
+
+.posttalk-metadata ul {
+	list-style-type: none; /* no bullets */
+	padding: 0;  /* no indentation, either */
+	margin: 0;
+}
+
+/* Direct Links / Markdown Headers */
+.header-anchor {
+	text-decoration: none;
+	font-style: normal;
+	font-size: 1em;
+	margin-left: .1em;
+}
+a[href].header-anchor,
+a[href].header-anchor:visited {
+	color: transparent;
+}
+a[href].header-anchor:focus,
+a[href].header-anchor:hover {
+	text-decoration: underline;
+}
+a[href].header-anchor:focus,
+:hover > a[href].header-anchor {
+	color: var(--header-anchor-color);
+}
+
+h2 + .header-anchor {
+	font-size: 1.5em;
+}
+
+/* Footer */
+hr {
+    border: none;
+    background-color: var(--hrule-color);
+    height: 1px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+    hr {
+        width: 100%;
+    }
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2rem 0;
+    background-color: var(--background-color);
+	;
+}
+
+.footer-container p {
+    font-size: 1rem;
+    color: var(--description-color);
+}
+
+.footer-container .social_icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0 1rem;
+}
+
+.footer-container .social_icons a {
+    color: var(--icon-color);
+    font-size: 1.5rem;
+    transition: all 0.5s ease-in-out;
+}
+
+.footer-container .social_icons a:hover {
+    color: var(--icon-hover-color);
+}</style>
+	</head>
+	<body>
+		<a href="#skip" class="visually-hidden">Skip to main content</a>
+
+		<header>
+			<a href="/dark_tales_sleuth/" class="home-link">Dark Tales Sleuth</a>
+			<nav>
+				<h2 class="visually-hidden">Top level navigation menu</h2>
+				<ul class="nav">
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/about/">About</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/my-investigations/">My Cases</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/blog/">All Posts</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/guestbook/">Guestbook</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/about-me/">About Me</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="skip">
+			
+
+
+<h1>The Specter in the New Hotel</h1>
+
+
+
+
+
+
+<ul class="posttalk-metadata">
+  <li>By Stuart Palmer</li>
+  <li>Published in  <em>Ghost Stories Magazine</em>, August 1929</li>
+</ul>
+
+<article>
+<p class="largeintro">Can you imagine a ghostly cat in a New York skyscraper? Here are the FACTS about the four-footed demon that haunted the sixteenth floor of a Broadway hotel!</p>
+<p><em>Note: This amazing story is absolutely true.</em><label for="ansonia" class="margin-toggle">⊕</label>
+<input type="checkbox" id="ansonia" class="margin-toggle">
+<span class="marginnote">The story's absolutely an exaggeration. But it is based on an actual cat incident at <a href="https://en.wikipedia.org/wiki/The_Ansonia">The Ansonia Hotel</a> in Manhattan, around 1903.</span> <em>The names used are the real names of the persons involved, but the name of the hotel has, of course, been withheld.</em></p>
+<img src="/dark_tales_sleuth/stuart-palmer/specter-in-the-new-hotel/specter-new-hotel-2fCXF9rX2m-1027.png" alt="A group of people, some dressed in sleeping gear and one dressed as a porter, watch in alarm as a man in pyjamas flees his hotel room, looking over his shoulder in fear." loading="lazy" decoding="async" width="1027" height="944">
+<p class="caption">The group in the corridor shrank back in mortal terror. Jallade burst out of his room, shrieking, "The cat—oh, my God!"</p>
+<p>THE insistent meowing of a cat resounded through the corridors of New York City's latest residential hotel, situated on upper Broadway. It was three o'clock in the morning, and a raw February wind was howling out of doors. All the guests of the establishment had long since retired to rest, and now only the night lights were burning.</p>
+<p>Again came the meowing, louder than before. Two people heard it this time. One of them was Mr. Louis E. Jallade, the man who had designed the new building.<label for="jallade" class="margin-toggle">⊕</label>
+<input type="checkbox" id="jallade" class="margin-toggle">
+<span class="marginnote">According to Wikipedia, the Ansonia was designed by French architect Paul Emile Doboy. But <a href="https://www.philadelphiabuildings.org/pab/app/ar_display.cfm/51969">Louis Eugene Jallade</a> was a prominent architect, and he did live in the Ansonia. I don't know if he was afraid of cats, but he definitely didn't like them.</span> He muttered an anathema against the feline race, and tried to sleep again.</p>
+<p>Jallade, at the time, was well known as one of New York's finest architects. Something that was little known about him, however, was his pronounced phobia against cats. All his life he had shuddered whenever he chanced to be near one of the creatures. Once, at a tea, a great gray Persian belonging to his hostess had leaped into his lap, and he had fled from the room in a panic, upsetting cup and saucer as he went. The cry of a cat always made him shiver, but in this particular nocturnal wail there was an unearthly quavering which affected Jallade even more than usual. The <em>meow</em> was penetrating, but it seemed to come from far, far away....</p>
+<p>The noise continued, heard only by Jallade and one other person in the hotel. Across the hall from the architect's room on the sixteenth floor was the suite of Mr. and Mrs. John Edward Smith. Mrs. Smith had always loved dumb creatures of every kind. She was one of the foremost members of the New York Society for the Prevention of Cruelty to Animals, and had written several magazine articles dealing with pets and their treatment. At the time, Mrs. Smith was grieving for her own favorite cat which had recently died, and on hearing the cry of distress that sounded out in the hall, something seemed to tug at her heart. There was nothing of menace to her in the wail of the animal. Somewhere, she knew, a creature was appealing for aid. She put on dressing-gown and slippers, and without waking her husband, tiptoed to the door.</p>
+<p>She stepped into the hail just at the moment that Jallade, sleepless and furious, opened his own door, a heavy walking stick in his hand.</p>
+<p>There, in the corridor between them, sat an enormous black cat, howling plaintively. One of his front paws was as white as if it had been dipped in milk, but by his appearance Mrs. Smith saw at once that the big cat had had little acquaintance with that or any other food for some time. He was woefully thin, and his black coat was matted and dirty.</p>
+<p>Jallade advanced with the walking stick, ordering the cat to scat. But before he could touch the animal, Mrs. Smith had dashed out and picked it up, holding it protectingly in her arms.</p>
+<p>On the impulse of the moment. Mrs. Smith adopted the black cat, and to silence Jallade's protests and shuddering pleas that it be given to a hall-boy to dispose of, she slammed the door in his face. She was resolved that the lost creature should find a real home with her—and it did! The black cat lay at her feet through the rest of the night, as if he knew that at last his troubles were over. At daylight, Mrs. Smith sent out for cream and gave the animal a much-needed banquet.<br><br></p>
+<p>HER husband took an immediate liking to the big black fellow. Its eyes seemed to fascinate him.</p>
+<p>&quot;Why, look here!&quot; he exclaimed suddenly. &quot;They're different colors!&quot;</p>
+<p>Sure enough, in the light one eye was yellow and one was emerald green!</p>
+<p>That, in itself, was strange enough. But what defied explanation was this: How had the cat been able to climb unmolested to the sixteenth floor of the hotel, when the stair doors were tightly closed and the elevators not running?</p>
+<p>&quot;We'll call him Satan,&quot; decided Mrs. Smith laughingly. &quot;His eyes look so wicked!&quot;</p>
+<p>A few weeks of good care and food had made a new animal of the tom-cat. His black fur was glossy and shining, and his form had filled out. In spite of his obvious alley upbringing the Smiths found him extremely dainty and well-behaved. He spent a good deal of his time on Mrs. Smith's bureau, but never did his light tread misplace so much as a perfume bottle or a vanity case.</p>
+<p>Satan was happy; there was no doubt of that. The rules of the hotel prohibited dogs, but allowed cats in the rooms, and every morning Satan's pint of cream was delivered at the door of 1611. Life became a well-ordered and luxurious routine for the big sleek cat, and the Smiths grew fonder and fonder of him. In many ways he seemed to have an intelligence uncannily human. Sometimes Mrs. Smith would find his vari-colored eyes fixed on her in a stare which seemed to go right through her. But though servants and other guests confessed to creepy feelings when they encountered the animal, the Smiths saw only a cat whom they loved and who returned their affection.</p>
+<p>Jallade, however, across the hall, lay awake at night, unable to shake off the hideous sense of the nearness of the hated feline. Sometimes he could hear, or imagined that he heard, its faint <em>meow</em> and purring. Once he met Mrs. Smith descending in the elevator with Satan in her arms; Jallade left it at the next floor and walked down.</p>
+<p>He made several complaints to the manager, Mr. Guernsey Webb. But in spite of the fact that Jallade had designed the building and owned some shares in the stock of the hotel, his personal aversion to cats was not deemed sufficient reason for ordering the Smiths to get rid of their new pet. Webb suggested that Jallade move to some other room, but the only other one vacant in the new hotel was the suite directly above the Smiths and their Satan. Such a move would be worse than none, Jallade decided.<br><br></p>
+<p>THERE was another man in the hotel who had the same prejudice against the race of cats. He was Signor Theodore Gordoni, leader of the orchestra that played the dinner music every evening.<label for="gordon" class="margin-toggle">⊕</label>
+<input type="checkbox" id="gordon" class="margin-toggle">
+<span class="marginnote">A <em>New York Times</em> article about the incident (2 March 1903, p. 2) names a Theodore Gordon, leader of the first floor dining room orchestra. There's no indication in the article that Mr. Gordon hated or feared cats.</span> Mrs. Smith had taught Satan to walk on a leash, and had, on several occasions, brought him down to the dining room at dinner time. He would sit quietly beneath the table, or on a chair, accepting such morsels as his mistress chose to offer him.</p>
+<p>None of the guests objected In fact, Satan grew to be a favorite among them. He was big and supple now, with a long and beautiful coat of fur. When he was perched on his mistress' shoulder, he looked like a black fox scarf.</p>
+<p>Only Jallade objected—and poor Gordoni. For the musician was likewise afraid of cats—particularly afraid of this cat. When he looked across the dining room and saw Satan seated at Mrs. Smith's side, or blinking his green and yellow eyes from under the table, Gordoni would shiver and drop his baton in unaccountable terror. Psychologists call such a tendency &quot;feliphobia&quot;—dread of cats.<label for="phobia" class="margin-toggle">⊕</label>
+<input type="checkbox" id="phobia" class="margin-toggle">
+<span class="marginnote"><em>&quot;feliphobia&quot;</em> - The fear of cats is officially called <em>ailurophobia</em>, but apparently <a href="https://itoonsexplained.miraheze.org/wiki/796:_Feliphobia">Gary Larson agrees with Stuart Palmer</a>.</span> But had either Gordoni or Jallade ever heard the term, they would have derived small comfort from it in the face of the horrors they were soon to experience.</p>
+<p>At any rate, Mrs. Smith wakened one morning to find Satan gone. She and her husband searched high and low, in the bureau drawers and behind the bathtub. But the cat was nowhere to be found. The door had been locked as always, and the window had been open only from the top. But Satan had somehow vanished—as mysteriously as he had come.</p>
+<p>A day passed in searching, advertising and inquiring. Then another. But still there was no sign of Satan. The hotel employees disclaimed all knowledge of his whereabouts. and the other guests sympathized with the Smiths and helped in the search.</p>
+<p>Only Jallade—and the musician Gordoni—were silent.</p>
+<p>Then Mrs. Smith suddenly, remembered the night when she had first found the cat in the hall; remembered how Jallade had acted.</p>
+<p>Had he anything to do with Satan's disappearance? Was there actually a look of subtle triumph in the architect's eyes when they met in the hall? She communicated her worry to her husband, but Mr. Smith shook his head.</p>
+<p>&quot;How could Jallade have spirited the cat out of our room when the door was locked? Satan was in his usual place when we went to sleep.&quot;</p>
+<p>Nevertheless, his wife's suspicions had awakened his own. After all, they both knew that Jallade had done everything in his power to get rid of the cat. Perhaps he had resolved upon abduction—and violence....</p>
+<p>That evening Mr. Smith found an opportunity of speaking with several of the maids in private. Careful questioning brought to light a clue.</p>
+<p>One of the maids admitted that at five in the morning, on the day of Satan's disappearance, she had seen Thomas Gill, a hall-boy, come down the stairs with a box under his arm. She remembered the incident, she explained, because she had wondered at the time why Gill had chosen to walk down instead of using the elevator. But she had not seen where Gill had gone....</p>
+<p>Smith made inquiries regarding Thomas Gill, the hall-boy. He was told that Gill should have been on duty then, but that he was nowhere to be found.</p>
+<p>Smith was hot on the trail now. Soon he discovered that the elevator boy remembered having taken Gill and the orchestra leader, Gordoni, up to floor sixteen only a few moments before. He thought he had seen them enter Jallade's room, but he was not sure....</p>
+<p>Mr. Smith hastened upstairs, and was about to batter on Jallade's door when he stopped dead. From within came voices, loud voices, and he listened.</p>
+<p>Jallade was talking, his voice high and excited. All that Smith could hear was a constant repetition of the phrase: &quot;It's still here, I tell you! It's still here, I can hear it....&quot;</p>
+<p>Smith leaned closer. Now he recognized the voice of the hall-boy. Gill was explaining, protesting that he had carried out his orders. He had, he said, opened &quot;the door&quot; with the maid's pass key—and out had come the cat. &quot;And honest, Mister Jallade, I stuck him in a box and took him up to the Hudson River at Eightieth Street. I threw him in, and the box was weighted with a stone. That cat couldn't come back!&quot;</p>
+<p>Gordoni's excitable voice cut in, protesting that he, too, was still tormented by the cat. Its eyes had come shining at him out of the darkened halls. He had heard its voice in the pauses of the music. Both men were berating the hall-boy for not having carried out their orders.</p>
+<p>Smith tiptoed over to his own door. At last the mystery was solved. Poor Satan had become a martyr to the feline complexes of Gordoni and Jallade.</p>
+<p>That night Smith told his wife the whole story, and she, in tears, mentally resolved to tell the architect a few things in the morning. She was inconsolable at the loss of her beloved Satan. Little did she guess, though, what awful consequences were yet to result from her kindly impulse to befriend a homeless cat.<br><br></p>
+<p>IN the early hours of the morning, the Smiths were awakened by a series of blood-curdling shrieks from across the hall. In a few moments they had joined a little knot of guests out in the hall, debating whether or not to break down the door of Jallade's room.</p>
+<p>The problem was solved unexpectedly.</p>
+<p>Jallade burst out of his room, shrieking, &quot;The cat—oh, my God!&quot;</p>
+<p>The group in the corridor shrank back in mortal terror.</p>
+<p>&quot;It's after me again!&quot; he cried, looking furtively back into the darkness of his room. &quot;I can't get away from the cursed thing....&quot;</p>
+<p>The manager appeared. &quot;Mr. Jallade, sir! What does this mean?&quot;</p>
+<p>&quot;The cat comes back! I had a boy drown it, but it still comes back!&quot;</p>
+<p>Haggard, ashen, Jallade blurted out his story. All night long, he said, he had heard the cat's tread above his head, heard it in the wall by the head of his bed. The man was quite evidently neither drunk nor insane; he seemed in the grip of an intense and sincere terror which communicated itself to the startled guests who heard him.</p>
+<p>Webb, the manager, however, ventured to laugh. He was sure that whatever had caused the noises could not have been the missing cat. He took a step toward the open door, but Jallade caught his arm, warningly.</p>
+<p>&quot;Listen! for God's sake——&quot;</p>
+<p>The people in the hall strained their ears....</p>
+<p>Quavering yet clear, from the darkened room, came the wail of a cat! The unearthly sound seemed faint and far away, but there was no mistaking it. The guests shrank back.</p>
+<p>There was a moment of hesitation, and then Manager Webb and Mrs. Smith burst into the room. The voice was Satan's; his mistress was sure of it.</p>
+<p>But when the lights were turned on, the disordered room was found to be absolutely empty. The door was shut at once, and a thorough search made—but there was not a sign of the big black cat!</p>
+<p>&quot;He must be here somewhere,&quot; insisted Mrs. Smith.</p>
+<p>At last, though, she too, was forced to give up. The cat was not in the room.</p>
+<p>The next morning Thomas Gill made a clean breast of it all, admitting that he had been hired by Jallade and Gordoni to steal the cat and do away with it. He swore that he had thrown the box containing Satan into the Hudson, and that he had seen it sink.</p>
+<p>Nevertheless Mrs. Smith still clung to a forlorn hope. After all, she had recognized Satan's voice in the hall that night, and she refused to believe that she had been the victim of an hallucination. The cat must be still alive.</p>
+<p>That night things grew worse instead of better. At twelve o'clock Jallade had left his room, swearing never to enter it again. He had been reading, he said, until the light began to hurt his eyes. To rest them, he had snapped out the lamp and sat there smoking his pipe in the dark. Of a sudden, out of the blackness, a furry body had leaped upon his knee. He had felt the touch of claws!</p>
+<p>For a moment he had been too paralyzed to move. Then he had flung the thing from him with a mighty effort and turned on the light. But no cat was there. Jallade moved to another hotel that very night.</p>
+<p>Even then, Webb insisted that the whole thing was either caused by a strange animal which had somehow wandered into the hotel, or else that Jallade, in his fear of cats, had heard one where none existed. Yet on the evening before Webb, too, had heard the <em>meow</em>.
+<br><br></p>
+<img src="/dark_tales_sleuth/stuart-palmer/specter-in-the-new-hotel/specter-cat-7wdH0hGDjN-1029.png" alt="A black cat slinks along, tail stretched out behind him." loading="lazy" decoding="async" width="1029" height="394">
+<p>THAT night, the manager was besieged with telephone calls from guests all over the hotel, complaining of the noises made by a cat. The worst of the disturbances, however, were reported on the sixteenth floor. The sound was located, by two complainants, in the wall of a certain room.</p>
+<p>Manager Webb was now of the opinion that a cat had somehow become imprisoned between the partitions, and he ordered workmen to tear out the plaster. <em>Meows</em> came from each spot they sounded. But after the wall was opened a yawning black hole was all that rewarded their efforts. No cat was there!</p>
+<p>In the entire hotel the Smiths were the only residents who did not hear the caterwauling and meowing that was now a nightly occurrence. Every other guest on the sixteenth floor was driven to desperation by the uncanny wails; but after the episode in Jallade's room, neither of Satan's former friends heard the voice.</p>
+<p>On the second day of April, the orchestra leader, Gordoni, climbed the stairs, after the dinner hour was over, to a dressing room on the second floor, where he always changed from his dress suit into street clothes.</p>
+<p>The hall was dimly lit, and Gordoni was hurrying. Suddenly he stopped, too stricken by terror to cry out.</p>
+<p>Immediately in front of him shone two enormous eyes, that stared at him hypnotically without blinking. One of them was green—the other a shining topaz!</p>
+<p>But the conductor's voice rose in a thin agonized shriek of horror when there hurtled at him a snarling, spitting creature that seemed to hover like a bat as it lit on his shirt front. The weight knocked the breath out of him.</p>
+<p>Then the animal climbed like a wild beast to his shoulder, slashing him with needle-claws and fangs as it went.</p>
+<p>From his shoulder the beast scrambled to the top of his head. Gordoni's arms waved wildly in an effort to free himself from the blinding pain of those slashing claws. Blood trickled into his eyes from the cuts along his forehead, and the frantic musician staggered and fell headlong on the carpet. Running footsteps approached....</p>
+<p>A moment later bell-boys found him bloody and torn.</p>
+<p>&quot;It's—it's gone, the <em>maladetta</em>....&quot; he choked.</p>
+<p>Guernsey Webb, by that time, was in command. At last, he thought, he had cornered the &quot;ghost&quot;! The hall ended a few yards farther on, and he knew that whatever had attacked Gordoni must have come from that direction.<br><br></p>
+<p>SLOWLY and gingerly the little army of bell-boys and porters made its way down the hall. No living creature could have passed that group. And every door on either side was tight shut. But when they came to the end, the corner was bare. No savage cat lurked in the shadows!</p>
+<p>Gordoni fled in terror to dress his wounds, but Webb was determined to end the thing. Some of his guests had already left, and more would surely go after this.</p>
+<p>He asked each guest to phone him at once if anything unusual should happen. Then he waited in his office.</p>
+<p>His phone did not ring until late that evening, when an excited woman insisted that she had seen a black cat run down the hall on the sixteenth floor. The animal had gone through the closed door of Jallade's former room!</p>
+<p>Followed by the hotel servants and two policemen, Webb hurried to the room. It was empty, as he had known it would be, but be motioned for silence and listened. At last it came—that infernal, eerie wail—from the wall behind Jallade's bed!</p>
+<p>&quot;Break in the wall!&quot; ordered Webb. At the first sound of the hatchets, Mr. and Mrs. Smith came running over.</p>
+<p>Webb shook his head at Mrs. Smith's anxious inquiry as to whether Satan could possibly be in the wall, alive. The masonry had been bricked up airtight when the building was finished, he said. Still, he was going to make sure....</p>
+<p>A large piece of the wall crumbled in, leaving a black hole. The men drew back, but Webb took a flashlight, and peered within. What he saw made him gasp with horror.</p>
+<p>&quot;It's the cat.... I think it's the one you adopted.&quot; He turned to the Smiths.</p>
+<p>Mrs. Smith excitedly pushed forward. &quot;Is it Satan—poor Satan? Is he alive?&quot;</p>
+<p>She pressed forward to look, but suddenly uttered a cry.</p>
+<p>&quot;He's dead! He's—oh, it's terrible...&quot; Her husband led her from the room as Webb gingerly lifted from a tangle of steam-pipes the dried and mummified body of a cat—a black cat with one white foot that seemed to have been dipped
+in milk. Obviously the animal had been dead for several months—since, in fact, the hotel was built!</p>
+<p>Webb shivered, and drew back. What manner of cat was it that had won the affection of the Smiths? How many deaths had Satan died?</p>
+<hr>
+<p class="featurebox">
+Read the actual story—more prosaic, but also sadder—of <a href="https://catsabouttowntours.com/stories/feline-ghost-of-ansonia-hotel">the "ghost cat" of the Ansonia Hotel</a> here.
+</p>
+<p>Part of the series <a href="/dark_tales_sleuth/pages/stuart-palmer/"><em>The Supernatural Writings of Stuart Palmer</em></a>.<br>
+Annotations by Nina Zumel.</p>
+<p>Illustrations from &quot;The Specter in the New Hotel,&quot; <em>Ghost Stories</em>, August 1929. Captions from the original text.</p>
+
+</article>
+
+<p class="credit">
+Have a comment? Leave a note in the <a href="/dark_tales_sleuth/pages/guestbook">Guestbook</a>.
+</p>
+		</main>
+
+		<!-- footer -->
+		<hr>
+
+<div class="footer-container">
+	<p>&copy; 2026 Nina B. Zumel</p>
+	<div class="social_icons">
+	    <a href="mailto:nzumel@mzlabs.com?subject=Comment%20from%20Dark%20Tales%20Sleuth" aria-label="Email" target="_blank" rel="noopener noreferrer">
+			<i class="fas fa-fw fa-envelope"></i>
+		</a>
+		<a href="https://multoghost.wordpress.com/" aria-label="Multo (Ghost)" target="_blank" rel="noopener noreferrer">
+			<i class="fab fa-fw fa-wordpress"></i>
+		</a>
+		<a href="/dark_tales_sleuth/feed.xml" aria-label="RSS" target="_blank" rel="noopener noreferrer">
+			<i class="fa fa-fw fa-rss-square"></i>
+		</a>
+
+	</div>
+</div>
+		<!-- /footer-- >
+
+		<!-- Current page: /dark_tales_sleuth/stuart-palmer/specter-in-the-new-hotel/ -->
+	</body>
+</html>
