@@ -12,8 +12,10 @@ title: The Supernatural Writings of Stuart Palmer
     {% image "./images/ghost-stories-cover-10-28.png", "Cover of Ghost Stories October 1928" %}
 
     <div class="top_description">
-      <p>Palmer's story "A Sleeper Bewitched" on the cover of Ghost Stories, October 1928.</p>
+      <p>Palmer's story "A Sleeper Bewitched" on the cover of Ghost Stories, October 1928.<br> Cover art by Doris Stanley. From a photo of <a href="https://en.wikipedia.org/wiki/Esther_Ralston">Esther Ralston</a>.
+      </p>
     </div>
+
 </div>
 <br>
 <div class="message-box">
@@ -26,6 +28,10 @@ But Palmer's earliest writing was for *Ghost Stories* magazine. Writing under a 
 Here, I'm collecting as many of Palmer's *Ghost Stories* contributions as I can find.
 
 [**_Read my introductory comments about Palmer's supernatural writing here._**](/blog/2026-06-11-supernatural-writing-stuart-palmer/) 
+
+    <p class="credit">
+    Photo credit reference: <em>Ghost Stories: The Magazine and its Makers</em>, Vol 2. John Locke (Ed.), Off-Trail Publications (2010)
+    </p>
 </div>
 <br>
 
@@ -68,6 +74,11 @@ In keeping with the conceit of the magazine, when appropriate, I'll give a story
 [**The Specter in the New Hotel**](/stuart-palmer/specter-in-the-new-hotel/) (August 1929)
 <br><span class="inline-note"> 
 Palmer's highly embellished account of a ghost cat haunting a New York hotel. Based on an actual incident.
+</span>
+
+[**The Monster in the Cellar**](/stuart-palmer/monster-in-the-cellar/) (October 1929 -- as Stanley Horton)
+<br><span class="inline-note"> 
+Another Karl Brandt tale, also featuring Dr. Park Graham (from "Stigma"). A brutal, smelly poltergeist haunts a boarding house where a brain-injured woman lies ill. Can the two things be connected? The second of the "Karl Brandt, ghost-layer" stories.
 </span>
 
 </div>

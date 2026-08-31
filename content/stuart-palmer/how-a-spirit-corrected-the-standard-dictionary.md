@@ -87,10 +87,11 @@ One coin was large, and its copper had turned quite black with the years. The ot
 
 As Doctor Funk examined them, the cashier remembered that there had been some question as to which of the two was genuine. He searched in his files, and found a letter from the mint at Philadelphia, crediting the lighter as the true coin. In making up the plate for the dictionary, the lighter coin had, therefore, been used. But it had never been returned, and the voice from Beyond had been right, after all!
 
-<p class="featurebox">
-<strong>Eyes That See Through Steel</strong><br>
+<div class="featurebox">
+<strong>Eyes That See Through Steel</strong>
+
 The coin had lain hidden under a pile of papers in a locked safe, for ten years. No living man even remembered its existence. How, then, did the medium find out about it? Did she really receive a message from the spirit of Henry Ward Beecher? Read the actual facts!
-</p>
+</div>
 
 However, Doctor Funk was pre-eminently an investigator and he did not let his enthusiasm run away with his judgment. He had been told to return the coin, but to whom did it now belong? Professor West, he ascertained, was dead, and his collection of coins had been sold to a man in Baltimore for $17,000. Should the *Widow's Mite* go to the heirs of Mr. West, or to the man who had purchased his entire collection?
 

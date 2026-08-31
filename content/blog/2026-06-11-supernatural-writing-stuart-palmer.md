@@ -16,11 +16,17 @@ His best-known work features spinster schoolteacher Hildegard Withers, who solve
 I'm a fan of the Hildegard Withers short stories; and of the Withers+Malone stories, too. So I was interested to learn that Palmer's earliest published writing was for *Ghost Stories Magazine*! What, I wondered, might Palmer's ghost stories be like?
 
 According to the Online Books Page, *Ghost Stories* and all its contents appear to be in the US public domain. Presto!---a new literary excavation project for me! 
+
 ## *Ghost Stories* Magazine
 
 As I mentioned when I did the [Dr. Martinus series](/blog/2025-08-24-dr-martinus-occultist/), *Ghost Stories* purported to publish "true" first person accounts of ghostly encounters. The tales were credited to the narrator of the account, usually "as told to" the actual author.{% marginnote "ghoststories", "The authorial fiction was a bit transparent. Even when the byline on the first page of a story appears as \"by [narrator] as told to [author],\" the table of contents credits only the author." %} The magazine also published third-person articles about "authentic" supernatural historical events.
 
-Palmer wrote for *Ghost Stories* from 1928 to 1931, under at least three names, including his own. The pseudonyms allowed the magazine to publish multiple pieces by him simultaneously: the October 1929 and April 1930 issues both feature two Palmer contributions each, bylined with different names.{% marginnote "truestories", "Palmer also wrote for *Ghost Stories*'s short lived sister publication, *True Strange Stories*. The August 1929 issue of *True Strange Stories* boasts *three* Palmer contributions, again under three different pen-names!" %} He wrote short stories, articles, and one five-part novella. I was especially excited to discover that Palmer had even created a mini occult investigator series: two (possibly three) stories about Karl Brandt, ghost-layer!
+Palmer wrote for *Ghost Stories* from 1928 to 1931. According to John Locke[^1], he was likely on the staff of McFadden Publications (who published a number of magazines, including *Ghost Stories*) from late 1928, until 1930 or perhaps even into 1931. Palmer also became the editor of *Ghost Stories* in 1931, probably only for the last two issues, after McFadden sold the magazine to Harold Hersey and the Good Story Magazine Company.
+
+[^1]: Locke, John (Ed). *Ghost Stories: The Magazine and its Makers*, Two volumes. Off-Trail Publications (2010).
+
+Like many of the McFadden editorial staff, Palmer wrote pieces for the McFadden magazines under a number of pen names. He used at least three
+names for his *Ghost Stories* writing, including his own. The pseudonyms allowed the magazine to publish multiple pieces by him simultaneously: the October 1929 and April 1930 issues both feature two Palmer contributions each, bylined with different names.{% marginnote "truestories", "Palmer also wrote for *Ghost Stories*'s short lived sister publication, *True Strange Stories*. The August 1929 issue of *True Strange Stories* boasts *three* Palmer contributions, again under three different pen-names!" %} He wrote short stories, articles, and one five-part novella. I was especially excited to discover that Palmer had even created a mini occult investigator series: two (possibly three) stories about Karl Brandt, ghost-layer!
 
 So already this project has been a treat... .
 
@@ -80,16 +86,9 @@ Crippen and Landru also have an eBook edition of their 2002 collection, [*Hildeg
 
 *People vs. Withers & Malone* (Simon and Schuster, 1963) is a collection of stories featuring both Miss Withers and Craig Rice's series character John Malone, all of which were originally published in *Ellery Queen Mystery Magazine*. Maybe some day someone will republish the collection; until then, here's [a copy on loan at the Open Library](https://archive.org/details/peoplevswithersm0000stua). Officially, these stories are Palmer/Rice collaborations; in reality, as sadly documented in Saylor's article above, they are mostly written by Palmer.
 
+<hr/>
 
-
-
-[^1]: The authorial fiction was a bit transparent. Even when the byline on the first page of a story appears as "by [narrator] as told to [author]," the table of contents credits only the author.
-
-[^2]: Palmer also wrote for *Ghost Stories*'s short lived sister publication, *True Strange Stories*. The August 1929 issue of *True Strange Stories* boasts *three* Palmer contributions, again under three different pen-names!
-
-[^3]: The FictionMags Index lists a poem, "The Haunted Lover," published in *The Milwaukee Journal*, June 26, 1926. Could be supernatural, or not; either way, I can't access the newpaper online to take a look.
-
-[^4]: A few years after the *Fate* story, Palmer published a piece called "Ghosts All Around Him" in the adventure magazine *Valor for Men*, June 1958. I haven't read it, but it sounds like it could plausibly be a ghost story or a "true ghost experience." If so, perhaps it, too, was a leftover from the *Ghost Stories* days.
+Article revised August 31, 2026 to include information about Palmer's editorship of the magazine, and a citation to Locke.
 
 
 

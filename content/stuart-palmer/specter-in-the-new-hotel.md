@@ -185,10 +185,11 @@ in milk. Obviously the animal had been dead for several months—since, in fact,
 Webb shivered, and drew back. What manner of cat was it that had won the affection of the Smiths? How many deaths had Satan died?
 
 ---
+<br>
 
-<p class="featurebox">
+<div class="featurebox left">
 Read the actual story—more prosaic, but also sadder—of <a href="https://catsabouttowntours.com/stories/feline-ghost-of-ansonia-hotel">the "ghost cat" of the Ansonia Hotel</a> here.
-</p>
+</div>
 
 Part of the series [*The Supernatural Writings of Stuart Palmer*](/pages/stuart-palmer/).<br>
 Annotations by Nina Zumel.
