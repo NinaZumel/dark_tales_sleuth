@@ -1,0 +1,1037 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>The Monster in the Cellar</title>
+		<meta name="description" content="Filling in the Literary Blanks">
+		<link rel="alternate" href="/dark_tales_sleuth/feed/feed.xml" type="application/atom+xml" title="Dark Tales Sleuth">
+		<link rel="alternate" href="/dark_tales_sleuth/feed/feed.json" type="application/json" title="Dark Tales Sleuth">
+
+        
+		<link rel="me" href="https://micro.blog/MultoGhost">
+		<link rel="authorization_endpoint" href="https://indieauth.com/auth">
+		<link rel="token_endpoint" href="https://tokens.indieauth.com/token">
+		<link href="https://github.com/ninazumel" rel="me">
+		<script src="https://kit.fontawesome.com/9bbe6f85f9.js" crossorigin="anonymous"></script>
+		
+		<style>/* minimal implementation; just plain text in the margin, no blockquotes, code, etc */
+/* only (unnumbered) margin notes, no sidenotes */
+/* stripped down from https://github.com/edwardtufte/tufte-css */
+
+/* need this for correct sidenote numbering; but I'm not using sidenotes */
+/*
+body {
+    counter-reset: sidenote-counter; 
+} 
+*/
+
+
+/* since I imagine these will change with different templates */
+:root {
+    --content-width: 65%;
+    --image-padding: 5%;
+    --image-max: 60%;  /* total image+padding <= content-width */
+    --notewidth: 30%; 
+    /* content-width + notewidth <  100%. I think you should leave some wiggle room. */
+    --note-right-margin: -45%;
+    /* if this margin is -(notewidth), the note will start just on the right border of the text */
+    /* so push it a little to the right (more negative) */
+}
+
+article {
+	padding-top: 1rem; 
+}
+
+/* make room for the notes in the article container */
+article > p,
+article > pre,
+article > ul,
+article > details {
+    width: var(--content-width);
+}
+
+/* 
+  blockquotes should be a little shorter 
+  This assumes that left indentation is 2em, which is what it looks like.
+  Subtract way more than 2 em, so that it's way shorter.
+  */
+article > blockquote {
+    width: calc(var(--content-width) - 10em); 
+}
+
+
+article > hr {
+    max-width: var(--content-width);
+    margin: 0
+}
+
+article > h1, 
+article > h2,
+article > h3,
+article > h4 {
+    max-width: var(--content-width);
+}
+
+article > center {
+    max-width: var(--content-width);
+}
+
+/* keep images/captions in the text column, rather than centered in the article container */
+article > img {
+    margin-left: 0;
+    padding-left: var(--image-padding);
+    max-width: var(--image-max); 
+}
+
+article > p.caption {
+	text-align: left;
+    padding-left: var(--image-padding);
+	font-style: italic;
+	font-size: 0.9em;
+	color: var(--caption-color);
+ }
+
+article > p.caption a:hover,
+article > p.caption a:active {
+    color: var(--text-color-link-active);
+}
+
+article > p.largeintro {
+    text-align:center;
+    margin-left: 0;
+    padding-left: var(--image-padding);
+    max-width: var(--image-max); 
+    font-style: italic;
+    font-size: 1.2em;
+    color: var(--text-color);
+    
+}
+
+article > p.intro {
+    text-align:center;
+    margin-left: 0;
+    padding-left: var(--image-padding);
+    max-width: var(--image-max); 
+    font-style: italic;
+    color: var(--text-color);
+    
+}
+
+article > div.featurebox {
+    text-align: center;  
+    margin-left: var(--image-padding);  
+    padding: 15px;  
+    width: calc(var(--image-max) - var(--image-padding));
+    font-style: italic;  
+    color: var(--text-color);  
+    border: 2px solid var(--text-color);  
+    box-sizing: border-box;
+}
+
+article > div.featurebox.left {
+    text-align: left;
+}
+
+.footnote-item {
+    max-width: var(--content-width); 
+}
+
+ /* finally, the margin note */
+.marginnote {    
+    float: right;
+    clear: right;
+    width: var(--notewidth);         
+    margin-right: var(--note-right-margin);
+    margin-top: 0.3rem;
+    margin-bottom: 0;
+    font-size: 0.8rem;
+    line-height: 1.3;
+    vertical-align: baseline;
+    position: relative;
+    /* border: 2px solid blue; */
+}
+
+
+input.margin-toggle {
+    display: none;
+}
+
+
+label.margin-toggle {    
+    display: none;
+
+}
+
+/* The mobile fallback: */
+/* making max-width bigger makes the note fall inline sooner */
+@media (max-width: 768px) {  
+    body {
+        width: 84%;
+        padding-left: 8%;
+        padding-right: 8%;
+    }
+
+    hr,
+    article > p,
+    article > blockquote,
+    article > pre, 
+    article > ul,
+    article > details {
+        width: 100%;
+    }
+
+    article > center,
+    article > img,
+    article > hr {
+        max-width: 100%;
+    }
+
+    article > p.largeintro,
+    article > p.intro {
+        text-align: left;
+        max-width: 100%;
+    }
+
+    article > p.featurebox {
+        text-align: left;
+        width: 100%;
+    }
+
+    article > h1, 
+    article > h2,
+    article > h3,
+    article > h4 {
+        max-width: 100%;
+    }
+
+    label.margin-toggle {
+        display: inline;
+    }
+       
+    .marginnote {           
+         display: none;        
+        }    
+
+      
+    .margin-toggle:checked + .marginnote {            
+        display: block;            
+        float: left;            
+        left: 1rem;            
+        clear: both;            
+        width: 95%;            
+        margin: 1rem 2.5%;            
+        vertical-align: baseline;            
+        position: relative;        
+    }
+    label {
+        cursor: pointer;
+    }
+}
+* { box-sizing: border-box; }
+/* colors from flexoki - https://stephango.com/flexoki */
+
+:root {
+	--paper: #FFFCF0;
+	--tx-normal: #100F0F;
+	--tx-muted: #6F6E69;
+	--tx-faint: #B7B5AC;
+	--blue300: #66A0C8;
+	--blue400: #4385BE;
+	--blue600: #205EA6;
+	--blue700: #1A4F8C;
+	--blue800: #163B66; 
+	--blue850: #133051;
+	--green400: #879A39;
+	--green600: #66800B;
+	--red800: #6C201C;
+	--purple600: #5E409D;
+	--purple300: #A699D0;
+	--base50: #F2F0E5;
+	--base100: #E6E4D9;
+	--base300: #B7B5AC;
+
+	--description-color: var(--tx-muted); 
+    --caption-color: var(--tx-muted);
+	--background-color:  var(--paper); 
+    --hrule-color: var(--base100);
+    --hrule-faint-color: var(--base50);
+	--box-border-color: var(--base50);
+
+	--header-anchor-color: var(--base300); /* for the # links on headers */
+	--icon-color: var(--blue600);
+	--icon-hover-color: var(--blue300);
+	--tag-color: var(--purple600);
+	--tag-hover-color: var(--purple300);
+
+	--text-color: var(--tx-normal); 
+	--text-color-link: var(--blue700); 
+	--text-color-link-active: var(--blue400); 
+	--text-color-link-visited: var(--blue700); 
+
+	--collapsible-summary-color: var(--green600);
+	--details-box-color: var(--base50);
+
+
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--black: #100F0F;
+		--base200: #CECDC3; 
+		--base300: #B7B5AC;
+		--base500: #878580;
+		--base600: #6F6E69;
+		--base700: #575653;
+		--base900: #282726;
+		--base950: #1C1B1A;
+		--blue700: #1A4F8C;
+		--green400: #879A39;
+	    --green600: #66800B;
+		--red400: #D14D41;
+		--purple400: #8B7EC8;
+		--purple500: #735EB5;
+		--purple600: #5E409D;
+	
+		--description-color: var(--base300); 
+		--caption-color: var(--base500);
+		--background-color:  var(--black); 
+		--hrule-color: var(--base900);
+		--hrule-faint-color: var(--base950);
+		--box-border-color: var(--base900);
+
+		--header-anchor-color: var(--base500); /* for the # links on headers */
+		--icon-color: var(--blue400);
+		--icon-hover-color: var(--blue600);
+		--tag-color: var(--purple400);
+		--tag-hover-color: var(--purple500);
+
+		--text-color: var(--base200); 
+		--text-color-link: var(--blue400); 
+		--text-color-link-active: var(--blue600); 
+		--text-color-link-visited: var(--blue400); 
+
+		--collapsible-summary-color: var(--green400);
+		--details-box-color: var(--base900);
+	}
+}
+/* Defaults */
+:root {
+	--font-family: Georgia, Times, -serif; /* Tahoma, -apple-system, system-ui, sans-serif; */
+	--font-family-sanserif: Tahoma, -apple-system, system-ui, sans-serif;
+	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+
+	/* from another template - experiment with these */
+	--font--serif: 'Bitstream Charter', Charter, Palatino, 'Palatino Linotype', 'Palatino LT STD', 'Book Antiqua', Georgia, serif;
+  	--font--sans: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+}
+
+/* Theme colors */
+:root {
+	--syntax-tab-size: 2;
+}
+
+
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	font-size: 18px;  /* a little bigger to accomodate a serif font */
+	color: var(--text-color);
+	background-color: var(--background-color);
+}
+html {
+	overflow-y: scroll;
+}
+body {
+	max-width: 65em; /* 50em; */
+}
+
+/* Basic heading typography */
+h1,h2,h3,h4,h5 {
+  font-family: var(--font--sans);
+  font-weight: 600;
+}
+
+/* different horizontal rules  https://www.w3schools.com/howto/howto_css_dividers.asp */
+ /* Dashed border */
+ hr.dashed {
+	border-top: 1px dashed var(--hrule-color);
+  }
+  
+  /* Dotted border */
+  hr.dotted {
+	border-top: 1px dotted var(--hrule-color);
+  }
+  
+  /* Solid border */
+  hr.solid {
+	border-top: 1px solid var(--hrule-color);
+  }
+  
+
+/* 
+https://css-tricks.com/barebones-css-for-fluid-images/ 
+Without this, images generated by eleventy-img will always use the largest available size
+-- ie, not be responsive.
+*/
+img {
+	max-width: 100%; 
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+  }
+  img[width] {
+	width: auto; /* Defer to max-width */
+  }
+  img[width][height] {
+	height: auto; /* Preserve aspect ratio */
+  }
+  
+  /* Let SVG scale without boundaries */
+  img[src$=".svg"] {
+	width: 100%;
+	height: auto;
+	max-width: none;
+  }
+  
+
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+p {
+	line-height: 1.5;
+	/* font-size: 1.2em; */
+}
+
+p.caption {
+	text-align: center;
+	font-style: italic;
+	font-size: 0.9em;
+	color: var(--caption-color);
+ }
+
+ /* for the credits at the bottom of a page */
+p.credit {
+	max-width: 50em;
+	font-size: 0.9em;
+	margin-left: auto;
+	margin-right: auto;
+ }
+
+
+/* for inline annotations, like translations */
+span.inline-note {
+	font-size: 0.9em;
+	font-style: italic;
+}
+
+li {
+	line-height: 1.5;
+	/* font-size: 1.2em; */
+}
+
+a[href] {
+	color: var(--text-color-link);
+	text-decoration: none; 
+}
+a[href]:visited {
+	color: var(--text-color-link-visited);
+}
+a[href]:hover,
+a[href]:active {
+	color: var(--text-color-link-active);
+}
+
+main {
+	padding: 1rem;
+}
+main :first-child {
+	margin-top: 0;
+}
+
+header {
+	border-bottom: 1px dashed var(--hrule-color);
+}
+header:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.links-nextprev {
+	text-align: left;
+	list-style: none;
+	border-top: 1px dashed var(--hrule-color);
+	padding: 1em 0;
+}
+
+
+table {
+	margin: 1em 0;
+}
+table td,
+table th {
+	padding-right: 1em;
+}
+
+pre,
+code {
+	font-family: var(--font-family);
+	font-size: 0.95em;
+}
+pre:not([class*="language-"]) {
+	margin: .5em 0;
+	line-height: 1.375; /* 22px /16 */
+	-moz-tab-size: var(--syntax-tab-size);
+	-o-tab-size: var(--syntax-tab-size);
+	tab-size: var(--syntax-tab-size);
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+}
+code {
+	word-break: break-all;
+}
+
+/*
+  Custom containers
+*/
+div.message-box {
+	max-width: 50em; 
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div.magazine-box {
+	max-width: 50em; 
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* for comments */
+iframe {
+	max-width: 50em;
+	border: 2px solid var(--collapsible-summary-color);
+}
+
+
+/* Header */
+header {
+	font-family: var(--font--sans); 
+	display: flex;
+	gap: 1em .5em;
+	flex-wrap: wrap;
+	align-items: center;
+	padding: 1em;
+}
+.home-link {
+	font-size: 1.5em; /* 24px /16 (I think)*/
+	font-weight: 700;
+	margin-right: 2em;
+}
+.home-link:link:not(:hover) {
+	text-decoration: none;
+}
+
+/* Nav */
+.nav {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.nav-item {
+	display: inline-block;
+	margin-right: 1em;
+}
+.nav-item a[href]:not(:hover) {
+	text-decoration: none;
+}
+.nav a[href][aria-current="page"] {
+	text-decoration: underline;
+}
+
+/* Posts list */
+.postlist {
+	list-style: none;
+	padding: 0;
+	padding-left: 0; /* 1.5rem; */
+	max-width: 50em;
+}
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	counter-increment: start-from -1;
+	margin-bottom: 1em;
+	padding-bottom: 50px;
+	/* padding: 8px 16px; */
+	border-bottom: 1px dashed var(--hrule-color);
+}
+
+/* 
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	content: "" counter(start-from, decimal-leading-zero) ". ";
+	line-height: 100%;
+	text-align: right;
+	margin-left: -1.5rem;
+}
+*/
+
+.postlist-date,
+.postlist-item:before {
+	font-size: 0.8125em; /* 13px /16 */
+	color: var(--description-color);
+}
+.postlist-date {
+	word-spacing: -0.5px;
+	padding-left: .25em;
+}
+.postlist-link {
+	font-size: 1em; /* 1.1875em;  19px /16 */
+	font-weight: 700; 
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration: none; 
+	/* text-decoration-thickness: 1px; */
+}
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+/* for collapsible text blocks.
+Put the hidden text into p element(s); it looks better.
+*/
+
+/*
+original details background color: #f5f5f5 
+original box border color: #0066cc
+*/
+
+details {  margin: 1em 0;  padding: 1em;  background-color: var(--details-box-color);  border-left: 4px solid var(--collapsible-summary-color);}
+summary {  cursor: pointer;  font-weight: bold;  color: var(--collapsible-summary-color);}
+summary:hover {  text-decoration: underline;}
+
+/* Tags */
+.post-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+	font-style: italic;
+}
+.postlist-item > .post-tag {
+	align-self: center;
+}
+
+/* Tags list */
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: .5em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.post-metadata time {
+	margin-right: 1em;
+}
+
+/* I don't want tag links to stand out too much */
+.post-metadata a[href] {
+	color: var(--tag-color);
+}
+
+.post-metadata a[href]:hover,
+               a[href]:active {
+	color: var(--tag-hover-color);
+}
+
+
+.post-metadata li {
+	font-size: 0.875em;
+}
+
+/* metadata for posts and talks */
+
+.posttalk-metadata {
+	list-style: none;
+	padding-left: 0;
+	color: var(--description-color);
+}
+
+.posttalk-metadata ul {
+	list-style-type: none; /* no bullets */
+	padding: 0;  /* no indentation, either */
+	margin: 0;
+}
+
+/* Direct Links / Markdown Headers */
+.header-anchor {
+	text-decoration: none;
+	font-style: normal;
+	font-size: 1em;
+	margin-left: .1em;
+}
+a[href].header-anchor,
+a[href].header-anchor:visited {
+	color: transparent;
+}
+a[href].header-anchor:focus,
+a[href].header-anchor:hover {
+	text-decoration: underline;
+}
+a[href].header-anchor:focus,
+:hover > a[href].header-anchor {
+	color: var(--header-anchor-color);
+}
+
+h2 + .header-anchor {
+	font-size: 1.5em;
+}
+
+/* Footer */
+hr {
+    border: none;
+    background-color: var(--hrule-color);
+    height: 1px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+    hr {
+        width: 100%;
+    }
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2rem 0;
+    background-color: var(--background-color);
+	;
+}
+
+.footer-container p {
+    font-size: 1rem;
+    color: var(--description-color);
+}
+
+.footer-container .social_icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0 1rem;
+}
+
+.footer-container .social_icons a {
+    color: var(--icon-color);
+    font-size: 1.5rem;
+    transition: all 0.5s ease-in-out;
+}
+
+.footer-container .social_icons a:hover {
+    color: var(--icon-hover-color);
+}</style>
+	</head>
+	<body>
+		<a href="#skip" class="visually-hidden">Skip to main content</a>
+
+		<header>
+			<a href="/dark_tales_sleuth/" class="home-link">Dark Tales Sleuth</a>
+			<nav>
+				<h2 class="visually-hidden">Top level navigation menu</h2>
+				<ul class="nav">
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/about/">About</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/my-investigations/">My Cases</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/blog/">All Posts</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/guestbook/">Guestbook</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/about-me/">About Me</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="skip">
+			
+
+
+<h1>The Monster in the Cellar</h1>
+
+
+
+
+
+
+<ul class="posttalk-metadata">
+  <li>By Stuart Palmer (as Stanley Horton)</li>
+  <li>Published in  <em>Ghost Stories Magazine</em>, October 1929</li>
+</ul>
+
+<article>
+<p class="largeintro">What was the sinister link between lovely Amy Corcoran, desperately ill, and the foul creature that stalked snarling through the house, cloaked in invisibility?</p>
+<img src="/dark_tales_sleuth/stuart-palmer/monster-in-the-cellar/monster-in-the-cellar-k2j7A-TPOn-879.png" alt="An old man holds a short whip in his right hand, and shakes his left hand in a threatening gesture." loading="lazy" decoding="async" width="879" height="1009">
+<p class="caption">The old German lashed the empty air furiously. "Go!" he shrieked. "Go away [at] once!"</p>
+<p><strong>A BITTER</strong> wind swooped down through the canyons of Manhattan, whirling torn newspapers across the empty sidewalks. There was the chill feeling of rain in the air, and I quickened my steps. I wished that I had left the party earlier. Fifty-seventh Street is deserted at 3 A. M.</p>
+<p>A lone taxi-cab came around the corner, skidding slightly on the wet pavement. I did not see whether or not there was a passenger in the cab, but the driver paid no attention to my hail. I started to walk on, but suddenly I heard my name called. It was Karl Brandt, leaning out of the window of the cab, which had come to a stop some twenty feet away.</p>
+<p>&quot;Get in,&quot; he said as I came up. &quot;I'll take you where you're going. Or, better still, come along with me. Got a new case.&quot;</p>
+<p>There is nothing I like better than following Karl on his &quot;ghost-hunting expeditions.&quot; Originally he was interested only in the rehabilitation of supposedly haunted houses, with a view to their sale. Later he left the real-estate business to take up the work which I call &quot;ghost-laying,&quot; but which he simply terms &quot;investigating.&quot; He is a hard-headed practical individual with a strictly scientific outlook.</p>
+<p>As we rode along, Karl explained that he knew very little about this particular case. A friend of his by the name of Graham, a doctor, had asked him to look into the state of affairs in Mrs. Murphy's boarding-house. It seemed that the place was in considerable of an uproar, and that the roomers, mostly sailors and retired ship's officers, were convinced that the supernatural was at work.</p>
+<p>&quot;Graham goes up there once a week to treat a feeble-minded girl, the daughter of an old seaman named Corcoran,&quot; Karl said.</p>
+<p>&quot;Why take a look at this time of the morning?&quot; I asked. To tell the truth, I was a little sleepy.</p>
+<p>&quot;Because I just got a call from Doctor Graham. He's up at the Murphy place now. He said that if I would come at once, I could see the manifestations for myself. The good doctor seemed a bit shaken, so I dashed into my clothes—and met you before I had gone two blocks.&quot;</p>
+<p>The cab turned north on Third Avenue, and after winding its way under elevated structures and through a maze of cross-streets, it stopped in front of a building typical of old New York.<br><br></p>
+<p><strong>THERE</strong> was the usual flight of steps turning the second floor into the first, and the first into the basement. All around were new apartment houses and stores, but the old four-story house seemed to hold its ground belligerently. Down the street I caught a glimpse of the East River, and the wind brought a faint though definite smell of the waterfront. But Karl hurried me up the steps. The door was open, and we pressed the bell before passing into the dark hall.</p>
+<p>After the lights outside, I could hardly see a thing. Suddenly a door opened at the head of the stairs and a faint yellow glow shone out. A man stood in the open doorway,</p>
+<p>&quot;That you, Brandt? Come right up.&quot; The speaker used the terse, clipped tones that medical men affect, and I rightly guessed him to be Doctor Graham. The door closed again.</p>
+<p>Karl and I made our way toward the foot of the stairs. The hall was cluttered with chairs and tables, it seemed to me, and a faint and unpleasantly musty smell pervaded the place. I thought, too, that I could detect the odor of an animal. there was something of the smell that hangs so redolently around the menagerie in a circus.</p>
+<p>Karl's eyes are like a cat's, while I, for my part, must wear glasses most of the time. So I was not surprised when he caught my hand as I stumbled against the stairs, and guided me from behind. The stairway was a long one, and was laid with a carpet that was loose and kept tripping me up. If it had not been for Karl's hand helping me, I would have fallen. I thought he was close behind me.</p>
+<p>Suddenly I heard the dull sound of a step ahead of me...up the stairs. There was a muttered exclamation.</p>
+<p>&quot;Who's there?&quot; I called.</p>
+<p>&quot;It's only I,&quot; said Karl's voice. &quot;Tripped on this torn carpet. Watch your step as you come up....&quot;</p>
+<p>The voice came from above me! &quot;Karl, where are you?&quot; The hair on the back of my neck bristled.</p>
+<p>&quot;I'm almost to the top... where do you suppose?&quot; It <em>was</em> Karl!</p>
+<p>&quot;If you are almost to the top, what in God's name have I got in my hand?&quot; I shouted.</p>
+<p>&quot;What do you mean?&quot;</p>
+<p>&quot;Someone or something has got me by the hand!&quot; I cried.</p>
+<p>&quot;Hold him!&quot; Karl yelled. &quot;We've caught the trickster already!&quot; I tightened my grasp on the unseen hand. &quot;I'll get my flash....&quot;</p>
+<p>But even as he came running down the stairs, I felt a sudden tearing pain in my wrist and I let go the hand, involuntarily. At the same moment something rough and hairy brushed against me.</p>
+<p>The stairway was absolutely empty when Karl flashed the light!<br><br></p>
+<p><strong>&quot;AM I</strong> going crazy?&quot; I asked Karl, &quot;I'm cold sober, and yet I swear that I thought you were holding my hand to guide me through the darkness!&quot;</p>
+<p>And then, without conscious intent, I looked down at my hand. I gasped involuntarily, for blood was streaming from three long scratches on the back of my hand and wrist!</p>
+<p>Karl laid the flashlight on the top banister and reached for the electric switch at the head of the stairs. In a moment the big hall was clear as day. There was no one in sight.</p>
+<p>&quot;This is a house of mystery,&quot; I said, trying to dismiss the strange business with a laugh. &quot;Somebody is trying to put the fear of the devil in us before we have been here three minutes.&quot;</p>
+<p>Just then the door at the head of the stairs opened again and Doctor Graham stepped out, alarmed by the noise we had made.</p>
+<p>&quot;What's the matter?&quot; he asked excitedly. Then, apparently relieved by our appearance, he added, &quot;Come on in and I'll tell you about this place. I have to stay by my patient.&quot;</p>
+<p>We followed Graham into the room he had just left.</p>
+<p>The doctor was a portly man of middle age, slightly dandified in appearance. He motioned us to silence, and opened the door of the inner room. I caught a glimpse of a young girl lying asleep in a tumbled bed. Then he shut the door again, but not before I realized that this patient was beautiful, no matter what ailed her mind.</p>
+<p>&quot;Now I will introduce you to the problems with which I am confronted here,&quot; began the doctor somewhat pompously.</p>
+<p>Karl smiled grimly and raised my lacerated wrist.</p>
+<p>&quot;I think we have introduced ourselves,&quot; he said, &quot;to whatever is wrong. My friend has suffered the loss of some blood.&quot;</p>
+<p>Graham started, &quot;Aha! Let me bandage your wrist, Mr. Horton. So it has begun already to work on you two?&quot;</p>
+<p>&quot;What has begun?&quot; I asked, as he wound a strip of gauze across my injured hand.</p>
+<p>&quot;If I could answer that, there'd be nothing for our friend Mr. Brandt to do here,&quot; answered the doctor, &quot;But I'll give you a resumé of matters up to date.</p>
+<p>&quot;I have been coming here for nearly a year,&quot; went on Graham. &quot;My patient is the daughter of a sea-captain named Corcoran. She has been mentally deranged since the age of eighteen—two years. It was caused by a blow of some kind. I suspect that a bone is pressing against the brain.</p>
+<p>&quot;I have long hoped that an operation, a job of what we call trepanning, might release the pressure and make her mentally well again. During the past few months some very odd things have occurred here—and I think that the disturbances have been very bad for my patient.<br><br></p>
+<p><strong>&quot;THERE</strong> have been all sorts of queer noises around the house at night,&quot; he continued. &quot;Even in broad daylight things happen. Doors open, and footsteps are heard. There are noises in empty rooms. Something rattles and breaks crockery, and is generally mischievous. I've heard things myself. And then there is a faintly fetid odor, although the plumbing has been looked after time and time again.</p>
+<p>&quot;Tonight it has been worse than usual. I've been hearing things, right in this room. A glass of water was tipped from the table while I watched. And I have to be here, because Amy Corcoran is growing worse, and I'm trying to decide whether or not to operate. I'm afraid she'll die either way—for the operation is often fatal. But life is no use to her the way she is—and I have her father's permission to act as I see fit. The Captain has this room when in port, and he is sleeping upstairs tonight so that I can be near my patient.&quot;</p>
+<p>&quot;What other boarders are in the house?&quot; asked Karl thoughtfully. I could see that as yet he had no clue to the mystery.</p>
+<p>Doctor Graham looked at the ceiling. &quot;Let me see. There is the landlady, Mrs. Murphy. She is half-distracted with fear. The house is for sale at any price, although it is all she has in the world.</p>
+<p>&quot;Then there is Captain Corcoran, and his daughter Amy, my patient. And old Ludwig Bauman has had the same room in the basement for fifteen years—ever since he left the sea. The rest of the house is empty on account of the noises and accidents which have been happening.&quot;</p>
+<p>Karl started to speak, but his words seemed to freeze to his lips. At that instant, down the hall came footsteps. They sounded like those of a small child, yet they dragged strangely. Whatever the thing was, it wore no shoes.</p>
+<p>Karl was at the door in a bound, and I was not far behind. Anything which could make a sound with its feet was something tangible, I thought.</p>
+<p>The slithering, dragging footsteps were just outside the door. Karl threw it open, and we both burst out. I punched the switch, and the hall and stairs were bright with light. But nothing was there! Never before in my life have I experienced such a thrill of uncanny terror. Perhaps the footsteps were an auditory illusion; perhaps they came from overhead or below and were magnified and distorted by the weird acoustics of the building. But I know that in that instant stark, unreasoning fear swept over me for the first time in my life.</p>
+<p>Even in that moment of awful suspense I noted the strong animal smell that filled the hallway. It was connected in my mind with circuses—or the zoo. I could not remember where I had sensed that peculiar taint before.</p>
+<p>I was glad to go back into the room where we had left the Doctor. In the meantime he had looked in on his patient and was now noting her condition on a temperature chart. He had seemingly forgotten about the strange phenomena in the house, and his mind was full of his case. He shook his head, and nodded through the open door.<br><br></p>
+<p><strong>&quot;A LOVELY</strong> girl,&quot; he remarked. &quot;Twenty years old—and yet she sleeps most of the time, except when she wakes and babbles like an infant. I would give anything to restore her to mental rightness.&quot;</p>
+<p>Karl went into the sick-room, and I followed. The girl was very pretty, though her smooth face was absolutely expressionless, Curly brown hair lay in a tangle on the pillow. I could not believe that this charmingly attractive girl had the mentality of a six-months-old child, and I said so.</p>
+<p>Doctor Graham corrected me. &quot;Yes and no. By that I mean that while now she is as helpless as a baby, her brain is all there. She simply cannot use it. The machinery is all there, but the power is turned off. The operation, I hope, will turn it on. Do you see?&quot;</p>
+<p>Karl nodded, and we left the room, although I could not help giving a backward look at the girl on the bed. The tragedy of her condition was intensified to me by her beauty. I inwardly prayed that the knife of the Doctor could restore expression to that lovely face.</p>
+<p>&quot;By the way,&quot; said Karl, &quot;do these queer things occur every night?&quot;</p>
+<p>The Doctor shook his head.</p>
+<p>&quot;By no means. But there is no way of gauging them, They happen roughly about once a week. Sometimes more, sometimes less.&quot;</p>
+<p>Karl was making notes on an old envelope. &quot;Can you remember a few times when manifestations occurred?&quot; The Doctor gave him dates extending back a few weeks.</p>
+<p>A clock downstairs struck six. and I noticed that gray dawn was filtering in through the windows. &quot;Well, it's over for the night,&quot;I remarked in a relieved tone.</p>
+<p>Just then a cuckoo clock over my head started to strike. The little door swung open, and a ridiculous wooden bird vented his note. &quot;Cuckoo ... cuckoo ... cuckoo ...&quot; Suddenly it broke off. We all looked up at the wall, The little bird was somehow snatched from its opening and dropped on the floor! It rolled over once and was still.</p>
+<p>None of us moved, for we did not know what malicious doom might touch us. Our eyes were glued on the clock. Then the weights were animated as if something shook them in rage. They swung fiercely back and forth for a moment, the iron cones at the end rattling against the wall. Slowly the motion died out of them, and they hung immobile there. Only the broken little bird of carved and painted wood was there to remind us of what had happened.</p>
+<div class="featurebox left">
+<center><strong>Here's Proof For You</strong></center>
+<p>When you have read this gruesome story, perhaps you can explain the following, reported in the newspapers recently:</p>
+<p>The owners of the Newton Garage, in Newton, New Jersey, fled for their lives from a steady rain of buckshot which poured into their office—from no apparent source!</p>
+<p>County Prosecutor Vaughn and his aides searched walls, floor and ceiling, without unearthing a clue. Yet they, too, saw the weird manifestation.</p>
+<p>&quot;The Monster in the Cellar&quot; is a tale of far more diabolical pranks—but don't read it too late at night!</p>
+</div>
+<p>&quot;My God!&quot; ejaculated Doctor Graham. &quot;This is impossible. Impossible.&quot;</p>
+<p>Karl was cooler. He seemed to dismiss the incident as quite an ordinary happening.</p>
+<p>He turned to me. &quot;Let's see the other people in the house before we go. It is early to get them up, but the sooner I get started the better it will be for all of us.&quot;</p>
+<p>Mrs. Murphy was in the upper hall, in a bathrobe and slippers. &quot;So you're the gentlemen the Doctor spoke about? Bless his soul, for he's a good man to tend the poor girl. I've not slept the whole night for the rumpus that was going on.&quot; She paused for breath.</p>
+<p>&quot;Do you maybe know the cause of it, for it's spoiled my business and driven out all my roomers but three? And me a poor widow woman. Sure, it's Satan's work that breaks my dishes and trips me up in my own hall. Do you maybe know what it is?&quot;</p>
+<p>Karl smiled. &quot;No, but I hope to. Tell me about your roomers. I mean the ones you have now.&quot;</p>
+<p>&quot;Well, old Ludwig is quiet enough. He has had a little room in the basement for years and years, and I guess he'll be keeping it until he dies. He isn't much trouble, poor man. Except when he's drunk, and that hasn't happened in months. Of course, his pigeons make a noise——&quot;</p>
+<p>&quot;Pigeons?&quot; Karl looked surprised.</p>
+<p>&quot;Yes, he has to have his pets. He's a great one for animals and truck of that sort. That's why he got this basement room—his pets don't disturb anyone but him.&quot; Mrs. Murphy pointed toward a door under the main stairway. &quot;He's a bit daft....&quot;</p>
+<p>Karl and I went down the dark, narrow steps and pushed open the door at the bottom. It was not yet half-past six in the morning, but Ludwig Bauman was up and dressed. He was huddled in a chair with a crucifix in his hands.
+<br><br></p>
+<p><strong>KARL</strong> apologized for our walking in on him, but old Bauman only nodded. He seemed very old, and was evidently an eccentric. There were three pigeons loose in the room, one of them perching on the old German's shoulder. Near the window was a small ant-eater in a cage, and in a goldfish bowl I noticed several small lizards.</p>
+<p>&quot;You're up early, Mr. Bauman,&quot; I said in a casual tone.</p>
+<p>The old man looked at me frowningly.</p>
+<p>&quot;<em>Ja</em>, I'm up early. There's no sleeping for me any more. It's Hans, the bad boy. Always making trouble so I can't sleep.&quot;</p>
+<p>Karl stiffened. &quot;Hans? Who is Hans? Is he the ant-eater ?&quot;</p>
+<p>Bauman shook his head. &quot;<em>Nein.</em> I haf already said too much. There is no Hans. Good-by, gentlemen.&quot;</p>
+<p>I noticed that the man was not as old as I had at first thought. He seemed under great strain, and apparently he had not slept for some time.</p>
+<p>There was nothing to do but return to the upper floors. &quot;I don't see how he could have done anything to cause all this,&quot; mused Karl. &quot;Yet I wish that I knew what he meant when he said 'Hans,' I wonder if anyone by that name is around here.&quot;</p>
+<p>Mrs. Murphy denied that any Hans lived near. &quot;Don't pay any attention to Ludwig,&quot; she said. &quot;The old fellow is getting to dream things all the time. He's not right.&quot;</p>
+<p>We met the father of the sick girl, Captain Corcoran. He was a bluff and hearty individual, evidently much cut up over his daughter's misfortune.</p>
+<p>&quot;I don't know a thing about the noises here,&quot; he declared, &quot;although I've heard them several times. Once I saw my shaving mirror thrown clear across the room, and nobody near me. I'd move if it weren't for Amy. I can't afford a nurse, and Mrs. Murphy helps take care of her. Three times a day she notes the temperature and pulse on the Doctor's chart. I hope he decides to operate.&quot;</p>
+<p>We turned to go, but Corcoran called us back. &quot;You don't think there could be anything in...in what they say? I mean about Amy?&quot;</p>
+<p>&quot;What do you mean?&quot; Karl was instantly alert.</p>
+<p>&quot;Well, the people who moved out said they thought that Amy's trouble was the cause of the house being haunted. They said that she was bringing bad luck...you don't believe that, do you?&quot;</p>
+<p>Karl shook his head. &quot;The superstition that sick people and insane people are devil-ridden is no longer believed in.&quot;</p>
+<p>Slowly we went down the stairs which had been so weird a few hours before. At the bottom Mrs. Murphy was waiting for us.
+<br><br></p>
+<p><strong>&quot;DOCTOR GRAHAM</strong> says that it's you who would drive the Thing away out of my house. Pray God and the Saints that you can. But it's little that you or any man can do against It. Father Riley himself was here and heard the noises, and he could do nothing....&quot;</p>
+<p>Karl gave her a reassuring look. &quot;Don't give up hope, Mrs. Murphy. There's an explanation somewhere, if we can only find it. And that's my business, you know.&quot;</p>
+<p>We went out into the street, cold and bleak in the November morning. Karl did not speak a word until we had walked nearly to Park Avenue.</p>
+<p>&quot;There's more to this than I can see yet. I'm going to spend the day among the newspaper files. You get some sleep, Stan. I'll call you when I need you. It may take days.&quot; He patted my shoulder and put me into a cab.</p>
+<p>I resented being shelved. &quot;Tell me, Karl. What's it all about? Are you as much in the dark as I am?&quot;</p>
+<p>He looked at me, and his face relaxed. &quot;More, old son, more.&quot; Then he slammed the cab door and waved good-by. The last thing I heard him say was: &quot;Be near a phone....&quot;</p>
+<p>I seemed to see no light anywhere. But I was sleepy, and in a few minutes home and bed claimed me. I dreamed of poor Amy's beautiful, expressionless face.</p>
+<p>There was no word from Karl for several days. I called his apartment without any success. Several times I was on the point of going back to the mysterious old boarding-house, and then I changed my mind. I had no heart for the place unless Karl were there.</p>
+<p>Since Karl was still absent, I decided to try and apply the same methods as he had used on other cases. I had been with him enough to learn the way he attacked problems.</p>
+<p>I listed everything I could remember that might deal with the mystery. In the first place, there were the physical manifestations: the apparently invisible Thing that maliciously destroyed crockery and that had scratched my wrist when I held it.</p>
+<p>Then there was the idiot girl. But I could not connect her with the Thing. For there was no trace of wickedness in her beautiful face and, certainly, her trouble had started in a normal manner.</p>
+<p>And old Ludwig, with his pets in the basement—how did he fit into the puzzle?</p>
+<p>I was wondering over these and other questions when the phone rang. It was Karl's voice, asking me to come at once to the rooming-house. I slipped a revolver and a flashlight into my pocket and jumped in a cab. His voice had sounded as if he were excited, and his last words were: &quot;It will be an all night job.&quot;</p>
+<p>Karl met me in the lower hall. &quot;Quick,&quot; he whispered. &quot;Old Ludwig just went out, and it's the chance we want. Come with me. We're going to do a little sleuthing.&quot;</p>
+<p>We hurried downstairs to the basement. The light was on in Ludwig's little room, and the pigeons were fussing and murmuring, but it was otherwise empty.</p>
+<p>&quot;What are we here for?&quot; I asked.</p>
+<p>Karl said nothing, but cast a rapid glance around the room. Soon he found what he sought—a dark corner partially screened with boxes and trunks. We squeezed down behind this miscellaneous heap of lumber, heedless of the thick cobwebs that were everywhere.</p>
+<p>&quot;Our best bet is to do a little listening,&quot; said Karl: &quot;I have an idea which is about half formed, and which may be a million miles from the truth. But I believe in playing hunches.&quot;</p>
+<p>&quot;What do you mean? It's all Greek to me. If spirits can return to earth, surely they have a purpose in what they do. There's no sense in what's been going on here.&quot;</p>
+<p>&quot;Perhaps there are mischievous spirits, immature spirits low in the scale, who are capable of anything. They are the type who play tambourines and pound tables at séances.&quot; Karl dragged a box over to make a seat for himself. We were quite hidden from anyone who might come into the room, yet we could see everything</p>
+<p>Karl went on. &quot;I've been reading up on this sort of thing during the past two days. You would be surprised at the amount of evidence that is on file in regard to this type of phenomena.</p>
+<p>&quot;The Germans have a term for a ghostly visitor of the mischievous type. They call him a <em>poltergeist</em>, or 'rattling ghost.' The Thing may be an elemental, a spirit which has never lived on earth. Then again, it may be a spirit of the departed, usually of a low order. And the oddest thing about the poltergeist is that it——&quot;</p>
+<p><em>Crash!</em> The goldfish bowl which held the three lizards had toppled over to the floor. I seized Karl's arm. Together, we peered into the room.</p>
+<p>The strong animal scent was everywhere! And I could hear the light, dragging footsteps. Something was moving about the room, and yet the light was on and we could see nothing except the lizards slowly extricating themselves from the wreckage of the glass bowl.</p>
+<p>Together we saw the door-knob turn and the door open. Then the footsteps went slowly out of the room. In a moment old Ludwig came down the stairs. He was talking, partly in German, and in a low voice. I could hear only part.</p>
+<p>&quot;So, Hans? Good boy. You come to meet papa, eh?&quot; He walked in and shut the door. Then his eyes fell on the wrecked goldfish bowl.</p>
+<p>&quot;<em>Ach, mein</em> bad Hans! Must you be always the wicked one? Must I tie you up and whip you again? Bad Hans....&quot;
+<br><br></p>
+<p><strong>THE</strong> old man was evidently talking to something which he thought was near him. &quot;<em>Ach</em>, Hans. What a whipping I would give you if I could get my hands on you! Come by me, Hans, for one minute. I'll teach you——&quot;</p>
+<p>Karl looked at me, with a frown between his eyes. &quot;Now, who in the world is Hans supposed to be?&quot; he whispered. &quot;Remember he mentioned the name before as the cause of his not sleeping? Has he named the poltergeist 'Hans'?&quot;</p>
+<p>I could not imagine a man who could so come to terms with the Unknown. But, as Mrs. Murphy had said, Ludwig was sadly touched. He went on murmuring to himself.</p>
+<p>Finally he sat down in the one easy chair, with the crucifix in his hands. &quot;Come not by me, you <em>teufel!</em><label for="teufel" class="margin-toggle">⊕</label>
+<input type="checkbox" id="teufel" class="margin-toggle">
+<span class="marginnote"><em>teufel</em>: devil</span> Leave poor papa alone—<em>nein?</em>&quot; His voice became tearful and pleading. &quot;Leave me be, now. You will kill papa by keeping him awake It is no sleep I've had this week. Go, or I get the whip!&quot;</p>
+<p>I thought it one of the weirdest situations I had ever seen. The old German was so earnestly pleading with Something...with absolute invisibility. I should have thought him mad if I had not seen the wrecking of the glass bowl and the events upstairs on that previous strange evening.</p>
+<p>Finally there came another crash. The cloth which covered the bureau slid off, and with it a number of bottles and toilet articles. The German leaped to his feet and snatched a small white meerschaum pipe from among the falling articles. Then, muttering and storming, he took a small whip from the bureau drawer and lashed the empty air furiously. &quot;Go!&quot; he shrieked. &quot;Go away [at] once!&quot; <label for="at" class="margin-toggle">⊕</label>
+<input type="checkbox" id="at" class="margin-toggle">
+<span class="marginnote">I added the 'at,' because it seems to be missing.--NZ</span> and I could have sworn I heard an answering snarl.</p>
+<p>At last the old man seated himself in the chair, still caressing the pipe. Evidently he did not use his bed any more, for it had not been made up for some time. Karl and I waited for an hour, stiff and sore, until he was snoring, and then tiptoed from the room. The place was silent, but I smelled the strong beast-like odor.</p>
+<p>We stopped in the lower hall. &quot;What do you make of it?&quot; Karl asked me.</p>
+<p>I shook my head.</p>
+<p>&quot;Old Ludwig could tell us a lot more if he wanted to,&quot; I said, &quot;But maybe he isn't able to talk.&quot;
+<br><br></p>
+<p><strong>&quot;I AGREE</strong> with you that the secret of the whole thing lies with the old German sailor,&quot; said Karl. &quot;But he wouldn't tell us even if he understood everything—which I greatly doubt. By the way, I'm going to commit a theft before we leave here.&quot; Karl motioned me to remain where I was, and he ran upstairs to the sickroom. I heard him in low conversation with Mrs. Murphy, who was sitting up with the sick girl. In a few moments he returned.</p>
+<p>&quot;I got what I wanted,&quot; he said. &quot;It's a chance in a million, but maybe I'll make  something of these.&quot; And he showed me the sick-room charts of Amy Corcoran, which ran back over a period of several months. &quot;By the way, the girl seems to be much worse. There appears to be a partial paralysis of the lower limbs. The noises and other manifestations seem to have a strange effect on her.&quot;</p>
+<p>There was a pay-telephone in the lower hall, and before we left, Karl rang up Doctor Park Graham. A minute later he looked up from the phone, his face shining with excitement.</p>
+<p>&quot;Graham is coming up here. He says that if the girl is as badly off as I think, it will have to be an operation now or never. The beginnings of paralysis show that the brain has started to weaken structurally. We'd better wait—we may learn something.&quot;</p>
+<p>We sat in the lower hall until the Doctor's car pulled up outside, but there were no manifestations. Graham had a small black satchel in his hand when he arrived, and he fairly ran up the stairs. While we were waiting for him to make an examination, Karl took the charts from his pocket and compared them with a list that he had in a notebook.</p>
+<p>Finally he nodded and closed the book with a snap, putting the charts away. Then he turned to me. I could tell that for the first time he was really on the track of something.</p>
+<p>&quot;I think I have it,&quot; he said. &quot;I've been just running around at loose ends. I found a newspaper clipping in the <em>Times</em> of a couple of years back that sheds some light. And this is what I think, although it seems unbelievable—— &quot;</p>
+<p>&quot;Gentlemen, will you come here at once?&quot; Doctor Graham was leaning over the banister. &quot;If I am to save this poor girl's life, I must operate now. There is no time to take her to a hospital, or to send for an assistant. You must help me.&quot;</p>
+<p>For a few minutes, everything was confusion. We were busy sterilizing bandages and towels, and preparing a table underneath the overhead light. The girl was babbling incoherently, and she could move only the upper part of her body. Soon she was under the ether, and the Doctor had shaved a small circular patch of her hair above the ear. Sure enough, there was a deep indentation and scar there.</p>
+<p>Karl and I had no chance to discuss what he had found out. Mrs. Murphy was sent to bring Captain Corcoran, who was spending the night on board his ship. But the Doctor did not dare to wait for his arrival.</p>
+<p>At last everything was ready. It was about two-thirty in the morning, and the one bulb cast a dim glow through the large room. Karl stood by the Doctor and handed him the instruments as they were needed, while I played the part of an errand boy.</p>
+<p>Everything went well until the operation was about half over. The Doctor. was preparing to catch the splinter of bone and lift it back into place, relieving the pressure on the brain. The unconscious girl was breathing regularly, and we were all tense with expectation.</p>
+<p>Then, as Karl handed a scalpel to Graham, the instrument fell out of his fingers and clattered on the floor. The Doctor looked up from his work with a frown of annoyance, which changed to a look of horror when he saw Karl's face. Without a word, my friend picked up another similar instrument. Before Graham could take it, the shining knife flew across the room, striking and cracking the window.</p>
+<p>&quot;My God, the Thing is in this room!&quot; I had never seen Graham so excited. &quot;I cannot stop now—the girl will die under the knife!&quot;</p>
+<p>Karl turned to me. &quot;Stan, run as you never ran before and get the whip that old Ludwig used tonight. In his bureau. Hurry!&quot;</p>
+<p>Before he was through talking I was out of the door. Ludwig was still asleep, and I jerked open his bureau drawer and seized the short leather whip. In an instant I was back in the operating room.</p>
+<p>Karl and the Doctor were in one end of the room, their eyes dilated with terror. Then I saw what they were staring at. Above the unconscious girl, directly over her beautiful face, there hung a long surgeon's knifel Slowly it wavered, and then started to descend!</p>
+<p>I have always been one to strike first and think afterward. Drawing back the whip, I slashed with all my strength at the knife. It flew into a corner, and a loud snarling growl filled the room. Again I snapped the lash, and again it hit—Something. There was another menacing growl! Then something brushed by me, through the door. I smelled the foul animal odor once more, and felt the momentary impact of a squat, hairy body. Then I slammed the door.</p>
+<p>Without a word, Doctor Graham leaped to the side of his patient. &quot;Guard the door,&quot; he whispered to me. &quot;Perhaps it is not too late to finish the operation. She still breathes.&quot;</p>
+<p>Then began the worst half hour of my life. Karl joined me outside the door of that room. Inside, Doctor Graham forgot us and everything else in his attempt to save the life and reason of Amy Corcoran.</p>
+<p>Again and again those dragging footsteps would come down the hall. Each time either Karl or myself would lash out with the whip—lash out at nothing. And yet we could feel by the touch of the handle that many times it connected with some object!
+<br><br></p>
+<p><strong>GROWLS</strong> and snarls filled the hallway. Everywhere there was the strong fetid odor of beasts. Perspiration was pouring from my forehead, and even the imperturbable Karl was crouching by my side in an agony of nervous excitement. When the arm of one would become tired, the other would keep up the work. The flickering lash kept a safety zone of perhaps ten feet in front of us.</p>
+<p>There was a fierce jabbering in the snarls, and sometimes a shrill squeak. For a moment the noises ceased, and then the small chandelier which hung above the stair was violently agitated. Part of the plaster pulled loose from the ceiling, and bits of it were thrown at us. Then there was silence. Peer up as we would at the old-fashioned fixture, we could see nothing above us.</p>
+<p>Then, as we relaxed for a moment, tired with the ceaseless mental resistance that had been necessary, there was a creak of the chandelier. Something whistled through the air and landed on my shoulders, forcing me to the floor. There was a shrill scream of rage, and I found myself in a hand-to-hand battle with some unspeakable beastly Thing! Long hair tangled itself in my hands as I tried to grip it. I was half smothered by the weight of the Thing. I could not breathe.</p>
+<p>&quot;Karl!&quot; I gasped weakly.</p>
+<p>He was standing by me, horror-stricken. Then he put out his hand and touched the Thing. Its grip had been around my throat, but between the two of us we managed to get it loose. There we knelt on the Thing, which growled and snarled, tearing at our skin and clothes with sharp fingernails and teeth.</p>
+<p>As far as I could feel, the entire creature was covered with long hair, but there was a certain human resemblance. Karl slipped off his belt and wound it around the creature's arms and chest. It was unspeakably weird to see that apparently empty belt hanging in the air. Each of us looked at the other. Were we both mad?</p>
+<p>Suddenly, I saw the belt collapse. I leaped on the Thing, but it seemed to melt beneath my grasp. The beast odor was fainter.
+<br><br></p>
+<p><strong>&quot;IT'S</strong> gone,&quot; said Karl. &quot;Or was it ever here——?&quot;</p>
+<p>Just then the door behind us opened. We both whirled as if we expected a blow in the back of the head, but it was only the Doctor.</p>
+<p>&quot;I have good news.&quot; Graham could not resist a little dramatic presentation of his announcement. &quot;The patient has come out of the ether satisfactorily.&quot;</p>
+<p>Karl seized the Doctor's shoulder. &quot;Tell me, man, is she conscious and sane?&quot;</p>
+<p>Graham nodded.</p>
+<p>&quot;The operation was an unqualified success. Amy Corcoran has no memory of the past two years, and she is weaker than I would expect her to be, but she is in her right mind.&quot; Graham looked at us more intently, noticing our torn clothes and blood-stained hands. &quot;But what—what has happened to you?&quot;</p>
+<p>&quot;We'll need a little bandaging, Doctor, That's all.&quot;</p>
+<p>&quot;But—suppose It returns now?&quot;</p>
+<p>Karl shook his head. &quot;If what you say is true, Graham, there will be no return. Whatever spirit, ghost, or devil roamed through this old house, it is gone forever. When Amy Corcoran regained the use of her mind, the Thing went away—forever, I'm sure.&quot;</p>
+<p>Graham looked puzzled. &quot;Explain it if you can, Karl, I must return to my patient now.&quot; He went back into the room.</p>
+<p>I was shaking with nervous exhaustion. &quot;Karl, if you know any more than I do about this, tell me! I'm not sure that I'm sane.&quot;</p>
+<p>He smiled. &quot;I didn't mean to keep you in the dark. But there was no chance to tell you what I'd found, and besides it seemed too incredible to be true. Come here and read these clippings.&quot;</p>
+<p>He showed me two newspaper clippings yellowed with age. &quot;I found these yesterday.&quot;</p>
+<p>The first was a brief account of the arrest of a sailor named Bauman for harboring a public nuisance. It seemed that he had been keeping a monkey, a small orang-utan, in his room. The beast often escaped and twice had annoyed children by biting and scratching.</p>
+<p>&quot;You remember that Ludwig's last name is Bauman?&quot; asked Karl. &quot;Now, read the next one.&quot;</p>
+<blockquote>
+<p>Ludwig Bauman, former A. B. seaman, failed yesterday in an attempt to regain custody of the small ape taken from him last week by police and officers of the S. P. C. A. The animal, by name 'Hans,' proved too surly for a menagerie, and was humanely dispatched by the Society.</p>
+</blockquote>
+<p>I looked up in wonderment.</p>
+<p>&quot;What did the charts of Amy Corcoran have to do with an ape that Bauman once owned?&quot; I was still puzzled.</p>
+<p>&quot;Simple as ABC, Stan. History is full of evidences of the existence of poltergeists. They are rarely malignant, but always mischievous. And records show that in almost every case they can be found only in a house where there is a person with deficient mentality. From the mentally sick person the spirit draws its strength.</p>
+<p>&quot;The reason I wanted the charts was to check up on this. I found that the patient had a decided turn for the worse every time the nocturnal manifestations were noted here. She would have a greatly lowered pulse, and increased respiration, on the mornings after the noises had been noted.
+<br><br></p>
+<p><strong>&quot;AT</strong> first I had an idea, fantastic as it may sound, that old Ludwig had tricked himself into believing that the strange night prowler was his dead monkey. But when we were in his room I discovered the real truth. The Thing, the poltergeist, <em>was</em> the ghost of Ludwig's ape! The old man knew the truth.</p>
+<p>&quot;This would account for the increasing malignancy of the things it perpetrated. An ape is naturally destructive. Something of its nature remained with it, and the orang-utan, Hans, returned to earth as the lowest form of spirit life. That is why it still feared and hated the whip, with which Ludwig used to punish it. That is why it was so fierce and angry after it had been lashed.&quot;</p>
+<p>&quot;But why then did the ghost-ape disappear after we had it bound?&quot; I could not understand why it had melted away under my hand.</p>
+<p>&quot;Because Amy Corcoran came out of the ether at that moment. There was no longer any way for the creature to materialize. Amy was an unconscious and unwilling medium. When she regained her mind, the Thing went away. And now, Stanley, I'm going home for some repairs and some sleep. Coming?&quot;</p>
+<p>I shook my head. &quot;If you don't mind I'll stay, Somehow, I'd like to see if Amy Corcoran is half as wonderful as she looks....&quot;</p>
+<hr>
+<p>Part of the series <a href="https://ninazumel.com/dark_tales_sleuth/pages/stuart-palmer/"><em>The Supernatural Writings of Stuart Palmer</em></a>.<br>
+Annotations by Nina Zumel.</p>
+<p>Illustration for &quot;The Monster in the Cellar,&quot; <em>Ghost Stories</em>, October 1929.</p>
+
+</article>
+
+<p class="credit">
+Have a comment? Leave a note in the <a href="/dark_tales_sleuth/pages/guestbook">Guestbook</a>.
+</p>
+		</main>
+
+		<!-- footer -->
+		<hr>
+
+<div class="footer-container">
+	<p>&copy; 2026 Nina B. Zumel</p>
+	<div class="social_icons">
+	    <a href="mailto:nzumel@mzlabs.com?subject=Comment%20from%20Dark%20Tales%20Sleuth" aria-label="Email" target="_blank" rel="noopener noreferrer">
+			<i class="fas fa-fw fa-envelope"></i>
+		</a>
+		<a href="https://multoghost.wordpress.com/" aria-label="Multo (Ghost)" target="_blank" rel="noopener noreferrer">
+			<i class="fab fa-fw fa-wordpress"></i>
+		</a>
+		<a href="/dark_tales_sleuth/feed.xml" aria-label="RSS" target="_blank" rel="noopener noreferrer">
+			<i class="fa fa-fw fa-rss-square"></i>
+		</a>
+
+	</div>
+</div>
+		<!-- /footer-- >
+
+		<!-- Current page: /dark_tales_sleuth/stuart-palmer/monster-in-the-cellar/ -->
+	</body>
+</html>
