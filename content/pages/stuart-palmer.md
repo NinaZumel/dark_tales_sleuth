@@ -81,6 +81,11 @@ Palmer's highly embellished account of a ghost cat haunting a New York hotel. Ba
 Another Karl Brandt tale, also featuring Dr. Park Graham (from "Stigma"). A brutal, smelly poltergeist haunts a boarding house where a brain-injured woman lies ill. Can the two things be connected? The second of the "Karl Brandt, ghost-layer" stories.
 </span>
 
+**Shelley—The Living Ghost** (April 1930 -- as Stanley Horton)
+<br><span class="inline-note"> 
+Possibly a third Karl Brandt story? Might also be a non-fiction article.
+</span>
+
 </div>
 
 <p class="credit">
