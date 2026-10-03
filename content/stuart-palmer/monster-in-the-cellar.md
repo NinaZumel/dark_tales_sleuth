@@ -389,7 +389,8 @@ I shook my head. "If you don't mind I'll stay, Somehow, I'd like to see if Amy C
 
 ---
 
-Part of the series [*The Supernatural Writings of Stuart Palmer*](https://ninazumel.com/dark_tales_sleuth/pages/stuart-palmer/).<br>
+
+Part of the series [*The Supernatural Writings of Stuart Palmer*](/pages/stuart-palmer/).<br>
 Annotations by Nina Zumel.
 
 Illustration for "The Monster in the Cellar," *Ghost Stories*, October 1929.

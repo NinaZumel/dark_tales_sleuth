@@ -144,8 +144,13 @@ her rigging, and even of your faces—although I was never aboard her in my life
 Captain Bartlett looked at Bruce "I apologize," he said. "You were right and I was wrong. If it had not been for the fact that the ghost of this living man appeared to you and left a message, we would have sailed by the wreck, leaving a boat-load of human beings to die a few miles north of us."
 
 ---
+<br>
 
-Part of the series [*The Supernatural Writings of Stuart Palmer*](https://ninazumel.com/dark_tales_sleuth/pages/stuart-palmer/).<br>
+<div class="featurebox left">
+Watch <a href="https://www.youtube.com/watch?v=4cWRdFSIgqE">"The Vestris,"</a> a much-embellished version of this tale, as a 1958 episode of the anthology television show <span style="font-style: normal">Telephone Time</span>. Featuring Boris Karloff!
+</div>
+
+Part of the series [*The Supernatural Writings of Stuart Palmer*](/pages/stuart-palmer/).<br>
 Annotations by Nina Zumel.
 
 Illustration for "An UNEARTHLY Stowaway," *Ghost Stories*, October 1929.
