@@ -1,5 +1,5 @@
 ---
-title: The Unearthly Stowaway
+title: An Unearthly Stowaway
 date: "2026-10-02"
 tags: 
   - Stuart Palmer
@@ -9,7 +9,7 @@ tags:
 
 The latest piece in [The Supernatural Writings of Stuart Palmer](/pages/stuart-palmer/) comes from the same issue as [the last one](/blog/2026-09-07-monster-in-the-cellar/)—and for some reason, both of them are under pen names.
 
-[**The UNEARTHLY Stowaway**](/stuart-palmer/unearthly-stowaway/) is another "true" eerie tale, written under the name "Theodore Orchards." The first mate of a barque enroute from Liverpool to Canada sees a strange man in the chart room. The man leaves a written message to "Steer to the Northwest," then disappears. No stowaway is found on board. The captain decides to obey the message, resulting in the rescue of everyone aboard an icebound wreck.
+[**An UNEARTHLY Stowaway**](/stuart-palmer/unearthly-stowaway/) is another "true" eerie tale, written under the name "Theodore Orchards." The first mate of a barque enroute from Liverpool to Canada sees a strange man in the chart room. The man leaves a written message to "Steer to the Northwest," then disappears. No stowaway is found on board. The captain decides to obey the message, resulting in the rescue of everyone aboard an icebound wreck.
 
 The (uncredited, as usual) source for this tale appears to be an account by the social reformer, abolitionist, US Congressman, and Spiritualist, [Robert Dale Owen](https://en.wikipedia.org/wiki/Robert_Dale_Owen) (1801-1877). He presents the tale as true, in his 1860 book, [*Footfalls on the Boundary of Another World*](https://archive.org/details/foot00fallsonboundowenrich/page/333/mode/1up) (the story is called "The Rescue," and starts on the bottom of page 333). Owen learned the story secondhand from a friend of the first mate in 1859, many years after the event supposedly happened.
 
