@@ -86,6 +86,11 @@ Another Karl Brandt tale, also featuring Dr. Park Graham (from "Stigma"). A brut
 The first mate of a sailing barque sees a "ghost" who directs the ship to "steer to the northwest." His vision saves the passengers and crew of an ice-bound ship. Based on an account by Robert Dale Owen.
 </span>
 
+**Rider Haggard's Strange Story** (December 1929)
+<br><span class="inline-note"> 
+An account of how H. Rider Haggard dreamed of his dog's death, and how the events of his dream subsequently proved to be true. [Read about Palmer's likely sources for the story, here](/blog/2026-10-02-mr-haggards-strange-dream/#h-rider-haggard-has-a-dream).
+</span>
+
 **Shelley—The Living Ghost** (April 1930 -- as Stanley Horton)
 <br><span class="inline-note"> 
 Possibly a third Karl Brandt story? Might also be a non-fiction article.
