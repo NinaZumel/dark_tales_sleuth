@@ -83,13 +83,21 @@ Another Karl Brandt tale, also featuring Dr. Park Graham (from "Stigma"). A brut
 
 [**An UNEARTHLY Stowaway**](/stuart-palmer/unearthly-stowaway/) (October 1929 -- as Theodore Orchards)
 <br><span class="inline-note"> 
-The first mate of a sailing barque sees a "ghost" who directs the ship to "steer to the northwest." His vision saves the passengers and crew of an ice-bound ship. Based on an account by Robert Dale Owen.
+The first mate of a sailing barque sees a "ghost" who directs the ship to "steer to the northwest." His vision saves the passengers and crew of an ice-bound ship. [Based on an account by Robert Dale Owen](/blog/2026-10-02-unearthly-stowaway/).
+</span>
+
+**He Paints with a Phantom Hand** (November 1929)
+<br><span class="inline-note"> 
+The account of how a goldsmith was apparently possessed by the spirit of landscape artist Robert Swain Gifford, and began painting landscapes in Gifford's style.
+Likely based on accounts by James Hyslop. [Read my summary of the event, along with links to sources, here](/blog/2026-10-08-phantom-hand/).
 </span>
 
 **Rider Haggard's Strange Story** (December 1929)
 <br><span class="inline-note"> 
-An account of how H. Rider Haggard dreamed of his dog's death, and how the events of his dream subsequently proved to be true. [Read about Palmer's likely sources for the story, here](/blog/2026-10-02-mr-haggards-strange-dream/#h-rider-haggard-has-a-dream).
+An account of how H. Rider Haggard dreamed of his dog's death, and how the events of his dream subsequently proved to be true. [Read about Palmer's likely sources for the story (with links!), here](/blog/2026-10-02-mr-haggards-strange-dream/#h-rider-haggard-has-a-dream).
 </span>
+
+**Phantom Dancer of Times Square** (February 1930)
 
 **Shelley—The Living Ghost** (April 1930 -- as Stanley Horton)
 <br><span class="inline-note"> 
