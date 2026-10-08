@@ -94,7 +94,7 @@ Likely based on accounts by James Hyslop. [Read my summary of the event, along w
 
 **Rider Haggard's Strange Story** (December 1929)
 <br><span class="inline-note"> 
-An account of how H. Rider Haggard dreamed of his dog's death, and how the events of his dream subsequently proved to be true. [Read about Palmer's likely sources for the story (with links!), here](/blog/2026-10-02-mr-haggards-strange-dream/#h-rider-haggard-has-a-dream).
+An account of how H. Rider Haggard dreamed of his dog's death, and how the events of his dream subsequently proved to be true. [Read about Palmer's likely sources for the story (with links!), here](/blog/2026-10-06-mr-haggards-strange-dream/#h-rider-haggard-has-a-dream).
 </span>
 
 **Phantom Dancer of Times Square** (February 1930)
