@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Tagged “H. Rider Haggard”</title>
+		<title>He Paints with a Phantom Hand</title>
 		<meta name="description" content="Filling in the Literary Blanks">
 		<link rel="alternate" href="/dark_tales_sleuth/feed/feed.xml" type="application/atom+xml" title="Dark Tales Sleuth">
 		<link rel="alternate" href="/dark_tales_sleuth/feed/feed.json" type="application/json" title="Dark Tales Sleuth">
@@ -15,83 +15,218 @@
 		<link href="https://github.com/ninazumel" rel="me">
 		<script src="https://kit.fontawesome.com/9bbe6f85f9.js" crossorigin="anonymous"></script>
 		
-		<style>.postlist { counter-reset: start-from 2 }
-/* For displaying image and description*/
+		<style>/* minimal implementation; just plain text in the margin, no blockquotes, code, etc */
+/* only (unnumbered) margin notes, no sidenotes */
+/* stripped down from https://github.com/edwardtufte/tufte-css */
 
-.author_container {
-	text-align: center;
-	vertical-align: middle;
+/* need this for correct sidenote numbering; but I'm not using sidenotes */
+/*
+body {
+    counter-reset: sidenote-counter; 
+} 
+*/
+
+
+/* since I imagine these will change with different templates */
+:root {
+    --content-width: 65%;
+    --image-padding: 5%;
+    --image-max: 60%;  /* total image+padding <= content-width */
+    --notewidth: 30%; 
+    /* content-width + notewidth <  100%. I think you should leave some wiggle room. */
+    --note-right-margin: -45%;
+    /* if this margin is -(notewidth), the note will start just on the right border of the text */
+    /* so push it a little to the right (more negative) */
 }
 
-.author_container img {
-	  max-width: 175px;
-	  border-radius: 50%;
-	  display: block;
-	  margin-left: auto;
-	  margin-right: auto;
+article {
+	padding-top: 1rem; 
 }
 
-.author_description {
-	margin-left: auto;
-    margin-right: auto;
-	line-height: 1;
-
+/* make room for the notes in the article container */
+article > p,
+article > pre,
+article > ul,
+article > details {
+    width: var(--content-width);
 }
 
-.author_description p {
+/* 
+  blockquotes should be a little shorter 
+  This assumes that left indentation is 2em, which is what it looks like.
+  Subtract way more than 2 em, so that it's way shorter.
+  */
+article > blockquote {
+    width: calc(var(--content-width) - 10em); 
+}
+
+
+article > hr {
+    max-width: var(--content-width);
+    margin: 0
+}
+
+article > h1, 
+article > h2,
+article > h3,
+article > h4 {
+    max-width: var(--content-width);
+}
+
+article > center {
+    max-width: var(--content-width);
+}
+
+/* keep images/captions in the text column, rather than centered in the article container */
+article > img {
+    margin-left: 0;
+    padding-left: var(--image-padding);
+    max-width: var(--image-max); 
+}
+
+article > p.caption {
+	text-align: left;
+    padding-left: var(--image-padding);
 	font-style: italic;
-	font-size: 1em;
-	color: var(--description-color);
+	font-size: 0.9em;
+	color: var(--caption-color);
+ }
+
+article > p.caption a:hover,
+article > p.caption a:active {
+    color: var(--text-color-link-active);
 }
 
-.padded_author_container {
-	text-align: center;
-	padding-top: 50px;
+article > p.largeintro {
+    text-align:center;
+    margin-left: 0;
+    padding-left: var(--image-padding);
+    max-width: var(--image-max); 
+    font-style: italic;
+    font-size: 1.2em;
+    color: var(--text-color);
+    
 }
 
-.padded_author_container img {
-	max-width: 250px;
-	border-radius: 50%;
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-}
-/* Message Box */
-.message-box {
-	--color-message-box:  var(--background-color); 
-    --border-color:  var(--box-border-color);
-
-	display: block;
-	background-color: var(--color-message-box);
-	color: var(--text-color);
-	padding: 1em 0.625em;  /* 16px 10px /16 */
-	padding-left: 2em;  /* bit more on the left */
-	padding-right: 2em;  /* to balance it */
-	border: 2px solid var(--box-border-color);
-}
-.message-box ol {
-	margin-top: 0;
+article > p.intro {
+    text-align:center;
+    margin-left: 0;
+    padding-left: var(--image-padding);
+    max-width: var(--image-max); 
+    font-style: italic;
+    color: var(--text-color);
+    
 }
 
-.message-box h1 {
-	text-align: center;
+article > div.featurebox {
+    text-align: center;  
+    margin-left: var(--image-padding);  
+    padding: 15px;  
+    width: calc(var(--image-max) - var(--image-padding));
+    font-style: italic;  
+    color: var(--text-color);  
+    border: 2px solid var(--text-color);  
+    box-sizing: border-box;
 }
 
-.message-box h2 {
-	text-align: center;
+article > div.featurebox.left {
+    text-align: left;
 }
 
-.message-box h3 {
-	text-align: center;
+.footnote-item {
+    max-width: var(--content-width); 
+}
+
+ /* finally, the margin note */
+.marginnote {    
+    float: right;
+    clear: right;
+    width: var(--notewidth);         
+    margin-right: var(--note-right-margin);
+    margin-top: 0.3rem;
+    margin-bottom: 0;
+    font-size: 0.8rem;
+    line-height: 1.3;
+    vertical-align: baseline;
+    position: relative;
+    /* border: 2px solid blue; */
 }
 
 
+input.margin-toggle {
+    display: none;
+}
 
 
-@media (prefers-color-scheme: dark) {
-	.message-box {
-		--color-message-box: var(--background-color);
-	}
+label.margin-toggle {    
+    display: none;
+
+}
+
+/* The mobile fallback: */
+/* making max-width bigger makes the note fall inline sooner */
+@media (max-width: 768px) {  
+    body {
+        width: 84%;
+        padding-left: 8%;
+        padding-right: 8%;
+    }
+
+    hr,
+    article > p,
+    article > blockquote,
+    article > pre, 
+    article > ul,
+    article > details {
+        width: 100%;
+    }
+
+    article > center,
+    article > img,
+    article > hr {
+        max-width: 100%;
+    }
+
+    article > p.largeintro,
+    article > p.intro {
+        text-align: left;
+        max-width: 100%;
+    }
+
+    article > p.featurebox {
+        text-align: left;
+        width: 100%;
+    }
+
+    article > h1, 
+    article > h2,
+    article > h3,
+    article > h4 {
+        max-width: 100%;
+    }
+
+    label.margin-toggle {
+        display: inline;
+    }
+       
+    .marginnote {           
+         display: none;        
+        }    
+
+      
+    .margin-toggle:checked + .marginnote {            
+        display: block;            
+        float: left;            
+        left: 1rem;            
+        clear: both;            
+        width: 95%;            
+        margin: 1rem 2.5%;            
+        vertical-align: baseline;            
+        position: relative;        
+    }
+    label {
+        cursor: pointer;
+    }
 }
 * { box-sizing: border-box; }
 /* colors from flexoki - https://stephango.com/flexoki */
@@ -650,26 +785,54 @@ hr {
 		<main id="skip">
 			
 
+<h1>He Paints with a Phantom Hand</h1>
 
-<h1>Tagged “H. Rider Haggard”</h1>
-
-
-
-<ol reversed="" class="postlist">
-	<li class="postlist-item">
-		<a href="/dark_tales_sleuth/blog/2026-10-06-mr-haggards-strange-dream/" class="postlist-link">Mr. Haggard&#39;s Strange Story</a>
-		<time class="postlist-date" datetime="2026-10-05 5:00 PM">05 October 2026</time>
-		<p>As of the the last piece (&amp;quot;An UNEARTHLY Stowaway&amp;quot;), I&#39;ve posted all the Stuart Palmer Ghost Stories writing that I could find online. But I&#39;m not done!
-There are a few other significant pieces that I&#39;ve requested from various libraries around...</p>
-	</li>
-</ol>
+<div class="posttalk-metadata">
+  <time datetime="2026-10-07 5:00 PM">07 October 2026</time>
+</div>
+<ul class="post-metadata">
+	<li><a href="/dark_tales_sleuth/tags/stuart-palmer/" class="post-tag">Stuart Palmer</a>, </li>
+	<li><a href="/dark_tales_sleuth/tags/ghost-stories-magazine/" class="post-tag">Ghost Stories Magazine</a></li>
+</ul>
 
 
+<article>
+	<p>In the October 1929 issue of <em>Ghost Stories</em>, which contains both <a href="/dark_tales_sleuth/stuart-palmer/monster-in-the-cellar/">&quot;Monster in the Cellar&quot;</a> and
+<a href="/dark_tales_sleuth/stuart-palmer/unearthly-stowaway/">&quot;An UNEARTHLY Stowaway,&quot;</a> I spotted the following ad:</p>
+<br>
+<div class="featurebox left">
+<div style="text-align:center;font-size: 20px;"><strong>How an Artist Came Back to Finish His Work</strong></div>
+<p>Robert Swain Gifford, a well-known painter of landscapes, died before he could carry out his plans for certain canvases.
+From the Beyond he chose his successor—a men who had never mixed oil paints in his life!</p>
+<p>You will find this TRUE story, a most fascinating one as told by Stuart Palmer, the author of "The Specter in the New Hotel," which
+so many of our readers were enthusiastic about.</p>
+<p>It is in the November issue of <span style="font-style: normal">Ghost Stories</span>, on sale at all news stands October 23rd.</p>
+</div>
+<br>
+<p>The November 1929 issue of <em>Ghost Stories</em> does indeed include a Stuart Palmer article, &quot;He Paints with a Phantom Hand.&quot; I couldn't find this particular issue
+online, but the ad above was enough to let me trace down the story, and Palmer's likely sources.</p>
+<p>In 1907, a goldsmith named Frederic Thompson went to consult <a href="https://en.wikipedia.org/wiki/James_H._Hyslop">James Hyslop</a>, a former Columbia University professor of logic and ethics, turned parapsychologist. Thompson, who had no formal art training, had been seized with the impulse to paint and sketch trees and landscapes in the summer of 1905, and had been obeying his impulse ever since. In January 1906, Thompson visited an exhibition of paintings by the landscape artist <a href="https://en.wikipedia.org/wiki/Robert_Swain_Gifford">Robert Swain Gifford</a>, whom he had met in passing previously, but didn't really know. Gifford had died in January 1905. At the exhibition, Thompson thought he heard a voice asking him, &quot;You see what I have done. Can you not take up and finish my work?&quot;</p>
+<p>After that experience, Thompson's impulse to paint grew stronger than ever. Some of his paintings proved good enough to sell; one of his buyers even said the paintings reminded him of Gifford's work. Thompson also began to have persistent visions of a particular scene of gnarled oak trees, accompanied by the overwhelming urge to find and paint them. Fearing for his sanity, the visions finally drove Thompson to seek out Hyslop, who also studied abnormal psychology.</p>
+<p>At first, Hyslop thought Thompson was having an &quot;ordinary&quot; mental breakdown, and counseled him to try to go back to goldsmithing. But eventually Hyslop decided to have Thompson sit with a medium, to which Thompson reluctantly agreed (he did not believe in Spiritualism). The medium described a man who Thompson said sounded like Gifford, and also described the scene of oak trees that Thompson had been obsessing about. However, she didn't know where the trees were located.</p>
+<p>Eventually, Thompson went to visit Gifford's widow; in Gifford's studio, he saw paintings that strongly resembled his visions, as well as painting and sketches that resembled other scenes that he had painted. Gifford's widow also told Thompson that her husband's favorite place had been the Elizabeth Islands, southwest of Cape Cod. Thompson went exploring there, and found his envisioned trees on the island of Nashawena.</p>
+<p>Thompson spent some time in the islands, sketching and painting. While sketching another stand of trees, he heard a voice say &quot;Go and look on the other side.&quot; He did so, and found Gifford's initials carved on a tree trunk, dated 1902.</p>
+<p>He relayed all this information back to Hyslop, along with photographs of relevant scenes. Hyslop himself went to investigate. His findings, along with the by-now several sittings Thompson had had with various mediums, seemed like compelling evidence to Hyslop, who submitted a report (about 470 pages!) to the <em>Proceedings of the American Society for Psychical Research</em>. He also wrote up the case in his 1919 book, <em>Contact with the Other World</em>. I assume that either the journal proceedings or the book, or both, were the source for Palmer's <em>Ghost Stories</em> article.</p>
+<p>I'll leave you with this pair of images from Hyslop's book, comparing one of Thompson's sketches from 1905, with a stand of trees on one of the Elizabeth Islands:</p>
+<img src="/dark_tales_sleuth/blog/2026-10-08-phantom-hand/thompson-trees-TdPRI2C3Gb-521.png" alt="Top: a sketch of trees along the coast of a body of water. Bottom: a photograph of the same" loading="lazy" decoding="async" width="521" height="845">
+<p>There are more sketches and photographs in the book. I'll leave links to the journal article and the book, below, but both discussions are quite long. If you'd like a somewhat shorter summary of the case, with more details than what I've given here, do check out <a href="https://psi-encyclopedia.spr.ac.uk/articles/thompson-gifford-case/">Michael Tynn's article in the <em>Psi Encyclopedia</em></a>.</p>
+<p>Happy reading!</p>
+<h2 id="references" tabindex="-1">References <a class="header-anchor" href="#references">#</a></h2>
+<p>Hyslop, James H. &quot;A Case of Veridical Hallucinations&quot;, <a href="https://iapsop.com/archive/materials/aspr_proceedings/aspr_proceedings_v3_1909.pdf"><em>Proceedings of the American Society for Psychical Research</em> Vol III</a>, Part I (June 1909), pp 1-469.</p>
+<p>——. <a href="https://archive.org/details/contactwithother01hysl/page/203/mode/1up"><em>Contact with the Other World</em></a>, The Century Co., New York (1919), pp 203-230.</p>
+<p>Tynn, Michael. <a href="https://psi-encyclopedia.spr.ac.uk/articles/thompson-gifford-case/">&quot;The Thompson-Gifford Case&quot;</a>, <em>Psi Encyclopedia</em> (2015).</p>
 
+</article>
+<ul class="links-nextprev"><li>Previous: <a href="/dark_tales_sleuth/blog/2026-10-06-mr-haggards-strange-dream/">Mr. Haggard&#39;s Strange Story</a></li>
+</ul>
 
-<p>See <a href="/dark_tales_sleuth/tags/">all tags</a>.</p>
-
-
+<p class="credit">
+Have a comment? Leave a note in the <a href="/dark_tales_sleuth/pages/guestbook">Guestbook</a>.
+</p>
 		</main>
 
 		<!-- footer -->
@@ -692,6 +855,6 @@ There are a few other significant pieces that I&#39;ve requested from various li
 </div>
 		<!-- /footer-- >
 
-		<!-- Current page: /dark_tales_sleuth/tags/h-rider-haggard/ -->
+		<!-- Current page: /dark_tales_sleuth/blog/2026-10-08-phantom-hand/ -->
 	</body>
 </html>
