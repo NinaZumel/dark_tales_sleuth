@@ -99,13 +99,13 @@ An account of how H. Rider Haggard dreamed of his dog's death, and how the event
 
 **Phantom Dancer of Times Square** (February 1930)
 
-**Shelley—The Living Ghost** (April 1930 -- as Stanley Horton)
+[**Shelley—The Living Ghost**](/stuart-palmer/shelley-the-living-ghost/) (April 1930 -- as Stanley Horton)
 <br><span class="inline-note"> 
-Possibly a third Karl Brandt story? Might also be a non-fiction article.
+Palmer's embellished accounts of two apparitions of poet Percy Bysshe Shelley: Shelley has a vision of himself shortly before his death; and Lord Byron also sees an apparition of Shelley, when Shelley is nowhere in the vicinity. 
 </span>
 
 </div>
 
 <p class="credit">
- Image: Cover of <em>Ghost Stories</em> magazine, October 1928.  Source: <a href="https://archive.org/details/ghost-stories-v-05-n-04-1928-10?">Internet Archive</a>
+Image: Cover of <em>Ghost Stories</em> magazine, October 1928.  Source: <a href="https://archive.org/details/ghost-stories-v-05-n-04-1928-10?">Internet Archive</a>
 </p>

@@ -116,6 +116,16 @@ article > div.featurebox.left {
     text-align: left;
 }
 
+/* like a featurebox, only non-italic */
+article > div.message-box {
+    margin-left: var(--image-padding);  
+    padding: 15px;  
+    width: calc(var(--image-max) - var(--image-padding)); 
+    color: var(--text-color);  
+    border: 2px solid var(--text-color);  
+    box-sizing: border-box;
+}
+
 .footnote-item {
     max-width: var(--content-width); 
 }
