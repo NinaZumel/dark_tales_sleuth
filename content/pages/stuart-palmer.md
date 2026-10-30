@@ -25,7 +25,7 @@ Stuart Palmer was a prolific mystery writer from the 1930s into the 1960s, and t
 
 But Palmer's earliest writing was for *Ghost Stories* magazine. Writing under a variety of pen names, he contributed short stories, articles, and a five-part novella for the magazine, over the period 1928-1931. Of particular interest to me is a mini occult investigator series, comprised of two (possibly three) stories about Karl Brandt, "ghost-layer." 
 
-Here, I'm collecting as many of Palmer's *Ghost Stories* contributions as I can find.
+Here, I'm collecting as many of Palmer's *Ghost Stories* contributions as I can find. Some of these pieces were also republished (probably with some reworking) in *Fate* magazine in the 1950s. I'll record those as well.
 
 [**_Read my introductory comments about Palmer's supernatural writing here._**](/blog/2026-06-11-supernatural-writing-stuart-palmer/) 
 
@@ -99,9 +99,29 @@ An account of how H. Rider Haggard dreamed of his dog's death, and how the event
 
 **Phantom Dancer of Times Square** (February 1930)
 
+**Between Two Worlds** (April 1930)
+<br><span class="inline-note"> 
+Sarah Emma Lang recounts the story of her father David's mysterious disappearance while walking through a field—in full view of several witnesses! A reworking of the Ambrose Bierce short story, "The Difficulty of Crossing a Field." Palmer later either reprinted or reworked this piece for <span style="font-style: normal">Fate</span> magazine in 1953.
+</span>
+
 [**Shelley—The Living Ghost**](/stuart-palmer/shelley-the-living-ghost/) (April 1930 -- as Stanley Horton)
 <br><span class="inline-note"> 
 Palmer's embellished accounts of two apparitions of poet Percy Bysshe Shelley: Shelley has a vision of himself shortly before his death; and Lord Byron also sees an apparition of Shelley, when Shelley is nowhere in the vicinity. 
+</span>
+
+</div>
+<br>
+<div class="message-box">
+
+## Articles for *Fate*
+
+<center>(In progress)</center>
+
+In the 1950s, Palmer republished some of the articles that he originally wrote for *Ghost Stories*, in *Fate* magazine, and possibly in other magazines as well. I'll record the ones that I find out about, here.
+
+**How Lost Was My Father?** (July 1953)
+<br><span class="inline-note"> 
+Republication of "Between Two Worlds" from <span style="font-style: normal">Ghost Stories</span> April 1930. 
 </span>
 
 </div>
@@ -109,3 +129,4 @@ Palmer's embellished accounts of two apparitions of poet Percy Bysshe Shelley: S
 <p class="credit">
 Image: Cover of <em>Ghost Stories</em> magazine, October 1928.  Source: <a href="https://archive.org/details/ghost-stories-v-05-n-04-1928-10?">Internet Archive</a>
 </p>
+

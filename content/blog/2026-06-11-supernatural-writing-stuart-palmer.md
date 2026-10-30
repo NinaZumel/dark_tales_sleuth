@@ -71,6 +71,10 @@ books with names like *Strange Mysteries of Time and Space*, and *Stranger Than 
 
 This was a single "true ghost experience" in a period when Palmer was writing almost exclusively detective stories.{% marginnote "fate", "A few years after the *Fate* story, Palmer published a piece called \"Ghosts All Around Him\" in the adventure magazine *Valor for Men*, June 1958. I haven't read it, but it sounds like it could plausibly be a ghost story or a \"true ghost experience.\" If so, perhaps it, too, was a leftover from the *Ghost Stories* days." %} So it seems possible, even likely, to me that the story is a leftover draft from Palmer's *Ghost Stories* period. Perhaps he found it in the back of a drawer, and thought, *why let anything go to waste?*
 
+**EDIT October 30 2026:** While working on this project, I've discovered that at least three articles that Palmer contributed to *Fate* were not just drafts, but pieces actually published in *Ghost Stories*! This information will be added to the project page as I go.
+
+As of this writing, I haven't yet been able to compare any of the *Ghost Stories* articles with their *Fate* counterparts, to see whether or how much Palmer reworked the pieces before republication. But why let anything go to waste, indeed?
+
 
 ### More Reading
 
