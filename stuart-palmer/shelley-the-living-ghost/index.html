@@ -1,0 +1,899 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Shelley—The Living Ghost</title>
+		<meta name="description" content="Filling in the Literary Blanks">
+		<link rel="alternate" href="/dark_tales_sleuth/feed/feed.xml" type="application/atom+xml" title="Dark Tales Sleuth">
+		<link rel="alternate" href="/dark_tales_sleuth/feed/feed.json" type="application/json" title="Dark Tales Sleuth">
+
+        
+		<link rel="me" href="https://micro.blog/MultoGhost">
+		<link rel="authorization_endpoint" href="https://indieauth.com/auth">
+		<link rel="token_endpoint" href="https://tokens.indieauth.com/token">
+		<link href="https://github.com/ninazumel" rel="me">
+		<script src="https://kit.fontawesome.com/9bbe6f85f9.js" crossorigin="anonymous"></script>
+		
+		<style>/* minimal implementation; just plain text in the margin, no blockquotes, code, etc */
+/* only (unnumbered) margin notes, no sidenotes */
+/* stripped down from https://github.com/edwardtufte/tufte-css */
+
+/* need this for correct sidenote numbering; but I'm not using sidenotes */
+/*
+body {
+    counter-reset: sidenote-counter; 
+} 
+*/
+
+
+/* since I imagine these will change with different templates */
+:root {
+    --content-width: 65%;
+    --image-padding: 5%;
+    --image-max: 60%;  /* total image+padding <= content-width */
+    --notewidth: 30%; 
+    /* content-width + notewidth <  100%. I think you should leave some wiggle room. */
+    --note-right-margin: -45%;
+    /* if this margin is -(notewidth), the note will start just on the right border of the text */
+    /* so push it a little to the right (more negative) */
+}
+
+article {
+	padding-top: 1rem; 
+}
+
+/* make room for the notes in the article container */
+article > p,
+article > pre,
+article > ul,
+article > details {
+    width: var(--content-width);
+}
+
+/* 
+  blockquotes should be a little shorter 
+  This assumes that left indentation is 2em, which is what it looks like.
+  Subtract way more than 2 em, so that it's way shorter.
+  */
+article > blockquote {
+    width: calc(var(--content-width) - 10em); 
+}
+
+
+article > hr {
+    max-width: var(--content-width);
+    margin: 0
+}
+
+article > h1, 
+article > h2,
+article > h3,
+article > h4 {
+    max-width: var(--content-width);
+}
+
+article > center {
+    max-width: var(--content-width);
+}
+
+/* keep images/captions in the text column, rather than centered in the article container */
+article > img {
+    margin-left: 0;
+    padding-left: var(--image-padding);
+    max-width: var(--image-max); 
+}
+
+article > p.caption {
+	text-align: left;
+    padding-left: var(--image-padding);
+	font-style: italic;
+	font-size: 0.9em;
+	color: var(--caption-color);
+ }
+
+article > p.caption a:hover,
+article > p.caption a:active {
+    color: var(--text-color-link-active);
+}
+
+article > p.largeintro {
+    text-align:center;
+    margin-left: 0;
+    padding-left: var(--image-padding);
+    max-width: var(--image-max); 
+    font-style: italic;
+    font-size: 1.2em;
+    color: var(--text-color);
+    
+}
+
+article > p.intro {
+    text-align:center;
+    margin-left: 0;
+    padding-left: var(--image-padding);
+    max-width: var(--image-max); 
+    font-style: italic;
+    color: var(--text-color);
+    
+}
+
+article > div.featurebox {
+    text-align: center;  
+    margin-left: var(--image-padding);  
+    padding: 15px;  
+    width: calc(var(--image-max) - var(--image-padding));
+    font-style: italic;  
+    color: var(--text-color);  
+    border: 2px solid var(--text-color);  
+    box-sizing: border-box;
+}
+
+article > div.featurebox.left {
+    text-align: left;
+}
+
+/* like a featurebox, only non-italic */
+article > div.message-box {
+    margin-left: var(--image-padding);  
+    padding: 15px;  
+    width: calc(var(--image-max) - var(--image-padding)); 
+    color: var(--text-color);  
+    border: 2px solid var(--text-color);  
+    box-sizing: border-box;
+}
+
+.footnote-item {
+    max-width: var(--content-width); 
+}
+
+ /* finally, the margin note */
+.marginnote {    
+    float: right;
+    clear: right;
+    width: var(--notewidth);         
+    margin-right: var(--note-right-margin);
+    margin-top: 0.3rem;
+    margin-bottom: 0;
+    font-size: 0.8rem;
+    line-height: 1.3;
+    vertical-align: baseline;
+    position: relative;
+    /* border: 2px solid blue; */
+}
+
+
+input.margin-toggle {
+    display: none;
+}
+
+
+label.margin-toggle {    
+    display: none;
+
+}
+
+/* The mobile fallback: */
+/* making max-width bigger makes the note fall inline sooner */
+@media (max-width: 768px) {  
+    body {
+        width: 84%;
+        padding-left: 8%;
+        padding-right: 8%;
+    }
+
+    hr,
+    article > p,
+    article > blockquote,
+    article > pre, 
+    article > ul,
+    article > details {
+        width: 100%;
+    }
+
+    article > center,
+    article > img,
+    article > hr {
+        max-width: 100%;
+    }
+
+    article > p.largeintro,
+    article > p.intro {
+        text-align: left;
+        max-width: 100%;
+    }
+
+    article > p.featurebox {
+        text-align: left;
+        width: 100%;
+    }
+
+    article > h1, 
+    article > h2,
+    article > h3,
+    article > h4 {
+        max-width: 100%;
+    }
+
+    label.margin-toggle {
+        display: inline;
+    }
+       
+    .marginnote {           
+         display: none;        
+        }    
+
+      
+    .margin-toggle:checked + .marginnote {            
+        display: block;            
+        float: left;            
+        left: 1rem;            
+        clear: both;            
+        width: 95%;            
+        margin: 1rem 2.5%;            
+        vertical-align: baseline;            
+        position: relative;        
+    }
+    label {
+        cursor: pointer;
+    }
+}
+* { box-sizing: border-box; }
+/* colors from flexoki - https://stephango.com/flexoki */
+
+:root {
+	--paper: #FFFCF0;
+	--tx-normal: #100F0F;
+	--tx-muted: #6F6E69;
+	--tx-faint: #B7B5AC;
+	--blue300: #66A0C8;
+	--blue400: #4385BE;
+	--blue600: #205EA6;
+	--blue700: #1A4F8C;
+	--blue800: #163B66; 
+	--blue850: #133051;
+	--green400: #879A39;
+	--green600: #66800B;
+	--red800: #6C201C;
+	--purple600: #5E409D;
+	--purple300: #A699D0;
+	--base50: #F2F0E5;
+	--base100: #E6E4D9;
+	--base300: #B7B5AC;
+
+	--description-color: var(--tx-muted); 
+    --caption-color: var(--tx-muted);
+	--background-color:  var(--paper); 
+    --hrule-color: var(--base100);
+    --hrule-faint-color: var(--base50);
+	--box-border-color: var(--base50);
+
+	--header-anchor-color: var(--base300); /* for the # links on headers */
+	--icon-color: var(--blue600);
+	--icon-hover-color: var(--blue300);
+	--tag-color: var(--purple600);
+	--tag-hover-color: var(--purple300);
+
+	--text-color: var(--tx-normal); 
+	--text-color-link: var(--blue700); 
+	--text-color-link-active: var(--blue400); 
+	--text-color-link-visited: var(--blue700); 
+
+	--collapsible-summary-color: var(--green600);
+	--details-box-color: var(--base50);
+
+
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--black: #100F0F;
+		--base200: #CECDC3; 
+		--base300: #B7B5AC;
+		--base500: #878580;
+		--base600: #6F6E69;
+		--base700: #575653;
+		--base900: #282726;
+		--base950: #1C1B1A;
+		--blue700: #1A4F8C;
+		--green400: #879A39;
+	    --green600: #66800B;
+		--red400: #D14D41;
+		--purple400: #8B7EC8;
+		--purple500: #735EB5;
+		--purple600: #5E409D;
+	
+		--description-color: var(--base300); 
+		--caption-color: var(--base500);
+		--background-color:  var(--black); 
+		--hrule-color: var(--base900);
+		--hrule-faint-color: var(--base950);
+		--box-border-color: var(--base900);
+
+		--header-anchor-color: var(--base500); /* for the # links on headers */
+		--icon-color: var(--blue400);
+		--icon-hover-color: var(--blue600);
+		--tag-color: var(--purple400);
+		--tag-hover-color: var(--purple500);
+
+		--text-color: var(--base200); 
+		--text-color-link: var(--blue400); 
+		--text-color-link-active: var(--blue600); 
+		--text-color-link-visited: var(--blue400); 
+
+		--collapsible-summary-color: var(--green400);
+		--details-box-color: var(--base900);
+	}
+}
+/* Defaults */
+:root {
+	--font-family: Georgia, Times, -serif; /* Tahoma, -apple-system, system-ui, sans-serif; */
+	--font-family-sanserif: Tahoma, -apple-system, system-ui, sans-serif;
+	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+
+	/* from another template - experiment with these */
+	--font--serif: 'Bitstream Charter', Charter, Palatino, 'Palatino Linotype', 'Palatino LT STD', 'Book Antiqua', Georgia, serif;
+  	--font--sans: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+}
+
+/* Theme colors */
+:root {
+	--syntax-tab-size: 2;
+}
+
+
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	font-size: 18px;  /* a little bigger to accomodate a serif font */
+	color: var(--text-color);
+	background-color: var(--background-color);
+}
+html {
+	overflow-y: scroll;
+}
+body {
+	max-width: 65em; /* 50em; */
+}
+
+/* Basic heading typography */
+h1,h2,h3,h4,h5 {
+  font-family: var(--font--sans);
+  font-weight: 600;
+}
+
+/* different horizontal rules  https://www.w3schools.com/howto/howto_css_dividers.asp */
+ /* Dashed border */
+ hr.dashed {
+	border-top: 1px dashed var(--hrule-color);
+  }
+  
+  /* Dotted border */
+  hr.dotted {
+	border-top: 1px dotted var(--hrule-color);
+  }
+  
+  /* Solid border */
+  hr.solid {
+	border-top: 1px solid var(--hrule-color);
+  }
+  
+
+/* 
+https://css-tricks.com/barebones-css-for-fluid-images/ 
+Without this, images generated by eleventy-img will always use the largest available size
+-- ie, not be responsive.
+*/
+img {
+	max-width: 100%; 
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+  }
+  img[width] {
+	width: auto; /* Defer to max-width */
+  }
+  img[width][height] {
+	height: auto; /* Preserve aspect ratio */
+  }
+  
+  /* Let SVG scale without boundaries */
+  img[src$=".svg"] {
+	width: 100%;
+	height: auto;
+	max-width: none;
+  }
+  
+
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+p {
+	line-height: 1.5;
+	/* font-size: 1.2em; */
+}
+
+p.caption {
+	text-align: center;
+	font-style: italic;
+	font-size: 0.9em;
+	color: var(--caption-color);
+ }
+
+ /* for the credits at the bottom of a page */
+p.credit {
+	max-width: 50em;
+	font-size: 0.9em;
+	margin-left: auto;
+	margin-right: auto;
+ }
+
+
+/* for inline annotations, like translations */
+span.inline-note {
+	font-size: 0.9em;
+	font-style: italic;
+}
+
+li {
+	line-height: 1.5;
+	/* font-size: 1.2em; */
+}
+
+a[href] {
+	color: var(--text-color-link);
+	text-decoration: none; 
+}
+a[href]:visited {
+	color: var(--text-color-link-visited);
+}
+a[href]:hover,
+a[href]:active {
+	color: var(--text-color-link-active);
+}
+
+main {
+	padding: 1rem;
+}
+main :first-child {
+	margin-top: 0;
+}
+
+header {
+	border-bottom: 1px dashed var(--hrule-color);
+}
+header:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.links-nextprev {
+	text-align: left;
+	list-style: none;
+	border-top: 1px dashed var(--hrule-color);
+	padding: 1em 0;
+}
+
+
+table {
+	margin: 1em 0;
+}
+table td,
+table th {
+	padding-right: 1em;
+}
+
+pre,
+code {
+	font-family: var(--font-family);
+	font-size: 0.95em;
+}
+pre:not([class*="language-"]) {
+	margin: .5em 0;
+	line-height: 1.375; /* 22px /16 */
+	-moz-tab-size: var(--syntax-tab-size);
+	-o-tab-size: var(--syntax-tab-size);
+	tab-size: var(--syntax-tab-size);
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+}
+code {
+	word-break: break-all;
+}
+
+/*
+  Custom containers
+*/
+div.message-box {
+	max-width: 50em; 
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div.magazine-box {
+	max-width: 50em; 
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* for comments */
+iframe {
+	max-width: 50em;
+	border: 2px solid var(--collapsible-summary-color);
+}
+
+
+/* Header */
+header {
+	font-family: var(--font--sans); 
+	display: flex;
+	gap: 1em .5em;
+	flex-wrap: wrap;
+	align-items: center;
+	padding: 1em;
+}
+.home-link {
+	font-size: 1.5em; /* 24px /16 (I think)*/
+	font-weight: 700;
+	margin-right: 2em;
+}
+.home-link:link:not(:hover) {
+	text-decoration: none;
+}
+
+/* Nav */
+.nav {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.nav-item {
+	display: inline-block;
+	margin-right: 1em;
+}
+.nav-item a[href]:not(:hover) {
+	text-decoration: none;
+}
+.nav a[href][aria-current="page"] {
+	text-decoration: underline;
+}
+
+/* Posts list */
+.postlist {
+	list-style: none;
+	padding: 0;
+	padding-left: 0; /* 1.5rem; */
+	max-width: 50em;
+}
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	counter-increment: start-from -1;
+	margin-bottom: 1em;
+	padding-bottom: 50px;
+	/* padding: 8px 16px; */
+	border-bottom: 1px dashed var(--hrule-color);
+}
+
+/* 
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	content: "" counter(start-from, decimal-leading-zero) ". ";
+	line-height: 100%;
+	text-align: right;
+	margin-left: -1.5rem;
+}
+*/
+
+.postlist-date,
+.postlist-item:before {
+	font-size: 0.8125em; /* 13px /16 */
+	color: var(--description-color);
+}
+.postlist-date {
+	word-spacing: -0.5px;
+	padding-left: .25em;
+}
+.postlist-link {
+	font-size: 1em; /* 1.1875em;  19px /16 */
+	font-weight: 700; 
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration: none; 
+	/* text-decoration-thickness: 1px; */
+}
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+/* for collapsible text blocks.
+Put the hidden text into p element(s); it looks better.
+*/
+
+/*
+original details background color: #f5f5f5 
+original box border color: #0066cc
+*/
+
+details {  margin: 1em 0;  padding: 1em;  background-color: var(--details-box-color);  border-left: 4px solid var(--collapsible-summary-color);}
+summary {  cursor: pointer;  font-weight: bold;  color: var(--collapsible-summary-color);}
+summary:hover {  text-decoration: underline;}
+
+/* Tags */
+.post-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+	font-style: italic;
+}
+.postlist-item > .post-tag {
+	align-self: center;
+}
+
+/* Tags list */
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: .5em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.post-metadata time {
+	margin-right: 1em;
+}
+
+/* I don't want tag links to stand out too much */
+.post-metadata a[href] {
+	color: var(--tag-color);
+}
+
+.post-metadata a[href]:hover,
+               a[href]:active {
+	color: var(--tag-hover-color);
+}
+
+
+.post-metadata li {
+	font-size: 0.875em;
+}
+
+/* metadata for posts and talks */
+
+.posttalk-metadata {
+	list-style: none;
+	padding-left: 0;
+	color: var(--description-color);
+}
+
+.posttalk-metadata ul {
+	list-style-type: none; /* no bullets */
+	padding: 0;  /* no indentation, either */
+	margin: 0;
+}
+
+/* Direct Links / Markdown Headers */
+.header-anchor {
+	text-decoration: none;
+	font-style: normal;
+	font-size: 1em;
+	margin-left: .1em;
+}
+a[href].header-anchor,
+a[href].header-anchor:visited {
+	color: transparent;
+}
+a[href].header-anchor:focus,
+a[href].header-anchor:hover {
+	text-decoration: underline;
+}
+a[href].header-anchor:focus,
+:hover > a[href].header-anchor {
+	color: var(--header-anchor-color);
+}
+
+h2 + .header-anchor {
+	font-size: 1.5em;
+}
+
+/* Footer */
+hr {
+    border: none;
+    background-color: var(--hrule-color);
+    height: 1px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+    hr {
+        width: 100%;
+    }
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2rem 0;
+    background-color: var(--background-color);
+	;
+}
+
+.footer-container p {
+    font-size: 1rem;
+    color: var(--description-color);
+}
+
+.footer-container .social_icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0 1rem;
+}
+
+.footer-container .social_icons a {
+    color: var(--icon-color);
+    font-size: 1.5rem;
+    transition: all 0.5s ease-in-out;
+}
+
+.footer-container .social_icons a:hover {
+    color: var(--icon-hover-color);
+}</style>
+	</head>
+	<body>
+		<a href="#skip" class="visually-hidden">Skip to main content</a>
+
+		<header>
+			<a href="/dark_tales_sleuth/" class="home-link">Dark Tales Sleuth</a>
+			<nav>
+				<h2 class="visually-hidden">Top level navigation menu</h2>
+				<ul class="nav">
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/about/">About</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/my-investigations/">My Cases</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/blog/">All Posts</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/guestbook/">Guestbook</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/about-me/">About Me</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="skip">
+			
+
+
+<h1>Shelley—The Living Ghost</h1>
+
+
+
+
+
+
+<ul class="posttalk-metadata">
+  <li>By Stuart Palmer (as Stanley Horton)</li>
+  <li>Published in  <em>Ghost Stories Magazine</em>, April 1930</li>
+</ul>
+
+<article>
+<p class="largeintro">The uncanny prologue to a great poet's untimely end</p>
+<img src="/dark_tales_sleuth/stuart-palmer/shelley-the-living-ghost/shelley-vision-pyyMi5R3Kl-1386.png" alt="A man just arising from bed encounters a cloaked man at a set of French doors" loading="lazy" decoding="async" width="1386" height="970">
+<p class="caption">The figure raised its hands...the mask was off!</p>
+<p><strong>THE</strong> wide world knows Percy Bysshe Shelley through his immortal verse. But it is not as generally known that the young poet had several startling psychic experiences, vouched for by his friend, Lord Byron and others. The tragic death of Shelley by drowning in the Bay of Spezia was not the untimely accident that it seemed to the world. For the poet knew!</p>
+<p>It all began in the spring of 1822—the fatal year of 1822. Shelley was living in Italy at the time, in the town of Pisa. But at the approach of the hot Italian summer, it was decided by the poet and his friends, <code>[Edward John]</code> Trelawny and the Edward Williamses, to take a villa on the shore of the Mediterranean.</p>
+<p>The house they finally chose was called the <em>Villa Magni</em>, and it was located halfway between Lerici and San Terezino. It was unsavory in its reputation and looked more like &quot;a boat or bathing house than a place to live in,&quot; according to Byron, <label for="tquote" class="margin-toggle">⊕</label>
+<input type="checkbox" id="tquote" class="margin-toggle">
+<span class="marginnote"> It's actually Trelawny who said this, in Chapter X of his memoir <a href="https://archive.org/details/31383040994678/page/92/mode/1up"><em>Recollections of the Last Days of Shelley and Byron</em></a> (1858). Byron may or may not have been on that house hunting expedition with Trelawny and Williams.</span> who chose to remain in Pisa, heat or no heat.</p>
+<p>The ground floor, or terrace, was unpaved, and was used for storing boat-gear for the poet's little skiff. Above this was a single story, divided into a living room and four bedrooms. The Shelleys had two small rooms facing each other across the hall, the Williamses another, and Trelawny the fourth. The only advantage of the place, according to the accounts of Williams <code>[actually, Trelawny]</code>, was the fact that it possessed a long veranda facing the sea. Here, Shelley used to spend a good deal of his time, staring out over the blue water. What visions he saw were his own secret, but after he had been there a while a sadness seemed to settle down over him.</p>
+<p>On the twenty-third day of June, Mr. and Mrs. Williams were awakened in the middle of the night by blood-curdling screams. And the voice—was Shelley's!</p>
+<p>Hardly waiting to dress, they rushed out into the large living room, or salon. Shelley lay crumpled in a heap, his eyes wide open but staring vacantly.</p>
+<p>His friends laid the poet on a lounge, and bathed his forehead with spirits. But he did not come to himself for some time. When, at last, he was able to explain what had frightened him, his friends listened incredulously.<br><br></p>
+<p><strong>HE</strong> had been awakened, he said, from a sound sleep. Someone had touched him on the shoulder. When he opened his eyes, he saw a masked and cloaked figure above him. The apparition was beckoning him on, and in spite of intense and unreasoning terror, he had been forced to obey. He seemed to have no will of his own.</p>
+<p>Slowly he had followed the Thing to the door of the salon—the door which led out into the darkness of the night. He could remember the sound of the waves along the shore, and their crashing upon the beach seemed a thousand times intensified.</p>
+<p>Perhaps it was the sound which pierced his consciousness, but at any rate his will power suddenly returned, and he refused to go farther. He was afraid to step out into the darkness with this mysterious figure, and drew back.</p>
+<p>The Thing moved toward him, and Shelley, frantic with terror, had torn at its mask. He must know who—or what—this was.</p>
+<p>The black cloth slipped from his fingers, but the figure raised its hands...the mask was off... .</p>
+<p>At that moment Shelley had fainted.</p>
+<p>&quot;But why at that moment?&quot; questioned his amazed friends. &quot;You were only sleepwalking, of course, but why did you scream and faint then?&quot;</p>
+<p>Shelley smiled a little, though his eyes were still unnatural. &quot;Because...because, you see, the Thing had...my own face! I stared into my own features, and I heard the words, as if from a great distance, <em>'Siete soddisfatto?'</em> &quot;</p>
+<p>Williams translated the Italian words to his wife. &quot;Art thou satisfied?&quot; the phantom had asked.</p>
+<p>They were all silent. In the minds of Williams and his wife, and certainly in the mind of the poet, was the legend current in Ireland and certain parts of England, that sometimes, just before death, the &quot;wraith&quot; of a person appears to him as a warning.</p>
+<p>But Shelley was too light-hearted by nature to let a vision, even so terrible a one as this, ruin his holiday by the sea. He agreed with his friends that it had certainly all been a nightmare, caused by his reading of a volume of old Italian tragedies before going to bed. Finally the house grew quiet once more, but Shelley heard the sound of the waves until morning.
+<br></p>
+<div class="message-box">
+<center><strong>"The Dream of Life"</strong></center>
+<p>The following lines which Shelley wrote on the death of his fellow-poet, Keats, illustrate admirably his psychic nature which made possible
+an experience such as is recounted in these pages. To Shelley, life was
+the great illusion— and death the one reality.</p>
+<pre><code>&quot;Peace, peace! he is not dead....
+He hath awakened trom the dream of life—
+Tis we who, lost in stormy visions, keep
+With phantoms an unprofitable strife,
+And in mad trance strike with our spirit's knife
+Invulnerable nothings....&quot;
+</code></pre>
+<p>-- <a href="https://en.wikisource.org/wiki/The_Complete_Poetical_Works_of_Percy_Bysshe_Shelley_(ed._Hutchinson,_1914)/Adonais">Adonais</a> <code>[Stanza XXXIX]</code></p>
+</div>
+<br>
+<p>Back in Pisa, the other famous poet, Lord Byron, was standing the heat as best he could. As much as he would have liked to be with Shelley and the others at the shore, the fastidious dandy could not bring himself to put up with the crowded accommodations at <em>Villa Magni</em>. Still, his mind was often filled with thoughts of Shelley. There was a profound spiritual bond between the two poets, different as their natures were.</p>
+<p>On the twenty-ninth day of June, six days after Shelley's spectral appearance to himself, Byron went for a walk with Leigh Hunt and several other friends, in a wood near Lerici. When Lord Byron had last heard from Shelley, the younger man had been well and happy, without a cloud in the sky to darken his happiness. So the principle of auto-suggestion is removed as a possible explanation of what took place.</p>
+<p>For that day Byron, as well as several of the others, saw Shelley walking among the trees!<br><br></p>
+<p><strong>THEIR</strong> first thought was the natural one. Shelley had heard of their plans and had made the trip to Lerici to join them. But how could he have found out? The walk had been impromptu.</p>
+<p>He had first been seen crossing a field at the other side of the woods, and Byron hailed him. But the poet did not answer the call. His friends waited eagerly for him to come through the thicker part of the woods. But he did not appear.</p>
+<p>At last the impatient Byron rushed on ahead. Through the thickest. of the trees he plunged, calling Shelley's name aloud.</p>
+<p>A few moments later Byron reappeared, his face white and drawn. But he refused to discuss the matter. It had not been Shelley after all, he explained. They had made a mistake in identity.</p>
+<p>But if Byron did not talk to Shelley in the wood near Lerici, to whom did he speak? For Hunt heard voices, raised as in surprise or fear, coming from the thick trees. Yet Byron flatly denied having spoken to anyone.</p>
+<p>And if it was not Shelley who had come walking with his swift, characteristic gait across the field, who was it? For no man came through the trees, and none went back.</p>
+<p>Byron turned back at once toward home, his mind preoccupied and distraught. He knew well that Shelley was miles away. And he, and he alone, knew what he had met in the darkness of the thick grove. He kept his counsel, although in his writings and in those of Hunt it is clearly set forth that they recognized the stranger as Shelley without a possibility of doubt.</p>
+<p>Nine days later, Shelley set sail for Lerici in the frail skiff which he called the <em>Don Juan</em>, in honor of Byron. Williams and a sailor boy were his companions, and in spite of signs of storm, the intrepid poet headed his little craft straight into the wind.</p>
+<p>Trelawny watched them go out from shore, and in his account he tells of the peculiar sound of the waves that day as they broke on the beach. At length a thick sea-fog shut down on the Bay, and the little <em>Don Juan</em> was blotted out. Shelley was never seen again... alive. His body, as well as those of his companions, was found on the shore ten days later, cast high on the sand by the great waves.</p>
+<p>The sea claimed her victim, as he himself had known it would. All Shelley's life, he had expressed the hope of dying in the water.</p>
+<p>And while he was not the first man whose apparition has appeared to his friends just before his death, Percy Bysshe Shelley was certainly the greatest, if not the only man to see his own ghost!</p>
+<hr>
+<p>Part of the series <a href="/dark_tales_sleuth/pages/stuart-palmer/"><em>The Supernatural Writings of Stuart Palmer</em></a>.<br>
+Annotations by Nina Zumel.</p>
+<p>Illustration for &quot;Shelley—The Living Ghost,&quot; <em>Ghost Stories</em>, April 1930. Caption from the original text.</p>
+
+</article>
+
+<p class="credit">
+Have a comment? Leave a note in the <a href="/dark_tales_sleuth/pages/guestbook">Guestbook</a>.
+</p>
+		</main>
+
+		<!-- footer -->
+		<hr>
+
+<div class="footer-container">
+	<p>&copy; 2026 Nina B. Zumel</p>
+	<div class="social_icons">
+	    <a href="mailto:nzumel@mzlabs.com?subject=Comment%20from%20Dark%20Tales%20Sleuth" aria-label="Email" target="_blank" rel="noopener noreferrer">
+			<i class="fas fa-fw fa-envelope"></i>
+		</a>
+		<a href="https://multoghost.wordpress.com/" aria-label="Multo (Ghost)" target="_blank" rel="noopener noreferrer">
+			<i class="fab fa-fw fa-wordpress"></i>
+		</a>
+		<a href="/dark_tales_sleuth/feed.xml" aria-label="RSS" target="_blank" rel="noopener noreferrer">
+			<i class="fa fa-fw fa-rss-square"></i>
+		</a>
+
+	</div>
+</div>
+		<!-- /footer-- >
+
+		<!-- Current page: /dark_tales_sleuth/stuart-palmer/shelley-the-living-ghost/ -->
+	</body>
+</html>
