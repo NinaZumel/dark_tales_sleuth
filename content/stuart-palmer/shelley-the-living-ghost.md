@@ -53,8 +53,7 @@ But Shelley was too light-hearted by nature to let a vision, even so terrible a 
 <center><strong>"The Dream of Life"</strong></center>
 
 The following lines which Shelley wrote on the death of his fellow-poet, Keats, illustrate admirably his psychic nature which made possible
-an experience such as is recounted in these pages. To Shelley, life was
-the great illusion— and death the one reality.
+an experience such as is recounted in these pages. To Shelley, life was the great illusion—and death the one reality.
 
 ```
 "Peace, peace! he is not dead....

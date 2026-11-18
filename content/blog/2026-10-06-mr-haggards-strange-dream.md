@@ -22,13 +22,13 @@ This incident disturbed Haggard so much that he wrote a letter to the *Times of 
 
 * Read [**Mr Haggard's Strange Dream** here](https://exiw.wordpress.com/2026/10/05/mr-haggards-strange-dream/).
 
-Haggard eventually submitted an extended account and discussion of the event to the Society for Psychical Research; the account appeared in the October 1904 issue of the Society's journal. It seems likely that either the *Times* letter or the *JSPR* article (or Haggard's memoir, below) were the source(s) for Palmer's *Ghost Stories* piece. {% marginnote "haggard", "In the introduction to his 2000 volume *Phantom Perfumes*, a collection of stories from *Ghost Stories*, Mike Ashby quotes Sam Moscowitz's speculation that Palmer must have heard this anecdote directly from Haggard's widow, since \"the incident is not included in any Haggard biographies.\" However, as this article shows, there are plenty of places where Palmer might have learned of this story." %}
+Haggard eventually submitted an extended account and discussion of the event to the Society for Psychical Research; the account appeared in the October 1904 issue of the Society's journal. It seems likely that either the *Times* letter or the *JSPR* article (or Haggard's memoir, below) were the source(s) for Palmer's *Ghost Stories* piece. {% marginnote "haggard", "In the introduction to his 2000 volume *Phantom Perfumes*, a collection of stories from *Ghost Stories*, Mike Ashley quotes Sam Moscowitz's speculation that Palmer must have heard this anecdote directly from Haggard's widow, since \"the incident is not included in any Haggard biographies.\" However, as this article shows, there are plenty of places where Palmer might have learned of this story." %}
 
 Haggard repeated the story again in Chapter 19 of his memoir, *The Days of my Life* (1926). In that account, he goes on to say that the experience of such an apparently close psychic communion between humans and animals caused him to give up sport hunting. He didn't, however, go so far as to become vegetarian.
 
 ## References
 
-Ashby, Mike. "Spectral Memories," Introduction to *Phantom Perfumes*, Mike Ashby, Editor. Ash-Tree Press, Ashcroft (2000).
+Ashley, Mike. "Spectral Memories," Introduction to *Phantom Perfumes*, Mike Ashley, Editor. Ash-Tree Press, Ashcroft (2000).
 
 Haggard, H. Rider. "Mr. Haggard's Strange Dream," *New York Times*, July 31, 1904, pg 6.
 

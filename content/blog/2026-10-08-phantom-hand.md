@@ -31,7 +31,7 @@ After that experience, Thompson's impulse to paint grew stronger than ever. Some
 
 At first, Hyslop thought Thompson was having an "ordinary" mental breakdown, and counseled him to try to go back to goldsmithing. But eventually Hyslop decided to have Thompson sit with a medium, to which Thompson reluctantly agreed (he did not believe in Spiritualism). The medium described a man who Thompson said sounded like Gifford, and also described the scene of oak trees that Thompson had been obsessing about. However, she didn't know where the trees were located.
 
-Eventually, Thompson went to visit Gifford's widow; in Gifford's studio, he saw paintings that strongly resembled his visions, as well as painting and sketches that resembled other scenes that he had painted. Gifford's widow also told Thompson that her husband's favorite place had been the Elizabeth Islands, southwest of Cape Cod. Thompson went exploring there, and found his envisioned trees on the island of Nashawena.
+Eventually, Thompson went to visit Gifford's widow; in Gifford's studio, he saw paintings that strongly resembled his visions, as well as paintings and sketches that resembled other scenes that he had painted. Gifford's widow also told Thompson that her husband's favorite place had been the Elizabeth Islands, southwest of Cape Cod. Thompson went exploring there, and found his envisioned trees on the island of Nashawena.
 
 Thompson spent some time in the islands, sketching and painting. While sketching another stand of trees, he heard a voice say "Go and look on the other side." He did so, and found Gifford's initials carved on a tree trunk, dated 1902.
 
