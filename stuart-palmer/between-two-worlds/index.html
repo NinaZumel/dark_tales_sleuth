@@ -1,0 +1,973 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Between Two Worlds</title>
+		<meta name="description" content="Filling in the Literary Blanks">
+		<link rel="alternate" href="/dark_tales_sleuth/feed/feed.xml" type="application/atom+xml" title="Dark Tales Sleuth">
+		<link rel="alternate" href="/dark_tales_sleuth/feed/feed.json" type="application/json" title="Dark Tales Sleuth">
+
+        
+		<link rel="me" href="https://micro.blog/MultoGhost">
+		<link rel="authorization_endpoint" href="https://indieauth.com/auth">
+		<link rel="token_endpoint" href="https://tokens.indieauth.com/token">
+		<link href="https://github.com/ninazumel" rel="me">
+		<script src="https://kit.fontawesome.com/9bbe6f85f9.js" crossorigin="anonymous"></script>
+		
+		<style>/* minimal implementation; just plain text in the margin, no blockquotes, code, etc */
+/* only (unnumbered) margin notes, no sidenotes */
+/* stripped down from https://github.com/edwardtufte/tufte-css */
+
+/* need this for correct sidenote numbering; but I'm not using sidenotes */
+/*
+body {
+    counter-reset: sidenote-counter; 
+} 
+*/
+
+
+/* since I imagine these will change with different templates */
+:root {
+    --content-width: 65%;
+    --image-padding: 5%;
+    --image-max: 60%;  /* total image+padding <= content-width */
+    --notewidth: 30%; 
+    /* content-width + notewidth <  100%. I think you should leave some wiggle room. */
+    --note-right-margin: -45%;
+    /* if this margin is -(notewidth), the note will start just on the right border of the text */
+    /* so push it a little to the right (more negative) */
+}
+
+article {
+	padding-top: 1rem; 
+}
+
+/* make room for the notes in the article container */
+article > p,
+article > pre,
+article > ul,
+article > details {
+    width: var(--content-width);
+}
+
+/* 
+  blockquotes should be a little shorter 
+  This assumes that left indentation is 2em, which is what it looks like.
+  Subtract way more than 2 em, so that it's way shorter.
+  */
+article > blockquote {
+    width: calc(var(--content-width) - 10em); 
+}
+
+
+article > hr {
+    max-width: var(--content-width);
+    margin: 0
+}
+
+article > h1, 
+article > h2,
+article > h3,
+article > h4 {
+    max-width: var(--content-width);
+}
+
+article > center {
+    max-width: var(--content-width);
+}
+
+/* keep images/captions in the text column, rather than centered in the article container */
+article > img {
+    margin-left: 0;
+    padding-left: var(--image-padding);
+    max-width: var(--image-max); 
+}
+
+article > p.caption {
+	text-align: left;
+    padding-left: var(--image-padding);
+	font-style: italic;
+	font-size: 0.9em;
+	color: var(--caption-color);
+ }
+
+article > p.caption a:hover,
+article > p.caption a:active {
+    color: var(--text-color-link-active);
+}
+
+article > p.largeintro {
+    text-align:center;
+    margin-left: 0;
+    padding-left: var(--image-padding);
+    max-width: var(--image-max); 
+    font-style: italic;
+    font-size: 1.2em;
+    color: var(--text-color);
+    
+}
+
+article > p.intro {
+    text-align:center;
+    margin-left: 0;
+    padding-left: var(--image-padding);
+    max-width: var(--image-max); 
+    font-style: italic;
+    color: var(--text-color);
+    
+}
+
+article > div.featurebox {
+    text-align: center;  
+    margin-left: var(--image-padding);  
+    padding: 15px;  
+    width: calc(var(--image-max) - var(--image-padding));
+    font-style: italic;  
+    color: var(--text-color);  
+    border: 2px solid var(--text-color);  
+    box-sizing: border-box;
+}
+
+article > div.featurebox.left {
+    text-align: left;
+}
+
+/* like a featurebox, only non-italic */
+article > div.message-box {
+    margin-left: var(--image-padding);  
+    padding: 15px;  
+    width: calc(var(--image-max) - var(--image-padding)); 
+    color: var(--text-color);  
+    border: 2px solid var(--text-color);  
+    box-sizing: border-box;
+}
+
+.footnote-item {
+    max-width: var(--content-width); 
+}
+
+ /* finally, the margin note */
+.marginnote {    
+    float: right;
+    clear: right;
+    width: var(--notewidth);         
+    margin-right: var(--note-right-margin);
+    margin-top: 0.3rem;
+    margin-bottom: 0;
+    font-size: 0.8rem;
+    line-height: 1.3;
+    vertical-align: baseline;
+    position: relative;
+    /* border: 2px solid blue; */
+}
+
+
+input.margin-toggle {
+    display: none;
+}
+
+
+label.margin-toggle {    
+    display: none;
+
+}
+
+/* The mobile fallback: */
+/* making max-width bigger makes the note fall inline sooner */
+@media (max-width: 768px) {  
+    body {
+        width: 84%;
+        padding-left: 8%;
+        padding-right: 8%;
+    }
+
+    hr,
+    article > p,
+    article > blockquote,
+    article > pre, 
+    article > ul,
+    article > details {
+        width: 100%;
+    }
+
+    article > center,
+    article > img,
+    article > hr {
+        max-width: 100%;
+    }
+
+    article > p.largeintro,
+    article > p.intro {
+        text-align: left;
+        max-width: 100%;
+    }
+
+    article > p.featurebox {
+        text-align: left;
+        width: 100%;
+    }
+
+    article > h1, 
+    article > h2,
+    article > h3,
+    article > h4 {
+        max-width: 100%;
+    }
+
+    label.margin-toggle {
+        display: inline;
+    }
+       
+    .marginnote {           
+         display: none;        
+        }    
+
+      
+    .margin-toggle:checked + .marginnote {            
+        display: block;            
+        float: left;            
+        left: 1rem;            
+        clear: both;            
+        width: 95%;            
+        margin: 1rem 2.5%;            
+        vertical-align: baseline;            
+        position: relative;        
+    }
+    label {
+        cursor: pointer;
+    }
+}
+* { box-sizing: border-box; }
+/* colors from flexoki - https://stephango.com/flexoki */
+
+:root {
+	--paper: #FFFCF0;
+	--tx-normal: #100F0F;
+	--tx-muted: #6F6E69;
+	--tx-faint: #B7B5AC;
+	--blue300: #66A0C8;
+	--blue400: #4385BE;
+	--blue600: #205EA6;
+	--blue700: #1A4F8C;
+	--blue800: #163B66; 
+	--blue850: #133051;
+	--green400: #879A39;
+	--green600: #66800B;
+	--red800: #6C201C;
+	--purple600: #5E409D;
+	--purple300: #A699D0;
+	--base50: #F2F0E5;
+	--base100: #E6E4D9;
+	--base300: #B7B5AC;
+
+	--description-color: var(--tx-muted); 
+    --caption-color: var(--tx-muted);
+	--background-color:  var(--paper); 
+    --hrule-color: var(--base100);
+    --hrule-faint-color: var(--base50);
+	--box-border-color: var(--base50);
+
+	--header-anchor-color: var(--base300); /* for the # links on headers */
+	--icon-color: var(--blue600);
+	--icon-hover-color: var(--blue300);
+	--tag-color: var(--purple600);
+	--tag-hover-color: var(--purple300);
+
+	--text-color: var(--tx-normal); 
+	--text-color-link: var(--blue700); 
+	--text-color-link-active: var(--blue400); 
+	--text-color-link-visited: var(--blue700); 
+
+	--collapsible-summary-color: var(--green600);
+	--details-box-color: var(--base50);
+
+
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--black: #100F0F;
+		--base200: #CECDC3; 
+		--base300: #B7B5AC;
+		--base500: #878580;
+		--base600: #6F6E69;
+		--base700: #575653;
+		--base900: #282726;
+		--base950: #1C1B1A;
+		--blue700: #1A4F8C;
+		--green400: #879A39;
+	    --green600: #66800B;
+		--red400: #D14D41;
+		--purple400: #8B7EC8;
+		--purple500: #735EB5;
+		--purple600: #5E409D;
+	
+		--description-color: var(--base300); 
+		--caption-color: var(--base500);
+		--background-color:  var(--black); 
+		--hrule-color: var(--base900);
+		--hrule-faint-color: var(--base950);
+		--box-border-color: var(--base900);
+
+		--header-anchor-color: var(--base500); /* for the # links on headers */
+		--icon-color: var(--blue400);
+		--icon-hover-color: var(--blue600);
+		--tag-color: var(--purple400);
+		--tag-hover-color: var(--purple500);
+
+		--text-color: var(--base200); 
+		--text-color-link: var(--blue400); 
+		--text-color-link-active: var(--blue600); 
+		--text-color-link-visited: var(--blue400); 
+
+		--collapsible-summary-color: var(--green400);
+		--details-box-color: var(--base900);
+	}
+}
+/* Defaults */
+:root {
+	--font-family: Georgia, Times, -serif; /* Tahoma, -apple-system, system-ui, sans-serif; */
+	--font-family-sanserif: Tahoma, -apple-system, system-ui, sans-serif;
+	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+
+	/* from another template - experiment with these */
+	--font--serif: 'Bitstream Charter', Charter, Palatino, 'Palatino Linotype', 'Palatino LT STD', 'Book Antiqua', Georgia, serif;
+  	--font--sans: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+}
+
+/* Theme colors */
+:root {
+	--syntax-tab-size: 2;
+}
+
+
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	font-size: 18px;  /* a little bigger to accomodate a serif font */
+	color: var(--text-color);
+	background-color: var(--background-color);
+}
+html {
+	overflow-y: scroll;
+}
+body {
+	max-width: 65em; /* 50em; */
+}
+
+/* Basic heading typography */
+h1,h2,h3,h4,h5 {
+  font-family: var(--font--sans);
+  font-weight: 600;
+}
+
+/* different horizontal rules  https://www.w3schools.com/howto/howto_css_dividers.asp */
+ /* Dashed border */
+ hr.dashed {
+	border-top: 1px dashed var(--hrule-color);
+  }
+  
+  /* Dotted border */
+  hr.dotted {
+	border-top: 1px dotted var(--hrule-color);
+  }
+  
+  /* Solid border */
+  hr.solid {
+	border-top: 1px solid var(--hrule-color);
+  }
+  
+
+/* 
+https://css-tricks.com/barebones-css-for-fluid-images/ 
+Without this, images generated by eleventy-img will always use the largest available size
+-- ie, not be responsive.
+*/
+img {
+	max-width: 100%; 
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+  }
+  img[width] {
+	width: auto; /* Defer to max-width */
+  }
+  img[width][height] {
+	height: auto; /* Preserve aspect ratio */
+  }
+  
+  /* Let SVG scale without boundaries */
+  img[src$=".svg"] {
+	width: 100%;
+	height: auto;
+	max-width: none;
+  }
+  
+
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+p {
+	line-height: 1.5;
+	/* font-size: 1.2em; */
+}
+
+p.caption {
+	text-align: center;
+	font-style: italic;
+	font-size: 0.9em;
+	color: var(--caption-color);
+ }
+
+ /* for the credits at the bottom of a page */
+p.credit {
+	max-width: 50em;
+	font-size: 0.9em;
+	margin-left: auto;
+	margin-right: auto;
+ }
+
+
+/* for inline annotations, like translations */
+span.inline-note {
+	font-size: 0.9em;
+	font-style: italic;
+}
+
+li {
+	line-height: 1.5;
+	/* font-size: 1.2em; */
+}
+
+a[href] {
+	color: var(--text-color-link);
+	text-decoration: none; 
+}
+a[href]:visited {
+	color: var(--text-color-link-visited);
+}
+a[href]:hover,
+a[href]:active {
+	color: var(--text-color-link-active);
+}
+
+main {
+	padding: 1rem;
+}
+main :first-child {
+	margin-top: 0;
+}
+
+header {
+	border-bottom: 1px dashed var(--hrule-color);
+}
+header:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.links-nextprev {
+	text-align: left;
+	list-style: none;
+	border-top: 1px dashed var(--hrule-color);
+	padding: 1em 0;
+}
+
+
+table {
+	margin: 1em 0;
+}
+table td,
+table th {
+	padding-right: 1em;
+}
+
+pre,
+code {
+	font-family: var(--font-family);
+	font-size: 0.95em;
+}
+pre:not([class*="language-"]) {
+	margin: .5em 0;
+	line-height: 1.375; /* 22px /16 */
+	-moz-tab-size: var(--syntax-tab-size);
+	-o-tab-size: var(--syntax-tab-size);
+	tab-size: var(--syntax-tab-size);
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+}
+code {
+	word-break: break-all;
+}
+
+/*
+  Custom containers
+*/
+div.message-box {
+	max-width: 50em; 
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div.magazine-box {
+	max-width: 50em; 
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* for comments */
+iframe {
+	max-width: 50em;
+	border: 2px solid var(--collapsible-summary-color);
+}
+
+
+/* Header */
+header {
+	font-family: var(--font--sans); 
+	display: flex;
+	gap: 1em .5em;
+	flex-wrap: wrap;
+	align-items: center;
+	padding: 1em;
+}
+.home-link {
+	font-size: 1.5em; /* 24px /16 (I think)*/
+	font-weight: 700;
+	margin-right: 2em;
+}
+.home-link:link:not(:hover) {
+	text-decoration: none;
+}
+
+/* Nav */
+.nav {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.nav-item {
+	display: inline-block;
+	margin-right: 1em;
+}
+.nav-item a[href]:not(:hover) {
+	text-decoration: none;
+}
+.nav a[href][aria-current="page"] {
+	text-decoration: underline;
+}
+
+/* Posts list */
+.postlist {
+	list-style: none;
+	padding: 0;
+	padding-left: 0; /* 1.5rem; */
+	max-width: 50em;
+}
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	counter-increment: start-from -1;
+	margin-bottom: 1em;
+	padding-bottom: 50px;
+	/* padding: 8px 16px; */
+	border-bottom: 1px dashed var(--hrule-color);
+}
+
+/* 
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	content: "" counter(start-from, decimal-leading-zero) ". ";
+	line-height: 100%;
+	text-align: right;
+	margin-left: -1.5rem;
+}
+*/
+
+.postlist-date,
+.postlist-item:before {
+	font-size: 0.8125em; /* 13px /16 */
+	color: var(--description-color);
+}
+.postlist-date {
+	word-spacing: -0.5px;
+	padding-left: .25em;
+}
+.postlist-link {
+	font-size: 1em; /* 1.1875em;  19px /16 */
+	font-weight: 700; 
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration: none; 
+	/* text-decoration-thickness: 1px; */
+}
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+/* for collapsible text blocks.
+Put the hidden text into p element(s); it looks better.
+*/
+
+/*
+original details background color: #f5f5f5 
+original box border color: #0066cc
+*/
+
+details {  margin: 1em 0;  padding: 1em;  background-color: var(--details-box-color);  border-left: 4px solid var(--collapsible-summary-color);}
+summary {  cursor: pointer;  font-weight: bold;  color: var(--collapsible-summary-color);}
+summary:hover {  text-decoration: underline;}
+
+/* Tags */
+.post-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+	font-style: italic;
+}
+.postlist-item > .post-tag {
+	align-self: center;
+}
+
+/* Tags list */
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: .5em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.post-metadata time {
+	margin-right: 1em;
+}
+
+/* I don't want tag links to stand out too much */
+.post-metadata a[href] {
+	color: var(--tag-color);
+}
+
+.post-metadata a[href]:hover,
+               a[href]:active {
+	color: var(--tag-hover-color);
+}
+
+
+.post-metadata li {
+	font-size: 0.875em;
+}
+
+/* metadata for posts and talks */
+
+.posttalk-metadata {
+	list-style: none;
+	padding-left: 0;
+	color: var(--description-color);
+}
+
+.posttalk-metadata ul {
+	list-style-type: none; /* no bullets */
+	padding: 0;  /* no indentation, either */
+	margin: 0;
+}
+
+/* Direct Links / Markdown Headers */
+.header-anchor {
+	text-decoration: none;
+	font-style: normal;
+	font-size: 1em;
+	margin-left: .1em;
+}
+a[href].header-anchor,
+a[href].header-anchor:visited {
+	color: transparent;
+}
+a[href].header-anchor:focus,
+a[href].header-anchor:hover {
+	text-decoration: underline;
+}
+a[href].header-anchor:focus,
+:hover > a[href].header-anchor {
+	color: var(--header-anchor-color);
+}
+
+h2 + .header-anchor {
+	font-size: 1.5em;
+}
+
+/* Footer */
+hr {
+    border: none;
+    background-color: var(--hrule-color);
+    height: 1px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+    hr {
+        width: 100%;
+    }
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2rem 0;
+    background-color: var(--background-color);
+	;
+}
+
+.footer-container p {
+    font-size: 1rem;
+    color: var(--description-color);
+}
+
+.footer-container .social_icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0 1rem;
+}
+
+.footer-container .social_icons a {
+    color: var(--icon-color);
+    font-size: 1.5rem;
+    transition: all 0.5s ease-in-out;
+}
+
+.footer-container .social_icons a:hover {
+    color: var(--icon-hover-color);
+}</style>
+	</head>
+	<body>
+		<a href="#skip" class="visually-hidden">Skip to main content</a>
+
+		<header>
+			<a href="/dark_tales_sleuth/" class="home-link">Dark Tales Sleuth</a>
+			<nav>
+				<h2 class="visually-hidden">Top level navigation menu</h2>
+				<ul class="nav">
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/about/">About</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/my-investigations/">My Cases</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/blog/">All Posts</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/guestbook/">Guestbook</a></li>
+					<li class="nav-item"><a href="/dark_tales_sleuth/pages/about-me/">About Me</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="skip">
+			
+
+
+<h1>Between Two Worlds</h1>
+
+
+
+
+
+
+<ul class="posttalk-metadata">
+  <li>By Sarah Emma Lang, as told to Stuart Palmer</li>
+  <li>Published in  <em>Ghost Stories Magazine</em>, April 1930</li>
+</ul>
+
+<article>
+<p class="largeintro">How can a man disappear while crossing his own field?</p>
+<img src="/dark_tales_sleuth/stuart-palmer/between-two-worlds/sarah-emma-lang-TYpZhfneYN-401.png" alt="Portrait of woman in nineteenth century dress and hairstyle, facing right and smiling." loading="lazy" decoding="async" width="401" height="519">
+<p class="caption">Sarah Emma Lang, from an early portrait
+</p>
+<p><strong>THIS</strong> is not a &quot;ghost story.&quot; There was a long time during which I would have given anything to have had it turn out to be one. And, though now it seems strange and terrible, for a large part of my life I went through the days, praying and hoping that the father I loved was dead!</p>
+<p>But I searched for him as fruitlessly through the séance chamber as I used to search, as a little girl, the place where he...went. My life, until last spring, was darkened by what I think is the strangest and most unusual tragedy that has ever clung to a family.</p>
+<p>I was only a little girl when it happened, a few months past my eleventh birthday. And I am an old woman now, though I understand as little as I ever did about what happened on that peaceful September day. It was so swift, so sudden, so cruel. One moment my father was walking across the field, in full view of three people besides my brother and myself. The next...he was nowhere....</p>
+<p>I had been playing with my brother George on the lawn, and Mother was standing just above us on the porch. Father had just returned from a trip to Nashville, and, after talking a few minutes to Mother and changing into his outdoor clothes, he had started across the field to see to the horses. They were his special pride and joy, those blue-grass horses.</p>
+<p>&quot;Hurry back, David!&quot; Mother called after him. &quot;You know I want you to drive me in to Gallatin tonight before the store closes....&quot; Father waved, and called out something. It was the last time—with one exception—that we ever heard his voice.<br><br></p>
+<p><strong>I CAN</strong> remember that scene perfectly. The sun was slanting low above the elm trees that lined the road, and the sky was clear and cloudless. It was the twenty-third day of September, in the year 1880, and summer, in that Tennessee valley, had not yet given way to fall.</p>
+<p>The house faced the south, and fronted almost on the road. Between was the long sloping &quot;yard,&quot; its grass now nearly dead from the August drought. Down the dirt road, perhaps a quarter of a mile, was a top buggy drawn by a white horse which my brother and I had already identified as that of &quot;Judge&quot; Peck, a lawyer in Gallatin and a friend of my father's.</p>
+<p>George and I were playing with some toys that Father had brought us from Gallatin, and I can remember even today exactly what that little wooden horse and wagon looked like. But we never played with the thing again...we could never bear to look at it.</p>
+<p>For even as we began to argue, as children will, a terrible scream rang out above our heads. It was Mother!</p>
+<p>For a moment neither of us could move. George was only eight, and his little round face went white as a sheet. I felt my hair bristle like a cat's. Mother screamed again, and we rushed up to her. She was staring dully off across the field towards Father.... We peered on tiptoe and then we, too, raised our voices in terror. For Father was gone!</p>
+<p>One moment he had been there, in the middle of that eighty-acre pasture, and striding swiftly in the direction of the horses, which had gathered down at the spring. And the next he had vanished into thin air!</p>
+<p>There was not a tree, not a stone in that entire field within half a mile of him. Yet it stretched, vacant and bare....</p>
+<p>Mother was already running toward the spot. Her first thought, and ours, was that there must have been a cave-in, and that Father had slipped underground somehow.</p>
+<p>As we climbed the barbed-wire fence, George pointed down the road. Judge Peck had jumped out of his buggy, followed by a fat man in a white coat, and was hurrying across the pasture to meet Mother.</p>
+<p>The judge spoke first. He was standing almost on the spot where Father had been, and his voice was reedy and thin.</p>
+<p>&quot;I was coming to see him. Had to get his signature. That's why I was watching him cross the field, because I wanted to wave to him to come back. And I was just going to holler when...when....</p>
+<p>Mother just stood there. With one hand she held on to both of us, as if she feared we, too, would be spirited away.</p>
+<p>There was no use to look around us. It was easy to see that there had been no cave-in. The grass was level and green....</p>
+<p>&quot;There must be an old well here,&quot; said Judge Peck. The man with him was just coming up.</p>
+<p>&quot;I'm not drunk,&quot; he kept saying. &quot;I am <em>not</em> drunk, I swear I'm not. But what happened? Won't somebody tell me what happened? I don't like this sort of thing. I swear I don't. This parlor magic. I don't like....&quot;</p>
+<p>&quot;Shut up,&quot; said the Judge. George and I both gasped. We were already more excited by the actions of the people around us than by the thing which had happened. Children are like that, and we were not to know, or really realize, for a long time what our loss had been. At first it seemed only like a joke of some kind. For people don't disappear into thin air....</p>
+<p>Then they began to search. Around and around they went, covering every inch of the ground. But it was useless. We children started to help, but mother called us back. She leaned on us as she walked toward the fence, and then suddenly she sank down on the ground. Her mouth was twisted, and she began to laugh. I have never heard so awful a sound. It chilled me to the bone. George started to run away as fast as his fat little legs could carry him. But I tugged at Mother!'s dress and kept begging her not to laugh like that.<br><br></p>
+<p><strong>THEN</strong> Judge Peck and the fat man, who turned out to be his brother-in-law from Akron, Ohio, carried Mother across the pasture and back to the house. As soon as we were there, Mammy Sue took us to the kitchen and kept us there. They wouldn't let us go to Mother, nor talk. George just sat there, his face still white. But I kept asking questions which Mammy wouldn't answer.</p>
+<p>I could hear Mother's voice upstairs, and yet it wasn't Mother's voice at all. It was different, and frightening. Then pretty soon I knew Doctor Anton had come, because I saw his horse being led back to the stables.</p>
+<p>Mammy Sue put us to bed early that night, and for a long while she rocked us. Then she sang &quot;Swing Low, Sweet Chariot.&quot; Usually, because we were nearly grown up then, she would leave us in the dark; but that night she sat there. I could hear her rocker going <em>creak, creak</em> for a long time before I fell off to sleep.</p>
+<p>George's whisper woke me up. &quot;Sarah,&quot; he said, &quot;where's father gone?&quot; I told him that I didn't know.</p>
+<p>&quot;Sarah, is...is he dead? Is he dead like Uncle Robert, and the puppy?&quot;</p>
+<p>&quot;No, of course not. Father went away somewhere. He'll be back in the morning, Georgie....&quot;</p>
+<p>There was a long silence after that, and then I heard George's feet pattering on the floor and down the hall. In a few minutes he was back.</p>
+<p>&quot;Father's not in his bed,&quot; whispered George, &quot;and Mother is downstairs with a lot of people. Everybody is sitting there.&quot; He got back into his own bed, but I knew that he had something more to say.</p>
+<p>&quot;Sarah,&quot; came his voice again, &quot;Sarah, I went down to the window in the front room...and a lot of men are out in the pasture with lanterns. Are they...are they looking for Father?&quot;</p>
+<p>They were, all that night and all the next day. But they never found him. The pasture was combed from one end to the other, but there was not a sign of Father. They even found his footsteps where he had climbed the fence and dug his heels into the clay as he entered the pasture. But that was all.</p>
+<p>&quot;The Disappearance of David Lang&quot; was what the newspapers all talked about then. Our pasture was full of people every day for weeks; at first people looking for signs of what had happened to Father, and after that just out of curiosity.</p>
+<p>If it had not been for Judge Peck and his brother-in-law, Mr. Wade, nobody would have believed Mother. As it was, a lot of people said that they wouldn't believe such a thing until they saw it. But Judge Peck and Mr. Wade had seen it happen, just as Mother had. And George and I had seen Father there one minute, and gone the next.</p>
+<p>Everybody said that there had been a cave-in or something. But a cave-in would have left a hole, and the pasture was just as it had always been. Besides, the surveyor came, and he said that there was a limestone bedrock only a few feet under the surface in that field, so that there couldn't have been a cave-in.</p>
+<p>The newspapers hinted that Father had run away somehow. But if he had wanted to go away, which he certainly didn't, how could he have hidden himself in that open field, or how could he have gone so suddenly? It was ten minutes' walk to the nearest tree or fence...and wherever it was that Father went, he did it in a split-second.<br><br></p>
+<p><strong>BESIDES</strong>, if he had wanted to go away, he would have stayed when he went to Nashville. Why should he come home, bringing us toys, change into his rough outdoor clothes, and walk out to see the horses...if he wanted to go?</p>
+<p>&quot;He'll come back in a few days,&quot; everyone told us. Only Mammy Sue didn't say that. She used to pray for us every night, and she gave us a little charm bag to wear around our necks. &quot;And never, never let me hear of you chillun going into that place again,&quot; she would warn us. &quot;That pasture is bad!&quot;</p>
+<p>It wasn't as if Father had died. When people die, what is left is just outworn clay. But Father's <em>body</em> was gonel Men hunted with blood hounds, but they left the trail howling.</p>
+<p>Mother was never well after that. For a long time she insisted that Father would return, that he would walk back just the way he had gone. Her hair turned white as milk that autumn. Everybody wanted her to go back to her father and mother in Virginia, and take us, but she refused.</p>
+<p>&quot;When David comes back I want to be waiting,&quot; she would say. And she had Judge Peck rent the land for her.</p>
+<p>We children, of course, didn't know it, but the whole thing must have unhinged Mother's mind a little. Late at night she would walk across the road to the pasture, in spite of Mammy Sue's warnings, and search by the hour, calling &quot;David...David.&quot; We would lie in our beds, listening to that cry till we fell asleep....</p>
+<p>That was the way the autumn passed, and the winter. Spring came, and the new tenant began planting. He was going to plough up the big pasture, but his men wouldn't work where Father had disappeared. So he put his horses to graze in there, just as ours had before they were sold.</p>
+<p>Mother was in bed most of the time then, for her health was failing. George and I were thrown more and more on each other for companionship and comfort.</p>
+<p>One evening he came to me, his face serious. &quot;Come with me, Sarah. I want to show you something.&quot;</p>
+<p>The tragedy, and its mystery, had aged us both strangely. I followed him down the path that led to the road. Mammy Sue was back in the servants' quarters, and Mother, as usual, was in her room. There was no one to stop us....</p>
+<p>Across the road George led me, and then he slipped through the barbed-wire fence into the pasture—the fatal pasture. It was just after sunset, and a warm twilight glow was everywhere. I could hear the whinnying of the horses, which were playing and running at the far end of the field.</p>
+<p>I was afraid, mightily afraid. Mammy Sue had told us never to walk in the pasture. But George was a boy, and he led the way bravely. I was not ashamed to hold his hand, and I think he was glad of it too, But we went on, straight toward where Father had...gone.<br><br></p>
+<p><strong>THERE</strong> was a well-worn path, for hundreds of people had come, in the last few months, to see the spot where the &quot;disappearance&quot; had taken place. One party of them had even stopped to picnic there, laughing and being very daring. But George and I watched from the house, and they went away very soon.</p>
+<p>On and on we went, while slowly the sunset glow faded. Then suddenly George pressed my hand, and we both squatted down.</p>
+<p>I noticed nothing at first, until George pointed. Then I saw. There was an irregular circle of perhaps fifteen feet or so, in which the grass had grown rank and poisonously yellow-green. It was the exact spot where Father had gone!</p>
+<img src="/dark_tales_sleuth/stuart-palmer/between-two-worlds/portal-sPqNl4nXls-347.png" alt="What appears to be a portal in space, with a man falling through." loading="lazy" decoding="async" width="347" height="336">
+<p>I was terribly frightened. I had read of fairy rings and such. But it was not that.</p>
+<p>&quot;The horses,&quot; George whispered, &quot;they won't come to that spot to eat! They won't even run or walk through it.... I've watched them.&quot;</p>
+<p>We edged a little closer. The spot was tinged with a horrible fascination for both of us; we were consumed with curiosity and dread. Closer and closer...then suddenly we both noticed the same thing. There was no living thing in that circle of grass!</p>
+<p>Everywhere else night-moths were circling, and grasshoppers and crickets moved cheerfully. But in that unhallowed circle, there was a deadly stillness.</p>
+<p>I was sobbing, more from excitement than from terror. George hunted through the grass for a moment, and then pounced upon a cricket. The little black thing was chirping happily, even in George's hand. With one swift gesture, my little brother threw the insect into the circle.</p>
+<p>It stopped chirping, and even as we watched, the cricket clambered feverishly across the grass blades, hopping and skipping out of the tall grass—out of the forbidden circle! Then, and not till then, did it begin chirping again. We looked at each other, George and I.</p>
+<p>&quot;Let's try to call to Father,&quot; I suggested. &quot;He must be here, somewhere. He must be under a spell, like the white princess in the fairy book. Maybe if we call, both of us, together...loud enough....</p>
+<p>There, huddled in the deepening darkness, we two children raised our thin little voices in a wail: &quot;Father, Father....&quot;</p>
+<p>Again and again we called, till we were out of breath. But only the echo of our own voices came back to us. Once more, and we turned to go....</p>
+<p>Then the unthinkable happened. We had never dreamed of getting an answer. At least not such an answer. But from far, far away, in a faint and hollow voice which was well known to us both, there came the answering voice of our father!</p>
+<p>What were the words? How could we tell, we two frightened children? Father's voice was strange; we could understand only that it was his, and that he seemed to be in trouble. But it was not a dead voice, not that of a ghost. It was hurt, and half-gagged, but it was that of a man alive! I shall swear to that on my death bed!</p>
+<p>&quot;Help,&quot; it seemed to say, and again...&quot;Help!&quot; But we could not wait. It might have been infinitely better if we had stayed. We might have learned things hidden from the world. But already we had gone too far—farther than we had any right to go. With one panic-stricken shriek, we both set out across the pasture for home. It was not a moment from the time that the well-remembered voice of Father had sounded so terrifyingly in our ears, until we were stumbling through the fence into the arms of Mammy Sue, who had started to look for us with a lantern.</p>
+<p>We told our story. We told it to Mammy Sue, who shook her head and turned gray with fear. And the next day all the servants left except faithful old Mammy Sue.
+<br><br></p>
+<p><strong>WE</strong> told Mother, in spite of her sickness. We had to tell her. But she only shook her head, too.</p>
+<p>&quot;I have heard his voice, children,&quot; she said. &quot;He has answered me, too, in the night. But his voice grows fainter....&quot; Her strength was about at an end, and our poor mother was never to be well again.</p>
+<p>The story got around, and was put down as childish imagination, until somebody else noticed the circle of untouched grass in the pasture. Then everything happened at once.</p>
+<p>My grandfather and grandmother came from Virginia, sent for by Judge Peck. They insisted on the place being sold and in Mother's coming back with them to the old home. She did not care what happened any longer, and a few weeks after we made the long trip my Mother passed away.</p>
+<div class="message-box">
+<p><strong>AMBROSE BIERCE</strong>, the author to whom Miss Lang refers in these pages, based not one, but three stories<label for="stories" class="margin-toggle">⊕</label>
+<input type="checkbox" id="stories" class="margin-toggle">
+<span class="marginnote">The three stories are &quot;The Difficulty of Crossing a Field,&quot; &quot;An Unfinished Race,&quot; and &quot;Charles Ashmore's Trail.&quot; Palmer wove details from the first and third of these stories into his narrative.</span> upon the fact of David Lang's disappearance. One of these is actually called &quot;The Difficulty of Crossing a Field.&quot;</p>
+<p>In an introduction<label for="essay" class="margin-toggle">⊕</label>
+<input type="checkbox" id="essay" class="margin-toggle">
+<span class="marginnote">The Bierce article is titled &quot;Science to the Front,&quot; in the edition  of <em>Can Such Things Be?</em> linked here. In other editions, the essay is appended to the end of &quot;Charles Ashmore's Trail.&quot;</span> to the volume <a href="https://standardebooks.org/ebooks/ambrose-bierce/can-such-things-be">&quot;Can Such Things Be?&quot;</a> in which all three stories appear, Mr. Bierce quotes from the work of Dr. Hern, a Viennese scientist whose theory of space, he thinks, may partially explain the phenomenon.</p>
+<p>&quot;Dr. Hern,&quot; writes Bierce, &quot;believes that in the invisible world there are void places...holes, as it were, through which animate and inanimate objects may fall into the invisible world and be seen and heard no more.... A man (enclosed in such a void) could neither see nor be seen, hear or be heard, neither feel nor be felt, neither live nor die....&quot;<label for="hern" class="margin-toggle">⊕</label>
+<input type="checkbox" id="hern" class="margin-toggle">
+<span class="marginnote"> <a href="https://openlibrary.org/works/OL13843483W/Disappearance_and_the_Theory_Thereof">Open Library actually has a page for Hern's book</a>. But I'm fairly sure neither the book nor Dr. Hern ever existed.</span></p>
+<p>There is, however, one flaw in Dr. Hern's theory when applied to the case of Miss Lang's father. And Mr. Bierce, referring to his story says: &quot;This theory does not explain all the occurrences related in these memoranda; for example, the sound of Charles Ashmore's (the fictionl name of David Lang) voice....&quot;</p>
+<p>Are we forced then to conclude that there is no explanation? Or shall we, with Miss Lang, be content to wait, believing &quot;it is good that fate and a merciful Providence hide the entire truth from us sometimes?&quot;</p>
+</div>
+<br>
+<p>&quot;I am glad to go,&quot; she whispered, &quot;if only it means that I shall see David and know what happened to him. If only I go where he is....&quot; Then she died.</p>
+<p>The man who had bought our place, so I have heard since, ploughed up the pasture in hope of getting rid of the story that it was haunted, but he must have failed, for to this day, there is a fence around that circle of land, and nothing grows there but weeds. I have been back there, though it pained me deeply.... Yes, I have been back there to call out my Father's name. But there was no answer. Perhaps our childish ears were attuned to sounds not heard by everyone in this world....<br><br></p>
+<p><strong>MY</strong> brother George has lived his life, as I have, under the shadow of what happened to us so many years ago. The tragedy of Father's mysterious end has grown into our lives; it is part and parcel of our minds, of our thoughts. To other people, it is only an old story...they hear mention of it and smile. A modern investigator would soon have uncovered the secret of David Lang's disappearance, they say to themselves. But we know better, George and I.</p>
+<p>The story is a famous one now. Ambrose Bierce, the great writer of horror stories, was one of the many visitors who came to the place that summer after Father went, and he wrote one of his most famous stories about the mystery, cloaking it under the guise of fiction. But Ambrose Bierce died in front of a firing squad in Mexico before he could learn the entire story—the strange ending to this tragedy of my life.</p>
+<p>I grew to womanhood, as I have said, deeply imbued with the terror of the mystery which clung to my family. I could not shake it off, for there was always the thought.... &quot;Where is my Father? Is he dead, or living, or neither?&quot; I used to go to sleep wondering that, and hearing his faint,
+awful voice....</p>
+<p>It was not strange then, that my mind turned toward spiritism. For a long time I tried séances. I followed everywhere hoping to hear from Mother—and from my father. But there were no results...at least none that helped any. I found many frauds, I found many sincere though powerless mediums. But I kept on, for I had heard of a few wonderful manifestations that came to some of my friends.</p>
+<p>Then one night I was sitting at a séance where no one present knew even my name. The medium was in the usual trance, and was rambling on, giving meaningless messages. Outside, the elevated trains were rumbling by, for this was in Brooklyn, New York, where I have made my home for years.</p>
+<p>Suddenly the medium paused, choked, and a new voice spoke. It was a man's, harsh and grating. I learned later that it was that of a control called &quot;Hugo,&quot; who sometimes came to the medium.</p>
+<p>&quot;Someone is calling to Sarah—Sarah Long; I think the name is Long. It is a...&quot;</p>
+<p>&quot;A man?&quot; I cried. Could this be Father, at last?</p>
+<p>&quot;No, it is a woman,&quot; went on the voice. &quot;It is a woman very young, though all white.&quot; (I knew he meant Mother, for her hair had been white, you remember, when she passed away.)</p>
+<p>&quot;She says that she is seeking, as you are seeking...that she is waiting, as you are waiting. And she says that you can come to her directly....&quot;</p>
+<p>That was all. I staggered out of the séance-room like one possessed. Was this a summons for me? The message seemed clear enough. Mother wanted me to be with her. She was seeking as I was, and waiting for me to come to her even as I waited. And I could come to her &quot;directly.&quot;</p>
+<p>But that was not what Mother would have said, I reasoned. She never would have used directly to mean &quot;at once.&quot; Nor would she, a school teacher before she was married, have made the mistake of saying, &quot;You <em>can</em> come to me....&quot; Either it was not from Mother, in spite of the strange striking on my name...or else the meaning was hidden....
+<br><br></p>
+<p><strong>I PUZZLED</strong> over it a long time. Then one night the whole thing cleared itself just as I awoke from sleep. I had been wrong. The message meant just what it said.... Mother was seeking for Father, and waiting for news of him just as I was. And she meant—somehow—that I could come to her, that I was able to come to her, &quot;directly&quot;. Not meaning at once, but meaning without using a third party, without using a medium!</p>
+<p>I shall pass over the long weeks which I spent developing my powers as a medium. For a time that way seemed to be barred—until I was given a planchette by a friend. The little piece of wood was no toy, I soon learned. For messages began to come, messages in my Mother's handwriting. But still they bore no news of Father.</p>
+<p>That was three years ago. Financial worry for a time put me in a mental state where I could not communicate with Mother in any way. I let the planchette accumulate dust in a closet. Until cleaning day last spring—the spring of 1929. Something impelled me to stop what I was doing and take out the old planchette. I felt drawn to it as if by a magnet.</p>
+<p>Quickly I prepared the table and the paper, and pointed the little pencil which had served me in the past.</p>
+<p>&quot;Mother, can you ever forgive me for my long neglect?&quot; I thought as I pressed my fingers to the little instrument.</p>
+<p>Instantly it dashed under my fingers, this way and that, as it had never done before. Slowly the words spread themselves out across the page...and I was acutely disappointed, for it was not Mother's neat script. Again I had come in contact with some meddling or malicious spirit....</p>
+<p>But the message...It was strange and unfinished, broken and terse. But it seemed to have a meaning that was all-important to me.</p>
+<img src="/dark_tales_sleuth/stuart-palmer/between-two-worlds/planchette-yma6MtZSLL-598.png" alt="Shaky handwriting: together now and forever... after many years ... God bless you" loading="lazy" decoding="async" width="598" height="220">
+<p class="caption">The planchette message received by Miss Lang from her father
+</p>
+<p>&quot;Together now,&quot; it began. There was no punctuation.... &quot;Together now and forever...after many years.... God bless you....&quot; That was all. What did it mean? I waited in vain for more.</p>
+<p>A thought came to me. Could it...dared I hope? Feverishly I tore at the lock of my little hair trunk, which had come all the way from Tennessee with me. Sure enough, in the flyleaf of a little old book, was the inscription: &quot;To Sarah on her tenth birthday from her father.&quot;</p>
+<p>It was in the same handwriting as the scrawl beneath the pencil of the little old planchette!</p>
+<img src="/dark_tales_sleuth/stuart-palmer/between-two-worlds/inscription-x_kFsIey-8-445.png" alt="Shaky handwriting: To Sarah:-- On her tenth birghday. From her Father" loading="lazy" decoding="async" width="445" height="568">
+<p class="caption">An inscription written by David Lang before his disappearance (Note resemblance to spirit script [above])
+</p>
+<br>
+<p><strong>I HAVE</strong> been happy since, happy in the certain knowledge that my father is dead! I have laid the planchette away, for I know what I need to know. Mother and Father are together now, in the World Beyond, after the nightmare years of separation.</p>
+<p>Where my father was, during the forty-nine years that elapsed between his strange passing and his &quot;death&quot;, I dare not think. I shall know some day, and that will be soon enough. It is good that fate and a merciful Providence hide the entire truth from us sometimes.</p>
+<p>Father is at peace now...at peace and with my poor mother. I have enough proof of that to make the remaining years of my life happy—far happier than those that have gone before. And death, when it comes, will mean to me only a blessed reunion.</p>
+<img src="/dark_tales_sleuth/stuart-palmer/between-two-worlds/affidavit-jWQZ3hSmVB-760.png" alt="Affadavit from Sarah Emma Lang" loading="lazy" decoding="async" width="760" height="473">
+<p class="caption">"To Whom It May Concern: I, Sarah Emma Lang, hereby affirm and depose that I have read the accompanying hitherto unpublished account of my father, David Lang's disappearance, and that in every detail this story is true. Signed Sara Emma Lang" (Witnessed by Stuart Palmer and notarized)
+</p>
+<hr>
+<p>Part of the series <a href="/dark_tales_sleuth/pages/stuart-palmer/"><em>The Supernatural Writings of Stuart Palmer</em></a>.<br>
+Annotations by Nina Zumel.</p>
+<p>Illustrations from <em>Ghost Stories</em>, April 1930.</p>
+
+</article>
+
+<p class="credit">
+Have a comment? Leave a note in the <a href="/dark_tales_sleuth/pages/guestbook">Guestbook</a>.
+</p>
+		</main>
+
+		<!-- footer -->
+		<hr>
+
+<div class="footer-container">
+	<p>&copy; 2026 Nina B. Zumel</p>
+	<div class="social_icons">
+	    <a href="mailto:nzumel@mzlabs.com?subject=Comment%20from%20Dark%20Tales%20Sleuth" aria-label="Email" target="_blank" rel="noopener noreferrer">
+			<i class="fas fa-fw fa-envelope"></i>
+		</a>
+		<a href="https://multoghost.wordpress.com/" aria-label="Multo (Ghost)" target="_blank" rel="noopener noreferrer">
+			<i class="fab fa-fw fa-wordpress"></i>
+		</a>
+		<a href="/dark_tales_sleuth/feed.xml" aria-label="RSS" target="_blank" rel="noopener noreferrer">
+			<i class="fa fa-fw fa-rss-square"></i>
+		</a>
+
+	</div>
+</div>
+		<!-- /footer-- >
+
+		<!-- Current page: /dark_tales_sleuth/stuart-palmer/between-two-worlds/ -->
+	</body>
+</html>
