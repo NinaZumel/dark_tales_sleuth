@@ -15,7 +15,7 @@
 		<link href="https://github.com/ninazumel" rel="me">
 		<script src="https://kit.fontawesome.com/9bbe6f85f9.js" crossorigin="anonymous"></script>
 		
-		<style>/* minimal implementation; just plain text in the margin, no blockquotes, code, etc */
+		<style>/* minimal implementation */
 /* only (unnumbered) margin notes, no sidenotes */
 /* stripped down from https://github.com/edwardtufte/tufte-css */
 
@@ -203,7 +203,9 @@ label.margin-toggle {
         max-width: 100%;
     }
 
-    article > p.featurebox {
+    article > div.featurebox,
+    article > div.featurebox.left,
+    article > div.message-box {
         text-align: left;
         width: 100%;
     }
