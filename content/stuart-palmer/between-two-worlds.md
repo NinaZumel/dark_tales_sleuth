@@ -55,7 +55,7 @@ There was no use to look around us. It was easy to see that there had been no ca
 
 "Shut up," said the Judge. George and I both gasped. We were already more excited by the actions of the people around us than by the thing which had happened. Children are like that, and we were not to know, or really realize, for a long time what our loss had been. At first it seemed only like a joke of some kind. For people don't disappear into thin air....
 
-Then they began to search. Around and around they went, covering every inch of the ground. But it was useless. We children started to help, but mother called us back. She leaned on us as she walked toward the fence, and then suddenly she sank down on the ground. Her mouth was twisted, and she began to laugh. I have never heard so awful a sound. It chilled me to the bone. George started to run away as fast as his fat little legs could carry him. But I tugged at Mother!'s dress and kept begging her not to laugh like that.<br><br>
+Then they began to search. Around and around they went, covering every inch of the ground. But it was useless. We children started to help, but mother called us back. She leaned on us as she walked toward the fence, and then suddenly she sank down on the ground. Her mouth was twisted, and she began to laugh. I have never heard so awful a sound. It chilled me to the bone. George started to run away as fast as his fat little legs could carry him. But I tugged at Mother's dress and kept begging her not to laugh like that.<br><br>
 
 
 **THEN** Judge Peck and the fat man, who turned out to be his brother-in-law from Akron, Ohio, carried Mother across the pasture and back to the house. As soon as we were there, Mammy Sue took us to the kitchen and kept us there. They wouldn't let us go to Mother, nor talk. George just sat there, his face still white. But I kept asking questions which Mammy wouldn't answer.
@@ -91,7 +91,7 @@ The newspapers hinted that Father had run away somehow. But if he had wanted to 
 
 "He'll come back in a few days," everyone told us. Only Mammy Sue didn't say that. She used to pray for us every night, and she gave us a little charm bag to wear around our necks. "And never, never let me hear of you chillun going into that place again," she would warn us. "That pasture is bad!"
 
-It wasn't as if Father had died. When people die, what is left is just outworn clay. But Father's *body* was gonel Men hunted with blood hounds, but they left the trail howling.
+It wasn't as if Father had died. When people die, what is left is just outworn clay. But Father's *body* was gone! Men hunted with blood hounds, but they left the trail howling.
 
 Mother was never well after that. For a long time she insisted that Father would return, that he would walk back just the way he had gone. Her hair turned white as milk that autumn. Everybody wanted her to go back to her father and mother in Virginia, and take us, but she refused.
 
@@ -164,7 +164,7 @@ In an introduction{% marginnote "essay", "The Bierce article is titled \"Science
 "Dr. Hern," writes Bierce, "believes that in the invisible world there are void places...holes, as it were, through which animate and inanimate objects may fall into the invisible world and be seen and heard no more.... A man (enclosed in such a void) could neither see nor be seen, hear or be heard, neither feel nor be felt, neither live nor die...."{% marginnote "hern", " [Open Library actually has a page for Hern's book](https://openlibrary.org/works/OL13843483W/Disappearance_and_the_Theory_Thereof). But I'm fairly sure neither the book nor Dr. Hern ever existed." %}
 
 
-There is, however, one flaw in Dr. Hern's theory when applied to the case of Miss Lang's father. And Mr. Bierce, referring to his story says: "This theory does not explain all the occurrences related in these memoranda; for example, the sound of Charles Ashmore's (the fictionl name of David Lang) voice...."
+There is, however, one flaw in Dr. Hern's theory when applied to the case of Miss Lang's father. And Mr. Bierce, referring to his story says: "This theory does not explain all the occurrences related in these memoranda; for example, the sound of Charles Ashmore's (the fictional name of David Lang) voice...."
 
 Are we forced then to conclude that there is no explanation? Or shall we, with Miss Lang, be content to wait, believing "it is good that fate and a merciful Providence hide the entire truth from us sometimes?"
 </div>
